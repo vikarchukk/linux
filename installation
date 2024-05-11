@@ -1,10 +1,5 @@
 інструкція для різниз макбуків (https://wiki.archlinux.org/title/Laptop/Apple)
 
-ios для macbook pro 2019 (https://github.com/t2linux/archiso-t2/releases/tag/2024.04.09)
-програма для запису на диск (etcher.balena.io)
-
-викоючиння безпеки для boot (https://wiki.t2linux.org/guides/preinstall/#disable-secure-boot)
-
 інтернет
 iwctl
 station wlan0 get-networks
