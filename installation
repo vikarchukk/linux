@@ -32,16 +32,18 @@ mkfs.ext4 /dev/root_partition
 
 монтування
 mount /dev/root_partition /mnt
-mount --mkdir /dev/efi_system_partition /mnt/efi
+mount --mkdir /dev/efi_system_partition /mnt/boot
 swapon /dev/swap_partition
 
 встановлення
 pacstrap /mnt base linux-t2 linux-firmware apple-bcm-firmware
 
 vim /mnt/etc/pacman.conf {
+
 [arch-mact2]
 Server = https://mirror.funami.tech/arch-mact2/os/x86_64
 SigLevel = Never
+
 }
 
 genfstab -U /mnt >> /mnt/etc/fstab
@@ -54,21 +56,27 @@ hwclock --systohc
 pacman -S vim sudo iwd dhcpcd
 
 vim /etc/locale.gen {
+
 en_US.UTF-8 UTF-8
 uk_UA.UTF-8 UTF-8
+
 }
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 
 echo "hostname" > /etc/hostname
 vim /etc/hosts {
+
 127.0.0.1    localhost
 ::1          localhost
 127.0.1.1    hostname.localdomain    hostname
+
 }
 
 vim /etc/mkinitcpio.conf {
+
 MODULES(apple-bce)
+
 }
 mkinitcpio -P
 
@@ -78,17 +86,23 @@ useradd -m -G wheel user_name
 
 # passwd user_name
 
-vim /etc/sudoers {
+EDITOR=vim
+visudo {
+
 %wheel ALL=(ALL:ALL) ALL
+
 }
 
-bootctl install --path=/efi
-vim /efi/loader/entries/arch.conf {
-title   Arch Linux
-linux   /vmlinuz-linux
-initrd  /intel-ucode.img
-initrd  /initramfs-linux.img
-options root="intel_iommu=on iommu=pt pcie_ports=compat" rw
+bootctl install --path=/boot
+blkid (dev/root_partition)
+vim /boot/loader/entries/arch-t2.conf {
+
+title Arch Linux
+linux /vmlinuz-linux
+initrd /intel-ucode.img
+initrd /initramfs-linux.img
+options root=/dev/disk/by-uuid/root_partition_UUID rw intel_iommu=on iommu=pt pcie_ports=compat
+
 }
 
 exit
