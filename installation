@@ -1,1 +1,100 @@
-https://wiki.archlinux.org/title/Laptop/Apple - інструкція для різниз макбуквв
+інструкція для різниз макбуків (https://wiki.archlinux.org/title/Laptop/Apple)
+
+ios для macbook pro 2019 (https://github.com/t2linux/archiso-t2/releases/tag/2024.04.09)
+програма для запису на диск (etcher.balena.io)
+
+викоючиння безпеки для boot (https://wiki.t2linux.org/guides/preinstall/#disable-secure-boot)
+
+інтернет
+iwctl
+station wlan0 get-networks
+station wlan0 connect "name_wifi"
+exit
+ping google.com | перевірка wifi
+controc + c | вихід з ping
+
+час
+timedatectl set-ntp true | підключення до сервера з даними про час
+timedatectl set-timezone Europe/Stockholm | налаштування часової зони
+timedatectl status | перевірка
+
+розбиття
+fdisk -l | перегляд дисків
+fdisk nameofdisk | вхід в редагування диску
+d 1 | видалиння всі розділів
+g | налаштування сестеме диску
+n enter enter +2G y | efi
+n enter enter +20G y | swap
+n enter enter enter y | root
+t 1 1 | для efi (зміна типу)
+t 2 19 | для swap
+w | зберегти зміни
+
+форматування
+mkfs.fat -F 32 /dev/efi_system_partition
+mkswap /dev/swap_partition
+mkfs.ext4 /dev/root_partition
+
+монтування
+mount /dev/root_partition /mnt
+mount --mkdir /dev/efi_system_partition /mnt/efi
+swapon /dev/swap_partition
+
+встановлення
+pacstrap /mnt base linux-t2 linux-firmware apple-bcm-firmware
+
+vim /mnt/etc/pacman.conf {
+[arch-mact2]
+Server = https://mirror.funami.tech/arch-mact2/os/x86_64
+SigLevel = Never
+}
+
+genfstab -U /mnt >> /mnt/etc/fstab
+
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/Europe/Stockholm /etc/localtime
+hwclock --systohc
+
+pacman -S vim sudo iwd dhcpcd
+
+vim /etc/locale.gen {
+en_US.UTF-8 UTF-8
+uk_UA.UTF-8 UTF-8
+}
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+echo "hostname" > /etc/hostname
+vim /etc/hosts {
+127.0.0.1    localhost
+::1          localhost
+127.0.1.1    hostname.localdomain    hostname
+}
+
+vim /etc/mkinitcpio.conf {
+MODULES(apple-bce)
+}
+mkinitcpio -P
+
+# passwd
+
+useradd -m -G wheel user_name
+
+# passwd user_name
+
+vim /etc/sudoers {
+%wheel ALL=(ALL:ALL) ALL
+}
+
+bootctl install --path=/efi
+vim /efi/loader/entries/arch.conf {
+title   Arch Linux
+linux   /vmlinuz-linux
+initrd  /intel-ucode.img
+initrd  /initramfs-linux.img
+options root="intel_iommu=on iommu=pt pcie_ports=compat" rw
+}
+
+exit
+reboot
