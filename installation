@@ -38,14 +38,6 @@ swapon /dev/swap_partition
 встановлення
 pacstrap /mnt base linux-t2 linux-firmware apple-bcm-firmware
 
-vim /mnt/etc/pacman.conf {
-
-[arch-mact2]
-Server = https://mirror.funami.tech/arch-mact2/os/x86_64
-SigLevel = Never
-
-}
-
 genfstab -U /mnt >> /mnt/etc/fstab
 
 arch-chroot /mnt
@@ -93,8 +85,7 @@ visudo {
 
 }
 
-bootctl install --path=/boot
-sudo pacman -S intel-ucode
+bootctl install
 vim /boot/loader/loader.conf {
 
 default arch.conf
