@@ -95,7 +95,11 @@ visudo {
 
 bootctl install --path=/boot
 sudo pacman -S intel-ucode
-echo "default arch.conf" /boot/loader/loader.conf
+vim /boot/loader/loader.conf {
+
+default arch.conf
+
+}
 blkid (dev/root_partition)
 vim /boot/loader/entries/arch.conf {
 
