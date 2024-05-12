@@ -94,7 +94,16 @@ visudo {
 }
 
 bootctl install --path=/boot
+
+vim /boot/loader/loader.conf {
+
+}
+
 blkid (dev/root_partition)
+
+# arch.conf
+# sudo pacman -S intel-ucode
+
 vim /boot/loader/entries/arch-t2.conf {
 
 title Arch Linux
