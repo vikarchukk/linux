@@ -3,7 +3,7 @@
 2. cd dwm
 3. vim config.h {
 
-/* --- скрипти для роботи dwm --- */
+/* --- скрипти --- */
 
 /* для тегів */
 #define TAGKEYS(KEY,TAG) \
@@ -22,11 +22,7 @@ static const Layout layouts[] = {
 /* для запуску команд */
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* для того щоб можна було переходити між тегами */
-void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
-
-
-/* --- налаштування для dwm --- */
+/* --- налаштування --- */
 
 static const unsigned int borderpx  = 1; /* товщина обведення вікна */
 static const unsigned int snap = 30; /* ? */
@@ -45,15 +41,10 @@ static const char *colors[][3] = {
 
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; /* теги */
 
-
-
-/* layout(s) */
-static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
-static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
-static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
-
-
+static const float mfact = 0.55; /* ? */
+static const int nmaster = 1; /* ? */
+static const int resizehints = 1; /* ? */
+static const int lockfullscreen = 1; /* ? */
 
 #define MODKEY Mod4Mask /* для налаштування командної клавіші в моєму випадку це command */
 
@@ -62,90 +53,89 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 static char dmenumon[2] = "0"; /* ? */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_while, "-sb", col_black, "-sf", col_while, NULL }; /* ? */
 
+/* скрипт для того щоб можна було переходити між тегами */
+void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
+
 /* комбінації з клавішами для запуску скрипті */
 static const Key keys[] = {
-  { MODKEY,                       XK_b,      togglebar,      {0} }, /* сховати або показати статус бар */
+  { MODKEY,            XK_b,       togglebar,       {0} }, /* сховати або показати статус бар */
 
   /* вікна */
-  { MODKEY,                       XK_l,      focusstack,     {.i = +1 } }, /* перейти на наступне вікно */
-  { MODKEY,                       XK_k,      focusstack,     {.i = -1 } }, /* перейти на заднє вікно */
-  { MODKEY,                       XK_j,      setmfact,       {.f = +0.05} }, /* збільшує ширину вікна або області */
-  { MODKEY,                       XK_h,      setmfact,       {.f = -0.05} }, /* зменшує ширину вікна або області */
-  { MODKEY,                       XK_o,      incnmaster,     {.i = +1 } }, /* змінює схему розкладки вікон вперед */
-  { MODKEY,                       XK_i,      incnmaster,     {.i = -1 } }, /* змінює схему розкладки вікон назад */
-  { MODKEY,                       XK_z,      zoom,           {0} }, /* збільшує вікно */
-  { MODKEY,                       XK_c,      killclient,     {0} }, /* закрити активне вікно */
-  { MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} }, /* змінює рижим відображиння вікон на ([]=) */
-  { MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} }, /* змінює рижим відображиння вікон на (><>) */
-  { MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([M]) */
-  { MODKEY,                       XK_space,  setlayout,      {0} }, /* перехід між останіми рижимами для вікон */
+  { MODKEY,            XK_l,       focusstack,      {.i = +1 } }, /* перейти на наступне вікно */
+  { MODKEY,            XK_k,       focusstack,      {.i = -1 } }, /* перейти на заднє вікно */
+  { MODKEY,            XK_j,       setmfact,        {.f = +0.05} }, /* збільшує ширину вікна або області */
+  { MODKEY,            XK_h,       setmfact,        {.f = -0.05} }, /* зменшує ширину вікна або області */
+  { MODKEY,            XK_o,       incnmaster,      {.i = +1 } }, /* змінює схему розкладки вікон вперед */
+  { MODKEY,            XK_i,       incnmaster,      {.i = -1 } }, /* змінює схему розкладки вікон назад */
+  { MODKEY,            XK_z,       zoom,            {0} }, /* збільшує вікно */
+  { MODKEY,            XK_c,       killclient,      {0} }, /* закрити активне вікно */
+  { MODKEY,            XK_t,       setlayout,       {.v = &layouts[0]} }, /* змінює рижим відображиння вікон на ([]=) */
+  { MODKEY,            XK_f,       setlayout,       {.v = &layouts[1]} }, /* змінює рижим відображиння вікон на (><>) */
+  { MODKEY,            XK_m,       setlayout,       {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([M]) */
+  { MODKEY,            XK_space,   setlayout,       {0} }, /* перехід між останіми рижимами для вікон */
 
-  { MODKEY|ShiftMask,             XK_space,  togglefloating, {0} }, /* ? */
+  { MODKEY|ShiftMask,  XK_space,   togglefloating,  {0} }, /* ? */
 
   /* теги */
-  { MODKEY,                       XK_Tab,    view,           {0} }, /* перехід між останіми тегами */
-  { MODKEY,                       XK_0,      view,           {.ui = ~0 } }, /* перехід по тегах 1-9, 0 перегляд всіх вікон */
-  { MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } }, /* перекидає вікна по тегам 1-9, 0 покажить вікно в всіх тегах */
-  { MODKEY,                       0x5b,      shiftview,      {.i = -1 } }, /* перемикає на попередній тег */
-  { MODKEY,                       0x5d,      shiftview,      {.i = +1 } }, /* перемикає на наступний тег */
-  TAGKEYS(                        XK_1,                      0) /* для взаємодії з тагами */
-  TAGKEYS(                        XK_2,                      1)
-  TAGKEYS(                        XK_3,                      2)
-  TAGKEYS(                        XK_4,                      3)
-  TAGKEYS(                        XK_5,                      4)
-  TAGKEYS(                        XK_6,                      5)
-  TAGKEYS(                        XK_7,                      6)
-  TAGKEYS(                        XK_8,                      7)
-  TAGKEYS(                        XK_9,                      8)
+  { MODKEY,            XK_Tab,     view,            {0} }, /* перехід між останіми тегами */
+  { MODKEY,            XK_0,       view,            {.ui = ~0 } }, /* перехід по тегах 1-9, 0 перегляд всіх вікон */
+  { MODKEY|ShiftMask,  XK_0,       tag,             {.ui = ~0 } }, /* перекидає вікна по тегам 1-9, 0 покажить вікно в всіх тегах */
+  { MODKEY,            0x5b,       shiftview,       {.i = -1 } }, /* перемикає на попередній тег */
+  { MODKEY,            0x5d,       shiftview,       {.i = +1 } }, /* перемикає на наступний тег */
+  TAGKEYS(             XK_1,                        0) /* для взаємодії з тегами */
+  TAGKEYS(             XK_2,                        1)
+  TAGKEYS(             XK_3,                        2)
+  TAGKEYS(             XK_4,                        3)
+  TAGKEYS(             XK_5,                        4)
+  TAGKEYS(             XK_6,                        5)
+  TAGKEYS(             XK_7,                        6)
+  TAGKEYS(             XK_8,                        7)
+  TAGKEYS(             XK_9,                        8)
 
-  { MODKEY,                       XK_comma,  focusmon,       {.i = -1 } }, /* ? */
-  { MODKEY,                       XK_period, focusmon,       {.i = +1 } }, /* ? */
-  { MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } }, /* ? */
-  { MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } }, /* ? */
+  { MODKEY,            XK_comma,   focusmon,        {.i = -1 } }, /* ? */
+  { MODKEY,            XK_period,  focusmon,        {.i = +1 } }, /* ? */
+  { MODKEY|ShiftMask,  XK_comma,   tagmon,          {.i = -1 } }, /* ? */
+  { MODKEY|ShiftMask,  XK_period,  tagmon,          {.i = +1 } }, /* ? */
 
-  { MODKEY|ShiftMask,             XK_q,      quit,           {0} }, /* виходить з графічного інтерфейсу X */
+  { MODKEY|ShiftMask,  XK_q,       quit,            {0} }, /* виходить з графічного інтерфейсу (X) */
 
   /* зміна клавіатурної розкладки */
-  { MODKEY,                       XK_e,      spawn,          SHCMD("setxkbmap ua") }, /* змінює розкладку клавіатури на українську */
-  { MODKEY,                       0x6d5,     spawn,          SHCMD("setxkbmap us") }, /* змінює розкладку клавіатури на англійську */
+  { MODKEY,            XK_e,       spawn,           SHCMD("setxkbmap ua") }, /* змінює розкладку клавіатури на українську */
+  { MODKEY,            0x6d5,      spawn,           SHCMD("setxkbmap us") }, /* змінює розкладку клавіатури на англійську */
 
   /* відкриття програм */
-  { MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
-  { MODKEY|ShiftMask,             XK_Return, spawn,          SHCMD("alacritty") },
-  { MODKEY|ShiftMask,             XK_1,      spawn,          SHCMD("chromium") },
-  { MODKEY|ShiftMask,             XK_2,      spawn,          SHCMD("alacritty -e btop") },
-  { MODKEY|ShiftMask,             XK_3,      spawn,          SHCMD("steam") },
+  { MODKEY,            XK_p,       spawn,           {.v = dmenucmd } },
+  { MODKEY|ShiftMask,  XK_Return,  spawn,           SHCMD("alacritty") },
+  { MODKEY|ShiftMask,  XK_1,       spawn,           SHCMD("chromium") },
+  { MODKEY|ShiftMask,  XK_2,       spawn,           SHCMD("alacritty -e btop") },
+  { MODKEY|ShiftMask,  XK_3,       spawn,           SHCMD("steam") },
 };
 
 /* комбінація для мишки */
 static const Button buttons[] = {
-  { ClkLtSymbol,          0,              Button1,        setlayout,      {0} }, /* змінює рижим відображиння вікон на (><>) */
-  { ClkLtSymbol,          0,              Button3,        setlayout,      {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([]=) */
+  /* клік на символ режиму */
+  { ClkLtSymbol,    0,       Button1,  setlayout,       {0} }, /* змінює рижим відображиння вікон на (><>) */
+  { ClkLtSymbol,    0,       Button3,  setlayout,       {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([]=) */
 
-  { ClkWinTitle,          0,              Button2,        zoom,           {0} }, /* ? */
+  /* клік на вікно програми */
+  { ClkClientWin,   MODKEY,  Button1,  movemouse,       {0} }, /* переміщає вікно */
+  { ClkClientWin,   MODKEY,  Button2,  togglefloating,  {0} }, /* ? */
+  { ClkClientWin,   MODKEY,  Button3,  resizemouse,     {0} }, /* змінює розмір вікна */
 
-/* { ClkStatusText,        0,              Button2,        spawn,          {.v = termcmd } }, ? */
+  /* клік на теги */
+  { ClkTagBar,      0,       Button1,  view,            {0} }, /* перегляд тегу */
+  { ClkTagBar,      0,       Button3,  toggleview,      {0} }, /* ? */
+  { ClkTagBar,      MODKEY,  Button1,  tag,             {0} }, /* переміщення вікна до тегу тегу */
+  { ClkTagBar,      MODKEY,  Button3,  toggletag,       {0} }, /* ? */
 
-   { ClkClientWin,         MODKEY,         Button1,        movemouse,      {0} }, /* переміщає вікно */
-   { ClkClientWin,         MODKEY,         Button2,        togglefloating, {0} }, /* ? */
-   { ClkClientWin,         MODKEY,         Button3,        resizemouse,    {0} }, /* змінює розмір вікна */
-
-	{ ClkTagBar,            0,              Button1,        view,           {0} },
-	{ ClkTagBar,            0,              Button3,        toggleview,     {0} },
-	{ ClkTagBar,            MODKEY,         Button1,        tag,            {0} },
-	{ ClkTagBar,            MODKEY,         Button3,        toggletag,      {0} },
+  { ClkWinTitle,    0,       Button2,  zoom,            {0} }, /* ? */
+  { ClkStatusText,  0,       Button2,  spawn,           {.v = dmenucmd } }, /* ? */
 };
 
 /* незнаю для чого це але якщо його відключити будуть помилки в dwm */
 static const Rule rules[] = {
-	/* xprop(1):
-	 *	WM_CLASS(STRING) = instance, class
-	 *	WM_NAME(STRING) = title
-	 */
-	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
-};
+  { "Gimp",     NULL,  NULL,  0,       1,  -1 },
+  { "Firefox",  NULL,  NULL,  1 << 8,  0,  -1 } };
 
 }
 4. sudo make clean install
