@@ -50,6 +50,8 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *steam[] = { "steam", NULL };
 static const char *vieb[] = { "chromium", NULL };
 
+void shiftview(const Arg *arg) { Arg shifted; unsigned int seltag = selmon->tagset[selmon->seltags]; signed int i = arg->i; if (i == 0) return; shifted.ui = (seltag + i) % (1 << LENGTH(tags)); if (shifted.ui != seltag) view(&shifted); }
+
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
@@ -120,19 +122,6 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 };
-
-void
-shiftview(const Arg *arg) {
-    Arg shifted;
-    unsigned int seltag = selmon->tagset[selmon->seltags];
-    unsigned int newtag = (seltag + arg->i) % (1 << LENGTH(tags));
-
-    if (newtag == 0)
-        newtag = seltag;
-
-    shifted.ui = newtag;
-    view(&shifted);
-}
 
 }
 4. sudo make clean install
