@@ -106,9 +106,9 @@ static const Key keys[] = {
   /* відкриття програм */
   { MODKEY,            XK_p,       spawn,           {.v = dmenucmd } },
   { MODKEY|ShiftMask,  XK_Return,  spawn,           SHCMD("alacritty") },
-  { MODKEY|ShiftMask,  XK_1,       spawn,           SHCMD("chromium") },
-  { MODKEY|ShiftMask,  XK_2,       spawn,           SHCMD("alacritty -e btop") },
-  { MODKEY|ShiftMask,  XK_3,       spawn,           SHCMD("steam") },
+  { MODKEY|ShiftMask,  XK_b,       spawn,           SHCMD("chromium") },
+  { MODKEY|ShiftMask,  XK_t,       spawn,           SHCMD("alacritty -e btop") },
+  { MODKEY|ShiftMask,  XK_s,       spawn,           SHCMD("steam") },
 };
 
 /* комбінація для мишки */
