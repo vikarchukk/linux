@@ -7,12 +7,12 @@
 |
 | config.h {
 
-static const unsigned int borderpx  = 1;        /* border pixel of windows */
-static const unsigned int snap      = 30;       /* snap pixel */
-static const int showbar            = 1;        /* 0 means no bar */
-static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "terminus:size=20" };
-static const char dmenufont[]       = "monospace:size=10";
+static const unsigned int borderpx  = 1;        /* товщина обведення */
+static const unsigned int snap      = 30;       /* на скільки піксилів відступ */
+static const int showbar            = 1;        /* меню - 0 сховати / 1 показати */
+static const int topbar             = 0;        /* меню - 0 знизу / 1 зверху */
+static const char *fonts[]          = { "monocraft:size=10" };
+static const char dmenufont[]       = "monocraft:size=10";
 static const char col_black[]       = "#000000";
 static const char col_while[]       = "#ffffff";
 static const char *colors[][3]      = {
