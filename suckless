@@ -1,11 +1,7 @@
-[ dwm ] 
-|
-| git clone https://git.suckless.org/dwm
-| cd dwm
-| change config.h
-| sudo make clean install
-|
-| config.h {
+# dwm
+1. git clone https://git.suckless.org/dwm
+2. cd dwm
+3. vim config.h {
 
 static const unsigned int borderpx  = 1; /* товщина обведення */
 static const unsigned int snap = 30; /* на скільки піксилів відступ */
@@ -66,7 +62,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
 	{ MODKEY,                       XK_Return, zoom,           {0} },
 	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY|ShiftMask,             XK_c,      killclient,     {0} },
+	{ MODKEY,                       XK_c,      killclient,     {0} }, /* закрити активне вікно */
 	{ MODKEY,                       XK_t,      setlayout,      {.v = &layouts[0]} },
 	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
 	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
@@ -118,3 +114,4 @@ static const Rule rules[] = {
 };
 
 }
+4. sudo make clean install
