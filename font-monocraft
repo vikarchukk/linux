@@ -1,0 +1,5 @@
+monocraft [ https://github.com/IdreesInc/Monocraft ]
+install
+1. download Monocraft.ttf [ https://github.com/IdreesInc/Monocraft/releases ]
+2. move the file to ~/.local/share/fonts
+3. fc-cache -fv
