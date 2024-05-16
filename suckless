@@ -50,7 +50,7 @@ static const char *termcmd[]  = { "alacritty", NULL };
 static const char *steam[] = { "steam", NULL };
 static const char *vieb[] = { "chromium", NULL };
 
-void shiftview(const Arg *arg) { Arg shifted; unsigned int seltag = selmon->tagset[selmon->seltags]; signed int i = arg->i; if (i == 0) return; shifted.ui = (seltag + i) % (1 << LENGTH(tags)); if (shifted.ui != seltag) view(&shifted); }
+void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
