@@ -2,7 +2,13 @@
 2. sd slstatus
 3. vim config.h {
 
-
-
+const unsigned int interval = 1000; /* інтервал оновлення даних в мілісекундах */
+static const char unknown_str[] = "-"; /* символ який буде показуватися коли не знайдено даних */
+#define MAXLEN 2048 /* ? */
+static const struct arg args[] = {
+	{ keymap,        "[%s]",          NULL },
+	{ ram_perc,      "[ram %s%%]",  NULL }, 
+  { battery_perc,  "[%s%%]", NULL },
+};
 
 }
