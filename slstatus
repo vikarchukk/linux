@@ -1,1 +1,8 @@
+1. git clone https://git.suckless.org/slstatus
+2. sd slstatus
+3. vim config.h {
 
+
+
+
+}
