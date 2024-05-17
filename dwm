@@ -73,7 +73,7 @@ static const Key keys[] = {
   { MODKEY,            XK_f,       setlayout,       {.v = &layouts[1]} }, /* змінює рижим відображиння вікон на (><>) */
   { MODKEY,            XK_m,       setlayout,       {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([M]) */
   { MODKEY,            XK_space,   setlayout,       {0} }, /* перехід між останіми рижимами для вікон */
-  { MODKEY|ShiftMask,  XK_space,   togglefloating,  {0} }, /* виводить вікно з схеми розкладок вікон або відотить його */
+  { MODKEY|ShiftMask,  XK_space,   togglefloating,  {0} }, /* виводить вікно з схеми розкладок вікон або водить його */
 
   /* теги */
   { MODKEY,            XK_Tab,     view,            {0} }, /* перехід між останіми тегами */
