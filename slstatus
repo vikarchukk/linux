@@ -6,7 +6,7 @@ const unsigned int interval = 1000; /* інтервал оновлення да�
 static const char unknown_str[] = "-"; /* символ який буде показуватися коли не знайдено даних */
 #define MAXLEN 2048 /* ? */
 static const struct arg args[] = {
-  { keymap,        "[ %s ]",       NULL }, /* розкладка клавіатури */
+  { keymap,        " [ %s ]",       NULL }, /* розкладка клавіатури */
   { cat,           "-[ %sF |",      "/sys/class/hwmon/hwmon3/device/fan2_input"}, /* скорість вентеляторів */
   { temp,          " %s°С ]",      "/sys/class/thermal/thermal_zone2/temp" }, /* темперетура найгарачішого процесора */
   { run_command,   "-[ %s |",      "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'" }, /* звук | pulseaudio */
