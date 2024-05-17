@@ -11,8 +11,7 @@ static const struct arg args[] = {
   { temp,          "%s°С ]",         "/sys/class/thermal/thermal_zone2/temp" },
   { battery_perc,  "-[ btr %s% ]",   "BAT0" },
   { cat,           "-[ lgh %s% ]",   "/sys/class/backlight/acpi_video0/brightness" },
-  { uptime,        "-[ %s ]",        NULL },
-  { datetime,      "-[ %s ]",        NULL }
+  { datetime,      "-[ %s ]",        "%H:%M:%S" }
 };
 
 }
