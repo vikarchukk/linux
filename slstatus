@@ -7,8 +7,7 @@ static const char unknown_str[] = "-"; /* символ який буде пок�
 #define MAXLEN 2048 /* ? */
 static const struct arg args[] = {
   { keymap,        "[ %s ]",         NULL },
-  { battery_perc,  "-[ bat %s%% ]",  "BAT0" },
-  { ram_perc,      "-[ ram %s%% ]",  NULL },
+  { battery_perc,  "-[ bat %s% ]",  "BAT0" },
 
 };
 
