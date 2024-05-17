@@ -67,7 +67,7 @@ static const Key keys[] = {
   { MODKEY,            XK_h,       setmfact,        {.f = -0.05} }, /* зменшує ширину вікна або області */
   { MODKEY,            XK_o,       incnmaster,      {.i = +1 } }, /* змінює схему розкладки вікон вперед */
   { MODKEY,            XK_i,       incnmaster,      {.i = -1 } }, /* змінює схему розкладки вікон назад */
-  { MODKEY,            XK_z,       zoom,            {0} }, /* збільшує вікно */
+  { MODKEY,            XK_z,       zoom,            {0} }, /* робить вікно головним */
   { MODKEY,            XK_c,       killclient,      {0} }, /* закрити активне вікно */
   { MODKEY,            XK_t,       setlayout,       {.v = &layouts[0]} }, /* змінює рижим відображиння вікон на ([]=) */
   { MODKEY,            XK_f,       setlayout,       {.v = &layouts[1]} }, /* змінює рижим відображиння вікон на (><>) */
