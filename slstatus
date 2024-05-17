@@ -7,10 +7,12 @@ static const char unknown_str[] = "-"; /* символ який буде пок�
 #define MAXLEN 2048 /* ? */
 static const struct arg args[] = {
   { keymap,        "[ %s ]",         NULL },
-  { battery_perc,  "-[ btr %s% ]",   "BAT0" },
-  { cat,           "-[ lgh %s% ]",   "/sys/class/backlight/acpi_video0/brightness" },
   { cpu_perc,      "-[ cpu %s% / ",  NULL },
   { temp,          "%s°С ]",         "/sys/class/thermal/thermal_zone2/temp" },
+  { battery_perc,  "-[ btr %s% ]",   "BAT0" },
+  { cat,           "-[ lgh %s% ]",   "/sys/class/backlight/acpi_video0/brightness" },
+  { uptime,        "-[ %s ]",        NULL },
+  { datetime,      "-[ %s ]",        NULL }
 };
 
 }
