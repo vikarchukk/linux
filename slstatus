@@ -11,7 +11,7 @@ static const struct arg args[] = {
   { temp,          "%s°С ]",         "/sys/class/thermal/thermal_zone2/temp" }, /* темперетура найгарачішого процесора */
   { battery_perc,  "-[ btr %s% ]",   "BAT0" }, /* батерея */
   { cat,           "-[ lgh %s% ]",   "/sys/class/backlight/acpi_video0/brightness" }, /* світлість екрану */
-  { datetime,      "-[ %s ]",        "%H:%M:%S" } /* час */
+  { datetime,      "-[ %s ]",        "%H:%M:%S" }, /* час */
   { vol_perc,      "-[ vol %s% ]",   "/dev/mixer1" } /* sudo vim /etc/modules-load.d/modules.conf { snd_pcm_oss } */
   /* { cat, "[ fan %s ]", "/sys/class/hwmon/hwmon3/device/fan2_input"} скорість вентеляторів */
 };
