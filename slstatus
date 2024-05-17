@@ -12,6 +12,7 @@ static const struct arg args[] = {
   { battery_perc,  "-[ btr %s% ]",   "BAT0" }, /* батерея */
   { cat,           "-[ lgh %s% ]",   "/sys/class/backlight/acpi_video0/brightness" }, /* світлість екрану */
   { datetime,      "-[ %s ]",        "%H:%M:%S" } /* час */
+  { vol_perc,      "-[ vol %s% ]",   "/sys/class/sound/card0 | Master | default" }
   /* { cat, "[ fan %s ]", "/sys/class/hwmon/hwmon3/device/fan2_input"} скорість вентеляторів */
 };
 
