@@ -1,0 +1,10 @@
+1. sudo pacman -S bluez bluez-utils
+2. sudo systemctl start bluetooth
+3. bluetoothctl
+4. scan on
+5. devices
+6. pair MAC-адрес
+7. (trust MAC-адрес)
+8. connect MAC-адрес
+9. exit
+10. sudo systemctl stop bluetooth
