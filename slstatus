@@ -12,7 +12,7 @@ static const struct arg args[] = {
   { battery_perc,  "-[ btr %s% ]",   "BAT0" }, /* батерея */
   { cat,           "-[ lgh %s% ]",   "/sys/class/backlight/acpi_video0/brightness" }, /* світлість екрану */
   { datetime,      "-[ %s ]",        "%H:%M:%S" }, /* час */
-  { run_command,   "-[ vol %s% ]",   "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'" } /* звук | pulseaudio */
+  { run_command,   "-[ vol %s ]",   "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'" } /* звук | pulseaudio */
   /* { cat, "[ fan %s ]", "/sys/class/hwmon/hwmon3/device/fan2_input"} скорість вентеляторів */
 };
 
