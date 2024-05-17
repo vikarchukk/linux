@@ -104,15 +104,15 @@ static const Key keys[] = {
   { MODKEY,            0x6d5,      spawn,           SHCMD("setxkbmap us") }, /* змінює розкладку клавіатури на англійську */
 
   /* зміна гучності звуку */
-  { MODKEY,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") }, /* збільшує звук */
+  { MODKEY,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") }, /* збільшує звук | pulseaudio */
   { MODKEY,            0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") }, /* зменшує звук */
 
   /* відкриття програм */
   { MODKEY,            XK_p,       spawn,           {.v = dmenucmd } },
   { MODKEY|ShiftMask,  XK_Return,  spawn,           SHCMD("alacritty") },
-  { MODKEY|ShiftMask,  XK_b,       spawn,           SHCMD("chromium") },
-  { MODKEY|ShiftMask,  XK_t,       spawn,           SHCMD("alacritty -e btop") },
-  { MODKEY|ShiftMask,  XK_s,       spawn,           SHCMD("steam") },
+  { MODKEY|ShiftMask,  XK_z,       spawn,           SHCMD("chromium") },
+  { MODKEY|ShiftMask,  XK_s,       spawn,           SHCMD("alacritty -e btop") },
+  { MODKEY|ShiftMask,  XK_g,       spawn,           SHCMD("steam") },
 };
 
 /* комбінація для мишки */
