@@ -141,4 +141,6 @@ static const Rule rules[] = {
   { "Firefox",  NULL,  NULL,  1 << 8,  0,  -1 } };
 
 }
+4. добавити пічі (переналаштування в коді)
+   - https://dwm.suckless.org/patches/attachabove/ | щоб нові вікна відкривалися збокух
 4. sudo make clean install
