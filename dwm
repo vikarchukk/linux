@@ -103,6 +103,10 @@ static const Key keys[] = {
   { MODKEY,            XK_e,       spawn,           SHCMD("setxkbmap ua") }, /* змінює розкладку клавіатури на українську */
   { MODKEY,            0x6d5,      spawn,           SHCMD("setxkbmap us") }, /* змінює розкладку клавіатури на англійську */
 
+  /* зміна гучності звуку */
+  { MODKEY,            XK_=,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") }, /* збільшує звук */
+  { MODKEY,            XK_-,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") }, /* зменшує звук */
+
   /* відкриття програм */
   { MODKEY,            XK_p,       spawn,           {.v = dmenucmd } },
   { MODKEY|ShiftMask,  XK_Return,  spawn,           SHCMD("alacritty") },
