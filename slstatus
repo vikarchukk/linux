@@ -6,12 +6,13 @@ const unsigned int interval = 1000; /* інтервал оновлення да�
 static const char unknown_str[] = "-"; /* символ який буде показуватися коли не знайдено даних */
 #define MAXLEN 2048 /* ? */
 static const struct arg args[] = {
-  { keymap,        "[ %s ]",         NULL },
-  { cpu_perc,      "-[ cpu %s% / ",  NULL },
-  { temp,          "%s°С ]",         "/sys/class/thermal/thermal_zone2/temp" },
-  { battery_perc,  "-[ btr %s% ]",   "BAT0" },
-  { cat,           "-[ lgh %s% ]",   "/sys/class/backlight/acpi_video0/brightness" },
-  { datetime,      "-[ %s ]",        "%H:%M:%S" }
+  { keymap,        "[ %s ]",         NULL }, /* розкладка клавіатури */
+  { cpu_perc,      "-[ cpu %s% / ",  NULL }, /* загружиність процесора */
+  { temp,          "%s°С ]",         "/sys/class/thermal/thermal_zone2/temp" }, /* темперетура найгарачішого процесора */
+  { battery_perc,  "-[ btr %s% ]",   "BAT0" }, /* батерея */
+  { cat,           "-[ lgh %s% ]",   "/sys/class/backlight/acpi_video0/brightness" }, /* світлість екрану */
+  { datetime,      "-[ %s ]",        "%H:%M:%S" } /* час */
+  /* { cat, "[ fan %s ]", "/sys/class/hwmon/hwmon3/device/fan2_input"} скорість вентеляторів */
 };
 
 }
