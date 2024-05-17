@@ -16,3 +16,4 @@ static const struct arg args[] = {
 };
 
 }
+4. sudo make clean install
