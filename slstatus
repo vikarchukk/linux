@@ -6,9 +6,9 @@ const unsigned int interval = 1000; /* інтервал оновлення да�
 static const char unknown_str[] = "-"; /* символ який буде показуватися коли не знайдено даних */
 #define MAXLEN 2048 /* ? */
 static const struct arg args[] = {
-  { keymap,        "[ %s ]",        NULL },
-  { battery_perc,  "-[ btr %s% ]",  "BAT0" },
-  { cat,           "-[ lgh %s% ]",  "/sys/class/backlight/acpi_video0/brightness" },
+  { keymap,  "[ %s ]",        NULL },
+  { cat,     "-[ btr %s% ]",  "/sys/class/power_supply/BAT0/capacity" },
+  { cat,     "-[ lgh %s% ]",  "/sys/class/backlight/acpi_video0/brightness" },
 };
 
 }
