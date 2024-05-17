@@ -143,5 +143,5 @@ static const Rule rules[] = {
 
 }
 4. добавити пічі (переналаштування в коді)
-   - https://dwm.suckless.org/patches/attachabove/ | щоб нові вікна відкривалися збокух
+   - https://dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
 4. sudo make clean install
