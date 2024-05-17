@@ -45,6 +45,7 @@ static const float mfact = 0.55; /* ? */
 static const int nmaster = 1; /* ? */
 static const int resizehints = 1; /* ? */
 static const int lockfullscreen = 1; /* ? */
+static const int attachbelow = 1; /* налаштування від пачу котрий відкриває нові вікна збоку */
 
 #define MODKEY Mod4Mask /* для налаштування командної клавіші в моєму випадку це command */
 
