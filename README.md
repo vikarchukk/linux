@@ -6,7 +6,8 @@ my pc setup
 │  │  ├─ bluetooth
 │  │  ├─ fan
 │  │  ├─ audio
-│  │  └─ display and light
+│  │  ├─ light
+│  │  └─ display
 │  └─ встановлення програм [ pacman ]
 └─ встановлення графічного інтерфейсу X
    └─ 
