@@ -1,2 +1,13 @@
-# wifi (
-> su
+# wifi (wiki.archlinux.org/title/NetworkManager)
+> sudo pacman -S networkmanager | встановлення програми для wifi
+> sudo systemctl enable --now NetworkManager | додаваня програми в автозапуск і запуск самої програми
+> nmcli device wifi list | показує список доступних wifi
+> nmcli device wifi connect SSID_or_BSSID password password | підключитися до wifi
+> nmcli connection show | показує підключені wifi
+> nmcli connection delete name_or_uuid | відключається від wifi
+> nmcli device | список мережевих пристроїв і їх стан
+> nmcli radio wifi off | виключити wifi
+> sudo systemctl disable NetworkManager | видаляє програму з авто запуску
+> sudo systemctl stop NetworkManager | зупиняє програму
+
+# 
