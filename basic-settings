@@ -1,4 +1,4 @@
-# wifi ( wiki.archlinux.org/title/NetworkManager )
+[ wifi ] ( wiki.archlinux.org/title/NetworkManager )
 > sudo pacman -S networkmanager | встановлення програми для wifi
 > sudo systemctl enable --now NetworkManager | додаваня програми в автозапуск і запуск самої програми
 > nmcli device wifi list | показує список доступних wifi
@@ -10,12 +10,13 @@
 > sudo systemctl disable NetworkManager | видаляє програму з авто запуску
 > sudo systemctl stop NetworkManager | зупиняє програму
 
-# bluetooth ( wiki.archlinux.org/title/bluetooth )
+[ bluetooth ] ( wiki.archlinux.org/title/bluetooth )
 > sudo pacman -S bluez bluez-utils
   | bluez - для bluetooth
   | bluez-utils - щоб підключитися по bluetooth
 > sudo systemctl start bluetooth | включиння bluetooth
 > bluetoothctl | вхід в програму для сканування пристроїів
+  > power on | включити живлення для bluetooth
   > scan on | сканування
   > devices | показує доступні пристрої
   > connect <MAC-адреса пристрою> | підключення до пристрою
@@ -24,3 +25,5 @@
   > remove <MAC-адреса пристрою> | видалити пристрій
   > exit | вихід з програми
 > sudo systemctl stop bluetooth | виключити bluetooth
+
+[ fan ] ( wiki.archlinux.org/title/fan_speed_control ) 
