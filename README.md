@@ -1,7 +1,7 @@
 ```
 my pc setup
 ├─ встановлення Arch Linux [ arch-install ]
-│  └─ базові налаштування
+│  └─ базові налаштування [ basic-settings ]
 │     ├─ wifi
 │     ├─ bluetooth
 │     ├─ audio
