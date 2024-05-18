@@ -1,11 +1,13 @@
 ```
 my pc setup
 ├─ встановлення Arch Linux [ arch-install ]
-│  └─ базові налаштування [ basic-settings ]
-│     ├─ wifi
-│     ├─ bluetooth
-│     ├─ audio
-│     └─ fan
+│  ├─ базові налаштування [ basic-settings ]
+│  │  ├─ wifi
+│  │  ├─ bluetooth
+│  │  ├─ audio
+│  │  └─ fan
+│  └─ встановлення програм [ pacman-git ]
+│
 │─ встановлення графічного інтерфейсу X
 │  └─ 
 ```
