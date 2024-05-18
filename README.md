@@ -1,4 +1,4 @@
 ```
 my pc setup
-└─ встановлення Arch Linux [ ./arch/install ]
+└─ встановлення Arch Linux [ arch-install ]
 ```
