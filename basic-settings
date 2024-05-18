@@ -25,5 +25,6 @@
   > remove <MAC-адреса пристрою> | видалити пристрій
   > exit | вихід з програми
 > sudo systemctl stop bluetooth | виключити bluetooth
+> sudo systemctl restart bluetooth | якщо не підключається перезапустити bluetooth
 
 [ fan ] ( wiki.archlinux.org/title/fan_speed_control ) 
