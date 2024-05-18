@@ -1,7 +1,7 @@
 [ pacman ]
 > vim /etc/pacman.conf { 
       [multilib]
-      Include = /etc/pacman.d/mirrorlist } розкоментувати для того щоб pacman бачив більше програм
+      Include = /etc/pacman.d/mirrorlist } | розкоментувати для того щоб pacman бачив більше програм
 > sudo pacman -Syyu | коли є зміни в репозиторі щоб вони почали діяти
 > sudo pacman -Syu | оновлює всі пакети
 > pacman -Ss name-app | пошук програм
