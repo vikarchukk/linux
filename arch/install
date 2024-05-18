@@ -88,12 +88,12 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 
 [ 10 ] встановлення загрузчика (програма яка запускає пк)
 > bootctl install | встановлення загрузчика
-> vim /boot/loader/loader.conf { default arch.conf } | налаштуваня типової сестеми
+> vim /boot?efi/loader/loader.conf { default arch.conf } | налаштуваня типової сестеми
 > blkid (dev/root_partition) | перегляд UUID root розділу
-> vim /boot/loader/entries/arch.conf {
+> vim /boot?efi/loader/entries/arch.conf {
       title Arch Linux
-      linux /vmlinuz-linux-t2 | переглянути в папці /boot/loader/entries/
-      initrd /initramfs-linux-t2.img | переглянути в папці /boot/loader/entries/
+      linux /vmlinuz-linux-t2 | переглянути в папці /boot?efi/loader/entries/
+      initrd /initramfs-linux-t2.img | переглянути в папці /boot?efi/loader/entries/
       options root=UUID=root_partition_UUID rw intel_iommu=on iommu=pt pcie_ports=compat 
                                                додаткові налаштування для роботи звуку з чіпом t2 } | налаштування для загрузчика
 
