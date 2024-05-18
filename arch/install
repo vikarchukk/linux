@@ -61,7 +61,8 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 
 > pacman -S vim sudo networkmanager | встановлення базових інструментів
   | vim - для редагування файлів
-  | networkmanager - для роботи інтернету 
+  | networkmanager - для роботи інтернету
+  | sudo - для того щоб користувач міг виконувати команди від root прав
 
 > vim /etc/locale.gen {
       en_US.UTF-8 UTF-8
@@ -82,7 +83,6 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 > passwd | встановлення паролю для root
 > useradd -m -G wheel user_name | створиння користувача
 > passwd user_name | пароль для користувача
-> pacman -S sudo | для того щоб користувач міг виконувати команди від root прав
 > EDITOR=vim | налаштування класичного редактору
 > visudo { %wheel ALL=(ALL:ALL) ALL } | розкоментувати щоб користувач міг викликати команду sudo
 
