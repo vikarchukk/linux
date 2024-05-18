@@ -2,3 +2,4 @@
 > встановлення Arch Linux ()
 > > dsm
 > > >ksdmcksd
+dsc
