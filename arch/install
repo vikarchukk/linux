@@ -59,7 +59,7 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 > ln -sf /usr/share/zoneinfo/Europe/Stockholm /etc/localtime | встановлення часової зони
 > hwclock --systohc | створює /etc/adjtime
 
-> pacman -S vim sudo networkmanager | встановлення базових інструментів
+> pacman -S vim networkmanager sudo | встановлення базових інструментів
   | vim - для редагування файлів
   | networkmanager - для роботи інтернету
   | sudo - для того щоб користувач міг виконувати команди від root прав
