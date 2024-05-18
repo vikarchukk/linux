@@ -28,8 +28,24 @@
 > sudo systemctl restart bluetooth | якщо не підключається перезапустити bluetooth
 
 [ fan ] ( wiki.archlinux.org/title/fan_speed_control ) 
-      └─ для чіпу t2 - ( wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand )
-> 
+          └─ для чіпу t2 - ( wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand )
+> vim /etc/pacman.conf {
+      [arch-mact2]
+      Server = https://mirror.funami.tech/arch-mact2/os/x86_64
+      SigLevel = Never } | для того щоб pacman міг знайти програми які для чіпа t2
+> sudo pacman -Syyu | коли є зміни в репозиторі щоб вони почали діяти
+> sudo pacman -S t2fanrd | скачування для винтиляторів з чіпом t2
+> sudo systemctl enable --now t2fanrd | запуск і додавання в автостарт
+> sudo vim /etc/t2fand.conf {
+           [Fan1]
+           low_temp=35
+           high_temp=50
+           speed_curve=exponential
+           always_full_speed=false
 
->  щоб встановити t2fand потрібно до pacman добавити 
-
+           [Fan2]
+           low_temp=35
+           high_temp=50
+           speed_curve=exponential
+           always_full_speed=false } |  налаштування
+> sudo systemctl restart t2fanrd | перезапуск програми щоб зміни почали діяти
