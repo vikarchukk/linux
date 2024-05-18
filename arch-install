@@ -86,7 +86,7 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 > EDITOR=vim | налаштування класичного редактору
 > visudo { %wheel ALL=(ALL:ALL) ALL } | розкоментувати щоб користувач міг викликати команду sudo
 
-[ 10 ] встановлення загрузчика (програма яка запускає пк)
+[ 10 ] встановлення загрузчика systemd-boot (програма яка запускає пк)
 > bootctl install | встановлення загрузчика
 > vim /boot?efi/loader/loader.conf { default arch.conf } | налаштуваня типової сестеми
 > blkid (dev/root_partition) | перегляд UUID root розділу
