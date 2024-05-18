@@ -1,5 +1,4 @@
-моє налаштування PC
-> встановлення Arch Linux ()
-> > dsm
-> > >ksdmcksd
-dsc
+```
+my pc setup
+└─ встановлення Arch Linux [ ./arch/install ]
+```
