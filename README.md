@@ -4,8 +4,8 @@ my pc setup
 │  ├─ базові налаштування [ basic-settings ]
 │  │  ├─ wifi
 │  │  ├─ bluetooth
-│  │  ├─ audio
-│  │  └─ fan
+│  │  ├─ fan
+│  │  └─ audio
 │  └─ встановлення програм [ pacman ]
 │
 │─ встановлення графічного інтерфейсу X
