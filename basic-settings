@@ -28,3 +28,8 @@
 > sudo systemctl restart bluetooth | якщо не підключається перезапустити bluetooth
 
 [ fan ] ( wiki.archlinux.org/title/fan_speed_control ) 
+      └─ для чіпу t2 - ( wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand )
+> 
+
+>  щоб встановити t2fand потрібно до pacman добавити 
+
