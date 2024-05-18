@@ -17,8 +17,10 @@
 > sudo systemctl start bluetooth | включиння bluetooth
 > bluetoothctl | вхід в програму для сканування пристроїів
   > scan on | сканування
+  > devices | показує доступні пристрої
   > connect <MAC-адреса пристрою> | підключення до пристрою
+    > yes
+  > pair <MAC-адреса пристрою> | створиня пари з пристройом
+  > remove <MAC-адреса пристрою> | видалити пристрій
   > exit | вихід з програми
-> bluetoothctl devices | показує доступні пристрої
-> bluetoothctl remove <MAC-адреса пристрою> | видалити пристрій
 > sudo systemctl stop bluetooth | виключити bluetooth
