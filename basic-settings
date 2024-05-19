@@ -49,3 +49,5 @@
            speed_curve=exponential
            always_full_speed=false } |  налаштування
 > sudo systemctl restart t2fanrd | перезапуск програми щоб зміни почали діяти
+
+[ audio ] (  )
