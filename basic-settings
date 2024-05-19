@@ -11,21 +11,12 @@
 > sudo systemctl stop NetworkManager | зупиняє програму
 
 [ bluetooth ] ( wiki.archlinux.org/title/bluetooth )
-> sudo pacman -S bluez bluez-utils
-  | bluez - для bluetooth
-  | bluez-utils - щоб підключитися по bluetooth
+> git clone https://aur.archlinux.org/bluetuith.git | програма для bluetooth
+  > cd bluetuith
+  > makepkg -sirc
 > sudo systemctl start bluetooth | включиння bluetooth
-> bluetoothctl | вхід в програму для сканування пристроїів
-  > power on | включити живлення для bluetooth
-  > scan on | сканування
-  > devices | показує доступні пристрої
-  > connect <MAC-адреса пристрою> | підключення до пристрою
-    > yes
-  > pair <MAC-адреса пристрою> | створиня пари з пристройом
-  > remove <MAC-адреса пристрою> | видалити пристрій
-  > exit | вихід з програми
+> bluetuith | зайти в програму для роботи з bluetooth
 > sudo systemctl stop bluetooth | виключити bluetooth
-> sudo systemctl restart bluetooth | якщо не підключається перезапустити bluetooth
 
 [ fan ] ( wiki.archlinux.org/title/fan_speed_control ) 
           └─ для чіпу t2 - ( wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand )
