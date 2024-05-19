@@ -53,18 +53,16 @@
 > sudo systemctl restart t2fanrd | перезапуск програми щоб зміни почали діяти
 
 [ audio ] ( wiki.archlinux.org/title/Sound_system )
-            └─ програма для звуку - ( wiki.archlinux.org/title/PulseAudio )
+            └─ pipewire програма для звуку - ( wiki.archlinux.org/title/PipeWire )
                ├─ pacmixer програма для реголування звуку - ( github.com/KenjiTakahashi/pacmixer )
                └─ виправлиння конфігурації чіпу t2 - ( wiki.t2linux.org/guides/audio-config/ )
-> sudo pacman -S apple-t2-audio-config  | встановлення коректної конфігурації для чіпу t2
-> sudo git clone https://github.com/kekrby/t2-better-audio.git | встановлення коректної конфігурації для чіпу t2
+> sudo pacman -S apple-t2-audio-config | щоб програма бачила всі динаміки на чіпі t2
+> sudo git clone https://github.com/kekrby/t2-better-audio.git | корекція налаштуваннь pipewire для роботи на чіпі t2
   > cd t2-better-audio
   > ./install.sh
   > cd
-> sudo pacman -S pulseaudio | встановлення програми для звуку
-  > pulseaudio | запуск / якщо перестав робити звук
-    > sudo rm -r ~/.config/pulse | якщо не запускається ( rectory Killed )
-    > pulseaudio
+> sudo pacman -S pipewire-pulse | встановлення програми для звуку
+  > sudo reboot | коли перший раз встановлюється програма
   > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
   > pactl set-sink-volume @DEFAULT_SINK@ +5% | зібльшує на 5% гучності
   > pactl set-sink-volume @DEFAULT_SINK@ -5% | зменшує на 5% гучності
