@@ -63,11 +63,8 @@
 
 [ backlight ] ( wiki.archlinux.org/title/Backlight | github.com/harttle/macbook-lighter )
 > sudo vim /etc/udev/rules.d/backlight.rules {
-           SUBSYSTEM=="backlight", ACTION=="add", \
-           RUN+="/bin/chgrp video /sys/class/backlight/%k/brightness", \
-           RUN+="/bin/chmod g+w /sys/class/backlight/%k/brightness" } | для того щоб можна було міняти яркість екрану без root прав
+           ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness" 
+           } | для того щоб можна було міняти яркість екрану без root прав
 > sudo vim /etc/udev/rules.d/leds.rules {
-           SUBSYSTEM=="leds", ACTION=="add", \
-           RUN+="/bin/chgrp video /sys/class/leds/%k/brightness", \
-           RUN+="/bin/chmod g+w /sys/class/leds/%k/brightness" } | для того щоб можна було міняти підсвітку клавіатури без root прав
-
+           ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness"
+           } | для того щоб можна було міняти підсвітку клавіатури без root прав
