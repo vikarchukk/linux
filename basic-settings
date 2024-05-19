@@ -68,3 +68,5 @@
   > cd
   > makepkg -sirc
   > pacmixer
+
+[ backlight ] ( wiki.archlinux.org/title/Backlight )
