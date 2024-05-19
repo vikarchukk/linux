@@ -60,7 +60,7 @@
   > ./install.sh
   > cd
 > sudo pacman -S pipewire-pulse | встановлення програми для звуку
-  > sudo reboot | коли перший раз встановлюється програма
+  > reboot | коли перший раз встановлюється програма
   > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
   > pactl set-sink-volume @DEFAULT_SINK@ +5% | зібльшує на 5% гучності
   > pactl set-sink-volume @DEFAULT_SINK@ -5% | зменшує на 5% гучності
