@@ -8,7 +8,7 @@ my pc setup
 │     ├─ fan
 │     ├─ audio
 │     ├─ backlight
-│     └─ display
+│     └─ touchbar
 └─ встановлення графічного інтерфейсу X
    └─ 
 ```
