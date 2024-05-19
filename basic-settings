@@ -54,7 +54,7 @@
 
 [ audio ] ( wiki.archlinux.org/title/Sound_system )
             └─ програма для звуку - ( wiki.archlinux.org/title/PulseAudio )
-               ├─ ncpamixer програма для реголування звуку - ( github.com/fulhax/ncpamixer )
+               ├─ pacmixer програма для реголування звуку - ( github.com/KenjiTakahashi/pacmixer )
                └─ виправлиння конфігурації чіпу t2 - ( wiki.t2linux.org/guides/audio-config/ )
 > sudo pacman -S apple-t2-audio-config  | встановлення коректної конфігурації для чіпу t2
 > sudo git clone https://github.com/kekrby/t2-better-audio.git | встановлення коректної конфігурації для чіпу t2
@@ -68,12 +68,6 @@
   > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
   > pactl set-sink-volume @DEFAULT_SINK@ +5% | зібльшує на 5% гучності
   > pactl set-sink-volume @DEFAULT_SINK@ -5% | зменшує на 5% гучності
-
-> git clone https://aur.archlinux.org/ncpamixer-git.git | встановлення програми для реголування звуку
-  > cd ncpamixer-git
-  > makepkg -sirc
-  > ncpamixer | 
-
 > git clone https://aur.archlinux.org/pacmixer.git | встановлення програми для реголування звуку
   > cd
   > makepkg -sirc
