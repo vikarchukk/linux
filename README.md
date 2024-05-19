@@ -7,7 +7,7 @@ my pc setup
 │     ├─ bluetooth
 │     ├─ fan
 │     ├─ audio
-│     ├─ light
+│     ├─ backlight
 │     └─ display
 └─ встановлення графічного інтерфейсу X
    └─ 
