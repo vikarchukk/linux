@@ -17,7 +17,7 @@
   | base-devel - для збирання програми
 > git clone https://aur.archlinux.org/name-app.git | клонування програми
 > cd name-app | зайти в папку з програмою
-> sudo makepkg -sirc | збирає програму
+> makepkg -sirc | збирає програму
 
 [ makefile ]
 > sudo pacman -S git base-devel
