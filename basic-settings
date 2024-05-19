@@ -1,5 +1,3 @@
-
-
 [ wifi ] ( wiki.archlinux.org/title/NetworkManager )
 > sudo pacman -S networkmanager | встановлення програми для wifi
 > sudo systemctl enable --now NetworkManager | додаваня програми в автозапуск і запуск самої програми
