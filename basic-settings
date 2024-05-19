@@ -61,6 +61,7 @@
   > cd
 > sudo pacman -S pulseaudio | встановлення програми для звуку
   > pulseaudio | запуск налаштування звуку
+    > sudo rm -r ~/.config/pulse | не працює звук
   > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
   > pactl set-sink-volume @DEFAULT_SINK@ +5% | зібльшує на 5% гучності
   > pactl set-sink-volume @DEFAULT_SINK@ -5% | зменшує на 5% гучності
