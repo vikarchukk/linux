@@ -60,12 +60,14 @@
   > ./install.sh
   > cd
 > sudo pacman -S pulseaudio | встановлення програми для звуку
-  > pulseaudio | запуск налаштування звуку
-    > sudo rm -r ~/.config/pulse | якщо не запускається налаштування
+  > pulseaudio | запуск
+    > sudo rm -r ~/.config/pulse | якщо не запускається ( rectory Killed )
+    > pulseaudio
   > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
   > pactl set-sink-volume @DEFAULT_SINK@ +5% | зібльшує на 5% гучності
   > pactl set-sink-volume @DEFAULT_SINK@ -5% | зменшує на 5% гучності
+
 > git clone https://aur.archlinux.org/ncpamixer-git.git | встановлення програми для реголування звуку
   > cd ncpamixer-git
   > makepkg -sirc
-  > ncpamixer
+  > ncpamixer | 
