@@ -18,6 +18,8 @@
 > git clone https://aur.archlinux.org/name-app.git | клонування програми
 > cd name-app | зайти в папку з програмою
 > makepkg -sirc | збирає програму
+  > git config --global url."https://".insteadOf git:// 
+  | якщо буде така помилка ( fatal: unable to connect to github.com: github.com[0: 140.82.121.4]: errno=Connection timed out )
 
 [ makefile ]
 > sudo pacman -S git base-devel
