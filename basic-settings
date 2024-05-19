@@ -62,7 +62,7 @@
   > ./install.sh
   > cd
 > sudo pacman -S pulseaudio | встановлення програми для звуку
-  > pulseaudio | запуск
+  > pulseaudio | запуск / якщо перестав робити звук
     > sudo rm -r ~/.config/pulse | якщо не запускається ( rectory Killed )
     > pulseaudio
   > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
