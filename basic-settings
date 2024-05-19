@@ -1,3 +1,5 @@
+
+
 [ wifi ] ( wiki.archlinux.org/title/NetworkManager )
 > sudo pacman -S networkmanager | встановлення програми для wifi
 > sudo systemctl enable --now NetworkManager | додаваня програми в автозапуск і запуск самої програми
@@ -71,3 +73,8 @@
   > cd ncpamixer-git
   > makepkg -sirc
   > ncpamixer | 
+
+> git clone https://aur.archlinux.org/pacmixer.git | встановлення програми для реголування звуку
+  > cd
+  > makepkg -sirc
+  > pacmixer
