@@ -73,7 +73,7 @@
 > echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 5)) | tee /sys/class/backlight/acpi_video0/brightness | зменшує яркість екрану на 5
 > cat /sys/class/backlight/acpi_video0/brightness | значення яркості екрану
 > cat /sys/class/backlight/acpi_video0/max_brightness | максимальне значення значення яркості екрану
-> echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness | збільшує підсвітку клавіатури на 50
-> echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness | зменшує підсвітку клавіатури на 50
+> echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 50)) | tee /sys/class/leds/apple::kbd_backlight/brightness | збільшує підсвітку клавіатури на 50
+> echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 50)) | tee /sys/class/leds/apple::kbd_backlight/brightness | зменшує підсвітку клавіатури на 50
 > cat /sys/class/leds/apple::kbd_backlight/brightness | значення підсвітки клавіатури
 > cat /sys/class/leds/apple::kbd_backlight/max_brightness | максимальне значення підсвітки клавіатури
