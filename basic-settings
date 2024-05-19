@@ -50,18 +50,17 @@
 > sudo git clone https://github.com/kekrby/t2-better-audio.git | корекція налаштуваннь pipewire для кращої роботи на чіпі t2
   > cd t2-better-audio
   > ./install.sh
-  > cd
 > sudo pacman -S pipewire-pulse | встановлення програми для звуку
   > reboot | коли перший раз встановлюється програма
   > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
   > pactl set-sink-volume @DEFAULT_SINK@ +5% | зібльшує на 5% гучності
   > pactl set-sink-volume @DEFAULT_SINK@ -5% | зменшує на 5% гучності
 > git clone https://aur.archlinux.org/pacmixer.git | встановлення програми для реголування звуку
-  > cd
+  > cd pacmixer
   > makepkg -sirc
   > pacmixer
 
-[ backlight ] ( wiki.archlinux.org/title/Backlight | github.com/harttle/macbook-lighter )
+[ backlight ] ( wiki.archlinux.org/title/Backlight )
 > sudo vim /etc/udev/rules.d/backlight.rules {
            ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness" 
            } | для того щоб можна було міняти яркість екрану без root прав
@@ -69,5 +68,12 @@
            ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness"
            } | для того щоб можна було міняти підсвітку клавіатури без root прав
 > sudo usermod -aG video username | добавляє користувача в групу video щоб можна було крирувати яскравістю
-> reboot | для того щоб оновилиння налаштування
->
+  > reboot | для того щоб оновилиння налаштування
+> echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 5)) | tee /sys/class/backlight/acpi_video0/brightness | збільшує яркість екрану на 5
+> echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 5)) | tee /sys/class/backlight/acpi_video0/brightness | зменшує яркість екрану на 5
+> cat /sys/class/backlight/acpi_video0/brightness | значення яркості екрану
+> cat /sys/class/backlight/acpi_video0/max_brightness | максимальне значення значення яркості екрану
+> echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness | збільшує підсвітку клавіатури на 50
+> echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness | зменшує підсвітку клавіатури на 50
+> cat /sys/class/leds/apple::kbd_backlight/brightness | значення підсвітки клавіатури
+> cat /sys/class/leds/apple::kbd_backlight/max_brightness | максимальне значення підсвітки клавіатури
