@@ -69,4 +69,4 @@
   > makepkg -sirc
   > pacmixer
 
-[ backlight ] ( wiki.archlinux.org/title/Backlight )
+[ backlight ] ( wiki.archlinux.org/title/Backlight | github.com/harttle/macbook-lighter )
