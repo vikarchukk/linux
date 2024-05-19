@@ -69,3 +69,5 @@
            ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness"
            } | для того щоб можна було міняти підсвітку клавіатури без root прав
 > sudo usermod -aG video username | добавляє користувача в групу video щоб можна було крирувати яскравістю
+> reboot | для того щоб оновилиння налаштування
+>
