@@ -57,7 +57,7 @@
                ├─ pacmixer програма для реголування звуку - ( github.com/KenjiTakahashi/pacmixer )
                └─ виправлиння конфігурації чіпу t2 - ( wiki.t2linux.org/guides/audio-config/ )
 > sudo pacman -S apple-t2-audio-config | щоб програма бачила всі динаміки на чіпі t2
-> sudo git clone https://github.com/kekrby/t2-better-audio.git | корекція налаштуваннь pipewire для роботи на чіпі t2
+> sudo git clone https://github.com/kekrby/t2-better-audio.git | корекція налаштуваннь pipewire для кращої роботи на чіпі t2
   > cd t2-better-audio
   > ./install.sh
   > cd
