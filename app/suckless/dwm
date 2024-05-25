@@ -119,7 +119,7 @@ static const Button buttons[] = {
   { ClkTagBar,      MODKEY,  Button3,  toggletag,       {0} }, /* ? */
 
   { ClkWinTitle,    0,       Button2,  zoom,            {0} }, /* ? */
-  { ClkStatusText,  0,       Button2,  spawn,           {.v = dmenucmd } }, /* ? */
+  { ClkStatusText,  0,       Button2,  spawn,           {0} }, /* ? */
 };
 
 /* незнаю для чого це але якщо його відключити будуть помилки в dwm */
