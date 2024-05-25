@@ -1,6 +1,6 @@
 ```
 my pc setup
-├─ встановлення Arch Linux /arch-install
+├─ arch linux /arch-install
 │  ├─ встановлення програм /app-install
 │  └─ базові налаштування /basic-settings
 │     └─ wifi, bluetooth, fan, audio, backlight
