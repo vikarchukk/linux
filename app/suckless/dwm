@@ -33,7 +33,7 @@ static const int lockfullscreen = 1; /* використовує весь екр
 static const int attachbelow = 1; /* налаштування від пачу котрий відкриває нові вікна збоку */
 
 static char dmenumon[2] = "0"; /* ? */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_while, "-sb", col_black, "-sf", col_while, NULL }; /* ? */
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_while, "-sb", col_while, "-sf", col_black, NULL }; /* ? */
 
 /* скрипт для того щоб можна було переходити між тегами */
 void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
