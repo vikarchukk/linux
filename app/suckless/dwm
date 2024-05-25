@@ -2,13 +2,6 @@
 > git clone https://git.suckless.org/dwm | клонування коду програми
 > cd dwm
 > vim config.h {
-/* рижими відображиння вікон */
-static const Layout layouts[] = {
-  { "[]=", tile }, /* дефолтне відображиння вікон */
-  { "><>", NULL }, /* вікна можна переміщати вільно */
-  { "[M]", monocle }, /* вікна наложуються один на одного, ще потрібно дізнатися як між вікнами переключатися */
-};
-
 static const unsigned int borderpx  = 0; /* товщина обведення вікна */
 static const unsigned int snap = 30; /* ? */
 
@@ -26,9 +19,16 @@ static const char *colors[][3] = {
 
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; /* теги */
 
-static const float mfact = 0.55; /* ? */
-static const int nmaster = 1; /* ? */
-static const int resizehints = 1; /* ? */
+/* рижими відображиння вікон */
+static const Layout layouts[] = {
+  { "[]=", tile }, /* дефолтне відображиння вікон */
+  { "><>", NULL }, /* вікна можна переміщати вільно */
+  { "[M]", monocle }, /* вікна наложуються один на одного, ще потрібно дізнатися як між вікнами переключатися */
+};
+
+static const float mfact = 0.55; /* розмір основної області в процентах */
+static const int nmaster = 1; /* кількість вікон в головній зоні */
+static const int resizehints = 1; /* 1 дотримання підказок розмірів у tile */
 static const int lockfullscreen = 1; /* ? */
 static const int attachbelow = 1; /* налаштування від пачу котрий відкриває нові вікна збоку */
 
