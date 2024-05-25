@@ -2,10 +2,10 @@
 > git clone https://github.com/dudik/herbe
 > cd herbe
 > vim config.h {
-static const char *background_color = "#000000"; /* фон */
-static const char *border_color = "#ffffff"; /* обводка */
-static const char *font_color = "#ffffff"; /* колір шрифту */
-static const char *font_pattern = "monocraft:size=13"; /* шрифт */
+static const char *background_color = "#ffffff"; /* фон */
+static const char *border_color = "#000000"; /* обводка */
+static const char *font_color = "#000000"; /* колір шрифту */
+static const char *font_pattern = "monocraft:size=12"; /* шрифт */
 
 static const unsigned line_spacing = 5; /* відстань між лініями */
 static const unsigned int padding = 5; /* відстань між текстом і крайом */
