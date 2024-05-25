@@ -6,10 +6,10 @@ static int topbar = 0; /* 0 знизу / 1 зверху */
 static const char *fonts[] = { "monocraft:size=12" }; /* шрифт і розмір */
 static const char *colors[SchemeLast][2] = {
   [SchemeNorm] = { "#ffffff", "#000000" },
-	[SchemeSel] = { "#000000", "#ffffff" },
-	[SchemeOut] = { "#000000", "#ffffff" },
+  [SchemeSel] = { "#000000", "#ffffff" },
+  [SchemeOut] = { "#000000", "#ffffff" },
 }; /* схема кольорів */
-static const char *prompt = ">"; /* можна написати текст і беде підказка з ліва "шукати: ..." */
+static const char *prompt = "$"; /* можна написати текст і беде підказка з ліва "шукати: ..." */
 static unsigned int lines = 0; /* скільки відповідів показувати якщо 0 то автоматично підбирається */
 static const char worddelimiters[] = " "; /* визначає символи які не вважаються частиною слова */
 } | налаштування програми
