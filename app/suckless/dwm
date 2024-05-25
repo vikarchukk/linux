@@ -9,13 +9,9 @@ static const int showbar = 1; /* меню - 0 сховати / 1 показат�
 static const int topbar = 0; /* меню - 0 знизу / 1 зверху */
 
 static const char *fonts[] = { "monocraft:size=12" }; /* шрифт і розмір */
-static const char dmenufont[] = "monocraft:size=12"; /* шрифт для dmenu */
-
-static const char col_black[] = "#000000"; /* зміна кольору білого */
-static const char col_while[] = "#ffffff"; /* зміна кольору чорного */
 static const char *colors[][3] = {
-  [SchemeNorm] = { col_while, col_black, col_black }, /* схема кольорів */
-  [SchemeSel]  = { col_black, col_while, col_while  } };
+  [SchemeNorm] = { "#ffffff", "#000000", "#000000" }, /* схема кольорів */
+  [SchemeSel]  = { "#000000", "#ffffff", "#ffffff"  } };
 
 static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; /* теги */
 
@@ -31,9 +27,6 @@ static const int nmaster = 1; /* кількість вікон в головні
 static const int resizehints = 0; /* підказки щодо розміру 1 включити */
 static const int lockfullscreen = 1; /* використовує весь екран 1 включити */
 static const int attachbelow = 1; /* налаштування від пачу котрий відкриває нові вікна збоку */
-
-static char dmenumon[2] = "0"; /* котресь налаштування для dmenu */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_while, "-sb", col_while, "-sf", col_black, NULL }; /* налаштування кольорів і шрифту в dmenu */
 
 /* скрипт для того щоб можна було переходити між тегами */
 void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
@@ -101,7 +94,7 @@ static const Key keys[] = {
   { MODKEY,            0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") }, /* зменшує звук */
 
   /* відкриття програм */
-  { MODKEY,            XK_p,       spawn,           {.v = dmenucmd } },
+  { MODKEY,            XK_p,       spawn,           SHCMD("dmenu_run") },
   { MODKEY|ShiftMask,  XK_Return,  spawn,           SHCMD("alacritty") },
   { MODKEY|ShiftMask,  XK_z,       spawn,           SHCMD("chromium") },
   { MODKEY|ShiftMask,  XK_s,       spawn,           SHCMD("alacritty -e btop") },
