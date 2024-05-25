@@ -13,7 +13,7 @@ static const unsigned int width = 1680; /* ширина */
 static const unsigned int border_size = 0; /* товщина обводки */
 
 enum corners { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }; /* варіанти кутів відобарження вікна */
-enum corners corner = BOTTOM_LEFT;  /* вписати кут в якому буде відображатися вікно */
+enum corners corner = BOTTOM_RIGHT;  /* вписати кут в якому буде відображатися вікно */
 static const unsigned int pos_x = 0; /* точка x початок розташування вікна */
 static const unsigned int pos_y = 19; /* точка у початок розташування вікна */
 
