@@ -1,6 +1,6 @@
 [ slstatus ] ( tools.suckless.org/slstatus/ )
 > git clone https://git.suckless.org/slstatus
-> sd slstatus
+> cd slstatus
 > vim config.h {
 const unsigned int interval = 1000; /* інтервал оновлення даних в мілісекундах */
 static const char unknown_str[] = "-"; /* символ який буде показуватися коли не знайдено даних */
