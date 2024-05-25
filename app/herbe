@@ -1,1 +1,24 @@
+[ herbe ] ( github.com/dudik/herbe )
+> git clone https://github.com/dudik/herbe
+> cd herbe
+> vim config.h {
+static const char *background_color = "#000000"; /* фон */
+static const char *border_color = "#ffffff"; /* обводка */
+static const char *font_color = "#ffffff"; /* колір шрифту */
+static const char *font_pattern = "monocraft:size=12"; /* шрифт */
+static const unsigned line_spacing = 5; /* відстань між лініями */
+static const unsigned int padding = 15; /* відстань між тікстом і крайом */
 
+static const unsigned int width = 450; /* ширина */
+static const unsigned int border_size = 2; /* товщина обводки */
+static const unsigned int pos_x = 30;
+static const unsigned int pos_y = 60;
+
+enum corners { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT };
+enum corners corner = TOP_RIGHT;
+
+static const unsigned int duration = 5; /* in seconds */
+
+#define DISMISS_BUTTON Button1
+#define ACTION_BUTTON Button3 } | налаштування програми
+> sudo make clean install | збирання програми
