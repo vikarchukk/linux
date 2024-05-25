@@ -9,7 +9,7 @@ static const struct arg args[] = {
   { keymap,        " =[ %s ]",       NULL }, /* розкладка клавіатури */
   { cat,           "-[ %sF |",      "/sys/class/hwmon/hwmon3/device/fan2_input"}, /* скорість вентеляторів */
   { temp,          " %s°С ]",      "/sys/class/thermal/thermal_zone2/temp" }, /* темперетура найгарачішого процесора */
-  { run_command,   "-[ %s |",      "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'" }, /* звук | pulseaudio */
+  { run_command,   "-[ %s |",      "pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'" }, /* звук */
   { cat,           " %s% |",       "/sys/class/backlight/acpi_video0/brightness" }, /* світлість екрану */
   { battery_perc,  " %s% ]",       "BAT0" }, /* батерея */
   { datetime,      "-[ %s ]",      "%H:%M:%S" }, /* час */
