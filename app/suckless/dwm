@@ -118,9 +118,7 @@ static const Button buttons[] = {
   { ClkTagBar,      MODKEY,  Button1,  tag,             {0} }, /* переміщення вікна до тегу тегу */
   { ClkTagBar,      MODKEY,  Button3,  toggletag,       {0} }, /* ? */
 
-  { ClkWinTitle,    0,       Button2,  zoom,            {0} }, /* ? */
-  { ClkStatusText,  0,       Button2,  spawn,           {0} }, /* ? */
-};
+  { ClkWinTitle,    0,       Button2,  zoom,            {0} } /* ? */ };
 
 /* незнаю для чого це але якщо його відключити будуть помилки в dwm */
 static const Rule rules[] = {
