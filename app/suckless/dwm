@@ -3,7 +3,7 @@
 > cd dwm
 > vim config.h {
 static const unsigned int borderpx  = 0; /* товщина обведення вікна */
-static const unsigned int snap = 30; /* ? */
+static const unsigned int snap = 30; /* наскільки піксилів збільшувати або зменшувати вікно */
 
 static const int showbar = 1; /* меню - 0 сховати / 1 показати */
 static const int topbar = 0; /* меню - 0 знизу / 1 зверху */
@@ -29,7 +29,7 @@ static const Layout layouts[] = {
 static const float mfact = 0.55; /* розмір основної області в процентах */
 static const int nmaster = 1; /* кількість вікон в головній зоні */
 static const int resizehints = 0; /* підказки щодо розміру 1 включити */
-static const int lockfullscreen = 1; /* ? */
+static const int lockfullscreen = 1; /* використовує весь екран 1 включити */
 static const int attachbelow = 1; /* налаштування від пачу котрий відкриває нові вікна збоку */
 
 static char dmenumon[2] = "0"; /* ? */
