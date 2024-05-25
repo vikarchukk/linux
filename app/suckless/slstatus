@@ -11,8 +11,7 @@ static const struct arg args[] = {
   { temp,               " %s°С |",   "/sys/class/thermal/thermal_zone2/temp" }, /* темперетура найгарачішого процесора */
   { cpu_perc,           " %s% |",    NULL }, /* середня загруженість процесорів */
   { run_command,        " %sMB ]",   "free | awk '/Mem/ {print int($3/1024)}'" }, /* кількість оперативної памяті котра використовується */
-  { battery_state,      "-[ %s",     "BAT0" }, /* статус зарядки */
-  { battery_perc,       "%s% ]",     "BAT0" }, /* батерея */
+  { battery_perc,       "-[ %s% ]",     "BAT0" }, /* батерея */
   { datetime,           "-[ %s ]",   "%H:%M:%S" }, /* час */
 }; } | налаштування програми
 > sudo make clean install | збирання програми
