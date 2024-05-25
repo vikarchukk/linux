@@ -22,7 +22,8 @@ static const unsigned int duration = 5; /* скільки секунд буде 
 #define DISMISS_BUTTON Button1  /* відхилити повідомлення ліва кнопка миші */
 #define ACTION_BUTTON Button3 /* приняти повідомлення права кнопка миші */ } | налаштування програми
 > добавити пачі
-  └─ github.com/dudik/herbe/pull/14 | щоб нові вікна накладалися один на одного
+  ├─ github.com/dudik/herbe/pull/14 | щоб нові вікна накладалися один на одного
+  └─ github.com/dudik/herbe/issues/50 | щоб ширина вікна була дорівнювала довжині тексту
 > sudo make clean install | збирання програми
 > використання
   > pkill -SIGUSR1 herbe | відхилити активне повідомлення
