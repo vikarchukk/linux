@@ -4,6 +4,6 @@ my pc setup
 │  ├─ встановлення програм /app-install
 │  └─ базові налаштування /basic-settings
 │     └─ wifi, bluetooth, fan, audio, backlight
-└─ встановлення графічного інтерфейсу x /graphics/x
+└─ встановлення графічного інтерфейсу x /app/x
    └─ 
 ```
