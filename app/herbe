@@ -8,13 +8,13 @@ static const char *font_color = "#ffffff"; /* колір шрифту */
 static const char *font_pattern = "monocraft:size=12"; /* шрифт */
 
 static const unsigned line_spacing = 0; /* відстань між лініями */
-static const unsigned int padding = 0; /* відстань між текстом і крайом */
+static const unsigned int padding = 2; /* відстань між текстом і крайом */
 static const unsigned int width = 0; /* ширина */
 static const unsigned int border_size = 0; /* товщина обводки */
 
 enum corners { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }; /* варіанти кутів відобарження вікна */
 enum corners corner = BOTTOM_RIGHT;  /* вписати кут в якому буде відображатися вікно */
-static const unsigned int pos_x = 0; /* точка x початок розташування вікна */
+static const unsigned int pos_x = 4; /* точка x початок розташування вікна */
 static const unsigned int pos_y = 19; /* точка у початок розташування вікна */
 
 static const unsigned int duration = 5; /* скільки секунд буде весіти  вікно */
