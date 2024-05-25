@@ -67,7 +67,7 @@
 > sudo vim /etc/udev/rules.d/leds.rules {
            ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness"
            } | для того щоб можна було міняти підсвітку клавіатури без root прав
-> sudo usermod -aG video username | добавляє користувача в групу video щоб можна було крирувати яскравістю
+> sudo usermod -aG video username | добавляє користувача в групу video щоб можна було кирувати яскравістю
   > reboot | для того щоб оновилиння налаштування
 > echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 5)) | tee /sys/class/backlight/acpi_video0/brightness | збільшує яркість екрану на 5
 > echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 5)) | tee /sys/class/backlight/acpi_video0/brightness | зменшує яркість екрану на 5
