@@ -139,6 +139,6 @@ static const Button buttons[] = {
 static const Rule rules[] = {
   { "Gimp",     NULL,  NULL,  0,       1,  -1 },
   { "Firefox",  NULL,  NULL,  1 << 8,  0,  -1 } }; } налаштування програми
-4. добавити пачі
-   └─ https://dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
-5. sudo make clean install | збирання програми
+> добавити пачі
+  └─ dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
+> sudo make clean install | збирання програми
