@@ -9,6 +9,7 @@ my pc setup
    │  ├─ dwm - віконий менеджер /app/suckless/dwm
    │  ├─ slstatus - статус смуга /app/suckless/slstatus
    │  ├─ dmenu - меню для запуску програм /app/suckless/dmenu
+   │  ├─ herbe - спливаюче вікно
    │  └─ st - термінал /app/suckless/st
    ├─ btop - для моніторингу сестеми
    ├─ vieb - браузер з vim клавіатурою
