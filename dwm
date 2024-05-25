@@ -24,7 +24,7 @@ static const Layout layouts[] = {
 
 /* --- налаштування --- */
 
-static const unsigned int borderpx  = 2; /* товщина обведення вікна */
+static const unsigned int borderpx  = 0; /* товщина обведення вікна */
 static const unsigned int snap = 30; /* ? */
 
 static const int showbar = 1; /* меню - 0 сховати / 1 показати */
