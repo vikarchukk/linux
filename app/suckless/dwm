@@ -97,7 +97,7 @@ static const Key keys[] = {
   { MODKEY,            0x6d5,      spawn,           SHCMD("setxkbmap us") }, /* змінює розкладку клавіатури на англійську */
 
   /* зміна гучності звуку */
-  { MODKEY,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") }, /* збільшує звук | pulseaudio */
+  { MODKEY,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +5%") }, /* збільшує звук */
   { MODKEY,            0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -5%") }, /* зменшує звук */
 
   /* відкриття програм */
