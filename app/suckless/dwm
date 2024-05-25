@@ -2,26 +2,12 @@
 > git clone https://git.suckless.org/dwm | клонування коду програми
 > cd dwm
 > vim config.h {
-/* --- скрипти --- */
-
-/* для тегів */
-#define TAGKEYS(KEY,TAG) \
-  { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-  { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-  { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-  { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
-
 /* рижими відображиння вікон */
 static const Layout layouts[] = {
   { "[]=", tile }, /* дефолтне відображиння вікон */
   { "><>", NULL }, /* вікна можна переміщати вільно */
   { "[M]", monocle }, /* вікна наложуються один на одного, ще потрібно дізнатися як між вікнами переключатися */
 };
-
-/* для запуску команд */
-#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
-
-/* --- налаштування --- */
 
 static const unsigned int borderpx  = 0; /* товщина обведення вікна */
 static const unsigned int snap = 30; /* ? */
@@ -32,8 +18,8 @@ static const int topbar = 0; /* меню - 0 знизу / 1 зверху */
 static const char *fonts[] = { "monocraft:size=12" }; /* шрифт і розмір */
 static const char dmenufont[] = "monocraft:size=12"; /* шрифт для dmenu */
 
-static const char col_black[] = "#0d0d0d"; /* зміна кольору білого */
-static const char col_while[] = "#eeeeee"; /* зміна кольору чорного */
+static const char col_black[] = "#000000"; /* зміна кольору білого */
+static const char col_while[] = "#ffffff"; /* зміна кольору чорного */
 static const char *colors[][3] = {
   [SchemeNorm] = { col_while, col_black, col_black }, /* схема кольорів */
   [SchemeSel]  = { col_black, col_while, col_while  } };
@@ -46,15 +32,23 @@ static const int resizehints = 1; /* ? */
 static const int lockfullscreen = 1; /* ? */
 static const int attachbelow = 1; /* налаштування від пачу котрий відкриває нові вікна збоку */
 
-#define MODKEY Mod4Mask /* для налаштування командної клавіші в моєму випадку це command */
-
-/* --- команди --- */
-
 static char dmenumon[2] = "0"; /* ? */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_black, "-nf", col_while, "-sb", col_black, "-sf", col_while, NULL }; /* ? */
 
 /* скрипт для того щоб можна було переходити між тегами */
 void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
+
+#define MODKEY Mod4Mask /* для налаштування командної клавіші в моєму випадку це command */
+
+/* для запуску команд */
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
+
+/* для тегів */
+#define TAGKEYS(KEY,TAG) \
+  { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
+  { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
+  { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
+  { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* комбінації з клавішами для запуску скрипті */
 static const Key keys[] = {
