@@ -32,8 +32,8 @@ static const int topbar = 0; /* меню - 0 знизу / 1 зверху */
 static const char *fonts[] = { "monocraft:size=12" }; /* шрифт і розмір */
 static const char dmenufont[] = "monocraft:size=12"; /* шрифт для dmenu */
 
-static const char col_black[] = "#000000"; /* зміна кольору білого */
-static const char col_while[] = "#ffffff"; /* зміна кольору чорного */
+static const char col_black[] = "#0d0d0d"; /* зміна кольору білого */
+static const char col_while[] = "#eeeeee"; /* зміна кольору чорного */
 static const char *colors[][3] = {
   [SchemeNorm] = { col_while, col_black, col_black }, /* схема кольорів */
   [SchemeSel]  = { col_black, col_while, col_while  } };
