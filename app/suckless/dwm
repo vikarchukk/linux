@@ -93,6 +93,10 @@ static const Key keys[] = {
   { MODKEY,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; herbe \"volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100%\"") }, /* збільшує звук */
   { MODKEY,            0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; herbe \"volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100%\"") }, /* зменшує звук */
 
+  /* зміна підсвідчування екрану */
+  { MODKEY|ShiftMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"screen backlight: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100%\"") }, /* збільшує яскравість */
+  { MODKEY|ShiftMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"screen backlight: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100%\"") }, /* зменшує яскравість */
+
   /* відкриття програм */
   { MODKEY,            XK_p,       spawn,           SHCMD("dmenu_run") },
   { MODKEY|ShiftMask,  XK_Return,  spawn,           SHCMD("alacritty") },
