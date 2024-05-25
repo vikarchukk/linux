@@ -7,8 +7,8 @@ static const char *border_color = "#ffffff"; /* обводка */
 static const char *font_color = "#ffffff"; /* колір шрифту */
 static const char *font_pattern = "monocraft:size=15"; /* шрифт */
 
-static const unsigned line_spacing = 0; /* відстань між лініями */
-static const unsigned int padding = 0; /* відстань між текстом і крайом */
+static const unsigned line_spacing = 5; /* відстань між лініями */
+static const unsigned int padding = 5; /* відстань між текстом і крайом */
 static const unsigned int width = 1680; /* ширина */
 static const unsigned int border_size = 0; /* товщина обводки */
 
@@ -22,3 +22,10 @@ static const unsigned int duration = 5; /* скільки секунд буде 
 #define DISMISS_BUTTON Button1  /* відхилити повідомлення ліва кнопка миші */
 #define ACTION_BUTTON Button3 /* приняти повідомлення права кнопка миші */ } | налаштування програми
 > sudo make clean install | збирання програми
+> використання
+  > pkill -SIGUSR1 herbe | відхилити активне повідомлення
+  > pkill -SIGUSR2 herbe | прийняти активне повідомлення і виконати дію
+    > herbe "текст" && що робити
+  > pkill herbe | закриває всі повідомлення
+  > herbe "$(команда)"
+  > herbe "текст" "текст"
