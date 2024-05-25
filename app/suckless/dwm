@@ -98,8 +98,8 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100%\"") }, /* зменшує яскравість екрану */
 
   /* зміна підсвідчування клавіатури */
-  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 10)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 510%\"") }, /* збільшує яскравість клавіатури */
-  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 10)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 510%\"") }, /* зменшує яскравість клавіатури */
+  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 10)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500%\"") }, /* збільшує яскравість клавіатури */
+  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 10)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500%\"") }, /* зменшує яскравість клавіатури */
 
   /* відкриття програм */
   { MODKEY,            XK_p,       spawn,           SHCMD("dmenu_run") },
