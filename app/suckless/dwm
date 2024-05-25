@@ -138,7 +138,7 @@ static const Button buttons[] = {
 /* незнаю для чого це але якщо його відключити будуть помилки в dwm */
 static const Rule rules[] = {
   { "Gimp",     NULL,  NULL,  0,       1,  -1 },
-  { "Firefox",  NULL,  NULL,  1 << 8,  0,  -1 } }; } налаштування програми
+  { "Firefox",  NULL,  NULL,  1 << 8,  0,  -1 } }; } | налаштування програми
 > добавити пачі
   └─ dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
 > sudo make clean install | збирання програми
