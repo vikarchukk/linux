@@ -1,8 +1,7 @@
-# dwm
-1. git clone https://git.suckless.org/dwm
-2. cd dwm
-3. vim config.h {
-
+[ dwm ] ( dwm.suckless.org )
+> git clone https://git.suckless.org/dwm | клонування коду програми
+> cd dwm
+> vim config.h {
 /* --- скрипти --- */
 
 /* для тегів */
@@ -139,9 +138,7 @@ static const Button buttons[] = {
 /* незнаю для чого це але якщо його відключити будуть помилки в dwm */
 static const Rule rules[] = {
   { "Gimp",     NULL,  NULL,  0,       1,  -1 },
-  { "Firefox",  NULL,  NULL,  1 << 8,  0,  -1 } };
-
-}
-4. добавити пачі (переналаштування в коді)
-   - https://dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
-5. sudo make clean install
+  { "Firefox",  NULL,  NULL,  1 << 8,  0,  -1 } }; } налаштування програми
+4. добавити пачі
+   └─ https://dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
+5. sudo make clean install | збирання програми
