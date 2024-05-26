@@ -1,5 +1,6 @@
 [ x ] (wiki.archlinux.org/title/xorg)
 > sudo pacman -S xorg-server xorg-xinit / xorg-minimal | встановлення пакетів для роботи x
+               | xorg-server xorg-xinit xorg-xset xorg-xsetroot xorg-xrandr xorg-xrdb
 > vim .xinitrc {
       setxkbmap -option caps:escape | переназначиння кнопки escape
       xrandr --output eDP-1 --mode 1680x1050 | зміна розшириння екрану (> xrandr | щоб провірити котрі доступні)
