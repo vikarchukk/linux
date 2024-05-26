@@ -2,73 +2,71 @@
 > git clone https://git.suckless.org/dwm | клонування коду програми
 > cd dwm
 > vim config.h {
-static const unsigned int borderpx  = 0; /* товщина обведення вікна */
-static const unsigned int snap = 30; /* наскільки піксилів збільшувати або зменшувати вікно */
+static const unsigned int borderpx  = 0; // товщина обведення вікна
+static const unsigned int snap = 30; // наскільки піксилів збільшувати або зменшувати вікно
 
-static const int showbar = 1; /* меню - 0 сховати / 1 показати */
-static const int topbar = 0; /* меню - 0 знизу / 1 зверху */
+static const int showbar = 1; // меню - 0 сховати | 1 показати
+static const int topbar = 0; // меню - 0 знизу | 1 зверху
 
-static const char *fonts[] = { "monocraft:size=12" }; /* шрифт і розмір */
+static const char *fonts[] = { "monocraft:size=12" }; // шрифт і розмір
 static const char *colors[][3] = {
-  [SchemeNorm] = { "#ffffff", "#000000", "#000000" }, /* схема кольорів */
-  [SchemeSel]  = { "#000000", "#ffffff", "#ffffff" } };
+  [SchemeNorm] = { "#ffffff", "#000000", "#000000" },
+  [SchemeSel]  = { "#000000", "#ffffff", "#ffffff" } }; // схема кольорів
 
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; /* теги */
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; // теги
 
-/* рижими відображиння вікон */
+// рижими відображиння вікон
 static const Layout layouts[] = {
-  { "[]=", tile }, /* дефолтне відображиння вікон */
-  { "><>", NULL }, /* вікна можна переміщати вільно */
-  { "[M]", monocle }, /* вікна наложуються один на одного, ще потрібно дізнатися як між вікнами переключатися */
+  { "[]=", tile }, // дефолтне відображиння вікон
+  { "><>", NULL }, // вікна можна переміщати вільно
+  { "[M]", monocle }, // вікна наложуються один на одного, ще потрібно дізнатися як між вікнами переключатися
 };
 
-static const float mfact = 0.55; /* розмір основної області в процентах */
-static const int nmaster = 1; /* кількість вікон в головній зоні */
-static const int resizehints = 0; /* підказки щодо розміру 1 включити */
-static const int lockfullscreen = 1; /* використовує весь екран 1 включити */
-static const int attachbelow = 1; /* налаштування від пачу котрий відкриває нові вікна збоку */
+static const float mfact = 0.55; // розмір основної області в процентах
+static const int nmaster = 1; // кількість вікон в головній зоні
+static const int resizehints = 0; // підказки щодо розміру 1 включити
+static const int lockfullscreen = 1; // використовує весь екран 1 включити
+static const int attachbelow = 1; // налаштування від пачу котрий відкриває нові вікна збоку
 
-/* скрипт для того щоб можна було переходити між тегами */
+// скрипт для того щоб можна було переходити між тегами
 void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
 
-#define MODKEY Mod4Mask /* для налаштування командної клавіші в моєму випадку це command */
+#define MODKEY Mod4Mask // для налаштування командної клавіші в моєму випадку це command
 
-/* для запуску команд */
+// для запуску команд
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
-/* для тегів */
+// для тегів
 #define TAGKEYS(KEY,TAG) \
-  { MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
-  { MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
-  { MODKEY|ShiftMask,             KEY,      tag,            {.ui = 1 << TAG} }, \
-  { MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
+  { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, \ // переходить до вибраного тегу
+  { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, \ // показує в одному вікні вибрані теги
+  { MODKEY|ShiftMask,              KEY,  tag,         {.ui = 1 << TAG} }, \ // перекидає активне вікно в вибраний тег
+  { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, // показуватиме вікно в вибарних тегах
 
-/* комбінації з клавішами для запуску скрипті */
+// комбінації з клавішами
 static const Key keys[] = {
-  { MODKEY,              XK_b,       togglebar,       {0} }, /* сховати або показати статус бар */
+  { MODKEY,              XK_b,       togglebar,       {0} }, // сховати або показати статус бар
 
-  /* вікна */
-  { MODKEY,              XK_l,       focusstack,      {.i = +1 } }, /* перейти на наступне вікно */
-  { MODKEY,              XK_k,       focusstack,      {.i = -1 } }, /* перейти на заднє вікно */
-  { MODKEY,              XK_j,       setmfact,        {.f = +0.05} }, /* збільшує ширину вікна або області */
-  { MODKEY,              XK_h,       setmfact,        {.f = -0.05} }, /* зменшує ширину вікна або області */
-  { MODKEY,              XK_o,       incnmaster,      {.i = +1 } }, /* змінює схему розкладки вікон вперед */
-  { MODKEY,              XK_i,       incnmaster,      {.i = -1 } }, /* змінює схему розкладки вікон назад */
-  { MODKEY,              XK_z,       zoom,            {0} }, /* робить вікно головним */
-  { MODKEY,              XK_c,       killclient,      {0} }, /* закрити активне вікно */
-  { MODKEY,              XK_t,       setlayout,       {.v = &layouts[0]} }, /* змінює рижим відображиння вікон на ([]=) */
-  { MODKEY,              XK_f,       setlayout,       {.v = &layouts[1]} }, /* змінює рижим відображиння вікон на (><>) */
-  { MODKEY,              XK_m,       setlayout,       {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([M]) */
-  { MODKEY,              XK_space,   setlayout,       {0} }, /* перехід між останіми рижимами для вікон */
-  { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, /* виводить вікно з схеми розкладок вікон або водить його */
+  // вікна
+  { MODKEY,              XK_l,       focusstack,      {.i = +1 } }, // перейти на наступне вікно
+  { MODKEY,              XK_k,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
+  { MODKEY,              XK_j,       setmfact,        {.f = +0.05} }, // збільшує ширину вікна або області
+  { MODKEY,              XK_h,       setmfact,        {.f = -0.05} }, // зменшує ширину вікна або області
+  { MODKEY,              XK_o,       incnmaster,      {.i = +1 } }, // змінює схему розкладки вікон вперед
+  { MODKEY,              XK_i,       incnmaster,      {.i = -1 } }, // змінює схему розкладки вікон назад
+  { MODKEY,              XK_z,       zoom,            {0} }, // робить вікно головним
+  { MODKEY,              XK_c,       killclient,      {0} }, // закрити активне вікно
+  { MODKEY,              XK_t,       setlayout,       {.v = &layouts[0]} }, // змінює рижим відображиння вікон на ([]=)
+  { MODKEY,              XK_f,       setlayout,       {.v = &layouts[1]} }, // змінює рижим відображиння вікон на (><>)
+  { MODKEY,              XK_m,       setlayout,       {.v = &layouts[2]} }, // змінює рижим відображиння вікон на ([M])
+  { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, // виводить вікно з схеми розкладок вікон або водить його
 
-  /* теги */
-  { MODKEY,              XK_Tab,     view,            {0} }, /* перехід між останіми тегами */
-  { MODKEY,              XK_0,       view,            {.ui = ~0 } }, /* перехід по тегах 1-9, 0 перегляд всіх вікон */
-  { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, /* перекидає вікна по тегам 1-9, 0 покажить вікно в всіх тегах */
-  { MODKEY,              0x5b,       shiftview,       {.i = -1 } }, /* перемикає на попередній тег */
-  { MODKEY,              0x5d,       shiftview,       {.i = +1 } }, /* перемикає на наступний тег */
-  TAGKEYS(               XK_1,                        0) /* для взаємодії з тегами */
+  // теги
+  { MODKEY,              XK_0,       view,            {.ui = ~0 } }, // перегляд всіх вікон
+  { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // показуватиме вікно в всіх тегах
+  { MODKEY,              0x5b,       shiftview,       {.i = -1 } }, // перемикає на попередній тег
+  { MODKEY,              0x5d,       shiftview,       {.i = +1 } }, // перемикає на наступний тег
+  TAGKEYS(               XK_1,                        0) // привязка тегу до клавіші
   TAGKEYS(               XK_2,                        1)
   TAGKEYS(               XK_3,                        2)
   TAGKEYS(               XK_4,                        3)
@@ -78,12 +76,10 @@ static const Key keys[] = {
   TAGKEYS(               XK_8,                        7)
   TAGKEYS(               XK_9,                        8)
 
-  { MODKEY,              XK_comma,   focusmon,        {.i = -1 } }, /* ? */
-  { MODKEY,              XK_period,  focusmon,        {.i = +1 } }, /* ? */
-  { MODKEY|ShiftMask,    XK_comma,   tagmon,          {.i = -1 } }, /* ? */
-  { MODKEY|ShiftMask,    XK_period,  tagmon,          {.i = +1 } }, /* ? */
+  { MODKEY|ShiftMask,    XK_e,       tagmon,          {.i = -1 } }, /* ? */
+  { MODKEY|ShiftMask,    XK_r,       tagmon,          {.i = +1 } }, /* ? */
 
-  { MODKEY|ShiftMask,    XK_q,       quit,            {0} }, /* виходить з графічного інтерфейсу (X) */
+  { MODKEY|ShiftMask,    XK_q,       quit,            {0} }, // виходить з графічного інтерфейсу (X)
 
   /* зміна клавіатурної розкладки */
   { MODKEY,              XK_e,       spawn,           SHCMD("setxkbmap ua") }, /* змінює розкладку клавіатури на українську */
