@@ -17,7 +17,7 @@ enum corners corner = BOTTOM_RIGHT;  /* вписати кут в якому бу
 static const unsigned int pos_x = 4; /* точка x початок розташування вікна */
 static const unsigned int pos_y = 19; /* точка у початок розташування вікна */
 
-static const unsigned int duration = 5; /* скільки секунд буде весіти  вікно */
+static const unsigned int duration = 3; /* скільки секунд буде весіти  вікно */
 
 #define DISMISS_BUTTON Button1  /* відхилити повідомлення ліва кнопка миші */
 #define ACTION_BUTTON Button3 /* приняти повідомлення права кнопка миші */ } | налаштування програми
