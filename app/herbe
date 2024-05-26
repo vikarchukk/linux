@@ -2,25 +2,25 @@
 > git clone https://github.com/dudik/herbe
 > cd herbe
 > vim config.h {
-static const char *background_color = "#000000"; /* фон */
-static const char *border_color = "#ffffff"; /* обводка */
-static const char *font_color = "#ffffff"; /* колір шрифту */
-static const char *font_pattern = "monocraft:size=12"; /* шрифт */
+static const char *background_color = "#000000"; // фон
+static const char *border_color = "#ffffff"; // обводка
+static const char *font_color = "#ffffff"; // колір шрифту
+static const char *font_pattern = "monocraft:size=12"; // шрифт
 
-static const unsigned line_spacing = 0; /* відстань між лініями */
-static const unsigned int padding = 2; /* відстань між текстом і крайом */
-static const unsigned int width = 0; /* ширина */
-static const unsigned int border_size = 0; /* товщина обводки */
+static const unsigned line_spacing = 0; // відстань між лініями
+static const unsigned int padding = 2; // відстань між текстом і крайом
+static const unsigned int width = 0; // ширина
+static const unsigned int border_size = 0; // товщина обводки
 
-enum corners { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }; /* варіанти кутів відобарження вікна */
-enum corners corner = BOTTOM_RIGHT;  /* вписати кут в якому буде відображатися вікно */
-static const unsigned int pos_x = 4; /* точка x початок розташування вікна */
-static const unsigned int pos_y = 19; /* точка у початок розташування вікна */
+enum corners { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }; // варіанти кутів відобарження вікна
+enum corners corner = BOTTOM_RIGHT; // вписати кут в якому буде відображатися вікно
+static const unsigned int pos_x = 4; // точка x початок розташування вікна
+static const unsigned int pos_y = 19; // точка у початок розташування вікна
 
-static const unsigned int duration = 3; /* скільки секунд буде весіти  вікно */
+static const unsigned int duration = 3; // скільки секунд буде весіти  вікно
 
-#define DISMISS_BUTTON Button1  /* відхилити повідомлення ліва кнопка миші */
-#define ACTION_BUTTON Button3 /* приняти повідомлення права кнопка миші */ } | налаштування програми
+#define DISMISS_BUTTON Button1  // відхилити повідомлення ліва кнопка миші
+#define ACTION_BUTTON Button3 // приняти повідомлення права кнопка миші } | налаштування програми
 > добавити пачі
   ├─ github.com/dudik/herbe/pull/14 | щоб нові вікна накладалися один на одного
   └─ github.com/dudik/herbe/issues/50 | щоб ширина вікна була дорівнювала довжині тексту
