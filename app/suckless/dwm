@@ -45,68 +45,68 @@ void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon
 
 /* комбінації з клавішами для запуску скрипті */
 static const Key keys[] = {
-  { MODKEY,            XK_b,       togglebar,       {0} }, /* сховати або показати статус бар */
+  { MODKEY,              XK_b,       togglebar,       {0} }, /* сховати або показати статус бар */
 
   /* вікна */
-  { MODKEY,            XK_l,       focusstack,      {.i = +1 } }, /* перейти на наступне вікно */
-  { MODKEY,            XK_k,       focusstack,      {.i = -1 } }, /* перейти на заднє вікно */
-  { MODKEY,            XK_j,       setmfact,        {.f = +0.05} }, /* збільшує ширину вікна або області */
-  { MODKEY,            XK_h,       setmfact,        {.f = -0.05} }, /* зменшує ширину вікна або області */
-  { MODKEY,            XK_o,       incnmaster,      {.i = +1 } }, /* змінює схему розкладки вікон вперед */
-  { MODKEY,            XK_i,       incnmaster,      {.i = -1 } }, /* змінює схему розкладки вікон назад */
-  { MODKEY,            XK_z,       zoom,            {0} }, /* робить вікно головним */
-  { MODKEY,            XK_c,       killclient,      {0} }, /* закрити активне вікно */
-  { MODKEY,            XK_t,       setlayout,       {.v = &layouts[0]} }, /* змінює рижим відображиння вікон на ([]=) */
-  { MODKEY,            XK_f,       setlayout,       {.v = &layouts[1]} }, /* змінює рижим відображиння вікон на (><>) */
-  { MODKEY,            XK_m,       setlayout,       {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([M]) */
-  { MODKEY,            XK_space,   setlayout,       {0} }, /* перехід між останіми рижимами для вікон */
-  { MODKEY|ShiftMask,  XK_space,   togglefloating,  {0} }, /* виводить вікно з схеми розкладок вікон або водить його */
+  { MODKEY,              XK_l,       focusstack,      {.i = +1 } }, /* перейти на наступне вікно */
+  { MODKEY,              XK_k,       focusstack,      {.i = -1 } }, /* перейти на заднє вікно */
+  { MODKEY,              XK_j,       setmfact,        {.f = +0.05} }, /* збільшує ширину вікна або області */
+  { MODKEY,              XK_h,       setmfact,        {.f = -0.05} }, /* зменшує ширину вікна або області */
+  { MODKEY,              XK_o,       incnmaster,      {.i = +1 } }, /* змінює схему розкладки вікон вперед */
+  { MODKEY,              XK_i,       incnmaster,      {.i = -1 } }, /* змінює схему розкладки вікон назад */
+  { MODKEY,              XK_z,       zoom,            {0} }, /* робить вікно головним */
+  { MODKEY,              XK_c,       killclient,      {0} }, /* закрити активне вікно */
+  { MODKEY,              XK_t,       setlayout,       {.v = &layouts[0]} }, /* змінює рижим відображиння вікон на ([]=) */
+  { MODKEY,              XK_f,       setlayout,       {.v = &layouts[1]} }, /* змінює рижим відображиння вікон на (><>) */
+  { MODKEY,              XK_m,       setlayout,       {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([M]) */
+  { MODKEY,              XK_space,   setlayout,       {0} }, /* перехід між останіми рижимами для вікон */
+  { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, /* виводить вікно з схеми розкладок вікон або водить його */
 
   /* теги */
-  { MODKEY,            XK_Tab,     view,            {0} }, /* перехід між останіми тегами */
-  { MODKEY,            XK_0,       view,            {.ui = ~0 } }, /* перехід по тегах 1-9, 0 перегляд всіх вікон */
-  { MODKEY|ShiftMask,  XK_0,       tag,             {.ui = ~0 } }, /* перекидає вікна по тегам 1-9, 0 покажить вікно в всіх тегах */
-  { MODKEY,            0x5b,       shiftview,       {.i = -1 } }, /* перемикає на попередній тег */
-  { MODKEY,            0x5d,       shiftview,       {.i = +1 } }, /* перемикає на наступний тег */
-  TAGKEYS(             XK_1,                        0) /* для взаємодії з тегами */
-  TAGKEYS(             XK_2,                        1)
-  TAGKEYS(             XK_3,                        2)
-  TAGKEYS(             XK_4,                        3)
-  TAGKEYS(             XK_5,                        4)
-  TAGKEYS(             XK_6,                        5)
-  TAGKEYS(             XK_7,                        6)
-  TAGKEYS(             XK_8,                        7)
-  TAGKEYS(             XK_9,                        8)
+  { MODKEY,              XK_Tab,     view,            {0} }, /* перехід між останіми тегами */
+  { MODKEY,              XK_0,       view,            {.ui = ~0 } }, /* перехід по тегах 1-9, 0 перегляд всіх вікон */
+  { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, /* перекидає вікна по тегам 1-9, 0 покажить вікно в всіх тегах */
+  { MODKEY,              0x5b,       shiftview,       {.i = -1 } }, /* перемикає на попередній тег */
+  { MODKEY,              0x5d,       shiftview,       {.i = +1 } }, /* перемикає на наступний тег */
+  TAGKEYS(               XK_1,                        0) /* для взаємодії з тегами */
+  TAGKEYS(               XK_2,                        1)
+  TAGKEYS(               XK_3,                        2)
+  TAGKEYS(               XK_4,                        3)
+  TAGKEYS(               XK_5,                        4)
+  TAGKEYS(               XK_6,                        5)
+  TAGKEYS(               XK_7,                        6)
+  TAGKEYS(               XK_8,                        7)
+  TAGKEYS(               XK_9,                        8)
 
-  { MODKEY,            XK_comma,   focusmon,        {.i = -1 } }, /* ? */
-  { MODKEY,            XK_period,  focusmon,        {.i = +1 } }, /* ? */
-  { MODKEY|ShiftMask,  XK_comma,   tagmon,          {.i = -1 } }, /* ? */
-  { MODKEY|ShiftMask,  XK_period,  tagmon,          {.i = +1 } }, /* ? */
+  { MODKEY,              XK_comma,   focusmon,        {.i = -1 } }, /* ? */
+  { MODKEY,              XK_period,  focusmon,        {.i = +1 } }, /* ? */
+  { MODKEY|ShiftMask,    XK_comma,   tagmon,          {.i = -1 } }, /* ? */
+  { MODKEY|ShiftMask,    XK_period,  tagmon,          {.i = +1 } }, /* ? */
 
-  { MODKEY|ShiftMask,  XK_q,       quit,            {0} }, /* виходить з графічного інтерфейсу (X) */
+  { MODKEY|ShiftMask,    XK_q,       quit,            {0} }, /* виходить з графічного інтерфейсу (X) */
 
   /* зміна клавіатурної розкладки */
-  { MODKEY,            XK_e,       spawn,           SHCMD("setxkbmap ua") }, /* змінює розкладку клавіатури на українську */
-  { MODKEY,            0x6d5,      spawn,           SHCMD("setxkbmap us") }, /* змінює розкладку клавіатури на англійську */
+  { MODKEY,              XK_e,       spawn,           SHCMD("setxkbmap ua") }, /* змінює розкладку клавіатури на українську */
+  { MODKEY,              0x6d5,      spawn,           SHCMD("setxkbmap us") }, /* змінює розкладку клавіатури на англійську */
 
   /* зміна гучності звуку */
-  { MODKEY,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, /* збільшує звук */
-  { MODKEY,            0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, /* зменшує звук */
+  { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, /* збільшує звук */
+  { MODKEY,              0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, /* зменшує звук */
 
   /* зміна підсвідчування екрану */
-  { MODKEY|ShiftMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, /* збільшує яскравість екрану */
-  { MODKEY|ShiftMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, /* зменшує яскравість екрану */
+  { MODKEY|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, /* збільшує яскравість екрану */
+  { MODKEY|ShiftMask,    0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, /* зменшує яскравість екрану */
 
   /* зміна підсвідчування клавіатури */
-  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 10)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, /* збільшує яскравість клавіатури */
-  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 10)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, /* зменшує яскравість клавіатури */
+  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, /* збільшує яскравість клавіатури */
+  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, /* зменшує яскравість клавіатури */
 
   /* відкриття програм */
-  { MODKEY,            XK_p,       spawn,           SHCMD("dmenu_run") },
-  { MODKEY|ShiftMask,  XK_Return,  spawn,           SHCMD("alacritty") },
-  { MODKEY|ShiftMask,  XK_z,       spawn,           SHCMD("chromium") },
-  { MODKEY|ShiftMask,  XK_s,       spawn,           SHCMD("alacritty -e btop") },
-  { MODKEY|ShiftMask,  XK_g,       spawn,           SHCMD("steam") },
+  { MODKEY,              XK_p,       spawn,           SHCMD("dmenu_run") },
+  { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("alacritty") },
+  { MODKEY|ShiftMask,    XK_z,       spawn,           SHCMD("chromium") },
+  { MODKEY|ShiftMask,    XK_s,       spawn,           SHCMD("alacritty -e btop") },
+  { MODKEY|ShiftMask,    XK_g,       spawn,           SHCMD("steam") },
 };
 
 /* комбінація для мишки */
