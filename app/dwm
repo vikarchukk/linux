@@ -42,7 +42,7 @@ void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon
   { MODKEY|ShiftMask,              KEY,  tag,         {.ui = 1 << TAG} }, /* перекидає активне вікно в вибраний тег */ \
   { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* показуватиме вікно в вибарних тегах */
 
-// комбінації з клавішами
+// комбінації для клавіатури
 static const Key keys[] = {
   { MODKEY,              XK_b,       togglebar,       {0} }, // сховати або показати статус бар
 
@@ -75,28 +75,25 @@ static const Key keys[] = {
   TAGKEYS(               XK_8,                        7)
   TAGKEYS(               XK_9,                        8)
 
-  { MODKEY|ShiftMask,    XK_e,       tagmon,          {.i = -1 } }, /* ? */
-  { MODKEY|ShiftMask,    XK_r,       tagmon,          {.i = +1 } }, /* ? */
-
   { MODKEY|ShiftMask,    XK_q,       quit,            {0} }, // виходить з графічного інтерфейсу (X)
 
-  /* зміна клавіатурної розкладки */
-  { MODKEY,              XK_e,       spawn,           SHCMD("setxkbmap ua") }, /* змінює розкладку клавіатури на українську */
-  { MODKEY,              0x6d5,      spawn,           SHCMD("setxkbmap us") }, /* змінює розкладку клавіатури на англійську */
+  // зміна клавіатурної розкладки
+  { MODKEY,              XK_e,       spawn,           SHCMD("setxkbmap ua") }, // змінює розкладку клавіатури на українську
+  { MODKEY,              0x6d5,      spawn,           SHCMD("setxkbmap us") }, // змінює розкладку клавіатури на англійську
 
-  /* зміна гучності звуку */
-  { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, /* збільшує звук */
-  { MODKEY,              0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, /* зменшує звук */
+  // зміна гучності звуку
+  { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшує звук
+  { MODKEY,              0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // зменшує звук
 
-  /* зміна підсвідчування екрану */
-  { MODKEY|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, /* збільшує яскравість екрану */
-  { MODKEY|ShiftMask,    0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, /* зменшує яскравість екрану */
+  // зміна підсвідчування екрану
+  { MODKEY|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // збільшує яскравість екрану
+  { MODKEY|ShiftMask,    0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // зменшує яскравість екрану
 
-  /* зміна підсвідчування клавіатури */
-  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, /* збільшує яскравість клавіатури */
-  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, /* зменшує яскравість клавіатури */
+  // зміна підсвідчування клавіатури
+  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // збільшує яскравість клавіатури
+  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // зменшує яскравість клавіатури
 
-  /* відкриття програм */
+  // відкриття програм
   { MODKEY,              XK_p,       spawn,           SHCMD("dmenu_run") },
   { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("alacritty") },
   { MODKEY|ShiftMask,    XK_z,       spawn,           SHCMD("chromium") },
@@ -104,30 +101,19 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,    XK_g,       spawn,           SHCMD("steam") },
 };
 
-/* комбінація для мишки */
+// комбінація для мишки
 static const Button buttons[] = {
-  /* клік на символ режиму */
-  { ClkLtSymbol,    0,       Button1,  setlayout,       {0} }, /* змінює рижим відображиння вікон на (><>) */
-  { ClkLtSymbol,    0,       Button3,  setlayout,       {.v = &layouts[2]} }, /* змінює рижим відображиння вікон на ([]=) */
+  // клік на вікно програми
+  { ClkClientWin,   MODKEY,       Button1,  movemouse,       {0} }, // переміщає вікно
+  { ClkClientWin,   ControlMask,  Button1,  resizemouse,     {0} }, // змінює розмір вікна
 
-  /* клік на вікно програми */
-  { ClkClientWin,   MODKEY,  Button1,  movemouse,       {0} }, /* переміщає вікно */
-  { ClkClientWin,   MODKEY,  Button2,  togglefloating,  {0} }, /* ? */
-  { ClkClientWin,   MODKEY,  Button3,  resizemouse,     {0} }, /* змінює розмір вікна */
-
-  /* клік на теги */
-  { ClkTagBar,      0,       Button1,  view,            {0} }, /* перегляд тегу */
-  { ClkTagBar,      0,       Button3,  toggleview,      {0} }, /* ? */
-  { ClkTagBar,      MODKEY,  Button1,  tag,             {0} }, /* переміщення вікна до тегу тегу */
-  { ClkTagBar,      MODKEY,  Button3,  toggletag,       {0} }, /* ? */
-
-  { ClkWinTitle,    0,       Button2,  zoom,            {0} } /* ? */ 
+  // клік на тег
+  { ClkTagBar,      0,            Button1,  view,            {0} }, // перегляд тегу
+  { ClkTagBar,      MODKEY,       Button1,  tag,             {0} }, // переміщення вікна до тегу
 };
 
-/* незнаю для чого це але якщо його відключити будуть помилки в dwm */
-static const Rule rules[] = {
-  { "Gimp",     NULL,  NULL,  0,       1,  -1 },
-  { "Firefox",  NULL,  NULL,  1 << 8,  0,  -1 } }; } | налаштування програми
+// налаштування де і як буду відкриватися програми
+static const Rule rules[0] = {}; } | налаштування програми
 > добавити пачі
   ├─ видалити dmenu з dwm.c (2 рядка)
   └─ dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
