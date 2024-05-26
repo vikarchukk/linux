@@ -3,7 +3,7 @@
 > cd dwm
 > vim config.h {
 static const unsigned int borderpx  = 0; // товщина обведення вікна
-static const unsigned int gappx = 5; // проміжок пікселів між вікнами
+static const unsigned int gappx = 8; // проміжок пікселів між вікнами
 static const unsigned int snap = 30; // наскільки піксилів збільшувати або зменшувати вікно
 
 static const int showbar = 1; // меню - 0 сховати | 1 показати
