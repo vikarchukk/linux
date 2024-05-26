@@ -117,6 +117,6 @@ static const Button buttons[] = {
 static const Rule rules[0] = {}; } | налаштування програми
 > добавити пачі
   ├─ видалити dmenu з dwm.c (2 рядка)
-  ├─ dwm.suckless.org/patches/gaps/ | щоб появився проміжок між вікнами
+  ├─ dwm.suckless.org/patches/fullgaps/ | щоб появився проміжок між вікнами
   └─ dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
 > sudo make clean install | збирання програми
