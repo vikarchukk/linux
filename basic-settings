@@ -77,3 +77,8 @@
 > echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 50)) | tee /sys/class/leds/apple::kbd_backlight/brightness | зменшує підсвітку клавіатури на 50
 > cat /sys/class/leds/apple::kbd_backlight/brightness | значення підсвітки клавіатури
 > cat /sys/class/leds/apple::kbd_backlight/max_brightness | максимальне значення підсвітки клавіатури
+
+[ font ] ( github.com/IdreesInc/Monocraft )
+> скачати Monocraft.ttf - https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
+> mv Monocraft.ttf ~/.local/share/fonts | перекидання в папку для шрифтів
+> fc-cache -fv | оновлення налаштувань шрифтів
