@@ -2,16 +2,16 @@
 > git clone https://git.suckless.org/slstatus
 > cd slstatus
 > vim config.h {
-const unsigned int interval = 1000; /* інтервал оновлення даних в мілісекундах */
-static const char unknown_str[] = "-"; /* символ який буде показуватися коли не знайдено даних */
-#define MAXLEN 2048 /* ? */
+const unsigned int interval = 1000; // інтервал оновлення даних в мілісекундах
+static const char unknown_str[] = "-"; // символ який буде показуватися коли не знайдено даних
+#define MAXLEN 2048 // ?
 static const struct arg args[] = {
-  { keymap,             " =[ %s ]",  NULL }, /* розкладка клавіатури */
-  { cat,                "-[ %sF |",  "/sys/class/hwmon/hwmon3/device/fan2_input"}, /* скорість вентеляторів */
-  { temp,               " %s°С |",   "/sys/class/thermal/thermal_zone2/temp" }, /* темперетура найгарачішого процесора */
-  { cpu_perc,           " %s% |",    NULL }, /* середня загруженість процесорів */
-  { run_command,        " %sMB ]",   "free | awk '/Mem/ {print int($3/1024)}'" }, /* кількість оперативної памяті котра використовується */
-  { battery_perc,       "-[ %s% ]",  "BAT0" }, /* батерея */
-  { datetime,           "-[ %s ]",   "%H:%M:%S" }, /* час */
+  { keymap,             " =[ %s ]",  NULL }, // розкладка клавіатури
+  { cat,                "-[ %sF |",  "/sys/class/hwmon/hwmon3/device/fan2_input"}, // скорість вентеляторів
+  { temp,               " %s°С |",   "/sys/class/thermal/thermal_zone2/temp" }, // темперетура найгарачішого процесора
+  { cpu_perc,           " %s% |",    NULL }, // середня загруженість процесорів
+  { run_command,        " %sMB ]",   "free | awk '/Mem/ {print int($3/1024)}'" }, // кількість оперативної памяті котра використовується
+  { battery_perc,       "-[ %s% ]",  "BAT0" }, // батерея
+  { datetime,           "-[ %s ]",   "%H:%M:%S" }, // час
 }; } | налаштування програми
 > sudo make clean install | збирання програми
