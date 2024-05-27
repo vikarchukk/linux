@@ -79,7 +79,7 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,    XK_q,       quit,            {0} }, // виходить з графічного інтерфейсу (X)
 
   // зміна клавіатурної розкладки
-  { MODKEY, XK_space, spawn, SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi") }, // змінює розкладку клавіатури між українською і англійською
+  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi") }, // змінює розкладку клавіатури між українською і англійською
 
   // зміна гучності звуку
   { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшує звук
