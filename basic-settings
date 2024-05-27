@@ -82,3 +82,9 @@
 > скачати Monocraft.ttf - https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
 > mv Monocraft.ttf ~/.local/share/fonts | перекидання в папку для шрифтів
 > fc-cache -fv | оновлення налаштувань шрифтів
+
+[ cursor ] ( github.com/vinceliuice/WhiteSur-cursors )
+> git clone https://github.com/vinceliuice/WhiteSur-cursors
+> cp -pr dist ~/.local/share/icons/WhiteSur-cursors
+  | -r - для того щоб всі вкладині файли були скопійовані
+  | -p - 
