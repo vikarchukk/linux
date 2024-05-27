@@ -83,15 +83,14 @@
 > mv Monocraft.ttf ~/.local/share/fonts | перекидання в папку для шрифтів
 > fc-cache -fv | оновлення налаштувань шрифтів
 
-[ cursor ] ( github.com/vinceliuice/WhiteSur-cursors | wiki.archlinux.org/title/Cursor_themes_(Русский) )
-> git clone https://github.com/vinceliuice/WhiteSur-cursors
-> cd WhiteSur-cursors
-> mv dist apple-cursor | змінює назву
-> sudo mv apple-cursor /usr/share/icons | переміщає в папку для іконок
+[ cursor ] ( github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes_(Русский) )
+> скачати - https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz
+> tar -xvf macOS.tar.xz | розпакувати
+> sudo mv macOS /usr/share/icons | переміщає в папку для іконок
 > sudo vim /usr/share/icons/default/index.theme {
            [Icon Theme]
-           Inherits=apple-cursor } | налаштування теми курсора
-> vim ~/.Xresources { Xcursor.size: 32 } | розмір курсора
+           Inherits=macOS } | налаштування теми курсора
+> vim ~/.Xresources { Xcursor.size: 40 } | розмір курсора
   > vim ~/.xinitrc { xrdb ~/.Xresources # активація налаштування розміру курсору }
 > reboot | перезагрузка для оновлення налаштувань
 
