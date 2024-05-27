@@ -95,7 +95,7 @@ static const Key keys[] = {
 
   // буфер обміну
   { MODKEY,              XK_c,       spawn,           SHCMD("xclip -selection clipboard -o") }, // скопіювати
-  { MODKEY,              XK_p,       spawn,           SHCMD("xclip -selection clipboard -i") }, // вставити
+  { MODKEY,              XK_v,       spawn,           SHCMD("xclip -selection clipboard -i") }, // вставити
 
   // відкриття програм
   { MODKEY,              XK_p,       spawn,           SHCMD("dmenu_run") },
