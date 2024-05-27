@@ -80,7 +80,7 @@
 
 [ font ] ( github.com/IdreesInc/Monocraft )
 > скачати Monocraft.ttf - https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
-> mv Monocraft.ttf ~/.local/share/fonts | перекидання в папку для шрифтів
+> sudo mv Monocraft.ttf /usr/share/fonts/ | перекидання в папку для шрифтів
 > fc-cache -fv | оновлення налаштувань шрифтів
 
 [ cursor ] ( github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes_(Русский) )
