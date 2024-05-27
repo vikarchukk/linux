@@ -83,7 +83,7 @@
 > sudo mv Monocraft.ttf /usr/share/fonts/ | перекидання в папку для шрифтів
 > fc-cache -fv | оновлення налаштувань шрифтів
 
-[ cursor ] ( github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes_(Русский) | wiki.archlinux.org/title/Mouse_acceleration )
+[ cursor ] ( github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes | wiki.archlinux.org/title/Mouse_acceleration | wiki.archlinux.org/title/Touchpad_Synaptics )
 > скачати - https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz
 > tar -xvf macOS.tar.xz | розпакувати
 > sudo mv macOS /usr/share/icons | переміщає в папку для іконок
