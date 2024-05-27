@@ -9,7 +9,7 @@
       xrdb ~/.Xresources # активація налаштування розміру курсору
       setxkbmap -option caps:escape # переназначиння кнопки escape
       xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (> xrandr | щоб провірити котрі доступні)
-      xrandr --output eDP-1 --gamma 1.0:0.8:0.7 # налаштування гами екрану для очей
+      xrandr --output eDP-1 --gamma 1.0:0.8:0.7 # налаштування гами екрану для очей (1.0:1.0:1.0 дефолтні)
       xsetroot -bitmap grid_penta.xbm # ставить фон (github.com/dkeg/bitmap-walls)
       slstatus & # запуск програми для відображиння даних про пк
       exec dwm # віконий менеджер } | які програми будуть запущині зразу після запуску x
