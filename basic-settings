@@ -93,3 +93,8 @@
       [Icon Theme]
       Name=WhiteSur Cursors } | налаштування курсора
 > reboot | перезагрузка для оновлення налаштувань
+
+[ clipboard ] ( github.com/astrand/xclip )
+> sudo pacman -S xclip
+> xclip -selection clipboard -o | копіює виділений текст
+> xclip -selection clipboard -i | вставляє текст
