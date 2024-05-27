@@ -78,7 +78,7 @@
 > cat /sys/class/leds/apple::kbd_backlight/brightness | значення підсвітки клавіатури
 > cat /sys/class/leds/apple::kbd_backlight/max_brightness | максимальне значення підсвітки клавіатури
 
-[ font ] ( github.com/IdreesInc/Monocraft )
+[ font ] ( github.com/IdreesInc/Monocraft | wiki.archlinux.org/title/Fonts_(Українська) )
 > скачати Monocraft.ttf - https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
 > sudo mv Monocraft.ttf /usr/share/fonts/ | перекидання в папку для шрифтів
 > fc-cache -fv | оновлення налаштувань шрифтів
