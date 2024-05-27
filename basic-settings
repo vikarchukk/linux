@@ -85,6 +85,10 @@
 
 [ cursor ] ( github.com/vinceliuice/WhiteSur-cursors )
 > git clone https://github.com/vinceliuice/WhiteSur-cursors
-> sudo cp -pr dist /usr/share/icons/WhiteSur-cursors
+> cd WhiteSur-cursors
+> sudo cp -pr dist /usr/share/icons/WhiteSur-cursors | копіювання курсор в папку для іконок
   | -r - для того щоб всі вкладині файли були скопійовані
-  | -p - 
+  | -p - зберігає властивості файлів
+> sudo vim /usr/share/icons/default/index.theme {
+      [Icon Theme]
+      Name=WhiteSur Cursors } | налаштування курсора
