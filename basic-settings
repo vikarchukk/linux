@@ -83,15 +83,14 @@
 > mv Monocraft.ttf ~/.local/share/fonts | перекидання в папку для шрифтів
 > fc-cache -fv | оновлення налаштувань шрифтів
 
-[ cursor ] ( github.com/vinceliuice/WhiteSur-cursors )
+[ cursor ] ( github.com/vinceliuice/WhiteSur-cursors | wiki.archlinux.org/title/Cursor_themes_(Русский) )
 > git clone https://github.com/vinceliuice/WhiteSur-cursors
 > cd WhiteSur-cursors
-> sudo cp -pr dist /usr/share/icons/WhiteSur-cursors | копіювання курсор в папку для іконок
-  | -r - для того щоб всі вкладині файли були скопійовані
-  | -p - зберігає властивості файлів
+> mv dist apple-cursor | змінює назву
+> sudo mv apple-cursor /usr/share/icons | переміщає в папку для іконок
 > sudo vim /usr/share/icons/default/index.theme {
-      [Icon Theme]
-      Name=WhiteSur Cursors } | налаштування курсора
+           [Icon Theme]
+           Inherits=apple-cursor } | налаштування теми курсора
 > reboot | перезагрузка для оновлення налаштувань
 
 [ clipboard ] ( github.com/astrand/xclip )
