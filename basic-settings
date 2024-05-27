@@ -92,3 +92,4 @@
 > sudo vim /usr/share/icons/default/index.theme {
       [Icon Theme]
       Name=WhiteSur Cursors } | налаштування курсора
+> reboot | перезагрузка для оновлення налаштувань
