@@ -92,7 +92,7 @@
            [Icon Theme]
            Inherits=apple-cursor } | налаштування теми курсора
 > vim ~/.Xresources { Xcursor.size: 32 } | розмір курсора
-  > vim ~/.xinitrc { xrdb ~/.Xresources } | активація налаштування розміру
+  > vim ~/.xinitrc { xrdb ~/.Xresources # активація налаштування розміру курсору }
 > reboot | перезагрузка для оновлення налаштувань
 
 [ clipboard ] ( github.com/astrand/xclip )
