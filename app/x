@@ -2,7 +2,7 @@
 > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr | встановлення пакетів для роботи x
   │ xorg-server - сервер x
   │ xorg-xrdb - база даних для сервера x
-  │ xorg-xinit - для запуску x (startx/.xinitrc)
+  │ xorg-xinit - для запуску x
   │ xorg-xsetroot - для заставки екрану
   └ xorg-xrandr - для розширення екрану
 > vim .xinitrc {
