@@ -93,8 +93,3 @@
 > vim ~/.Xresources { Xcursor.size: 40 } | розмір курсора
   > vim ~/.xinitrc { xrdb ~/.Xresources # активація налаштування розміру курсору }
 > reboot | перезагрузка для оновлення налаштувань
-
-[ clipboard ] ( github.com/astrand/xclip )
-> sudo pacman -S xclip
-> xclip -selection clipboard -o | копіює виділений текст
-> xclip -selection clipboard -i | вставляє текст
