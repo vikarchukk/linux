@@ -9,7 +9,7 @@ static const char *colors[SchemeLast][2] = {
   [SchemeSel] = { "#000000", "#ffffff" },
   [SchemeOut] = { "#000000", "#ffffff" },
 }; // схема кольорів
-static const char *prompt = "$"; // можна написати текст і беде підказка з ліва "шукати: ..."
+static const char *prompt = "#"; // можна написати текст і беде підказка з ліва "шукати: ..."
 static unsigned int lines = 0; // скільки відповідів показувати якщо 0 то автоматично підбирається
 static const char worddelimiters[] = " "; // визначає символи які не вважаються частиною слова
 } | налаштування програми
