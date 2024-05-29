@@ -36,10 +36,10 @@ void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } } // для запуску команд
 
 #define TAGKEYS(KEY,TAG) \
-  { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, /* переходить до вибраного тегу */ \
-  { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* показує в одному вікні вибрані теги */ \
-  { MODKEY|ShiftMask,              KEY,  tag,         {.ui = 1 << TAG} }, /* перекидає активне вікно в вибраний тег */ \
-  { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* показуватиме вікно в вибарних тегах */
+  { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, /* перейти до вибраного тегу */ \
+  { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* обєднує вікна вибраних тегів */ \
+  { MODKEY|ShiftMask,              KEY,  tag,         {.ui = 1 << TAG} }, /* перекинути активне вікно в вибраний тег */ \
+  { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* відобразити активне вікно в вибраних тегах */
 
 // комбінації для клавіатури
 static const Key keys[] = {
@@ -47,8 +47,8 @@ static const Key keys[] = {
 
   // вікна
   { MODKEY,              XK_l,       focusstack,      {.i = +1 } }, // перейти на наступне вікно
-  { MODKEY,              XK_k,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
-  { MODKEY,              XK_j,       setmfact,        {.f = +0.05} }, // збільшує ширину вікна або області
+  { MODKEY,              ,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
+  { MODKEY,              ,       setmfact,        {.f = +0.05} }, // збільшує ширину вікна або області
   { MODKEY,              XK_h,       setmfact,        {.f = -0.05} }, // зменшує ширину вікна або області
   { MODKEY,              XK_o,       incnmaster,      {.i = +1 } }, // змінює схему розкладки вікон вперед
   { MODKEY,              XK_i,       incnmaster,      {.i = -1 } }, // змінює схему розкладки вікон назад
@@ -60,11 +60,11 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, // виводить вікно з схеми розкладок вікон або водить його
 
   // теги
-  { MODKEY,              XK_0,       view,            {.ui = ~0 } }, // перегляд всіх вікон
-  { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // показуватиме вікно в всіх тегах
-  { MODKEY,              0x5b,       shiftview,       {.i = -1 } }, // перемикає на попередній тег
-  { MODKEY,              0x5d,       shiftview,       {.i = +1 } }, // перемикає на наступний тег
-  TAGKEYS(               XK_1,                        0) // привязка тегу до клавіші
+  { MODKEY,              XK_0,       view,            {.ui = ~0 } }, // переглянути всі вікна
+  { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // відобразити вікно в всіх тегах
+  { MODKEY,              XK_j,       shiftview,       {.i = -1 } }, // перейти на задній тег
+  { MODKEY,              XK_k,       shiftview,       {.i = +1 } }, // перейти на наступний тег
+  TAGKEYS(               XK_1,                        0) // привязати теги до клавіш
   TAGKEYS(               XK_2,                        1)
   TAGKEYS(               XK_3,                        2)
   TAGKEYS(               XK_4,                        3)
@@ -109,9 +109,9 @@ static const Button buttons[] = {
   { ClkClientWin,   MODKEY,            Button1,  movemouse,    {0} }, // переміщає вікно
   { ClkClientWin,   MODKEY|ShiftMask,  Button1,  resizemouse,  {0} }, // змінює розмір вікна
 
-  // клік на тег
-  { ClkTagBar,      0,                 Button1,  view,         {0} }, // перегляд тегу
-  { ClkTagBar,      MODKEY,            Button1,  tag,          {0} }, // переміщення вікна до тегу
+  // теги
+  { ClkTagBar,      0,                 Button1,  view,         {0} }, // перейти до вибраного тегу
+  { ClkTagBar,      MODKEY,            Button1,  tag,          {0} }, // перекинути активне вікно в вибраний тег
 };
 
 // налаштування де і як буду відкриватися програми
