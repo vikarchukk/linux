@@ -45,7 +45,3 @@ vieb
 └─ command / :
    ├─ help - документація
    └─ q - вийти з vieb (або ZZ)
-| search [ / + what ] / go [ n ]
-| save [ w ]
-| exit [ :q ] / [ shift + zz ]
-| 
