@@ -18,7 +18,7 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; // 
 
 // рижими відображиння вікон
 static const Layout layouts[] = {
-  { "[]=", tile }, // дефолтне відображиння вікон
+  { "[]=", tile }, // головна зона + другорядна зона
   { "><>", NULL }, // вікна можна переміщати вільно
   { "[M]", monocle }, // вікна наложуються один на одного
 };
@@ -43,22 +43,6 @@ void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon
 
 // комбінації для клавіатури
 static const Key keys[] = {
-  { MODKEY,              XK_b,       togglebar,       {0} }, // сховати або показати статус бар
-
-  // вікна
-  { MODKEY,              XK_l,       focusstack,      {.i = +1 } }, // перейти на наступне вікно
-  { MODKEY,              ,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
-  { MODKEY,              ,       setmfact,        {.f = +0.05} }, // збільшує ширину вікна або області
-  { MODKEY,              XK_h,       setmfact,        {.f = -0.05} }, // зменшує ширину вікна або області
-  { MODKEY,              XK_o,       incnmaster,      {.i = +1 } }, // змінює схему розкладки вікон вперед
-  { MODKEY,              XK_i,       incnmaster,      {.i = -1 } }, // змінює схему розкладки вікон назад
-  { MODKEY,              XK_z,       zoom,            {0} }, // робить вікно головним
-  { MODKEY,              XK_d,       killclient,      {0} }, // закрити активне вікно
-  { MODKEY,              XK_t,       setlayout,       {.v = &layouts[0]} }, // змінює рижим відображиння вікон на ([]=)
-  { MODKEY,              XK_f,       setlayout,       {.v = &layouts[1]} }, // змінює рижим відображиння вікон на (><>)
-  { MODKEY,              XK_m,       setlayout,       {.v = &layouts[2]} }, // змінює рижим відображиння вікон на ([M])
-  { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, // виводить вікно з схеми розкладок вікон або водить його
-
   // теги
   { MODKEY,              XK_0,       view,            {.ui = ~0 } }, // переглянути всі вікна
   { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // відобразити вікно в всіх тегах
@@ -73,6 +57,22 @@ static const Key keys[] = {
   TAGKEYS(               XK_7,                        6)
   TAGKEYS(               XK_8,                        7)
   TAGKEYS(               XK_9,                        8)
+
+  // вікна
+  { MODKEY,              XK_l,       focusstack,      {.i = +1 } }, // перейти на наступне вікно
+  { MODKEY,              XK_h,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
+  { MODKEY|ShiftMask,    XK_l,       setmfact,        {.f = +0.05} }, // збільшити ширину головної зони
+  { MODKEY|ShiftMask,    XK_h,       setmfact,        {.f = -0.05} }, // зменшити ширину головної зони
+  { MODKEY|ControlMask,  XK_l,       incnmaster,      {.i = +1 } }, // перейти на наступну розкладку вікон
+  { MODKEY|ControlMask,  XK_h,       incnmaster,      {.i = -1 } }, // перейти на задню розкладку вікон
+  { MODKEY,              XK_Return,  zoom,            {0} }, // перемістити вікно в головну зону
+  { MODKEY,              XK_d,       killclient,      {0} }, // закрити вікно
+  { MODKEY,              XK_n,       setlayout,       {.v = &layouts[0]} }, // режим класичний відображення вікон []=
+  { MODKEY,              XK_b,       setlayout,       {.v = &layouts[1]} }, // режим вільний відображиння вікон ><>
+  { MODKEY,              XK_m,       setlayout,       {.v = &layouts[2]} }, // режим монокля відображиння вікон [M]
+  { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, // вести або вивести вікно з схеми вікон
+
+  { MODKEY,              ,       togglebar,       {0} }, // сховати або показати статус бар
 
   { MODKEY|ShiftMask,    XK_q,       quit,            {0} }, // виходить з графічного інтерфейсу (X)
 
@@ -105,9 +105,9 @@ static const Key keys[] = {
 
 // комбінація для мишки
 static const Button buttons[] = {
-  // клік на вікно програми
-  { ClkClientWin,   MODKEY,            Button1,  movemouse,    {0} }, // переміщає вікно
-  { ClkClientWin,   MODKEY|ShiftMask,  Button1,  resizemouse,  {0} }, // змінює розмір вікна
+  // вікна
+  { ClkClientWin,   MODKEY,            Button1,  movemouse,    {0} }, // перемістити вікно
+  { ClkClientWin,   MODKEY|ShiftMask,  Button1,  resizemouse,  {0} }, // змінити розмір вікна
 
   // теги
   { ClkTagBar,      0,                 Button1,  view,         {0} }, // перейти до вибраного тегу
@@ -119,7 +119,7 @@ static const Rule rules[0] = {}; } | налаштування програми
 > добавити пачі
   ├─ видалити dmenu з dwm.c (2 рядка)
   ├─ dwm.suckless.org/patches/fullgaps/ | щоб появився проміжок між вікнами
-  │  └─ щоб проміжок також був в рижимі monocle
+  │  └─ щоб проміжок також був в режимі monocle
   │     │ - resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
   │     └ + resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);
   └─ dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
