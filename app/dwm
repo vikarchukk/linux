@@ -9,6 +9,12 @@ static const unsigned int snap = 10; // наскільки піксилів зб
 static const int showbar = 1; // меню - 0 сховати | 1 показати
 static const int topbar = 0; // меню - 0 знизу | 1 зверху
 
+static const float mfact = 0.55; // розмір основної області в процентах
+static const int nmaster = 1; // кількість вікон в головній зоні
+static const int resizehints = 0; // підказки щодо розміру 1 включити
+static const int lockfullscreen = 1; // використовує весь екран 1 включити
+static const int attachbelow = 1; // налаштування від пачу котрий відкриває нові вікна збоку
+
 static const char *fonts[] = { "monocraft:size=12" }; // шрифт і розмір
 static const char *colors[][3] = {
   [SchemeNorm] = { "#ffffff", "#000000", "#000000" },
@@ -23,18 +29,11 @@ static const Layout layouts[] = {
   { "[M]", monocle }, // вікна наложуються один на одного
 };
 
-static const float mfact = 0.55; // розмір основної області в процентах
-static const int nmaster = 1; // кількість вікон в головній зоні
-static const int resizehints = 0; // підказки щодо розміру 1 включити
-static const int lockfullscreen = 1; // використовує весь екран 1 включити
-static const int attachbelow = 1; // налаштування від пачу котрий відкриває нові вікна збоку
-
 // скрипт для того щоб можна було переходити між тегами
 void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
 
 #define MODKEY Mod4Mask // для налаштування командної клавіші в моєму випадку це command
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } } // для запуску команд
-
 #define TAGKEYS(KEY,TAG) \
   { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, /* перейти до вибраного тегу */ \
   { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* обєднує вікна вибраних тегів */ \
@@ -72,34 +71,34 @@ static const Key keys[] = {
   { MODKEY,              XK_m,       setlayout,       {.v = &layouts[2]} }, // режим монокля відображиння вікон [M]
   { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, // вести або вивести вікно з схеми вікон
 
-  { MODKEY,              ,       togglebar,       {0} }, // сховати або показати статус бар
+  // реголювання
+    // розкладка клавіатури
+  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi") }, // змінювати розкладку клавіатури між українською і англійською
 
-  { MODKEY|ShiftMask,    XK_q,       quit,            {0} }, // виходить з графічного інтерфейсу (X)
+    // звук  
+  { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшити звук
+  { MODKEY,              0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // зменшити звук
 
-  // зміна клавіатурної розкладки
-  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi") }, // змінює розкладку клавіатури між українською і англійською
+    // яскравість екрану
+  { MODKEY|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // збільшити яскравість
+  { MODKEY|ShiftMask,    0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // зменшити яскравість
 
-  // зміна гучності звуку
-  { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшує звук
-  { MODKEY,              0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // зменшує звук
+    // яскравість клавіатури
+  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // збільшити яскравість
+  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // зменшити яскравість
 
-  // зміна підсвідчування екрану
-  { MODKEY|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // збільшує яскравість екрану
-  { MODKEY|ShiftMask,    0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // зменшує яскравість екрану
-
-  // зміна підсвідчування клавіатури
-  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // збільшує яскравість клавіатури
-  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // зменшує яскравість клавіатури
+  { MODKEY,              XK_g,       togglebar,       {0} }, // сховати або показати статус бар
+  { MODKEY,              XK_q,       quit,            {0} }, // вийти з графічного інтерфейсу X
+  { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") }, // відкрити меню програм
 
   // буфер обміну
   { MODKEY,              XK_c,       spawn,           SHCMD("xclip -selection clipboard -o") }, // скопіювати
   { MODKEY,              XK_v,       spawn,           SHCMD("xclip -selection clipboard -i") }, // вставити
 
-  // відкриття програм
-  { MODKEY,              XK_p,       spawn,           SHCMD("dmenu_run") },
-  { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("alacritty") },
-  { MODKEY|ShiftMask,    XK_z,       spawn,           SHCMD("chromium") },
-  { MODKEY|ShiftMask,    XK_s,       spawn,           SHCMD("alacritty -e btop") },
+  // запуск програм
+  { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("st") },
+  { MODKEY|ShiftMask,    XK_s,       spawn,           SHCMD("vieb") },
+  { MODKEY|ShiftMask,    XK_m,       spawn,           SHCMD("st -e btop") },
   { MODKEY|ShiftMask,    XK_g,       spawn,           SHCMD("steam") },
 };
 
@@ -123,4 +122,4 @@ static const Rule rules[0] = {}; } | налаштування програми
   │     │ - resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
   │     └ + resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);
   └─ dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
-> sudo make clean install | збирання програми
+> sudo make clean install | зібрати програму
