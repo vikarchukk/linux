@@ -91,10 +91,6 @@ static const Key keys[] = {
   { MODKEY,              XK_q,       quit,            {0} }, // вийти з графічного інтерфейсу X
   { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") }, // відкрити меню програм
 
-  // буфер обміну
-  { MODKEY,              XK_c,       spawn,           SHCMD("xclip -selection clipboard -o") }, // скопіювати
-  { MODKEY,              XK_v,       spawn,           SHCMD("xclip -selection clipboard -i") }, // вставити
-
   // запуск програм
   { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("st") },
   { MODKEY|ShiftMask,    XK_s,       spawn,           SHCMD("vieb") },
