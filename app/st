@@ -85,9 +85,12 @@ static unsigned int mousebg = 0;
 
 static unsigned int defaultattr = 11; // резервний шрифт
 
-// комбінація для мишки
+// комбінації для мишки
 static uint forcemousemod = 0;
-static MouseShortcut mshortcuts[] = { };
+static MouseShortcut mshortcuts[] = {
+  { XK_NO_MOD,  Button4,  kscrollup,    {.i = -1} }, // скрол верх
+  { XK_NO_MOD,  Button5,  kscrolldown,  {.i = -1} }, // скрол вниз
+};
 
 // назви для модефікаторів
 #define MODKEY Mod1Mask
@@ -323,5 +326,7 @@ static char ascii_printable[] =
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~"; // ? } | налаштування програми
 > добавити пачі
-  └─ st.suckless.org/patches/scrollback | для скролу назад
+  └─ st.suckless.org/patches/scrollback/ | для скролу назад
+     ├─ st-scrollback-ringbuffer-0.8.5.diff | сам скрол
+     └─ st-scrollback-reflow-0.8.5.diff | скрол по рядках
 > sudo make clean install | зібрати програму
