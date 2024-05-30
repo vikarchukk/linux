@@ -1,12 +1,5 @@
-/* See LICENSE file for copyright and license details. */
-
-/*
- * appearance
- *
- * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
- */
-static char *font = "monocraft:size=16";
-static int borderpx = 1;
+static char *font = "monocraft:size=16"; // шрифт і розмір
+static int borderpx = 1; // відступ від країв
 
 /*
  * What program is execed by st depends of these precedence rules:
