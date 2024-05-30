@@ -1,4 +1,4 @@
-static char *font = "monocraft:size=15"; // шрифт і розмір
+static char *font = "monocraft:size=18"; // шрифт і розмір
 static int borderpx = 1; // відступ від країв
 
 static char *shell = "/bin/sh"; // ?
@@ -58,21 +58,16 @@ static const char *colorname[] = {
 
 	[255] = 0,
 
-	"#cccccc", // ?
-	"#555555", // ?
-	"#C5C8C6", // текст
-	"#1D1F21", // фон
+	"#cccccc", // білий
+	"#555555", // сірий
+	"#C5C8C6", // білий
+	"#1D1F21", // чорний
 };
 
-
-/*
- * Default colors (colorname index)
- * foreground, background, cursor, reverse cursor
- */
-unsigned int defaultfg = 258;
-unsigned int defaultbg = 259;
-unsigned int defaultcs = 256;
-static unsigned int defaultrcs = 257;
+unsigned int defaultfg = 258; // текст
+unsigned int defaultbg = 259; // фон
+unsigned int defaultcs = 256; // курсор
+static unsigned int defaultrcs = 257; // зворотній курсор
 
 /*
  * Default shape of cursor
