@@ -1,4 +1,8 @@
-static char *font = "monocraft:size=18"; // шрифт і розмір
+[ st ] ( st.suckless.org )
+> git clone https://git.suckless.org/st | клонування коду програми
+> cd st
+> vim config.h {
+static char *font = "monocraft:size=16"; // шрифт і розмір
 static int borderpx = 1; // відступ від країв
 
 static char *shell = "/bin/sh"; // ?
@@ -317,4 +321,7 @@ static uint selmasks[] = { [SEL_RECTANGULAR] = Mod1Mask, }; // ?
 static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
-	"`abcdefghijklmnopqrstuvwxyz{|}~"; // ?
+	"`abcdefghijklmnopqrstuvwxyz{|}~"; // ? } | налаштування програми
+> добавити пачі
+  └─ 
+> sudo make clean install | зібрати програму
