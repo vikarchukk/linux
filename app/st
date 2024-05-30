@@ -328,5 +328,5 @@ static char ascii_printable[] =
 > добавити пачі
   └─ st.suckless.org/patches/scrollback/ | для скролу назад
      ├─ st-scrollback-ringbuffer-0.8.5.diff | сам скрол
-     └─ st-scrollback-reflow-0.8.5.diff | скрол по рядках
+     └─ st-scrollback-reflow-20230607-211964d.diff | скрол по рядках
 > sudo make clean install | зібрати програму
