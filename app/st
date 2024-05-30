@@ -1,4 +1,4 @@
-static char *font = "monocraft:size=16"; // шрифт і розмір
+static char *font = "monocraft:size=15"; // шрифт і розмір
 static int borderpx = 1; // відступ від країв
 
 static char *shell = "/bin/sh"; // ?
@@ -25,66 +25,43 @@ static double maxlatency = 33; // максимальний час очікува
 
 static unsigned int blinktimeout = 800; // скільки часу курсор буде відображатися і зникати (для миготіння курсора)
 
-/*
- * thickness of underline and bar cursors
- */
-static unsigned int cursorthickness = 2;
+static unsigned int cursorthickness = 2; // ширина курсора
 
-/*
- * bell volume. It must be a value between -100 and 100. Use 0 for disabling
- * it
- */
-static int bellvolume = 0;
+static int bellvolume = 0; // виключенно відтворювання звуку
 
-/* default TERM value */
-char *termname = "st-256color";
+char *termname = "st-256color"; // показує що термвнал може відобразити 256 кольорів
 
-/*
- * spaces per tab
- *
- * When you are changing this value, don't forget to adapt the »it« value in
- * the st.info and appropriately install the st.info in the environment where
- * you use this st version.
- *
- *	it#$tabspaces,
- *
- * Secondly make sure your kernel is not expanding tabs. When running `stty
- * -a` »tab0« should appear. You can tell the terminal to not expand tabs by
- *  running following command:
- *
- *	stty tabs
- */
-unsigned int tabspaces = 8;
+unsigned int tabspaces = 8; // кількість пробілів в tab
 
-/* Terminal colors (16 first used in escape sequence) */
+// назви кольорів терміналу (16 перших використовуються в послідовності escape)
+// сайт звідки я взяв кольори terminal.sexy
 static const char *colorname[] = {
-	/* 8 normal colors */
-	"black",
-	"red3",
-	"green3",
-	"yellow3",
-	"blue2",
-	"magenta3",
-	"cyan3",
-	"gray90",
+	/* 8 стандартних кольорів */
+	"#282A2E", // чорний
+	"#A54242", // червоний
+	"#8C9440", // зелений
+	"#DE935F", // жовтий
+	"#5F819D", // синій
+	"#85678F", // пурпурний
+	"#5E8D87", // типу блакитний
+	"#707880", // сірий
 
-	/* 8 bright colors */
-	"gray50",
-	"red",
-	"green",
-	"yellow",
-	"#5c5cff",
-	"magenta",
-	"cyan",
-	"white",
+	/* 8 яскравих кольорів */
+	"#373B41", // сірий
+	"#CC6666", // червоний
+	"#B5BD68", // зелений
+	"#F0C674", // жовтий
+	"#81A2BE", // синій
+	"#B294BB", // пурпурний
+	"#8ABEB7", // типу блакитний
+	"#C5C8C6", // білий
 
 	[255] = 0,
 
-	/* more colors can be added after 255 to use with DefaultXX */
-	"#cccccc",
-	"#555555",
-	"gray90", /* default foreground colour */
-	"black", /* default background colour */
+	"#cccccc", // ?
+	"#555555", // ?
+	"#C5C8C6", // текст
+	"#1D1F21", // фон
 };
 
 
