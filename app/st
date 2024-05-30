@@ -88,8 +88,8 @@ static unsigned int defaultattr = 11; // резервний шрифт
 // комбінації для мишки
 static uint forcemousemod = 0;
 static MouseShortcut mshortcuts[] = {
-  { XK_NO_MOD,  Button4,  kscrollup,    {.i = -1} }, // скрол верх
-  { XK_NO_MOD,  Button5,  kscrolldown,  {.i = -1} }, // скрол вниз
+  { XK_NO_MOD,  Button4,  kscrollup,    {.i = 1} }, // скрол верх
+  { XK_NO_MOD,  Button5,  kscrolldown,  {.i = 1} }, // скрол вниз
 };
 
 // назви для модефікаторів
@@ -325,8 +325,6 @@ static char ascii_printable[] =
 	" !\"#$%&'()*+,-./0123456789:;<=>?"
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~"; // ? } | налаштування програми
-> добавити пачі
-  > wget https://st.suckless.org/patches/scrollback/st-scrollback-0.8.5.diff | сам скрол
-  > wget https://st.suckless.org/patches/scrollback/st-scrollback-reflow-0.8.5.diff | скрол по рядках
-  > patch -N < st-scrollback-0.8.5.diff;patch -N < st-scrollback-reflow-0.8.5.diff | встановлення патчів
+> wget https://st.suckless.org/patches/scrollback/st-scrollback-20210507-4536f46.diff | пач для скролу
+  > patch --merge -i st-scrollback-20210507-4536f46.diff
 > sudo make clean install | зібрати програму
