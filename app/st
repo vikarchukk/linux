@@ -326,7 +326,7 @@ static char ascii_printable[] =
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~"; // ? } | налаштування програми
 > добавити пачі
-  └─ st.suckless.org/patches/scrollback/ | для скролу назад
-     ├─ st-scrollback-ringbuffer-0.8.5.diff | сам скрол
-     └─ st-scrollback-reflow-20230607-211964d.diff | скрол по рядках
+  > wget https://st.suckless.org/patches/scrollback/st-scrollback-0.8.5.diff | сам скрол
+  > wget https://st.suckless.org/patches/scrollback/st-scrollback-reflow-0.8.5.diff | скрол по рядках
+  > patch -N < st-scrollback-0.8.5.diff;patch -N < st-scrollback-reflow-0.8.5.diff | встановлення патчів
 > sudo make clean install | зібрати програму
