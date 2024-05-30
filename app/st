@@ -323,5 +323,5 @@ static char ascii_printable[] =
 	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
 	"`abcdefghijklmnopqrstuvwxyz{|}~"; // ? } | налаштування програми
 > добавити пачі
-  └─ 
+  └─ st.suckless.org/patches/scrollback | для скролу назад
 > sudo make clean install | зібрати програму
