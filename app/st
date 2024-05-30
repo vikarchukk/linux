@@ -1,44 +1,24 @@
 static char *font = "monocraft:size=16"; // шрифт і розмір
 static int borderpx = 1; // відступ від країв
 
-/*
- * What program is execed by st depends of these precedence rules:
- * 1: program passed with -e
- * 2: scroll and/or utmp
- * 3: SHELL environment variable
- * 4: value of shell in /etc/passwd
- * 5: value of shell in config.h
- */
-static char *shell = "/bin/sh";
-char *utmp = NULL;
-/* scroll program: to enable use a string like "scroll" */
-char *scroll = "scroll";
-char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400";
+static char *shell = "/bin/sh"; // ?
+char *utmp = NULL; // назва стороньої програми для utmp
+char *scroll = NULL; // назва стороньої програми для scroll
+char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400"; // ?
 
-/* identification sequence returned in DA and DECID */
-char *vtiden = "\033[?6c";
+char *vtiden = "\033[?6c"; // ?
 
-/* Kerning / character bounding-box multipliers */
-static float cwscale = 1.0;
-static float chscale = 1.0;
+static float cwscale = 1.0; // відступ між літерами
+static float chscale = 1.0; // простір зайнятий символом на екрані
 
-/*
- * word delimiter string
- *
- * More advanced example: L" `'\"()[]{}"
- */
-wchar_t *worddelimiters = L" ";
+wchar_t *worddelimiters = L" "; // символ контрий розділяє слова
 
-/* selection timeouts (in milliseconds) */
-static unsigned int doubleclicktimeout = 300;
-static unsigned int tripleclicktimeout = 600;
+static unsigned int doubleclicktimeout = 300; // час очікування другого клацання мишкою для регістру двійного клацання для виділення слова
+static unsigned int tripleclicktimeout = 600; // час очікування третього клацання мишкою для регістру трійного клацання для виділення рядка
 
-/* alt screens */
-int allowaltscreen = 1;
+int allowaltscreen = 1; // включення альтернативного вікна для vim, btop ...
 
-/* allow certain non-interactive (insecure) window operations such as:
-   setting the clipboard text */
-int allowwindowops = 0;
+int allowwindowops = 0; // заборона деяких операцій з терміналом по типу (буфер обміну ...)
 
 /*
  * draw latency range in ms - from new content/keypress/etc until drawing.
