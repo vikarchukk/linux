@@ -101,12 +101,12 @@ static const Key keys[] = {
 // комбінація для мишки
 static const Button buttons[] = {
   // вікна
-  { ClkClientWin,   MODKEY,            Button1,  movemouse,    {0} }, // перемістити вікно
-  { ClkClientWin,   MODKEY|ShiftMask,  Button1,  resizemouse,  {0} }, // змінити розмір вікна
+  { ClkClientWin,  MODKEY,            Button1,  movemouse,    {0} }, // перемістити вікно
+  { ClkClientWin,  MODKEY|ShiftMask,  Button1,  resizemouse,  {0} }, // змінити розмір вікна
 
   // теги
-  { ClkTagBar,      0,                 Button1,  view,         {0} }, // перейти до вибраного тегу
-  { ClkTagBar,      MODKEY,            Button1,  tag,          {0} }, // перекинути активне вікно в вибраний тег
+  { ClkTagBar,     0,                 Button1,  view,         {0} }, // перейти до вибраного тегу
+  { ClkTagBar,     MODKEY,            Button1,  tag,          {0} }, // перекинути активне вікно в вибраний тег
 };
 
 // налаштування де і як буду відкриватися програми
