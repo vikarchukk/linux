@@ -28,6 +28,6 @@
   | base-devel - для збирання програми
 > git clone https://aur.archlinux.org/name-app.git | клонування програми
 > cd name-app | зайти в папку з програмою
-> patch -Np1 namr.diff | можна поставити патч
+> patch -N1 namr.diff | можна поставити патч
 > sudo make clean install | збирає програму
 > sudo make uninstall | видаляє програму
