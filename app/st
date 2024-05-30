@@ -61,7 +61,7 @@ static const char *colorname[] = {
 	"#cccccc", // білий
 	"#555555", // сірий
 	"#C5C8C6", // білий
-	"#1D1F21", // чорний
+	"#111213", // чорний
 };
 
 unsigned int defaultfg = 258; // текст
