@@ -322,9 +322,9 @@ static Key key[] = {
 static uint selmasks[] = { [SEL_RECTANGULAR] = Mod1Mask, }; // ?
 
 static char ascii_printable[] =
-	" !\"#$%&'()*+,-./0123456789:;<=>?"
-	"@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
-	"`abcdefghijklmnopqrstuvwxyz{|}~"; // ? } | налаштування програми
+  " !\"#$%&'()*+,-./0123456789:;<=>?"
+  "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
+  "`abcdefghijklmnopqrstuvwxyz{|}~"; // ? } | налаштування програми
 > wget https://st.suckless.org/patches/scrollback/st-scrollback-20210507-4536f46.diff | пач для скролу
   > patch --merge -i st-scrollback-20210507-4536f46.diff
 > sudo make clean install | зібрати програму
