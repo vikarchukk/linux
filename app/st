@@ -98,8 +98,8 @@ static MouseShortcut mshortcuts[] = {
 
 // комбінація для клавіатури
 static Shortcut shortcuts[] = {
-  { TERMMOD,  XK_C,  clipcopy,   {.i =  0} }, // скопіювати
-  { TERMMOD,  XK_V,  clippaste,  {.i =  0} }, // вставити
+  { Mod4Mask,  XK_c,  clipcopy,   {.i =  0} }, // скопіювати
+  { Mod4Mask,  XK_v,  clippaste,  {.i =  0} }, // вставити
 };
 
 static KeySym mappedkeys[] = { -1 }; // схема розкладки
