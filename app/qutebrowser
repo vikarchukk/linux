@@ -1,1 +1,23 @@
-
+> vim ~/.config/qutebrowser/autoconfig.yml {
+config_version: 2
+settings:
+  colors.hints.bg:
+    global: white
+  fonts.default_family:
+    global: monocraft
+  fonts.default_size:
+    global: 13pt
+  hints.border:
+    global: '0px solid #000000'
+  scrolling.bar:
+    global: never
+  url.default_page:
+    global: https://www.google.com/
+  url.searchengines:
+    global:
+      DEFAULT: https://www.google.com/search?q={}
+  url.start_pages:
+    global: https://www.google.com/
+  zoom.default:
+    global: 125%
+}
