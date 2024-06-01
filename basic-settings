@@ -84,12 +84,12 @@
 > fc-cache -fv | оновлення налаштувань шрифтів
 
 [ cursor ] ( github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes | wiki.archlinux.org/title/Mouse_acceleration | wiki.archlinux.org/title/Touchpad_Synaptics )
-> wget https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS-White.tar.xz | скачування курсору
-> tar -xvf macOS-White.tar.xz | розпакувати
-> sudo mv macOS-White /usr/share/icons | переміщає в папку для іконок
+> wget https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz | скачування курсору
+> tar -xvf macOS.tar.xz | розпакувати
+> sudo mv macOS /usr/share/icons | переміщає в папку для іконок
 > sudo vim /usr/share/icons/default/index.theme {
            [Icon Theme]
-           Inherits=macOS-White } | налаштування теми курсора
+           Inherits=macOS } | налаштування теми курсора
 > vim ~/.Xresources { Xcursor.size: 40 } | розмір курсора
   > vim ~/.xinitrc { xrdb ~/.Xresources # активація налаштування розміру курсору }
 > reboot | перезагрузка для оновлення налаштувань
