@@ -76,16 +76,16 @@ static const Key keys[] = {
   { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi") }, // змінювати розкладку клавіатури між українською і англійською
 
     // звук  
-  { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшити звук
-  { MODKEY,              0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; pkill herbe; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // зменшити звук
+  { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшити звук
+  { MODKEY,              0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // зменшити звук
 
     // яскравість екрану
-  { MODKEY|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // збільшити яскравість
-  { MODKEY|ShiftMask,    0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; pkill herbe; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // зменшити яскравість
+  { MODKEY|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // збільшити яскравість
+  { MODKEY|ShiftMask,    0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // зменшити яскравість
 
     // яскравість клавіатури
-  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // збільшити яскравість
-  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; pkill herbe; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // зменшити яскравість
+  { MODKEY|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // збільшити яскравість
+  { MODKEY|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // зменшити яскравість
 
   { MODKEY,              XK_g,       togglebar,       {0} }, // сховати або показати статус бар
   { MODKEY,              XK_q,       quit,            {0} }, // вийти з графічного інтерфейсу X
