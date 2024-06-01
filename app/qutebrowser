@@ -26,6 +26,14 @@ settings:
     global: 2
   scrolling.bar:
     global: never
+  statusbar.widgets:
+    global:
+    - keypress
+    - search_match
+    - url
+    - scroll
+    - tabs
+    - progress
   tabs.favicons.show:
     global: never
   tabs.indicator.width:
