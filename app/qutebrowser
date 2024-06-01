@@ -16,8 +16,30 @@ settings:
     global: 13pt
   hints.border:
     global: '0px solid #000000'
+  hints.padding:
+    global:
+      bottom: 0
+      left: 0
+      right: 0
+      top: 0
+  hints.radius:
+    global: 2
   scrolling.bar:
     global: never
+  tabs.favicons.show:
+    global: never
+  tabs.indicator.width:
+    global: 0
+  tabs.new_position.unrelated:
+    global: next
+  tabs.padding:
+    global:
+      bottom: 1
+      left: 3
+      right: 0
+      top: 1
+  tabs.title.format:
+    global: '{current_title}'
   url.default_page:
     global: https://www.google.com/
   url.searchengines:
