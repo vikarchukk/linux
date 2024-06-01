@@ -49,16 +49,6 @@ qutebrowser
    ├─ help - переглянути документацію
    └─ q - вийти з vieb (або ZZ)
 
-kdm
-
-h - left 
-l - rith
-K - 'tab-prev'
-J - 'tab-next'
-
-dsvm
-
-
 dwm
 ├─ теги
 │  ├─ cmd + number - перейти до вибраного тегу
