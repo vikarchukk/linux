@@ -14,8 +14,8 @@ static const unsigned int border_size = 0; // товщина обводки
 
 enum corners { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }; // варіанти кутів відобарження вікна
 enum corners corner = BOTTOM_RIGHT; // вписати кут в якому буде відображатися вікно
-static const unsigned int pos_x = 4; // точка x початок розташування вікна
-static const unsigned int pos_y = 19; // точка у початок розташування вікна
+static const unsigned int pos_x = 2; // точка x початок розташування вікна
+static const unsigned int pos_y = 0; // точка у початок розташування вікна
 
 static const unsigned int duration = 3; // скільки секунд буде весіти  вікно
 
