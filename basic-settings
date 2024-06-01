@@ -90,6 +90,6 @@
 > sudo vim /usr/share/icons/default/index.theme {
            [Icon Theme]
            Inherits=macOS } | налаштування теми курсора
-> vim ~/.Xresources { Xcursor.size: 40 } | розмір курсора
+> vim ~/.Xresources { Xcursor.size: 32 } | розмір курсора
   > vim ~/.xinitrc { xrdb ~/.Xresources # активація налаштування розміру курсору }
 > reboot | перезагрузка для оновлення налаштувань
