@@ -12,6 +12,7 @@ static const struct arg args[] = {
   { cpu_perc,      " %s% |",    NULL }, // середня загруженість процесорів
   { run_command,   " %sMB ]",   "free | awk '/Mem/ {print int($3/1024)}'" }, // кількість оперативної памяті котра використовується
   { battery_perc,  "-[ %s% ]",  "BAT0" }, // батерея
-  { datetime,      "-[ %s ]",   "%H:%M" }, // час
+  { datetime,      "-[ %s |",   "%d.%m.%Y" }, // дата
+  { datetime,      " %s ]",     "%H:%M" }, // час
 }; } | налаштування програми
 > sudo make clean install | збирання програми
