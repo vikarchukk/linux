@@ -1,6 +1,13 @@
 > vim ~/.config/qutebrowser/autoconfig.yml {
 config_version: 2
 settings:
+  bindings.commands:
+    global:
+      normal:
+        <Ctrl+v>: null
+        h: tab-prev
+        l: tab-next
+        v: null
   colors.hints.bg:
     global: white
   fonts.default_family:
