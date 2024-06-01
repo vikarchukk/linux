@@ -93,7 +93,7 @@ static const Key keys[] = {
 
   // запуск програм
   { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("st") },
-  { MODKEY|ShiftMask,    XK_s,       spawn,           SHCMD("vieb") },
+  { MODKEY|ShiftMask,    XK_s,       spawn,           SHCMD("qutebrowser") },
   { MODKEY|ShiftMask,    XK_m,       spawn,           SHCMD("st -e btop") },
   { MODKEY|ShiftMask,    XK_g,       spawn,           SHCMD("steam") },
 };
