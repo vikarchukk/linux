@@ -79,7 +79,7 @@ static unsigned int cols = 80; // кількість колонок
 static unsigned int rows = 24; // кількість рядків
 
 // колір і форма курсора миші
-static unsigned int mouseshape = XC_xterm;
+static unsigned int mouseshape = XC_arrow;
 static unsigned int mousefg = 7;
 static unsigned int mousebg = 0;
 
