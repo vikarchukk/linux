@@ -1,0 +1,6 @@
+[ vim ] ( github.com/vim/vim )
+> sudo pacman -S vim | скачати редактор
+> vim ~/.vimrc {
+
+
+}
