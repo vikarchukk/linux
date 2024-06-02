@@ -6,5 +6,22 @@
   > :PlugClean | щоб видалити котрі не використовуються
   > :PlugUpdate | щоб оновити плагіни
 > vim ~/.vimrc {
+call plug#begin() " початок плагінів
 
+Plug 'preservim/nerdtree', { 'on': 'NERDTreeToggle' } " роботи з файлами
+Plug 'ojroques/vim-oscyank', {'branch': 'main'} " буфер обміну глобальний
+
+call plug#end() " кінець плагінів
+
+map <C-n> :NERDTreeToggle<CR> " відкрити плагін nerdtree
+map c :OSCYankVisual<CR> " скопіювати
+
+syntax on " кольори
+
+set number " відображення номерів рядків
+set relativenumber " відображення відносних номерів
+set mouse=a  " скрол мишою
+set expandtab " таб = пробіл
+set tabstop=2 " таб = 2 пробіла
+set incsearch " підсвідка під час пошуку
 }
