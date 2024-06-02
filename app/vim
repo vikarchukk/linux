@@ -4,4 +4,4 @@
 > vim ~/.vimrc {
 
 }
-> :sourse ~/.vimrc  > :PlugInstall | щоб встановити плагіни
+> :source ~/.vimrc  > :PlugInstall | щоб встановити плагіни
