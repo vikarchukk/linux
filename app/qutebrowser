@@ -59,4 +59,3 @@ settings:
   zoom.default:
     global: 125%
 } | налаштування браузера
-> qutebrowser | запустити браузер
