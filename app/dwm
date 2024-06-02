@@ -111,11 +111,19 @@ static const Button buttons[] = {
 
 // налаштування де і як буду відкриватися програми
 static const Rule rules[0] = {}; } | налаштування програми
-> добавити пачі
+> wget https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.4.diff | пач для проміжків між вікнами
+  > patch --merge -i dwm-fullgaps-6.4.diff
+  > dwm.c | для того щоб були проміжки також в рижимі monocla
+    - resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
+    + resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);
+> wget https://dwm.suckless.org/patches/attachbelow/dwm-attachbelow-6.2.diff | пач для того щоб нові вікна відкривалися збокух
+  > patch --merge -i dwm-fullgaps-6.4.diff
+> видалити dmenu з dwm.c (2 рядка)
+
   ├─ видалити dmenu з dwm.c (2 рядка)
   ├─ dwm.suckless.org/patches/fullgaps/ | щоб появився проміжок між вікнами
   │  └─ щоб проміжок також був в режимі monocle
   │     │ - resize(c, m->wx, m->wy, m->ww - 2 * c->bw, m->wh - 2 * c->bw, 0);
   │     └ + resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);
-  └─ dwm.suckless.org/patches/attachbelow/ | щоб нові вікна відкривалися збокух
+  └─ dwm.suckless.org/patches/attachbelow | щоб нові вікна відкривалися збокух
 > sudo make clean install | зібрати програму
