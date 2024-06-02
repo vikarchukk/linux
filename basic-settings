@@ -79,8 +79,7 @@
 > cat /sys/class/leds/apple::kbd_backlight/max_brightness | максимальне значення підсвітки клавіатури
 
 [ font ] ( github.com/IdreesInc/Monocraft | wiki.archlinux.org/title/Fonts_(Українська) )
-> wget https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf | скачування шрифта
-> sudo mv Monocraft.ttf /usr/share/fonts/ | перекидання в папку для шрифтів
+> sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf | скачування шрифта
 > fc-cache -fv | оновлення налаштувань шрифтів
 
 [ cursor ] ( github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes | wiki.archlinux.org/title/Mouse_acceleration | wiki.archlinux.org/title/Touchpad_Synaptics )
