@@ -6,13 +6,10 @@
 > sudo ln -s /usr/bin/vim /usr/local/bin/v | для того щоб не писати vim а просто v
 > vim ~/.vimrc {
 call plug#begin() " початок плагінів
-
 Plug 'ojroques/vim-oscyank' " буфер обміну глобальний
-
 call plug#end() " кінець плагінів
 
 map c :OSCYankVisual<CR> " скопіювати
-map <C-n> :Explore<CR> " файловий менеджер
 
 syntax on " підсвінта синтаксису
 
@@ -31,4 +28,8 @@ set showcmd " показувати неповні команди внизу
 " налаштування файлового менеджера
 let g:netrw_banner=0 " приховати банер
 let g:netrw_liststyle=3 " стиль дерева для відображення файлів
+
+" заговолок вікна
+set title
+set titlestring=%F
 }
