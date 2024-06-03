@@ -23,16 +23,14 @@ static const unsigned int duration = 3; // скільки секунд буде 
 #define ACTION_BUTTON Button3 // приняти повідомлення права кнопка миші } | налаштування програми
 
 > sed -i '10d;85d;86d;88d;174,176d;207,209d;' herbe.c
-
-sed -i \
+> sed -i \
 -e '122c\  int max_text_width = 0;' \
--e '133c\    for (unsigned int eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size); eol; argv[i] += eol, num_of_lines++, eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size)' \
--e '147a\\' \
--e '148a\       XGlyphInfo info;' \
--e '149a\       XftTextExtentsUtf8(display, font, (FcChar8 *)lines[num_of_lines], eol, &info);' \
--e '150a\       if (info.width > max_text_width)' \
--e '151a\           max_text_width = info.width;' \
--e '153a\  unsigned int width = max_text_width + 2 * padding;' herbe.c
+-e '132c\    for (unsigned int eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size); eol; argv[i] += eol, num_of_lines++, eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size))' \
+-e '146a\      XGlyphInfo info;' \
+-e '146a\      XftTextExtentsUtf8(display, font, (FcChar8 *)lines[num_of_lines], eol, &info);' \
+-e '146a\      if (info.width > max_text_width)' \
+-e '146a\        max_text_width = info.width;' \
+-e '150a\  unsigned int width = max_text_width + 2 * padding;' herbe.c
 
 > добавити пачі
   ├─ github.com/dudik/herbe/pull/14 | щоб нові вікна накладалися один на одного
