@@ -21,8 +21,7 @@ static const unsigned int duration = 3; // скільки секунд буде 
 
 #define DISMISS_BUTTON Button1  // відхилити повідомлення ліва кнопка миші
 #define ACTION_BUTTON Button3 // приняти повідомлення права кнопка миші } | налаштування програми
-
-> sed -i '10d;85d;86d;88d;174,176d;207,209d;' herbe.c
+> sed -i '10d;85d;86d;88d;174,176d;207,209d;' herbe.c | патч щоб нові вікна накладалися один на одного (github.com/dudik/herbe/pull/14)
 > sed -i \
 -e '122c\  int max_text_width = 0;' \
 -e '132c\    for (unsigned int eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size); eol; argv[i] += eol, num_of_lines++, eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size))' \
@@ -30,12 +29,7 @@ static const unsigned int duration = 3; // скільки секунд буде 
 -e '146a\      XftTextExtentsUtf8(display, font, (FcChar8 *)lines[num_of_lines], eol, &info);' \
 -e '146a\      if (info.width > max_text_width)' \
 -e '146a\        max_text_width = info.width;' \
--e '150a\  unsigned int width = max_text_width + 2 * padding;' herbe.c
-
-> добавити пачі
-  ├─ github.com/dudik/herbe/pull/14 | щоб нові вікна накладалися один на одного
-  └─ github.com/dudik/herbe/issues/50 | щоб ширина вікна була дорівнювала довжині тексту
-
+-e '150a\  unsigned int width = max_text_width + 2 * padding;' herbe.c | патч щоб ширина вікна була дорівнювала довжині тексту (github.com/dudik/herbe/issues/50)
 > sudo make clean install | збирання програми
 > використання
   > pkill -SIGUSR1 herbe | відхилити активне повідомлення
