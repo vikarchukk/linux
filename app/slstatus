@@ -13,5 +13,6 @@ static const struct arg args[] = {
   { run_command,   " %sMB ]",   "free | awk '/Mem/ {print int($3/1024)}'" }, // кількість оперативної памяті котра використовується
   { battery_perc,  "-[ %s% ]",  "BAT0" }, // батерея
   { datetime,      "-[ %s ]",   "%H:%M" }, // час
-}; } | налаштування програми
+}; 
+} | налаштування програми
 > sudo make clean install | збирання програми
