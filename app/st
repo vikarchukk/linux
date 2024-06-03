@@ -93,19 +93,19 @@ static MouseShortcut mshortcuts[] = {
 
 // комбінація для клавіатури
 static Shortcut shortcuts[] = {
-  { ControlMask,  XK_c,  clipcopy,   {.i = 0} }, // скопіювати
-  { ControlMask,  XK_v,  clippaste,  {.i = 0} }, // вставити
-  { ControlMask|ShiftMask,      XK_V,  sendbreak,  {.i = 0} }, // зупинити процес
+  { ControlMask,            XK_c,  clipcopy,   {.i = 0} }, // скопіювати
+  { ControlMask,            XK_v,  clippaste,  {.i = 0} }, // вставити
+  { ControlMask|ShiftMask,  XK_V,  sendbreak,  {.i = 0} }, // зупинити процес
 };
 
 static KeySym mappedkeys[] = { -1 }; // схема розкладки
-static uint ignoremod = Mod2Mask|XK_SWITCH_MOD; // модефікатори котрі потрібно ігнорувати
-static Key key[0] = {}; // для взаємодії з лінукс
+static uint ignoremod = 0; // модефікатори котрі потрібно ігнорувати
+static Key key[0] = {}; // комбінація для клавіатури взаємодії з лінукс
 static uint selmasks[] = { [SEL_RECTANGULAR] = Mod1Mask, }; // ?
-static char ascii_printable[] =
-  " !\"#$%&'()*+,-./0123456789:;<=>?"
-  "@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_"
-  "`abcdefghijklmnopqrstuvwxyz{|}~"; // ? } | налаштування програми
+
+// символи котрі може друкувати термінал
+static char ascii_printable[] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~";
+} | налаштування програми
 > wget https://st.suckless.org/patches/scrollback/st-scrollback-20210507-4536f46.diff | пач для скролу
   > patch --merge -i st-scrollback-20210507-4536f46.diff
 > sudo make clean install | зібрати програму
