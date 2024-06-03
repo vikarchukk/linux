@@ -113,7 +113,7 @@ static const Button buttons[] = {
 static const Rule rules[0] = {}; } | налаштування програми
 > wget https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.4.diff | пач для проміжків між вікнами
   > patch --merge -i dwm-fullgaps-6.4.diff
-    > sed -i '1128s/.*/          resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);/' dwm.c | проміжки в monocl
+    > sed -i '1128c/          resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);' dwm.c | проміжки в monocl
 > wget https://dwm.suckless.org/patches/attachbelow/dwm-attachbelow-6.2.diff | пач для того щоб нові вікна відкривалися збокух
   > patch --merge -i dwm-attachbelow-6.2.diff
     > sed -i '1932d;1934,1945d' dwm.c | виправлення помилок
