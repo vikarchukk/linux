@@ -6,10 +6,11 @@
   │ xorg-xsetroot - для заставки екрану
   └ xorg-xrandr - для розширення екрану
 > vim .xinitrc {
-      xrdb ~/.Xresources # активація налаштування розміру курсору
-      setxkbmap -option caps:escape # переназначиння кнопки escape
-      xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (> xrandr | щоб провірити котрі доступні)
-      xsetroot -bitmap escher_reptiles2.xbm # ставить фон (github.com/dkeg/bitmap-walls)
-      slstatus & # запуск програми для відображиння даних про пк
-      exec dwm # віконий менеджер } | які програми будуть запущині зразу після запуску x
+xrdb ~/.Xresources # активація налаштування розміру курсору
+setxkbmap -option caps:escape # переназначиння кнопки escape
+xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (> xrandr | щоб провірити котрі доступні)
+xsetroot -bitmap escher_reptiles2.xbm # ставить фон (github.com/dkeg/bitmap-walls)
+slstatus & # запуск програми для відображиння даних про пк
+exec dwm # віконий менеджер
+} | які програми будуть запущині зразу після запуску x
 > startx | запуск графічного інтерфейсу
