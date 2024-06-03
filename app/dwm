@@ -116,6 +116,6 @@ static const Rule rules[0] = {}; } | налаштування програми
     > sed -i '1128s/.*/          resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);/' dwm.c | проміжки в monocl
 > wget https://dwm.suckless.org/patches/attachbelow/dwm-attachbelow-6.2.diff | пач для того щоб нові вікна відкривалися збокух
   > patch --merge -i dwm-attachbelow-6.2.diff
-    > sed -i '1932d;1934d;1945d' dwm.c | виправлення помилок
+    > sed -i '1932d;1934,1945d' dwm.c | виправлення помилок
 > sed -i '1687d;1688d' dwm.c | видалиння dmenu
 > sudo make clean install | зібрати програму
