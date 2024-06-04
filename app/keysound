@@ -11,3 +11,9 @@
            -D --daemon | запуск keysound в фоновому режемі
            -k --kill | зупинити keysound
            -?, -h, --help
+
+> git clone https://github.com/c3rb3ru5d3d53c/keysound | звуки
+  > cd keysound/audio
+  > mv cherrymx-red-abs ~/keysound/cherry
+  > mv cherrymx-red-abs.json ~/keysound/cherry
+> keysound -j ~/keysound/cherry/cherrymx-red-abs.json
