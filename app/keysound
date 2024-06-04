@@ -1,0 +1,14 @@
+[ keysound ] ( github.com/fgheng/keysound/tree/master )
+> git clone https://aur.archlinux.org/keysound-git.git
+> cd keysound-git
+> makepkg -sirc
+> sudo usermod -a -G input $USER
+> newgrp input / reboot
+> keysound 
+           -f, --file=WAV_FILE        要播放的音频
+           -j, --json=JSON_FILE       json配置文件
+           -d, --dir=DIR              目录
+           -l, --log=LOG_FILE         日志输出文件（未完成）
+           -D, --daemon               后台运行
+           -k, --kill                 结束进程
+           -?, -h, --help             帮助
