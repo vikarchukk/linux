@@ -5,10 +5,9 @@
 > sudo usermod -a -G input $USER
 > newgrp input / reboot
 > keysound 
-           -f, --file=WAV_FILE        要播放的音频
-           -j, --json=JSON_FILE       json配置文件
-           -d, --dir=DIR              目录
-           -l, --log=LOG_FILE         日志输出文件（未完成）
-           -D, --daemon               后台运行
-           -k, --kill                 结束进程
-           -?, -h, --help             帮助
+           -f --file=WAV_FILE | wav на всі кнопки
+           -j --json=JSON_FILE | josn де привязана кнопка до wav
+           -d --dir=DIR | папка в якій назва wav привязана до кнопки
+           -D --daemon | запуск keysound в фоновому режемі
+           -k --kill | зупинити keysound
+           -?, -h, --help
