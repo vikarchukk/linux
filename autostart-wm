@@ -7,5 +7,5 @@ fi
 > sudo v /etc/systemd/system/getty@tty1.service.d/override.conf {
 [Service]
 ExecStart=
-ExecStart=-/usr/bin/agetty --autologin USERNAME --noclear %I $TERM
+ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM
 }
