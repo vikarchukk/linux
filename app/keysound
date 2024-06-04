@@ -16,5 +16,5 @@
   > cd keysound/audio
   > mv cherrymx-red-abs ~/ksound/cherry
   > mv cherrymx-red-abs.json ~/ksound/cherry
-  > vim ~/ksound/cherry/cherrymx-red-abs.json { "dir": "./cherrymx-red-abs", }
+  > vim ~/ksound/cherry/cherrymx-red-abs.json { "dir": "~/ksound/cherry/cherrymx-red-abs", }
 > keysound -j ~/ksound/cherry/cherrymx-red-abs.json -D
