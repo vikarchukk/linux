@@ -9,6 +9,7 @@ Plug 'ojroques/vim-oscyank' " буфер обміну глобальний
 call plug#end() " кінець плагінів
 
 map c :OSCYankVisual<CR> " скопіювати
+vmap c :OSCYankVisual<CR>
 
 syntax on " підсвінта синтаксису
 
