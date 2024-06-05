@@ -10,6 +10,9 @@ settings:
         h: tab-prev
         l: tab-next
         v: null
+        vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display = "none";
+        vd: open -t https://www.deepl.com/translator#auto/uk/{clipboard}
+        vv: open https://translate.google.com/translate?sl=auto&tl=uk&u={url}
   colors.hints.bg:
     global: white
   fonts.default_family:
