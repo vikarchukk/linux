@@ -4,7 +4,7 @@
 
 while true; do
   while [ "$(cat /sys/class/power_supply/BAT0/capacity)" -lt 10 ] && [ "$(cat /sys/class/power_supply/BAT0/status)" = "Discharging" ]; do
-    herbe "[ low battery power: ... < 11% ]]]]]]]]]]]]]]]]]]]]]]]]"
+    herbe "[ low battery power: ... < 10% ]]]]]]]]]]]]]]]]]]]]]]]"
     sleep 1
   done
   sleep 300
