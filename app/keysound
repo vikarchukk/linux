@@ -30,7 +30,7 @@
 
   "default": "key.wav",
   "enter": "enter.wav",
-  "space": "space.wav",
+  "space": "space.wav"
 }
 }
 > keysound -j ~/ksound/teleprinter/c.json
