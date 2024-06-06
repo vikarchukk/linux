@@ -29,7 +29,6 @@ settings:
         zq: quit
         ZZ: null
         ZQ: null
-        sr: greasemonkey-reload ;; reload
   colors.hints.bg:
     global: white
   fonts.default_family:
