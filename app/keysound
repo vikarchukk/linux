@@ -39,20 +39,20 @@
 > git clone https://github.com/fgheng/keysound
 > cd keysound/audio
 
-> mkdir ~/ksound/classic
-> mv default.json ~/ksound/classic
-> mv typewriter-enter.wav ~/ksound/classic
-> mv typewriter-key.wav ~/ksound/classic
-> cd ~/ksound/classic
-> mv default.json c.json
-> v c.json { "dir": "/home/vikarchuk/ksound/classic/", }
-> keysound -j ~/ksound/classic/c.json
+  > mkdir ~/ksound/classic
+  > mv default.json ~/ksound/classic
+  > mv typewriter-enter.wav ~/ksound/classic
+  > mv typewriter-key.wav ~/ksound/classic
+  > cd ~/ksound/classic
+  > mv default.json c.json
+  > v c.json { "dir": "/home/vikarchuk/ksound/classic/", }
+  > keysound -j ~/ksound/classic/c.json
 
-> cd ~/ksound/keysound/audio
-> mkdir ~/ksound/typewriter-dog
-> mv typewriter-dog.json ~/ksound/typewriter-dog
-> mv typewriter-dog ~/ksound/typewriter-dog
-> cd ~/ksound/typewriter-dog
-> mv typewriter-dog.json c.json
-> v c.json { "dir": "/home/vikarchuk/ksound/typewriter-dog/typewriter-dog", }
-> keysound -j ~/ksound/typewriter-dog/c.json
+  > cd ~/ksound/keysound/audio
+  > mkdir ~/ksound/typewriter-dog
+  > mv typewriter-dog.json ~/ksound/typewriter-dog
+  > mv typewriter-dog ~/ksound/typewriter-dog
+  > cd ~/ksound/typewriter-dog
+  > mv typewriter-dog.json c.json
+  > v c.json { "dir": "/home/vikarchuk/ksound/typewriter-dog/typewriter-dog", }
+  > keysound -j ~/ksound/typewriter-dog/c.json
