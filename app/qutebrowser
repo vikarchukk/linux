@@ -83,5 +83,5 @@ settings:
 
 > cd ~/.local/share/qutebrowser/greasemonkey
   > wget https://raw.githubusercontent.com/ilyhalight/voice-over-translation/master/dist/vot-cloudflare.user.js
-  > wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
+  > wget https://greasyfork.org/scripts/9165-auto-close-youtube-ads/code/Auto%20Close%20YouTube%20Ads.user.js
   > in qutebrowser - :greasemonkey-reload
