@@ -28,9 +28,9 @@
 {
   "dir": "/home/vikarchuk/ksound/teleprinter/",
 
-  "default": "enter.wav",
   "enter": "enter.wav",
-  "space": "space.wav"
+  "space": "space.wav",
+  "default": "key.wav",
 }
 }
 > keysound -j ~/ksound/teleprinter/c.json
