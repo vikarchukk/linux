@@ -69,14 +69,14 @@ settings:
   tabs.title.format:
     global: '{current_title}'
   url.default_page:
-    global: https://raw.githubusercontent.com/vikarchukk/linux/main/TODO
+    global: https://www.google.com/
   url.searchengines:
     global:
       DEFAULT: https://www.google.com/search?q={}
       y: https://www.youtube.com/results?search_query={}
       d: https://www.deepl.com/translator#auto/uk/{}
   url.start_pages:
-    global: https://raw.githubusercontent.com/vikarchukk/linux/main/TODO
+    global: https://www.google.com/
   zoom.default:
     global: 125%
 } | налаштування браузера
