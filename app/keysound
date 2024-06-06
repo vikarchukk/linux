@@ -1,4 +1,4 @@
-[ keysound ] ( github.com/fgheng/keysound/tree/master )
+[ keysound ] ( github.com/fgheng/keysound )
 > git clone https://aur.archlinux.org/keysound-git.git
 > cd keysound-git
 > makepkg -sirc
