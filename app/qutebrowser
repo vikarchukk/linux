@@ -11,9 +11,24 @@ settings:
         l: tab-next
         v: null
         vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display = "none";
-        vd: open -t https://www.deepl.com/translator#auto/uk/
         vs: jseval document.getElementById("gt-nvframe").style.display = "block";
         vv: open https://translate.google.com/translate?sl=auto&tl=uk&u={url}
+        zg: open https://github.com/vikarchukk
+        Zg: open -t https://github.com/vikarchukk
+        zy: open https://www.youtube.com/
+        Zy: open -t https://www.youtube.com/
+        zt: open https://web.telegram.org/a/
+        Zt: open -t https://web.telegram.org/a/
+        zm: open https://gemini.google.com/app
+        Zm: open -t https://gemini.google.com/app
+        zc: open https://chatgpt.com/
+        Zc: open -t https://chatgpt.com/
+        zd: open https://www.deepl.com/translator#auto/uk/
+        Zd: open -t https://www.deepl.com/translator#auto/uk/
+        zz: quit --save
+        zq: quit
+        ZZ: null
+        ZQ: null
   colors.hints.bg:
     global: white
   fonts.default_family:
@@ -54,12 +69,14 @@ settings:
   tabs.title.format:
     global: '{current_title}'
   url.default_page:
-    global: https://www.google.com/
+    global: https://raw.githubusercontent.com/vikarchukk/linux/main/TODO
   url.searchengines:
     global:
       DEFAULT: https://www.google.com/search?q={}
+      y: https://www.youtube.com/results?search_query={}
+      d: https://www.deepl.com/translator#auto/uk/{}
   url.start_pages:
-    global: https://www.google.com/
+    global: https://raw.githubusercontent.com/vikarchukk/linux/main/TODO
   zoom.default:
     global: 125%
 } | налаштування браузера
