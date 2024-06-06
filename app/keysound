@@ -56,3 +56,5 @@
   > mv typewriter-dog.json c.json
   > v c.json { "dir": "/home/vikarchuk/ksound/typewriter-dog/typewriter-dog", }
   > keysound -j ~/ksound/typewriter-dog/c.json
+
+  > rm -r ~/ksound/keysound
