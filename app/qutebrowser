@@ -80,3 +80,7 @@ settings:
   zoom.default:
     global: 125%
 } | налаштування браузера
+
+> cd ~/.local/share/qutebrowser/greasemonkey
+  > wget https://raw.githubusercontent.com/ilyhalight/voice-over-translation/master/dist/vot-cloudflare.user.js
+  > in qutebrowser - :greasemonkey-reload
