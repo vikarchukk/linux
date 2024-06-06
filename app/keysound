@@ -12,7 +12,7 @@
            -k --kill | зупинити keysound
            -?, -h, --help
 
-> git clone https://github.com/c3rb3ru5d3d53c/keysound | звуки
+> git clone https://github.com/c3rb3ru5d3d53c/keysound
   > cd keysound/audio
   > mv cherrymx-red-abs ~/ksound/cherry
   > mv cherrymx-red-abs.json ~/ksound/cherry
