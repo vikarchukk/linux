@@ -18,3 +18,19 @@
   > mv cherrymx-red-abs.json ~/ksound/cherry
   > vim ~/ksound/cherry/cherrymx-red-abs.json { "dir": "/home/vikarchuk/ksound/cherry/cherrymx-red-abs", }
 > keysound -j ~/ksound/cherry/cherrymx-red-abs.json -D
+
+> mkdir ~/ksound/teleprinter/
+> cd ~/ksound/teleprinter/
+> wget https://mechvibes.com/sound-packs/custom-sound-pack-1203000000089/dist/Teleprinter.zip
+> unzip Teleprinter.zip
+> rm -r Teleprinter.zip
+> v c.json {
+{
+  "dir": "/home/vikarchuk/ksound/teleprinter/",
+
+  "default": "key.wav",
+  "enter": "enter.wav",
+  "space": "space.wav",
+}
+}
+> keysound -j ~/ksound/teleprinter/c.json
