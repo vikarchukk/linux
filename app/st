@@ -3,7 +3,7 @@
 > cd st
 > vim config.h {
 static char *font = "monocraft:size=16"; // шрифт і розмір
-static int borderpx = 1; // відступ від країв
+static int borderpx = 5; // відступ від країв
 
 static char *shell = "/bin/sh"; // ?
 char *utmp = NULL; // назва стороньої програми для utmp
