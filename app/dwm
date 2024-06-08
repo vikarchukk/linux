@@ -25,7 +25,7 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; // 
 // рижими відображиння вікон
 static const Layout layouts[] = {
   { "[]=", tile }, // головна зона + другорядна зона
-// { "><>", NULL }, // вікна можна переміщати вільно
+  { "><>", NULL }, // вікна можна переміщати вільно
   { "[M]", monocle }, // вікна наложуються один на одного
 };
 
@@ -111,7 +111,6 @@ static const Button buttons[0] = {
 
 // налаштування де і як буду відкриватися програми
 static const Rule rules[0] = {};
-
 } | налаштування програми
 > wget https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.4.diff | пач для проміжків між вікнами
   > patch --merge -i dwm-fullgaps-6.4.diff
