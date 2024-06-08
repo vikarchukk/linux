@@ -1,6 +1,7 @@
 ```
 [ / ]
-├─[ /arch ] arch
+├─[ /arch ]
+│ ├─ install - встановлення arch
 │ ├─ app - інструкції по встановленю програм
 │ ├─ base - базові налаштування
 │ │  └─ wifi, bluetooth, fan, audio, backlight, font, cursor
