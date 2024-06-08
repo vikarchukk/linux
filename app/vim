@@ -32,4 +32,12 @@ let g:netrw_liststyle=3 " стиль дерева для відображенн�
 " заговолок вікна
 set title
 set titlestring=%F
+
+" таби
+highlight TabLine ctermfg=256 ctermbg=259 cterm=none
+highlight TabLineFill ctermfg=256 ctermbg=259 cterm=none
+
+nmap O :tabnew
+nmap J :tabprevious<CR>
+nmap K :tabnext<CR>
 }
