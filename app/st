@@ -93,9 +93,11 @@ static MouseShortcut mshortcuts[] = {
 
 // комбінація для клавіатури
 static Shortcut shortcuts[] = {
-  { ControlMask,            XK_c,  clipcopy,   {.i = 0} }, // скопіювати
-  { ControlMask,            XK_v,  clippaste,  {.i = 0} }, // вставити
-  { ControlMask|ShiftMask,  XK_V,  sendbreak,  {.i = 0} }, // зупинити процес
+  { ControlMask,            XK_k,  kscrollup,   {.i = 1} }, // скрол верх
+  { ControlMask,            XK_j,  kscrolldown, {.i = 1} }, // скрол вниз
+  { ControlMask,            XK_c,  clipcopy,    {.i = 0} }, // скопіювати
+  { ControlMask,            XK_v,  clippaste,   {.i = 0} }, // вставити
+  { ControlMask|ShiftMask,  XK_V,  sendbreak,   {.i = 0} }, // зупинити процес
 };
 
 static KeySym mappedkeys[] = { -1 }; // схема розкладки
