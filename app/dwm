@@ -60,8 +60,8 @@ static const Key keys[] = {
   // вікна
   { MODKEY|ShiftMask,    XK_k,       focusstack,      {.i = +1 } }, // перейти на наступне вікно
   { MODKEY|ShiftMask,    XK_j,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
-  { MODKEY,             XK_l,       setmfact,        {.f = +0.01} }, // збільшити ширину головної зони
-  { MODKEY,             XK_h,       setmfact,        {.f = -0.01} }, // зменшити ширину головної зони
+  { MODKEY,              XK_l,       setmfact,        {.f = +0.01} }, // збільшити ширину головної зони
+  { MODKEY,              XK_h,       setmfact,        {.f = -0.01} }, // зменшити ширину головної зони
   // { MODKEY|ControlMask,  XK_l,       incnmaster,      {.i = +1 } }, // перейти на наступну розкладку вікон
   // { MODKEY|ControlMask,  XK_h,       incnmaster,      {.i = -1 } }, // перейти на задню розкладку вікон
   { MODKEY,              XK_Return,  zoom,            {0} }, // перемістити вікно в головну зону
