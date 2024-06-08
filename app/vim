@@ -37,7 +37,7 @@ set titlestring=%F
 highlight TabLine ctermfg=256 ctermbg=259 cterm=none
 highlight TabLineFill ctermfg=256 ctermbg=259 cterm=none
 
-nmap O :tabnew
+nmap O :tabnew 
 nmap J :tabprevious<CR>
 nmap K :tabnext<CR>
 }
