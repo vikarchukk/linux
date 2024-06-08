@@ -1,0 +1,11 @@
+[ autostart-wm ] автосторат віконого менеджера
+> v ~/.bash_profile {
+if systemctl -q is-active graphical.target && [[ ! $DISPLAY && $XDG_VTNR -eq 1 ]]; then
+  exec startx
+fi
+}
+> sudo v /etc/systemd/system/getty@tty1.service.d/override.conf {
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM
+}
