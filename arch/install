@@ -25,29 +25,24 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 > fdisk nameofdisk | вхід в редагування диску
 > d > 1 | потрібно видалити всі розділи по черзі
 > g | налаштування сестеме диску
-> n > enter > enter > +2G > y | виділиння розділу для efi (запуск пк) (550M - 2G)
-> n > enter > enter > +20G > y | виділиння розділу для swap (використовується якщо закінчиться ram) (4G < nG)
+> n > enter > enter > +300M > y | виділиння розділу для efi (запуск пк) (300M)
 > n > enter > enter > enter > y | виділиння розділу для root (сестема) (23G < nG)
 > t > 1 > 1 | зміна типу розділу для efi
-> t > 2 > 19 | зміна типу розділу для swap
 > w | зберегти зміни і вийти
 
 [ 5 ] форматування диску
 > fdisk -l | перегляд дисків
 > mkfs.fat -F 32 /dev/efi_partition | формотування розділу для efi
-> mkswap /dev/swap_partition | формотування розділу для swap
 > mkfs.ext4 /dev/root_partition | формотування розділу для root
 
 [ 6 ] монтування диску
 > mount /dev/root_partition /mnt | монтування розділу root в папку /mnt
 > mount --mkdir /dev/efi_partition /mnt/efi | монтування розділу efi в папку /mnt/efi
-> swapon /dev/swap_partition | включає swap
 
 [ 7 ] встановлення системи
-> pacstrap /mnt base linux-t2 linux-firmware apple-bcm-firmware
+> pacstrap /mnt base linux-xanmod-t2 linux-firmware apple-bcm-firmware
   | base - для запуску arch
-  | linux-t2 - для роботи системи з чипом t2
-  | linux-xanmod-t2 - для роботи системи з чипом t2 (для ігор)
+  | linux-xanmod-t2 - для роботи системи з чипом t2
   | linux-firmware - для роботи апаратних компонентів (клавіатура, трекпад...)
   | apple-bcm-firmware - для роботи Wi-Fi та Bluetooth на чипі t2
 
@@ -56,11 +51,11 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 > arch-chroot /mnt | перехід до коренової папки в новій сестемі
 
 > ln -sf /usr/share/zoneinfo/Europe/Stockholm /etc/localtime | встановлення часової зони
-> hwclock --systohc | створює /etc/adjtime
+> hwclock --systohc | синхронізація часу
 
-> pacman -S vim networkmanager sudo | встановлення базових інструментів
+> pacman -S vim iwd dhcpcd sudo | встановлення базових інструментів
   | vim - для редагування файлів
-  | networkmanager - для роботи інтернету
+  | iwd, dhcpcd - для роботи інтернету
   | sudo - для того щоб користувач міг виконувати команди від root прав
 
 > vim /etc/locale.gen {
