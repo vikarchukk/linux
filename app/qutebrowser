@@ -31,6 +31,8 @@ settings:
         Zd: open -t https://www.deepl.com/translator#auto/uk/
   colors.hints.bg:
     global: white
+  downloads.position:
+    global: bottom
   fonts.default_family:
     global: monocraft
   fonts.default_size:
