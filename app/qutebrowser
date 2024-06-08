@@ -7,12 +7,10 @@ settings:
     global:
       normal:
         <Ctrl+v>: null
-        h: tab-prev
-        l: tab-next
-        H: scroll left
-        L: scroll right
-        J: back
-        K: forward
+        J: tab-prev
+        K: tab-next
+        L: back
+        H: forward
         v: null
         vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display = "none";
         vs: jseval document.getElementById("gt-nvframe").style.display = "block";
