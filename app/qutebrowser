@@ -25,10 +25,6 @@ settings:
         Zc: open -t https://chatgpt.com/
         zd: open https://www.deepl.com/translator#auto/uk/
         Zd: open -t https://www.deepl.com/translator#auto/uk/
-        zz: quit --save
-        zq: quit
-        ZZ: null
-        ZQ: null
   colors.hints.bg:
     global: white
   fonts.default_family:
