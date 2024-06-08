@@ -1,18 +1,26 @@
 ```
-my pc setup
-├─ arch linux /arch-install
-│  ├─ встановлення програм /app-install
-│  └─ базові налаштування /basic-settings
-│     └─ wifi, bluetooth, fan, audio, backlight, font, cursor
-└─ встановлення графічного інтерфейсу x /app/
-   ├─ dwm - віконий менеджер
-   ├─ slstatus - статус смуга
-   ├─ dmenu - меню для запуску програм
-   ├─ st - термінал
-   ├─ herbe - спливаюче вікно
-   ├─ vim - для редагування файлів
-   ├─ btop - для моніторингу сестеми
-   ├─ qutebrowser - браузер з vim клавіатурою
-   ├─ rxfetch - для відображення інформації про пк
-   └─ steam
+[ / ]
+├─[ /arch ] arch
+│ ├─ app - інструкції по встановленю програм
+│ ├─ base - базові налаштування
+│ │  └─ wifi, bluetooth, fan, audio, backlight, font, cursor
+│ ├─ addition - доповнення налаштуваннь
+│ │  └─ autostart-wm, battery-alert, bash-set
+│ └─ xorg - графічний інтерфейс X
+├─[ /program ]
+│ ├─ dwm - віконий менеджер
+│ ├─ slstatus - статус бар
+│ ├─ st - термінал
+│ ├─ herbe - сповіщення
+│ ├─ vim - редактор файлів
+│ ├─ btop - моніторинг системи
+│ ├─ qutebrowser - браузер подібний до vim
+│ ├─ keysound - звук для клавіш
+│ ├─ steam - ігри
+│ └─ rxfetch - інформація про пк
+└─[ /docs ]
+  ├─ keyboard-shortcuts - комбінації клавіш
+  ├─ command - команди
+  ├─ file-system - файлова сестема
+  └─ TODO
 ```
