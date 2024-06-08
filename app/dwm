@@ -4,7 +4,7 @@
 > vim config.h {
 static const unsigned int borderpx  = 2; // товщина обведення вікна
 static const unsigned int gappx = 5; // проміжок пікселів між вікнами
-static const unsigned int snap = 10; // наскільки піксилів збільшувати або зменшувати вікно
+static const unsigned int snap = 0; // відстань приклеювання вікна до країв
 
 static const int showbar = 1; // меню - 0 сховати | 1 показати
 static const int topbar = 0; // меню - 0 знизу | 1 зверху
@@ -58,10 +58,10 @@ static const Key keys[] = {
   TAGKEYS(               XK_9,                        8)
 
   // вікна
-  { MODKEY,              XK_l,       focusstack,      {.i = +1 } }, // перейти на наступне вікно
-  { MODKEY,              XK_h,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
-  { MODKEY|ShiftMask,    XK_l,       setmfact,        {.f = +0.05} }, // збільшити ширину головної зони
-  { MODKEY|ShiftMask,    XK_h,       setmfact,        {.f = -0.05} }, // зменшити ширину головної зони
+  { MODKEY|ShiftMask,    XK_k,       focusstack,      {.i = +1 } }, // перейти на наступне вікно
+  { MODKEY|ShiftMask,    XK_j,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
+  { MODKEY|,             XK_l,       setmfact,        {.f = +0.01} }, // збільшити ширину головної зони
+  { MODKEY|,             XK_h,       setmfact,        {.f = -0.01} }, // зменшити ширину головної зони
   // { MODKEY|ControlMask,  XK_l,       incnmaster,      {.i = +1 } }, // перейти на наступну розкладку вікон
   // { MODKEY|ControlMask,  XK_h,       incnmaster,      {.i = -1 } }, // перейти на задню розкладку вікон
   { MODKEY,              XK_Return,  zoom,            {0} }, // перемістити вікно в головну зону
