@@ -23,8 +23,8 @@ settings:
         Zm: open -t https://gemini.google.com/app
         zc: open https://chatgpt.com/
         Zc: open -t https://chatgpt.com/
-        zd: open -- https://www.deepl.com/translator#auto/uk/{clipboard}
-        Zd: open -t -- https://www.deepl.com/translator#auto/uk/{clipboard}
+        zd: open https://www.deepl.com/translator#auto/uk/
+        Zd: open -t https://www.deepl.com/translator#auto/uk/
         zz: quit --save
         zq: quit
         ZZ: null
