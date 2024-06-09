@@ -9,9 +9,9 @@
 xrdb ~/.Xresources # активація налаштування розміру курсору
 setxkbmap -option caps:escape # переназначиння кнопки escape
 xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (xrandr - щоб провірити котрі доступні)
-xsetroot -bitmap escher_reptiles2.xbm # ставить фон (github.com/dkeg/bitmap-walls)
+# xsetroot -bitmap escher_reptiles2.xbm # ставить фон (github.com/dkeg/bitmap-walls)
 bash ~/battery-alert & # сповіщення про низький рівень зарядки
-keysound -j ~/ksound/cherry/cherrymx-red-abs.json -D # звук пи натискані на клавіші
+# keysound -j ~/ksound/cherry/cherrymx-red-abs.json -D # звук пи натискані на клавіші
 slstatus & # запуск програми для відображиння даних про пк
 exec dwm # віконий менеджер
 } | які програми будуть запущині зразу після запуску x
