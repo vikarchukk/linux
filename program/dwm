@@ -37,7 +37,7 @@ void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon
 #define TAGKEYS(KEY,TAG) \
   { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, /* перейти до вибраного тегу */ \
   { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* обєднує вікна вибраних тегів */ \
-  { MODKEY,                        KEY,  tag,         {.ui = 1 << TAG} }, /* перекинути активне вікно в вибраний тег */ \
+  { MODKEY|ShiftMask,              KEY,  tag,         {.ui = 1 << TAG} }, /* перекинути активне вікно в вибраний тег */ \
   { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* відобразити активне вікно в вибраних тегах */
 
 // комбінації для клавіатури
