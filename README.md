@@ -4,7 +4,7 @@
 │ ├─ install - встановлення arch
 │ ├─ app - інструкції по встановленю програм
 │ ├─ base - базові налаштування
-│ │  └─ wifi, bluetooth, fan, audio, backlight, font, cursor
+│ │  └─ wifi, fan, audio, backlight, font, cursor
 │ ├─ addition - доповнення налаштуваннь
 │ │  └─ autostart-wm, battery-alert, bash-set
 │ └─ xorg - графічний інтерфейс X
