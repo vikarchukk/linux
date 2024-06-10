@@ -55,10 +55,6 @@
   > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
   > pactl set-sink-volume @DEFAULT_SINK@ +5% | зібльшує на 5% гучності
   > pactl set-sink-volume @DEFAULT_SINK@ -5% | зменшує на 5% гучності
-> git clone https://aur.archlinux.org/pacmixer.git | встановлення програми для реголування звуку
-  > cd pacmixer
-  > makepkg -sirc
-  > pacmixer
 
 [ backlight ] ( wiki.archlinux.org/title/Backlight )
 > sudo vim /etc/udev/rules.d/backlight.rules {
