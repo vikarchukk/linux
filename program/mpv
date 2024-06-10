@@ -1,0 +1,4 @@
+[ mpv ] ( https://github.com/mpv-player/mpv )
+> sudo pacman -S mpv
+> mpv url_video # просто відтворити відео
+> mpv --no-video url_video # відтворити тільки аудіо
