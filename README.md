@@ -18,7 +18,7 @@
 │ ├─ qutebrowser - браузер подібний до vim
 │ ├─ keysound - звук для клавіш
 │ ├─ steam - ігри
-│ ├─ radio - музика
+│ ├─ mpv - музика
 │ └─ rxfetch - інформація про пк
 └─[ /docs ]
   ├─ keyboard-shortcuts - комбінації клавіш
