@@ -1,1 +1,4 @@
-
+[ cava ]  ( github.com/karlstav/cava )
+> git clone https://aur.archlinux.org/cava.git
+  > cd cava
+  > makepkg -sirc
