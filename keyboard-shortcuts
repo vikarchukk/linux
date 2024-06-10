@@ -92,12 +92,12 @@ dwm
 │  ├─ музика
 │  │  ├─ option/alt + 1-6 - включити
 │  │  └─ option/alt + 0 - виключити
-│  ├─ блютуз
-│  │  ├─ cmd + shift + b - включити
-│  │  └─ cmd + control + o - виключити
-│  └─ звук клавіш
-│     ├─ cmd + o - включити
-│     └─ cmd + shift + o - виключити
+│  ├─ звук клавіш
+│  │  ├─ cmd + o - включити
+│  │  └─ cmd + shift + o - виключити
+│  └─ блютуз
+│     ├─ cmd + shift + b - включити
+│     └─ cmd + control + o - виключити
 ├─ програми
 │  ├─ cmd + shift + return - st
 │  ├─ cmd + shift + w - qutebrowser
