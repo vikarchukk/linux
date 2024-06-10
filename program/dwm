@@ -103,6 +103,10 @@ static const Key keys[] = {
   { Mod1Mask,            XK_6,       spawn,           SHCMD("killall mpv; herbe '[ music: relax 2 ]'; mpv --no-video https://www.youtube.com/watch?v=jfKfPfyJRdk") },
   { Mod1Mask,            XK_0,       spawn,           SHCMD("killall mpv; herbe '[ music: off ]'") }, // виключити музику
 
+  // блютуз
+  { MODKEY|ShiftMask,    b,          spawn,           SHCMD("systemctl start bluetooth; st -e bluetui") }, // включити
+  { MODKEY|ControlMask,  b,          spawn,           SHCMD("systemctl stop bluetooth") }, // виключити
+
   // запуск програм
   { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("st") },
   { MODKEY|ShiftMask,    XK_w,       spawn,           SHCMD("qutebrowser") },
