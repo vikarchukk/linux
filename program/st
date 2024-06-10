@@ -13,7 +13,7 @@ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400"; // ?
 char *vtiden = "\033[?6c"; // ?
 
 static float cwscale = 1.0; // відступ між літерами
-static float chscale = 1.0; // простір зайнятий символом на екрані
+static float chscale = 1.08; // простір зайнятий символом на екрані
 
 wchar_t *worddelimiters = L" "; // символ контрий розділяє слова
 
