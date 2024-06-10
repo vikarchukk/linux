@@ -11,14 +11,6 @@
 > sudo systemctl disable NetworkManager | видаляє програму з авто запуску
 > sudo systemctl stop NetworkManager | зупиняє програму
 
-[ bluetooth ] ( wiki.archlinux.org/title/bluetooth )
-> git clone https://aur.archlinux.org/bluetuith.git | програма для bluetooth
-  > cd bluetuith
-  > makepkg -sirc
-> sudo systemctl start bluetooth | включиння bluetooth
-> bluetuith | зайти в програму для роботи з bluetooth
-> sudo systemctl stop bluetooth | виключити bluetooth
-
 [ fan ] ( wiki.archlinux.org/title/fan_speed_control ) 
           └─ для чіпу t2 - ( wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand )
 > vim /etc/pacman.conf {
