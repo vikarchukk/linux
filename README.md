@@ -73,7 +73,7 @@
 │ │ ├─ cmd + o - включити
 │ │ └─ cmd + shift + o - виключити
 │ └─[ блютуз ]
-│   ├─ cmd + shift + b - включити
+│   ├─ cmd + shift + b - включити і bluetui
 │   └─ cmd + control + b - виключити
 ├─[ програми ]
 │ ├─ cmd + shift + return - st
