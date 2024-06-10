@@ -27,6 +27,8 @@ settings:
         Zc: open -t https://chatgpt.com/
         zd: open https://www.deepl.com/translator#auto/uk/
         Zd: open -t https://www.deepl.com/translator#auto/uk/
+        zp: spawn mpv {url}
+        ss: greasemonkey-reload
   colors.hints.bg:
     global: white
   downloads.position:
