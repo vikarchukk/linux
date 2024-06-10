@@ -1,4 +1,4 @@
-[ bluetui ]  ( github.com/pythops/bluetui )
+[ bluetui ] ( github.com/pythops/bluetui )
 > git clone https://aur.archlinux.org/bluetui.git
   > cd bluetui
   > makepkg -sirc
