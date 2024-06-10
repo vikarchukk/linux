@@ -1,0 +1,5 @@
+[ pacmixer ] ( https://github.com/KenjiTakahashi/pacmixer )
+> git clone https://aur.archlinux.org/pacmixer.git
+  > cd pacmixer
+  > makepkg -sirc
+  > pacmixer
