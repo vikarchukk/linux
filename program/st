@@ -163,4 +163,6 @@ static char ascii_printable[] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLM
   > patch --merge -i st-vertcenter-20231003-eb3b894.diff
 > wget https://st.suckless.org/patches/anysize/st-anysize-20220718-baa9357.diff | пач для центрування коетенту в середині вікна
   > patch --merge -i st-anysize-20220718-baa9357.diff
+> wget https://st.suckless.org/patches/hidecursor/st-hidecursor-0.8.3.diff | пач для приховування мишу під час друкування
+  > patch --merge -i st-hidecursor-0.8.3.diff
 > sudo make clean install | зібрати програму
