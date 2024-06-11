@@ -77,8 +77,8 @@ static const Key keys[] = {
 
   // реголювання
     // розкладка клавіатури
-  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"") }, // змінювати розкладку клавіатури між українською і англійською
-
+  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"; xmodmap ~/.Xmodmap; herbe \"[ + ]\"; else setxkbmap ua; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\";  fi;") }, // змінювати розкладку клавіатури між українською і англійською
+ 
     // звук  
   { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшити звук
   { MODKEY,              0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // зменшити звук
