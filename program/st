@@ -2,8 +2,8 @@
 > git clone https://git.suckless.org/st | клонування коду програми
 > cd st
 > vim config.h {
-static char *font = "monocraft:size=16"; // шрифт і розмір
-static int borderpx = 1; // відступ від країв
+static char *font = "monocraft:size=15"; // шрифт і розмір
+static int borderpx = 2; // відступ від країв
 
 static char *shell = "/bin/sh"; // ?
 char *utmp = NULL; // назва стороньої програми для utmp
@@ -13,7 +13,7 @@ char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400"; // ?
 char *vtiden = "\033[?6c"; // ?
 
 static float cwscale = 1.0; // відступ між літерами
-static float chscale = 1.09; // простір зайнятий символом на екрані
+static float chscale = 1.1; // простір зайнятий символом на екрані
 
 wchar_t *worddelimiters = L" "; // символ контрий розділяє слова
 
