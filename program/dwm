@@ -4,7 +4,7 @@
 > vim config.h {
 static const unsigned int borderpx  = 2; // товщина обведення вікна
 static const unsigned int gappx = 5; // проміжок пікселів між вікнами
-static const unsigned int snap = 0; // відстань приклеювання вікна до країв
+static const unsigned int snap = 1; // відстань приклеювання вікна до країв
 
 static const int showbar = 1; // меню - 0 сховати | 1 показати
 static const int topbar = 0; // меню - 0 знизу | 1 зверху
