@@ -161,4 +161,6 @@ static char ascii_printable[] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLM
   > patch --merge -i st-boxdraw_v2-0.8.5.diff
 > wget https://st.suckless.org/patches/vertcenter/st-vertcenter-20231003-eb3b894.diff | пач для центрування шрифту в середині рядка
   > patch --merge -i st-vertcenter-20231003-eb3b894.diff
+> wget https://st.suckless.org/patches/anysize/st-anysize-20220718-baa9357.diff | пач для центрування коетенту в середині вікна
+  > patch --merge -i st-anysize-20220718-baa9357.diff
 > sudo make clean install | зібрати програму
