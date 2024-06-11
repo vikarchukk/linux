@@ -48,3 +48,20 @@ export PS1="${green}[${off}${purple}\${PWD/#\$HOME/\~}${off}${green}]${off}${red
 # заговолок вікна
 PROMPT_COMMAND='printf "\033]0;${PWD/#$HOME/"~"}\007"'
 }
+
+[ xmodmap ] ( wiki.archlinux.org/title/Xmodmap_(%D0%A0%D1%83%D1%81%D1%81%D0%BA%D0%B8%D0%B9) )
+> vim ~/.Xmodmap {
+clear lock
+clear mod1
+clear mod2
+clear mod3
+clear mod4
+clear mod5
+
+add mod1 = Alt_L
+add mod2 = Alt_R
+add mod3 = Super_L
+add mod4 = Super_R
+
+keycode 66 = Escape NoSymbol Escape
+}
