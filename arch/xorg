@@ -6,7 +6,7 @@
   └ xorg-xrandr - для розширення екрану
 > vim .xinitrc {
 xrdb ~/.Xresources # активація налаштування розміру курсору
-setxkbmap -option caps:escape # переназначиння кнопки escape
+xmodmap ~/.Xmodmap # переназначиння клавіш
 xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (xrandr - щоб провірити котрі доступні)
 bash ~/battery-alert & # сповіщення про низький рівень зарядки
 slstatus & # запуск програми для відображиння даних про пк
