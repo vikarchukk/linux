@@ -1,36 +1,13 @@
 [ wifi ] ( wiki.archlinux.org/title/NetworkManager )
 > sudo pacman -S dhcpcd iwd
-> sudo systemctl start dhcpcd
-> sudo systemctl start iwd
+> sudo systemctl enable --now dhcpcd
+> sudo systemctl enable --now iwd
 > iwctl
   > device list # wlan0
   > station wlan0 get-networks
   > station wlan0 connect 'wifi'
   > exit
-
-
-> networkctl list
-> sudo vim /etc/systemd/network/wifi.network {
-[Match]
-Name=wlan0
-
-[Network]
-DHCP=yes
-}
-> sudo pacman -S iwd
-> sudo systemctl start iwd
-> iwctl
-> station wlan0 get-networks
-> station wlan0 connect "name_wifi"
-> --passphrase pass station wlan0 connect "name_wifi"
-> exit
-> sudo systemctl enable --now systemd-networkd.service
-
-
-> sudo pacman -S dhcpcd | встановлення програми для wifi
-> sudo systemctl enable --now NetworkManager | додаваня програми в автозапуск і запуск самої програми
-> sudo systemctl disable NetworkManager | видаляє програму з авто запуску
-> sudo systemctl stop NetworkManager | зупиняє програму
+> sudo systemctl disable dhcpcd/iwd
 
 [ fan ] ( wiki.archlinux.org/title/fan_speed_control ) 
           └─ для чіпу t2 - ( wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand )
