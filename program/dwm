@@ -94,9 +94,10 @@ static const Key keys[] = {
   { Mod5Mask|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // збільшити яскравість
   { Mod5Mask|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // зменшити яскравість
 
-  // розкладка клавіатури
-  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"") }, // змінювати розкладку клавіатури між українською і англійською
- 
+  // нічний режим
+  { Mod5Mask,            XK_n,       spawn,           SHCMD("redshift -O 4000; herbe '[ night light: on ]'") }, // включити
+  { Mod5Mask|ShiftMask,  XK_n,       spawn,           SHCMD("redshift -x; herbe '[ night light: off ]'") }, // виключити
+
   // звук клавіш
   { Mod5Mask,            XK_k,       spawn,           SHCMD("keysound -j ~/ksound/cherry/cherrymx-red-abs.json -D; herbe '[ keyboard sound: on ]'") }, // включити звук клавіш
   { Mod5Mask|ShiftMask,  XK_k,       spawn,           SHCMD("keysound -k; herbe '[ keyboard sound: off ]'") }, // виключити звук клавіш
@@ -115,6 +116,9 @@ static const Key keys[] = {
   { Mod5Mask,            XK_b,       spawn,           SHCMD("herbe '[ bluetooth: on ]'; sudo systemctl start bluetooth") }, // включити
   { Mod5Mask|ShiftMask,  XK_b,       spawn,           SHCMD("herbe '[ bluetooth: off ]'; sudo systemctl stop bluetooth") }, // виключити
 
+  // розкладка клавіатури
+  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"") }, // змінювати розкладку клавіатури між українською і англійською
+ 
   // запуск програм
   { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("st") },
   { Mod3Mask,            XK_q,       spawn,           SHCMD("qutebrowser") },
