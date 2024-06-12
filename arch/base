@@ -3,8 +3,9 @@
 > sudo systemctl start dhcpcd
 > sudo systemctl start iwd
 > iwctl
+  > device list # wlan0
   > station wlan0 get-networks
-  > station wlan0 connect "name_wifi"
+  > station wlan0 connect 'wifi'
   > exit
 
 
