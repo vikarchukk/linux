@@ -2,14 +2,14 @@
 > sudo vim /usr/local/bin/startx.sh {
 #!/bin/bash
 
-startx
+exec startx
 }
 > sudo chmod +x /usr/local/bin/startx.sh
 > sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
 [Service]
 ExecStart=
 ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM
-ExecStartPost=/usr/local/bin/startx.sh
+ExecStartPost=-/usr/local/bin/startx.sh
 }
 
 [ battery-alert ] сповіщення про низький рівень батереї
