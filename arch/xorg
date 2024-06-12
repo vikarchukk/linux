@@ -5,8 +5,20 @@
   │ xorg-xinit - для запуску x
   └ xorg-xrandr - для розширення екрану
 > vim .xinitrc {
+# переназначиння клавіш
+# shift - shift
+# lock - escape
+# control- control
+# mod1 - alt_l
+# mod2 - ...
+# mod3 - alt_r
+# mod4 - super_l
+# mod5 - super_r
+setxkbmap -option caps:escape
+setxkbmap -option lv3:rwin_switch
+setxkbmap -option lv5:ralt_switch
+
 xrdb ~/.Xresources # активація налаштування розміру курсору
-xmodmap ~/.Xmodmap # переназначиння клавіш
 xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (xrandr - щоб провірити котрі доступні)
 bash ~/battery-alert & # сповіщення про низький рівень зарядки
 slstatus & # запуск програми для відображиння даних про пк
