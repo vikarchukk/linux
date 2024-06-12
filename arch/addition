@@ -9,7 +9,7 @@ exec startx
 [Service]
 ExecStart=
 ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM
-ExecStartPost=-/usr/local/bin/startx.sh
+ExecStartPost=/usr/local/bin/startx.sh
 }
 
 [ battery-alert ] сповіщення про низький рівень батереї
