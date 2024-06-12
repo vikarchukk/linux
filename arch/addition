@@ -5,7 +5,7 @@
 startx
 }
 > sudo chmod +x /usr/local/bin/startx.sh
-> sudo v /etc/systemd/system/getty@tty1.service.d/override.conf {
+> sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
 [Service]
 ExecStart=
 ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM
