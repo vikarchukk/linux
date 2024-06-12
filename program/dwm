@@ -39,7 +39,7 @@ void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon
 // Mod3Mask - alt_r
 // Mod4Mask - super_l
 // Mod5Mask - super_r
-#define MODKEY Mod3Mask // для налаштування командної клавіші в моєму випадку це command
+#define MODKEY Mod4Mask // для налаштування командної клавіші в моєму випадку це command_l
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } } // для запуску команд
 #define TAGKEYS(KEY,TAG) \
   { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, /* перейти до вибраного тегу */ \
@@ -80,7 +80,7 @@ static const Key keys[] = {
 
   // реголювання
     // розкладка клавіатури
-  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"; xmodmap ~/.Xmodmap; herbe \"[ + ]\"; else setxkbmap ua; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\";  fi;") }, // змінювати розкладку клавіатури між українською і англійською
+  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"") }, // змінювати розкладку клавіатури між українською і англійською
  
     // звук  
   { MODKEY,              0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшити звук
