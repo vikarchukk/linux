@@ -1,4 +1,13 @@
 [ wifi ] ( wiki.archlinux.org/title/NetworkManager )
+> sudo pacman -S dhcpcd iwd
+> sudo systemctl start dhcpcd
+> sudo systemctl start iwd
+> iwctl
+  > station wlan0 get-networks
+  > station wlan0 connect "name_wifi"
+  > exit
+
+
 > networkctl list
 > sudo vim /etc/systemd/network/wifi.network {
 [Match]
