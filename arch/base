@@ -1,4 +1,4 @@
-[ wifi ] ( wiki.archlinux.org/title/NetworkManager )
+[ wifi ] ( wiki.archlinux.org/title/Network_configuration )
 > sudo pacman -S dhcpcd iwd
 > sudo systemctl enable --now dhcpcd
 > sudo systemctl enable --now iwd
