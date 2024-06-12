@@ -6,7 +6,7 @@
   └ xorg-xrandr - для розширення екрану
 > vim .xinitrc {
 # переназначиння клавіш
-# shift - shift
+# shift - shift_l, shift_r
 # lock - escape
 # control- control
 # mod1 - alt_l
