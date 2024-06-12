@@ -1,16 +1,9 @@
 [ autostart-wm ] автосторат віконого менеджера
-> sudo vim /usr/local/bin/startx.sh {
-#!/bin/bash
-
-startx
-}
-> sudo chmod +x /usr/local/bin/startx.sh
+> v ~/.bash_profile { startx }
 > sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
 [Service]
 ExecStart=
-ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM
-ExecStartPost=/usr/local/bin/startx.sh
-}
+ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM }
 
 [ battery-alert ] сповіщення про низький рівень батереї
 > потрібний herbe для сповіщення
