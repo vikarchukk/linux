@@ -1,4 +1,22 @@
 [ wifi ] ( wiki.archlinux.org/title/NetworkManager )
+> networkctl list
+> sudo vim /etc/systemd/network/wifi.network {
+[Match]
+Name=wlan0
+
+[Network]
+DHCP=yes
+}
+> sudo pacman -S iwd
+> sudo systemctl start iwd
+> iwctl
+> station wlan0 get-networks
+> station wlan0 connect "name_wifi"
+> --passphrase pass station wlan0 connect "name_wifi"
+> exit
+> sudo systemctl enable --now systemd-networkd.service
+
+
 > sudo pacman -S dhcpcd | встановлення програми для wifi
 > sudo systemctl enable --now NetworkManager | додаваня програми в автозапуск і запуск самої програми
 > sudo systemctl disable NetworkManager | видаляє програму з авто запуску
