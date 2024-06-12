@@ -32,10 +32,13 @@ static const Layout layouts[] = {
 // скрипт для того щоб можна було переходити між тегами
 void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
 
-// Mod1Mask - Alt_L
-// Mod2Mask - Alt_R
-// Mod3Mask - Super_L
-// Mod4Mask - Super_R
+// CapsLock - escape
+// ShiftMask - shift_l, shift_r
+// ControlMask - control
+// Mod1Mask - alt_l
+// Mod3Mask - alt_r
+// Mod4Mask - super_l
+// Mod5Mask - super_r
 #define MODKEY Mod3Mask // для налаштування командної клавіші в моєму випадку це command
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } } // для запуску команд
 #define TAGKEYS(KEY,TAG) \
