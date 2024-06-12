@@ -2,7 +2,7 @@
 > sudo vim /usr/local/bin/startx.sh {
 #!/bin/bash
 
-exec startx
+startx
 }
 > sudo chmod +x /usr/local/bin/startx.sh
 > sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
