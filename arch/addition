@@ -25,6 +25,9 @@ HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesy
 > sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
 > sudo vim /boot/loader/entries/arch.conf { options ... resume=UUID=... resume_offset=... }
 
+> sudo vim /etc/mkinitcpio.conf { MODULES=(... intel_lpss_pci) }
+> mkinitcpio -P
+
 > sudo vim /etc/systemd/logind.conf {
 HandleLidSwitch=hibernate
 HandleLidSwitchExternalPower=hibernate
