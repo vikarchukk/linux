@@ -28,7 +28,7 @@ HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesy
 > sudo vim /etc/mkinitcpio.conf { MODULES=(... intel_lpss_pci) }
 > sudo mkinitcpio -P
 
-> sudo vim /etc/systemd/system.conf { RuntimeWatchdogSec=30m }
+> sudo vim /etc/systemd/system.conf { RuntimeWatchdogSec=on }
 
 > sudo vim /etc/systemd/logind.conf {
 HandleLidSwitch=hibernate
