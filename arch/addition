@@ -11,12 +11,19 @@ HandleLidSwitch=ignore
 HandleLidSwitchExternalPower=ignore
 HandleLidSwitchDocked=ignore }
 
-> sudo dd if=/dev/zero of=/swapfile bs=1M count=8k status=progress
-> chmod 0600 /swapfile
-> mkswap -U clear /swapfile
-> swapon /swapfile
+> sudo dd if=/dev/zero of=/swapfile bs=1M count=16k status=progress
+> sudo chmod 0600 /swapfile
+> sudo mkswap -U clear /swapfile
+> sudo swapon /swapfile
 > sudo vim /etc/fstab { /swapfile none swap defaults 0 0 }
 
+> sudo findmnt -no UUID -T /swapfile
+> sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
+> sudo vim /boot/loader/entries/arch.conf {
+resume=UUID=12345678-9abc-def0-1234-56789abcdef0 resume_offset=12345
+}
+
+> sudo systemctl hibernate
 
 [ battery-alert ] сповіщення про низький рівень батереї
 > потрібний herbe для сповіщення
