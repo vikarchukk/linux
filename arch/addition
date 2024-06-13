@@ -23,9 +23,7 @@ HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesy
 
 > sudo findmnt -no UUID -T /swapfile
 > sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
-> sudo vim /boot/loader/entries/arch.conf {
-resume=UUID=12345678-9abc-def0-1234-56789abcdef0 resume_offset=12345
-}
+> sudo vim /boot/loader/entries/arch.conf { options ... resume=UUID=... resume_offset=... }
 
 > sudo systemctl hibernate
 
