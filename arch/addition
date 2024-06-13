@@ -5,6 +5,9 @@
 ExecStart=
 ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM }
 
+[ cpu ]
+> sudo vim /sys/devices/system/cpu/intel_pstate/max_perf_pct { 70 } | максимальний відсотк X% від максимальної частоти
+
 [ power management ] ( wiki.archlinux.org/title/Power_management )
 > sudo vim /etc/systemd/logind.conf {
 HandleLidSwitch=ignore
