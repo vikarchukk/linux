@@ -11,32 +11,6 @@ HandleLidSwitch=ignore
 HandleLidSwitchExternalPower=ignore
 HandleLidSwitchDocked=ignore }
 
-> sudo vim /etc/mkinitcpio.conf {
-HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems resume fsck) } додати resume
-> sudo mkinitcpio -P
-
-> sudo dd if=/dev/zero of=/swapfile bs=1M count=16k status=progress
-> sudo chmod 0600 /swapfile
-> sudo mkswap -U clear /swapfile
-> sudo swapon /swapfile
-> sudo vim /etc/fstab { /swapfile none swap defaults 0 0 }
-
-> sudo findmnt -no UUID -T /swapfile
-> sudo filefrag -v /swapfile | awk '$1=="0:" {print substr($4, 1, length($4)-2)}'
-> sudo vim /boot/loader/entries/arch.conf { options ... resume=UUID=... resume_offset=... }
-
-> sudo vim /etc/mkinitcpio.conf { MODULES=(... intel_lpss_pci) }
-> sudo mkinitcpio -P
-
-> sudo vim /etc/systemd/system.conf { RuntimeWatchdogSec=on }
-
-> sudo vim /etc/systemd/logind.conf {
-HandleLidSwitch=hibernate
-HandleLidSwitchExternalPower=hibernate
-HandleLidSwitchDocked=hibernate }
-
-> sudo systemctl hibernate
-
 [ battery-alert ] сповіщення про низький рівень батереї
 > потрібний herbe для сповіщення
 > v battery-alert {
