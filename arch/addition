@@ -11,6 +11,10 @@ HandleLidSwitch=ignore
 HandleLidSwitchExternalPower=ignore
 HandleLidSwitchDocked=ignore }
 
+> sudo vim /etc/mkinitcpio.conf {
+HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems resume fsck) } додати resume
+> mkinitcpio -P
+
 > sudo dd if=/dev/zero of=/swapfile bs=1M count=16k status=progress
 > sudo chmod 0600 /swapfile
 > sudo mkswap -U clear /swapfile
