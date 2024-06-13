@@ -96,8 +96,8 @@ static const Key keys[] = {
 
     // нічний режим
   { Mod5Mask,            XK_n,       spawn,           SHCMD("redshift -O $(cat /home/vikarchuk/.config/redshift/temp); herbe \"[ night light: on / $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // включити
-  { Mod5Mask|Mod1Mask,   0x3d,       spawn,           SHCMD("echo $(($(cat /home/vikarchuk/.config/redshift/temp) + 100)) | tee /home/vikarchuk/.config/redshift/temp; herbe \"[ night light: $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // збільшити температуру
-  { Mod5Mask|Mod1Mask,   0x2d,       spawn,           SHCMD("echo $(($(cat /home/vikarchuk/.config/redshift/temp) - 100)) | tee /home/vikarchuk/.config/redshift/temp; herbe \"[ night light: $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // зменшити температуру
+  { Mod5Mask|Mod1Mask,   0x3d,       spawn,           SHCMD("echo $(($(cat /home/vikarchuk/.config/redshift/temp) + 100)) | tee /home/vikarchuk/.config/redshift/temp; redshift -O $(cat /home/vikarchuk/.config/redshift/temp); herbe \"[ night light: $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // збільшити температуру
+  { Mod5Mask|Mod1Mask,   0x2d,       spawn,           SHCMD("echo $(($(cat /home/vikarchuk/.config/redshift/temp) - 100)) | tee /home/vikarchuk/.config/redshift/temp; redshift -O $(cat /home/vikarchuk/.config/redshift/temp); herbe \"[ night light: $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // зменшити температуру
   { Mod5Mask|ShiftMask,  XK_n,       spawn,           SHCMD("redshift -x; herbe '[ night light: off ]'") }, // виключити
 
   // звук клавіш
