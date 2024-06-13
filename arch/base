@@ -20,15 +20,15 @@
 > sudo systemctl enable --now t2fanrd | запуск і додавання в автостарт
 > sudo vim /etc/t2fand.conf {
            [Fan1]
-           low_temp=35
-           high_temp=50
-           speed_curve=exponential
+           low_temp=55
+           high_temp=80
+           speed_curve=linear
            always_full_speed=false
 
            [Fan2]
-           low_temp=35
-           high_temp=50
-           speed_curve=exponential
+           low_temp=55
+           high_temp=80
+           speed_curve=linear
            always_full_speed=false } |  налаштування
 > sudo systemctl restart t2fanrd | перезапуск програми щоб зміни почали діяти
 
