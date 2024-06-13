@@ -11,6 +11,13 @@ HandleLidSwitch=ignore
 HandleLidSwitchExternalPower=ignore
 HandleLidSwitchDocked=ignore }
 
+> sudo dd if=/dev/zero of=/swapfile bs=1M count=8k status=progress
+> chmod 0600 /swapfile
+> mkswap -U clear /swapfile
+> swapon /swapfile
+> sudo vim /etc/fstab { /swapfile none swap defaults 0 0 }
+
+
 [ battery-alert ] сповіщення про низький рівень батереї
 > потрібний herbe для сповіщення
 > v battery-alert {
