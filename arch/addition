@@ -5,6 +5,19 @@
 ExecStart=
 ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM }
 
+[ hibernate off/on ]
+- on
+> sudo mkdir /etc/systemd/sleep.conf.d
+> sudo vim /etc/systemd/sleep.conf.d/disable-suspend.conf {
+[Sleep]
+AllowSuspend=no
+AllowHibernation=no
+AllowSuspendThenHibernate=no
+AllowHybridSleep=no }
+> sudo mv /etc/systemd/sleep.conf.d/d /etc/systemd/sleep.conf.d/disable-suspend.conf
+- off
+> sudo mv /etc/systemd/sleep.conf.d/disable-suspend.conf /etc/systemd/sleep.conf.d/d
+
 [ battery-alert ] сповіщення про низький рівень батереї
 > потрібний herbe для сповіщення
 > v battery-alert {
