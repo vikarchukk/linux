@@ -13,7 +13,7 @@ HandleLidSwitchDocked=ignore }
 
 > sudo vim /etc/mkinitcpio.conf {
 HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesystems resume fsck) } додати resume
-> mkinitcpio -P
+> sudo mkinitcpio -P
 
 > sudo dd if=/dev/zero of=/swapfile bs=1M count=16k status=progress
 > sudo chmod 0600 /swapfile
@@ -26,7 +26,7 @@ HOOKS=(base udev autodetect modconf kms keyboard keymap consolefont block filesy
 > sudo vim /boot/loader/entries/arch.conf { options ... resume=UUID=... resume_offset=... }
 
 > sudo vim /etc/mkinitcpio.conf { MODULES=(... intel_lpss_pci) }
-> mkinitcpio -P
+> sudo mkinitcpio -P
 
 > sudo vim /etc/systemd/logind.conf {
 HandleLidSwitch=hibernate
