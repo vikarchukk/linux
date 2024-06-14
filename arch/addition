@@ -2,7 +2,7 @@
 > sudo pacman -S thermald
 > vim cpu_optimization {
 #!/bin/bash
-sudo systemctl start thermald
+sudo systemctl start thermald # кращий контроль температури
 echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias # режим роботи процесора
 echo 3000000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq # максимальна частота процесора
 echo 50 | sudo tee /sys/devices/system/cpu/intel_pstate/max_perf_pct # максимальний відсоток загруженості процесора }
