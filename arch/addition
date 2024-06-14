@@ -1,30 +1,10 @@
-[ CPU ] ( wiki.archlinux.org/title/CPU_frequency_scaling )
-# cpu* в /sys/devices/system/cpu/cpu*/
-  # режим роботи
-> sudo echo 0-15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias
-  | wiki.archlinux.org/title/CPU_frequency_scaling#Intel_performance_and_energy_bias_hint
-
-  # частота процесора
-> sudo echo 4700000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq | максимальна частота
-> sudo echo 400000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_min_freq | мінімальна частота
-> sudo echo ... | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_setspeed | постійна частота
-  | wiki.archlinux.org/title/CPU_frequency_scaling#Scaling_drivers
-> echo ... | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor | запуск частоти
-  | wiki.archlinux.org/title/CPU_frequency_scaling#Scaling_governors
-> cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq | поточна частота
-
-# intel_pstate в /sys/devices/system/cpu/intel_pstate
-  # turbo
-> sudo echo 1/0 | sudo tee /sys/devices/system/cpu/intel_pstate/no_turbo | увімкнення/вимкнення turbo boost
-> sudo echo 0-100 | sudo tee /sys/devices/system/cpu/intel_pstate/turbo_pct | відсоток на який може перевищувати свою базову частоту в режимі turbo
-
-> sudo echo 1/0 | sudo tee /sys/devices/system/cpu/intel_pstate/hwp_dynamic_boost | увімкнення/вимкнення hwp dynamic boost
-
-  # загруженість
-> sudo echo 0-100 | sudo tee /sys/devices/system/cpu/intel_pstate/max_perf_pct | максимальний відсоток загруженості
-> sudo echo 0-100 | sudo tee /sys/devices/system/cpu/intel_pstate/min_perf_pct | мінімальний відсоток загруженості
-
-> sudo echo active | sudo tee /sys/devices/system/cpu/intel_pstate/num_pstates | кількість P-станів ?
+[ cpu ] ( wiki.archlinux.org/title/CPU_frequency_scaling )
+> sudo pacman -S thermald
+> vim cpu_boost {
+echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias # режим роботи процесора
+echo 3000000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq # максимальна частота процесора
+echo 50 | sudo tee /sys/devices/system/cpu/intel_pstate/max_perf_pct # максимальний відсоток загруженості процесора }
+> sudo bash $HOME/cpu_boost; sudo systemctl start thermald
 
 [ autostart-wm ] автосторат віконого менеджера
 > v ~/.bash_profile { startx }
