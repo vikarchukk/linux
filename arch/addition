@@ -26,9 +26,6 @@
 
 > sudo echo active | sudo tee /sys/devices/system/cpu/intel_pstate/num_pstates | кількість P-станів ?
 
-> sudo pacman -S thermald | для реголювання краще темперватури
-> sudo systemctl enable --now thermald
-
 [ autostart-wm ] автосторат віконого менеджера
 > v ~/.bash_profile { startx }
 > sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
