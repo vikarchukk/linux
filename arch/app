@@ -25,7 +25,7 @@
 [ makefile ]
 > sudo pacman -S git base-devel
   | git - для клонування програми
-  | base-devel - для збирання програми
+  | base-devel / make - для збирання програми
 > git clone https://aur.archlinux.org/name-app.git | клонування програми
 > cd name-app | зайти в папку з програмою
 > wget https://шлях_до_патчу | поставити патч
