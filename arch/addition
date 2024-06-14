@@ -1,3 +1,8 @@
+[ CPU ] ( wiki.archlinux.org/title/CPU_frequency_scaling )
+> sudo echo 0 | tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias
+  | wiki.archlinux.org/title/CPU_frequency_scaling#Intel_performance_and_energy_bias_hint
+
+
 [ autostart-wm ] автосторат віконого менеджера
 > v ~/.bash_profile { startx }
 > sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
