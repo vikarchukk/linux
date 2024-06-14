@@ -11,6 +11,7 @@
   | wiki.archlinux.org/title/CPU_frequency_scaling#Scaling_drivers
 > echo ... | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor | запуск частоти
   | wiki.archlinux.org/title/CPU_frequency_scaling#Scaling_governors
+> cat /sys/devices/system/cpu/cpu*/cpufreq/scaling_cur_freq | поточна частота
 
 # intel_pstate в /sys/devices/system/cpu/intel_pstate
   # turbo
