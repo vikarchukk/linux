@@ -1,11 +1,16 @@
 [ CPU ] ( wiki.archlinux.org/title/CPU_frequency_scaling )
 > sudo echo ... | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias | режиму роботи
   | wiki.archlinux.org/title/CPU_frequency_scaling#Intel_performance_and_energy_bias_hint
+
 > sudo echo ... | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq | максимальна частота
 > sudo echo ... | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_min_freq | мінімальна частота
   | wiki.archlinux.org/title/CPU_frequency_scaling#Scaling_drivers
+
+# налаштування intel_pstate
 > echo 1/0 > /sys/devices/system/cpu/intel_pstate/no_turbo | увімкнення/вимкнення turbo boost
-  | wiki.archlinux.org/title/CPU_frequency_scaling#Setting_via_sysfs_(intel_pstate)
+> echo 1/0 > /sys/devices/system/cpu/intel_pstate/hwp_dynamic_boost | увімкнення/вимкнення hwp dynamic boost
+> echo 0-100 > /sys/devices/system/cpu/intel_pstate/max_perf_pct | максимальний відсоток продуктивності
+> echo 0-100 > /sys/devices/system/cpu/intel_pstate/min_perf_pct | мінімальний відсоток продуктивності
 
 [ autostart-wm ] автосторат віконого менеджера
 > v ~/.bash_profile { startx }
