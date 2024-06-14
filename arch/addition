@@ -1,6 +1,7 @@
 [ cpu ] ( wiki.archlinux.org/title/CPU_frequency_scaling )
 > sudo pacman -S thermald
 > vim cpu_boost {
+#!/bin/bash
 echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias # режим роботи процесора
 echo 3000000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq # максимальна частота процесора
 echo 50 | sudo tee /sys/devices/system/cpu/intel_pstate/max_perf_pct # максимальний відсоток загруженості процесора }
