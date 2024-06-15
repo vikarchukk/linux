@@ -1,10 +1,13 @@
 [ pacman ]
 > vim /etc/pacman.conf {
-      [multilib]
-      Include = /etc/pacman.d/mirrorlist } | розкоментувати для того щоб pacman бачив більше програм
-> sudo pacman -Syyu | коли є зміни в репозиторі щоб вони почали діяти
-  | якщо є котрісь помилки можна спробувати оновитися
-> sudo pacman -Syu | оновлює всі пакети
+[multilib]
+Include = /etc/pacman.d/mirrorlist 
+
+[arch-mact2]
+Server = https://mirror.funami.tech/arch-mact2/os/x86_64
+SigLevel = Never }
+> sudo pacman -Syyu | оновлює всі пакети і налаштування pacman.conf
+  | або якщо є котрісь помилки можна спробувати оновитися
 > pacman -Ss name-app | пошук програм
 > sudo pacman -S name-app | встановлення програми якщо вона доступна
 > pacman -Qe name-app | перегляд всіх встановлиних програм
