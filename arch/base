@@ -1,13 +1,3 @@
-[ pacman ]
-> vim /etc/pacman.conf {
-[multilib]
-Include = /etc/pacman.d/mirrorlist 
-
-[arch-mact2]
-Server = https://mirror.funami.tech/arch-mact2/os/x86_64
-SigLevel = Never }
-> sudo pacman -Syyu
-
 [ wifi ] ( wiki.archlinux.org/title/Network_configuration )
 > sudo pacman -S dhcpcd iwd
 > sudo systemctl enable --now dhcpcd
@@ -17,19 +7,27 @@ SigLevel = Never }
   > station wlan0 get-networks
   > station wlan0 connect 'wifi'
   > exit
-> sudo systemctl disable dhcpcd/iwd
+
+[ pacman ]
+> sudo sed -i '
+90c\
+[multilib]
+91c\
+Include = /etc/pacman.d/mirrorlist 
+97a\
+
+97a\
+[arch-mact2]
+97a\
+Server = https://mirror.funami.tech/arch-mact2/os/x86_64
+97a\
+SigLevel = Never' /etc/pacman.conf
+> pacman -Syyu
 
 [ fan ] ( wiki.archlinux.org/title/fan_speed_control ) 
           └─ для чіпу t2 - ( wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand )
-> vim /etc/pacman.conf {
-      [arch-mact2]
-      Server = https://mirror.funami.tech/arch-mact2/os/x86_64
-      SigLevel = Never } | для того щоб pacman міг знайти програми які для чіпа t2
-> sudo pacman -Syyu | коли є зміни в репозиторі щоб вони почали діяти
-> sudo pacman -S t2fanrd | скачування для винтиляторів з чіпом t2
-> sudo systemctl enable --now t2fanrd | запуск і додавання в автостарт
-> sudo vim /etc/t2fand.conf {
-[Fan1]
+> pacman -S t2fanrd
+> echo '[Fan1]
 low_temp=40
 high_temp=80
 speed_curve=linear
@@ -39,52 +37,27 @@ always_full_speed=false
 low_temp=40
 high_temp=80
 speed_curve=linear
-always_full_speed=false } |  налаштування
-> sudo systemctl restart t2fanrd | перезапуск програми щоб зміни почали діяти
+always_full_speed=false' | tee /etc/t2fand.conf
+> systemctl enable t2fanrd
 
 [ audio ] ( wiki.archlinux.org/title/Sound_system )
-            └─ pipewire програма для звуку - ( wiki.archlinux.org/title/PipeWire )
-               ├─ pacmixer програма для реголування звуку - ( github.com/KenjiTakahashi/pacmixer )
-               └─ виправлиння конфігурації чіпу t2 - ( wiki.t2linux.org/guides/audio-config/ )
-> sudo pacman -S apple-t2-audio-config | щоб програма бачила всі динаміки на чіпі t2
-> sudo git clone https://github.com/kekrby/t2-better-audio.git | корекція налаштуваннь pipewire для кращої роботи на чіпі t2
-  > cd t2-better-audio
-  > ./install.sh
-> sudo pacman -S pipewire-pulse | встановлення програми для звуку
-  > reboot | коли перший раз встановлюється програма
-  > pactl get-sink-volume @DEFAULT_SINK@ | переглянути гучність
-  > pactl set-sink-volume @DEFAULT_SINK@ +5% | зібльшує на 5% гучності
-  > pactl set-sink-volume @DEFAULT_SINK@ -5% | зменшує на 5% гучності
+            └─ виправлиння конфігурації чіпу t2 - ( wiki.t2linux.org/guides/audio-config/ )
+> pacman -S apple-t2-audio-config
+> git clone https://github.com/kekrby/t2-better-audio.git
+  > bash t2-better-audio/install.sh
+> pacman -S pipewire-pulse
 
 [ backlight ] ( wiki.archlinux.org/title/Backlight )
-> sudo vim /etc/udev/rules.d/backlight.rules {
-           ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness" 
-           } | для того щоб можна було міняти яркість екрану без root прав
-> sudo vim /etc/udev/rules.d/leds.rules {
-           ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness"
-           } | для того щоб можна було міняти підсвітку клавіатури без root прав
-> sudo usermod -aG video username | добавляє користувача в групу video щоб можна було кирувати яскравістю
-  > reboot | для того щоб оновилиння налаштування
-> echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 5)) | tee /sys/class/backlight/acpi_video0/brightness | збільшує яркість екрану на 5
-> echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 5)) | tee /sys/class/backlight/acpi_video0/brightness | зменшує яркість екрану на 5
-> cat /sys/class/backlight/acpi_video0/brightness | значення яркості екрану
-> cat /sys/class/backlight/acpi_video0/max_brightness | максимальне значення значення яркості екрану
-> echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 50)) | tee /sys/class/leds/apple::kbd_backlight/brightness | збільшує підсвітку клавіатури на 50
-> echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 50)) | tee /sys/class/leds/apple::kbd_backlight/brightness | зменшує підсвітку клавіатури на 50
-> cat /sys/class/leds/apple::kbd_backlight/brightness | значення підсвітки клавіатури
-> cat /sys/class/leds/apple::kbd_backlight/max_brightness | максимальне значення підсвітки клавіатури
+> echo 'ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness"' | tee /etc/udev/rules.d/backlight.rules
+> echo 'ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness"' | tee /etc/udev/rules.d/leds.rules
+> usermod -aG video vikarchuk
 
-[ font ] ( github.com/IdreesInc/Monocraft | wiki.archlinux.org/title/Fonts_(Українська) )
-> sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf | скачування шрифта
-> fc-cache -fv | оновлення налаштувань шрифтів
+[ font ] ( wiki.archlinux.org/title/Fonts | github.com/IdreesInc/Monocraft )
+> wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
 
 [ cursor ] ( github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes | wiki.archlinux.org/title/Mouse_acceleration | wiki.archlinux.org/title/Touchpad_Synaptics )
-> wget https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz | скачування курсору
-> tar -xvf macOS.tar.xz | розпакувати
-> sudo mv macOS /usr/share/icons | переміщає в папку для іконок
-> sudo vim /usr/share/icons/default/index.theme {
-           [Icon Theme]
-           Inherits=macOS } | налаштування теми курсора
-> vim ~/.Xresources { Xcursor.size: 40 } | розмір курсора
-  > vim ~/.xinitrc { xrdb ~/.Xresources # активація налаштування розміру курсору }
-> reboot | перезагрузка для оновлення налаштувань
+> wget --directory-prefix=/usr/share/icons https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz
+> tar -xvf /usr/share/icons/macOS.tar.xz
+> echo '[Icon Theme]
+Inherits=macOS' | tee /usr/share/icons/default/index.theme
+> echo 'Xcursor.size: 40' > $HOME/.Xresources
