@@ -1,21 +1,19 @@
-[ cpu ] ( wiki.archlinux.org/title/CPU_frequency_scaling )
-> sudo pacman -S thermald
-> vim cpu_optimization {
-#!/bin/bash
-sudo systemctl start thermald # кращий контроль температури
-echo 15 | sudo tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias # режим роботи процесора
-echo 3000000 | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq # максимальна частота процесора
-echo 50 | sudo tee /sys/devices/system/cpu/intel_pstate/max_perf_pct # максимальний відсоток загруженості процесора }
-> sudo bash $HOME/cpu_optimization;
+[ оптимізація cpu ] ( wiki.archlinux.org/title/CPU_frequency_scaling )
+> pacman -S thermald
+> echo '#!/bin/bash
+systemctl start thermald
+echo 15 | tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias
+echo 3000000 | tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_max_freq
+echo 50 | tee /sys/devices/system/cpu/intel_pstate/max_perf_pct' > cpu_optimization
+> sudo bash cpu_optimization
 
-[ autostart-wm ] автосторат віконого менеджера
-> v ~/.bash_profile { startx }
-> sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
-[Service]
+[ авто старт xorg ] автосторат віконого менеджера
+> echo 'startx' >> $HOME/.bash_profile
+> echo '[Service]
 ExecStart=
-ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM }
+ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM' | sudo tee /etc/systemd/system/getty@tty1.service.d/override.conf
 
-[ power management ] ( wiki.archlinux.org/title/Power_management )
+[ виключиння сна при закривані кришки ] ( wiki.archlinux.org/title/Power_management )
 > sudo vim /etc/systemd/logind.conf {
 HandleLidSwitch=ignore
 HandleLidSwitchExternalPower=ignore
