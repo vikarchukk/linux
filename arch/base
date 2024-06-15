@@ -1,3 +1,13 @@
+[ pacman ]
+> vim /etc/pacman.conf {
+[multilib]
+Include = /etc/pacman.d/mirrorlist 
+
+[arch-mact2]
+Server = https://mirror.funami.tech/arch-mact2/os/x86_64
+SigLevel = Never }
+> sudo pacman -Syyu
+
 [ wifi ] ( wiki.archlinux.org/title/Network_configuration )
 > sudo pacman -S dhcpcd iwd
 > sudo systemctl enable --now dhcpcd
