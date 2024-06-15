@@ -19,8 +19,7 @@ HandleLidSwitch=ignore
 36c\
 HandleLidSwitchExternalPower=ignore
 37c\
-HandleLidSwitchDocked=ignore
-' /etc/systemd/logind.conf
+HandleLidSwitchDocked=ignore ' /etc/systemd/logind.conf
 
 [ сповіщення про низький рівень батереї ]
 > потрібний herbe для сповіщення
