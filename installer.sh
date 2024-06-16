@@ -102,18 +102,21 @@ echo "
 # sudo - для того щоб користувач міг виконувати команди від root прав"
 read -p "встановлювати (y/n)? " install_y_n_2
 if [[ "$install_y_n_2" == "n" ]]; then exit 0; fi
-
 pacman -S vim iwd dhcpcd sudo
 echo "
-> vim /etc/locale.gen {
-      en_US.UTF-8 UTF-8
-      uk_UA.UTF-8 UTF-8 } | розкоментувати для налаштування розкладки
-> locale-gen | генерування налаштування розкладки
-> echo "LANG=en_US.UTF-8" > /etc/locale.conf | запис мови в locale.conf
-
-"
-
-
+> vim /etc/locale.gen { en_US.UTF-8 UTF-8, uk_UA.UTF-8 UTF-8 } # розкоментувати для налаштування розкладки
+> locale-gen # генерування налаштування розкладки
+> echo 'LANG=en_US.UTF-8' > /etc/locale.conf # запис мови в locale.conf"
+sed -i '
+171c\
+en_US.UTF-8 UTF-8
+474c\
+uk_UA.UTF-8 UTF-8' /etc/locale.gen
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+read -p "імя хосту (macbookpro): " host_name
+echo "> echo '$host_name' > /etc/hostname # запис імя хоста (компютера)"
+echo "$host_name" > /etc/hostname
 
 
 
