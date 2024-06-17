@@ -1,5 +1,5 @@
 [ оптимізація cpu ] ( wiki.archlinux.org/title/CPU_frequency_scaling )
-> pacman -S thermald
+> pacman -S thermald # cpulimit
 > echo '#!/bin/bash
 systemctl start thermald
 echo 15 | tee /sys/devices/system/cpu/cpu*/power/energy_perf_bias
