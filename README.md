@@ -16,7 +16,7 @@
 │ ├─ vim - редактор файлів
 │ ├─ visual_studio_code - програмування
 │ ├─ gimp - редактор фото
-│ ├─ inkscape - ридактор векторів
+│ ├─ xfig - ридактор векторів (aur.archlinux.org/packages/xfig)
 │ ├─ btop - моніторинг системи
 │ ├─ qutebrowser - браузер подібний до vim
 │ ├─ bluetui - булютуз
