@@ -15,13 +15,16 @@
 │ ├─ herbe - сповіщення
 │ ├─ vim - редактор файлів
 │ ├─ visual_studio_code - програмування
-│ ├─ gimp - редактор фото
-│ ├─ xfig - ридактор векторів (aur.archlinux.org/packages/xfig)
 │ ├─ btop - моніторинг системи
 │ ├─ qutebrowser - браузер подібний до vim
 │ ├─ bluetui - булютуз
 │ ├─ redshift - нічний режим
-│ ├─ steam - ігри
+│ ├─ steam / itch - ігри
+│ ├─[ фото ]
+│ │ ├─ gimp - редактор
+│ │ ├─ xfig - ридактор векторів (aur.archlinux.org/packages/xfig)
+│ │ ├─ feh - фон
+│ │ └─ imagemagick - редактор фото через консоль
 │ ├─[ звук ]
 │ │ ├─ pacmixer - реголювання звуку
 │ │ ├─ keysound - звук для клавіш
