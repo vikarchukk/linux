@@ -43,15 +43,15 @@ void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon
 #define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } } // для запуску команд
 #define TAGKEYS(KEY,TAG) \
   { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, /* перейти до вибраного тегу */ \
-  { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* обєднує вікна вибраних тегів */ \
   { MODKEY|ShiftMask,              KEY,  tag,         {.ui = 1 << TAG} }, /* перекинути активне вікно в вибраний тег */ \
-  { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* відобразити активне вікно в вибраних тегах */
+// { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* обєднує вікна вибраних тегів */ \
+// { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* відобразити активне вікно в вибраних тегах */
 
 // комбінації для клавіатури
 static const Key keys[] = {
   // теги
   { MODKEY,              XK_0,       view,            {.ui = ~0 } }, // переглянути всі вікна
-  { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // відобразити вікно в всіх тегах
+  // { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // відобразити вікно в всіх тегах
   { MODKEY,              XK_j,       shiftview,       {.i = -1 } }, // перейти на задній тег
   { MODKEY,              XK_k,       shiftview,       {.i = +1 } }, // перейти на наступний тег
   TAGKEYS(               XK_1,                        0) // привязати теги до клавіш
@@ -122,7 +122,7 @@ static const Key keys[] = {
   { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"") }, // змінювати розкладку клавіатури між українською і англійською
  
   // запуск програм
-  { MODKEY|ShiftMask,    XK_Return,  spawn,           SHCMD("st") },
+  { Mod3Mask,            XK_Return,  spawn,           SHCMD("st") },
   { Mod3Mask,            XK_q,       spawn,           SHCMD("qutebrowser") },
   { Mod3Mask,            XK_m,       spawn,           SHCMD("st -e btop") },
   { Mod3Mask,            XK_p,       spawn,           SHCMD("st -e pacmixer") },
