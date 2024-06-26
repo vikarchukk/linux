@@ -14,7 +14,7 @@
 │ ├─ st - термінал
 │ ├─ herbe - сповіщення
 │ ├─ vim - редактор файлів
-│ ├─ visual_studio_code - програмування
+│ ├─ visual studio code - програмування
 │ ├─ btop - моніторинг системи
 │ ├─ qutebrowser - браузер подібний до vim
 │ ├─ bluetui - булютуз
