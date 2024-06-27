@@ -82,9 +82,9 @@ static const Key keys[] = {
   { MODKEY,              XK_q,       quit,            {0} }, // вийти з графічного інтерфейсу X
 
   // реголювання
-    // звук  
-  { Mod5Mask,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшити звук
-  { Mod5Mask,            0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // зменшити звук
+    // звук
+  { Mod5Mask,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%;v=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'); magick wpks.jpg -fill black -draw 'rectangle 1462,709 1540,730' -gravity Northwest -pointsize 20 -fill white -font Monocraft -annotate +1462+709 '$v%' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ volume: $v / 100% ]'") }, // збільшити звук
+  { Mod5Mask,            0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%;v=$(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}'); magick wpks.jpg -fill black -draw 'rectangle 1462,709 1540,730' -gravity Northwest -pointsize 20 -fill white -font Monocraft -annotate +1462+709 '$v%' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ volume: $v / 100% ]'") }, // зменшити звук
 
     // яскравість екрану
   { Mod5Mask|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // збільшити яскравість
