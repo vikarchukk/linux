@@ -20,7 +20,7 @@
 │ ├─ qutebrowser - браузер подібний до vim
 │ ├─ bluetui - булютуз
 │ ├─ redshift - нічний режим
-│ ├─ steam / itch / emulator - ігри
+│ ├─ steam / itch / retroarch - ігри
 │ ├─[ фото ]
 │ │ ├─ gimp - редактор
 │ │ ├─ xfig - ридактор векторів (aur.archlinux.org/packages/xfig)
