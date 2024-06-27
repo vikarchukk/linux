@@ -26,9 +26,9 @@ HandleLidSwitchDocked=ignore' /etc/systemd/logind.conf
 > escho '#!/bin/bash
 while true
 do
-  while [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 10 ] && [ "$(cat /sys/class/power_supply/BAT0/status)" -eq "Discharging" ]
+  while [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 15 ] && [ "$(cat /sys/class/power_supply/BAT0/status)" -eq "Discharging" ]
   do
-    herbe "[ low battery power: ... < 10% ]]]]]]]]]]]]]]]]]]]]]]]"
+    herbe "[ low battery power: ... < 15% ]]]]]]]]]]]]]]]]]]]]]]]"
     sleep 1
   done
   sleep 300
