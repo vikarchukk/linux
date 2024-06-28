@@ -29,13 +29,13 @@ SigLevel = Never' /etc/pacman.conf
 > pacman -S t2fanrd
 > echo '[Fan1]
 low_temp=40
-high_temp=80
+high_temp=55
 speed_curve=linear
 always_full_speed=false
 
 [Fan2]
 low_temp=40
-high_temp=80
+high_temp=55
 speed_curve=linear
 always_full_speed=false' | tee /etc/t2fand.conf
 > systemctl enable t2fanrd
