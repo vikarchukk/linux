@@ -23,7 +23,7 @@
 │ ├─ steam / itch / retroarch - ігри
 │ ├─[ фото ]
 │ │ ├─ gimp - редактор
-│ │ ├─ xfig - ридактор векторів (aur.archlinux.org/packages/xfig)
+│ │ ├─ xfig / figma - ридактор векторів
 │ │ ├─ feh - фон
 │ │ └─ imagemagick - редактор фото через консоль
 │ ├─[ звук ]
