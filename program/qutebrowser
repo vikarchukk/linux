@@ -28,7 +28,9 @@ settings:
         zd: open https://www.deepl.com/translator#auto/uk/
         Zd: open -t https://www.deepl.com/translator#auto/uk/
         zp: spawn --detach mpv {url}
-        ss: greasemonkey-reload
+        sg: greasemonkey-reload
+        st: config-cycle tabs.show always switching
+        ss: config-cycle statusbar.show always in-mode
   colors.hints.bg:
     global: white
   downloads.position:
