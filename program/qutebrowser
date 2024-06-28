@@ -70,6 +70,8 @@ settings:
       left: 3
       right: 0
       top: 1
+  tabs.show_switching_delay:
+    global: 3000
   tabs.title.format:
     global: '{current_title}'
   url.default_page:
