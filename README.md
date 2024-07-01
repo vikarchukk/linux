@@ -21,6 +21,7 @@
 │ ├─ bluetui - булютуз
 │ ├─ redshift - нічний режим
 │ ├─ steam / itch / retroarch - ігри
+│ ├─ mega - хмара для файлів
 │ ├─[ фото ]
 │ │ ├─ gimp - редактор фото
 │ │ ├─ darktable - обробка фото
