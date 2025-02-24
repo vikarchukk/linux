@@ -11,10 +11,10 @@ setxkbmap -option caps:escape # переназначиння клавіш
 setxkbmap -option lv3:rwin_switch
 setxkbmap -option lv5:ralt_switch
 xrdb ~/.Xresources # активація налаштування розміру курсору
-# xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (xrandr - щоб провірити котрі доступні)
-xrandr --output eDP-1 --off --output DP-2 --auto
-xrandr --output DP-2 --brightness 0.5
-xrandr --output DP-2 --scale 0.75x0.75
+xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (xrandr - щоб провірити котрі доступні)
+# xrandr --output eDP-1 --off --output DP-2 --auto
+# xrandr --output DP-2 --brightness 0.5
+# xrandr --output DP-2 --scale 0.75x0.75
 # feh --bg-center ~/wpks.jpg # фон
 bash ~/battery-alert & # сповіщення про низький рівень зарядки
 slstatus & # запуск програми для відображиння даних про пк
