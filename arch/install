@@ -4,7 +4,7 @@
       └─ інструкція для macbook pro 2019 на intel/t2 - wiki.t2linux.org/distributions/arch/installation/
 
 [ 1 ] скачати ios і встановити на флешку
-ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
+ios - github.com/t2linux/archiso-t2/releases
 запис на флешку - etcher.balena.io
 
 [ 2 ] підключення до інтернету по wifi
@@ -23,7 +23,7 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 [ 4 ] розбиття диску
 > fdisk -l | перегляд дисків
 > fdisk nameofdisk | вхід в редагування диску
-> d > 1 | потрібно видалити всі розділи по черзі
+> d > 1 | потрібно видалити всі розділи по черзі (повторити поки все не видалю)
 > g | налаштування сестеме диску
 > n > enter > enter > +300M > y | виділиння розділу для efi (запуск пк) (300M)
 > n > enter > enter > enter > y | виділиння розділу для root (сестема) (23G < nG)
@@ -37,7 +37,7 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 
 [ 6 ] монтування диску
 > mount /dev/root_partition /mnt | монтування розділу root в папку /mnt
-> mount --mkdir /dev/efi_partition /mnt/efi | монтування розділу efi в папку /mnt/efi
+> mount --mkdir /dev/efi_partition /mnt/boot | монтування розділу efi в папку /mnt/boot
 
 [ 7 ] встановлення системи
 > pacstrap /mnt base linux-xanmod-t2 linux-firmware apple-bcm-firmware
@@ -64,7 +64,7 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 > locale-gen | генерування налаштування розкладки
 > echo "LANG=en_US.UTF-8" > /etc/locale.conf | запис мови в locale.conf
 
-> echo "hostname" > /etc/hostname | написати імя хоста (компютера)
+> echo "hostname" > /etc/hostname | hostname = придумати імʼя пк / крім шляху | написати імя хоста (компютера)
 > vim /etc/hosts {
       127.0.0.1    localhost
       ::1          localhost
@@ -81,13 +81,13 @@ ios - github.com/t2linux/archiso-t2/releases/tag/2024.04.09
 > visudo { %wheel ALL=(ALL:ALL) ALL } | розкоментувати щоб користувач міг викликати команду sudo
 
 [ 10 ] встановлення загрузчика systemd-boot (програма яка запускає пк)
-> bootctl install | встановлення загрузчика
-> vim /boot?efi/loader/loader.conf { default arch.conf } | налаштуваня типової сестеми
+> bootctl --path=/boot install | встановлення загрузчика
+> vim /boot/loader/loader.conf { default arch.conf } | писати в першому рядку | налаштуваня типової сестеми
 > blkid (dev/root_partition) | перегляд UUID root розділу
-> vim /boot?efi/loader/entries/arch.conf {
+> vim /boot/loader/entries/arch.conf {
       title Arch Linux
-      linux /vmlinuz-linux-t2 | переглянути в папці /boot?efi/loader/entries/
-      initrd /initramfs-linux-t2.img | переглянути в папці /boot?efi/loader/entries/
+      linux /vmlinuz-linux-xanmod-t2 | переглянути в папці /boot/
+      initrd /initramfs-linux-xanmod-t2.img | переглянути в папці /boot/
       options root=UUID=root_partition_UUID rw intel_iommu=on iommu=pt pcie_ports=compat 
                                                додаткові налаштування для роботи звуку з чіпом t2 } | налаштування для загрузчика
 
