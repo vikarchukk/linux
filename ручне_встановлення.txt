@@ -88,7 +88,7 @@ ios - github.com/t2linux/archiso-t2/releases
 [ 10 ] встановлення загрузчика systemd-boot (програма яка запускає пк)
 > bootctl --path=/boot install | встановлення загрузчика
 > vim /boot/loader/loader.conf { default arch.conf } | писати в першому рядку | налаштуваня типової сестеми
-> blkid (dev/root_partition) | перегляд UUID root розділу
+> blkid (/dev/root_partition) | перегляд UUID root розділу
 > vim /boot/loader/entries/arch.conf {
       title Arch Linux
       linux /vmlinuz-linux-xanmod-t2 | переглянути в папці /boot/
