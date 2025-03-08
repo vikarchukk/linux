@@ -129,8 +129,11 @@ SigLevel = Never' /etc/pacman.conf
 }
 
 встановлення інструментів для налаштування програм {
-> pacman -S ...
-  | ... - ...
+> pacman -S base-devel git wget
+  | base-devel - інструменти для збирання програм
+  | git - для клонування програм
+  | wget - викачує файли з посилань
+  | libxft, xorgproto, libx11, libxinerama - для збирання програм X11 (потім можна видалити)
 }
 
 4. налаштування font {
