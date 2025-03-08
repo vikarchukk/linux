@@ -6,8 +6,8 @@
       | інструкція для macbook pro 2019 на intel/t2 - wiki.t2linux.org/distributions/arch/installation/
 
 ( 1 )  скачати ios і встановити на флешку
-| ios - github.com/t2linux/archiso-t2/releases
-| запис на флешку - etcher.balena.io
+  | ios - github.com/t2linux/archiso-t2/releases
+  | запис на флешку - etcher.balena.io
 
 > вставити флешку
 > включити пк і зажати optin після вибрати флешку
@@ -66,9 +66,9 @@
   | sudo - для того щоб користувач міг виконувати команди від root прав
 
 < vim > інструкція
-| i - писати
-| control + c - вийти з режиму писання
-| shift + : - консоль | wq + return - вийти і зберегти файл
+  | i - писати
+  | control + c - вийти з режиму писання
+  | shift + : - консоль | wq + return - вийти і зберегти файл
 
 > vim /etc/locale.gen {
       en_US.UTF-8 UTF-8
@@ -147,11 +147,11 @@
   | xorg-xrandr - для розширення екрану
   | libxft, xorgproto, libx11, libxinerama - хз без цього не працює
 < чп >
-| > виключити пк > включити пк > enter > user > password
-| > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
-|  > password
-| > sudo rm /var/lib/pacman/db.lck
-| > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
+  | > виключити пк > включити пк > enter > user > password
+  | > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
+  |  > password
+  | > sudo rm /var/lib/pacman/db.lck
+  | > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
 > vim .xinitrc { exec dwm }
 
 ( встановлення інструментів для налаштування програм ) потім можна все видалити
@@ -182,9 +182,9 @@
 ( qutebrowser / github.com/qutebrowser/qutebrowser ) браузер
 > sudo pacman -S qutebrowser | скачати браузер
 < чп >
-| > виключити пк > включити пк > enter > user > password
-| > sudo pacman -S qutebrowser
-|  > password
+  | > виключити пк > включити пк > enter > user > password
+  | > sudo pacman -S qutebrowser
+  |  > password
 
 [ запуск графічної оболочки / налаштування базових програм, модулів, скриптів ]
 
