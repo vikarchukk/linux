@@ -139,24 +139,24 @@ ios - github.com/t2linux/archiso-t2/releases
 > sudo pacman -Syyu
 
 [ x ] (wiki.archlinux.org/title/xorg) графіка
-> sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr | встановлення пакетів для роботи x
+> sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama | встановлення пакетів для роботи x
   | xorg-server - сервер x
   | xorg-xrdb - база даних для сервера x
   | xorg-xinit - для запуску x
   | xorg-xrandr - для розширення екрану
+  | libxft, xorgproto, libx11, libxinerama - хз без цього не працює
 [ чп ] > виключити пк > включити пк > enter > user > password
-| > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr
+| > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
 |  > password
 | > sudo rm /var/lib/pacman/db.lck
-| > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr
+| > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
 > vim .xinitrc { exec dwm }
 
 [ встановлення інструментів для налаштування програм ] потім можна все видалити
-> sudo pacman -S base-devel git wget libxft xorgproto libx11 libxinerama
+> sudo pacman -S base-devel git wget
   | base-devel - інструменти для збирання програм
   | git - для клонування програм
   | wget - викачує файли з посилань
-  | libxft, xorgproto, libx11, libxinerama - для збирання програм X11 (потім можна видалити)
 
 [ font ] ( wiki.archlinux.org/title/Fonts | github.com/IdreesInc/Monocraft )
 > sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
@@ -191,4 +191,4 @@ ios - github.com/t2linux/archiso-t2/releases
 > shift + option + q | вийти з X dwm
 
 [ видалити не потрібі інструменти для збирання і налаштування програм ]
-> sudo pacman -Rns base-devel git wget libxft xorgproto libx11 libxinerama
+> sudo pacman -Rns base-devel git wget
