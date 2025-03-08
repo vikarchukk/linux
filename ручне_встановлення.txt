@@ -144,10 +144,15 @@ ios - github.com/t2linux/archiso-t2/releases
   | xorg-xrdb - база даних для сервера x
   | xorg-xinit - для запуску x
   | xorg-xrandr - для розширення екрану
+[ чп ] > виключити пк > включити пк > enter > user > password
+| > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr
+|  > password
+| > sudo rm /var/lib/pacman/db.lck
+| > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr
 > vim .xinitrc { exec dwm }
 
 [ встановлення інструментів для налаштування програм ] потім можна все видалити
-> pacman -S base-devel git wget libxft xorgproto libx11 libxinerama
+> sudo pacman -S base-devel git wget libxft xorgproto libx11 libxinerama
   | base-devel - інструменти для збирання програм
   | git - для клонування програм
   | wget - викачує файли з посилань
