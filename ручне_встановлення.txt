@@ -9,7 +9,8 @@ ios - github.com/t2linux/archiso-t2/releases
 запис на флешку - etcher.balena.io
 
 > вставити флешку
-> включити пк і нажати optin після вибрати флешку
+> включити пк і зажати optin після вибрати флешку
+> вибрати Arch Linux install medium > enter
 
 [ 2 ] підключення до інтернету по wifi
 > iwctl | вхід в програму для wifi
