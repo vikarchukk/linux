@@ -141,3 +141,4 @@ SigLevel = Never' /etc/pacman.conf
 > sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
 }
 
+sudo pacman -S  dbus # перевірити чи потрібно встановлювати це
