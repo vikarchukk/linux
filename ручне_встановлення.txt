@@ -165,8 +165,10 @@ ios - github.com/t2linux/archiso-t2/releases
 [ dwm ] ( dwm.suckless.org ) віконий менеджер
 > git clone https://git.suckless.org/dwm | клонування коду програми
 > cd dwm
+> cp config.def.h config.h
 > vim config.h | шрифти замінити на monocraft
 > sudo make clean install | зібрати програму
+ > password
 > cd ..
 
 [ st ] ( st.suckless.org ) термінал
@@ -177,8 +179,10 @@ ios - github.com/t2linux/archiso-t2/releases
 
 [ qutebrowser ] ( github.com/qutebrowser/qutebrowser )
 > sudo pacman -S qutebrowser | скачати браузер
+[ чп ] > виключити пк > включити пк > enter > user > password
+| > sudo pacman -S qutebrowser
+|  > password
 
 > startx
-> mod + enter
-
-sudo pacman -S dbus # перевірити чи потрібно встановлювати це
+> shift + option + return
+ > qutebrowser
