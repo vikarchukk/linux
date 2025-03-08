@@ -1,12 +1,13 @@
 [ встановлення Arch T2 ванільного з xanmod і systemd-boot ]
-інструкції
-└─ офіційна інструкція по встановленні Arch - wiki.archlinux.org/title/Installation_guide
-   └─ інструкції для macbook - wiki.archlinux.org/title/Laptop/Apple
-      └─ інструкція для macbook pro 2019 на intel/t2 - wiki.t2linux.org/distributions/arch/installation/
+
+( інструкції )
+  | офіційна інструкція по встановленні Arch - wiki.archlinux.org/title/Installation_guide
+    | інструкції для macbook - wiki.archlinux.org/title/Laptop/Apple
+      | інструкція для macbook pro 2019 на intel/t2 - wiki.t2linux.org/distributions/arch/installation/
 
 ( 1 )  скачати ios і встановити на флешку
-ios - github.com/t2linux/archiso-t2/releases
-запис на флешку - etcher.balena.io
+| ios - github.com/t2linux/archiso-t2/releases
+| запис на флешку - etcher.balena.io
 
 > вставити флешку
 > включити пк і зажати optin після вибрати флешку
@@ -64,7 +65,7 @@ ios - github.com/t2linux/archiso-t2/releases
   | iwd, dhcpcd - для роботи інтернету
   | sudo - для того щоб користувач міг виконувати команди від root прав
 
-{ vim інструкція }
+< vim > інструкція
 | i - писати
 | control + c - вийти з режиму писання
 | shift + : - консоль | wq + return - вийти і зберегти файл
@@ -106,14 +107,15 @@ ios - github.com/t2linux/archiso-t2/releases
 
 ( 11 ) вихід
 > exit
-
 > виключити пк
 > вийняти флешку
-> включити пк
 
+[ скачування базових програм і налаштувань їх ]
+
+> включити пк
 > enter > user > password
 
-[ wifi ] ( wiki.archlinux.org/title/Network_configuration )
+( wifi / wiki.archlinux.org/title/Network_configuration ) налаштування інтернету
 > sudo systemctl enable --now dhcpcd
  > password
 > sudo systemctl enable --now iwd
@@ -126,7 +128,7 @@ ios - github.com/t2linux/archiso-t2/releases
 > ping google.com
 > controc + c
 
-[ pacman ]
+( pacman ) софт для кирування софтом
 > sudo vim /etc/pacman.conf 
  > password {
     [multilib]
@@ -134,35 +136,35 @@ ios - github.com/t2linux/archiso-t2/releases
 
     [arch-mact2]
     Server = https://mirror.funami.tech/arch-mact2/os/x86_64
-    SigLevel = Never
-}
+    SigLevel = Never }
 > sudo pacman -Syyu
 
-[ x ] (wiki.archlinux.org/title/xorg) графіка
+( x / wiki.archlinux.org/title/xorg ) графіка
 > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama | встановлення пакетів для роботи x
   | xorg-server - сервер x
   | xorg-xrdb - база даних для сервера x
   | xorg-xinit - для запуску x
   | xorg-xrandr - для розширення екрану
   | libxft, xorgproto, libx11, libxinerama - хз без цього не працює
-[ чп ] > виключити пк > включити пк > enter > user > password
+< чп >
+| > виключити пк > включити пк > enter > user > password
 | > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
 |  > password
 | > sudo rm /var/lib/pacman/db.lck
 | > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
 > vim .xinitrc { exec dwm }
 
-[ встановлення інструментів для налаштування програм ] потім можна все видалити
+( встановлення інструментів для налаштування програм ) потім можна все видалити
 > sudo pacman -S base-devel git wget
   | base-devel - інструменти для збирання програм
   | git - для клонування програм
   | wget - викачує файли з посилань
 
-[ font ] ( wiki.archlinux.org/title/Fonts | github.com/IdreesInc/Monocraft )
+( font / wiki.archlinux.org/title/Fonts | github.com/IdreesInc/Monocraft ) шрифт
 > sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
  > password
 
-[ dwm ] ( dwm.suckless.org ) віконий менеджер
+( dwm / dwm.suckless.org ) віконий менеджер
 > git clone https://git.suckless.org/dwm | клонування коду програми
 > cd dwm
 > cp config.def.h config.h
@@ -171,19 +173,21 @@ ios - github.com/t2linux/archiso-t2/releases
  > password
 > cd ..
 
-[ st ] ( st.suckless.org ) термінал
+( st / st.suckless.org ) термінал
 > git clone https://git.suckless.org/st | клонування коду програми
 > cd st
 > sudo make clean install
 > cd ..
 
-[ qutebrowser ] ( github.com/qutebrowser/qutebrowser )
+( qutebrowser / github.com/qutebrowser/qutebrowser ) браузер
 > sudo pacman -S qutebrowser | скачати браузер
-[ чп ] > виключити пк > включити пк > enter > user > password
+< чп >
+| > виключити пк > включити пк > enter > user > password
 | > sudo pacman -S qutebrowser
 |  > password
 
-[ x ] налаштування через графіку
+[ запуск графічної оболочки / налаштування базових програм, модулів, скриптів ]
+
 > startx
 > shift + option + return | відкрити консоль
  > qutebrowser
@@ -191,5 +195,6 @@ ios - github.com/t2linux/archiso-t2/releases
 ... налаштування всього
 
 [ в кінці ]
+
 > shift + option + q | вийти з X dwm
 > sudo pacman -Rns base-devel git wget | видалити не потрібі інструменти для збирання і налаштування програм
