@@ -134,7 +134,7 @@ ios - github.com/t2linux/archiso-t2/releases
 
     [arch-mact2]
     Server = https://mirror.funami.tech/arch-mact2/os/x86_64
-		SigLevel = Never
+    SigLevel = Never
 }
 > sudo pacman -Syyu
 
