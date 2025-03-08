@@ -66,7 +66,7 @@ ios - github.com/t2linux/archiso-t2/releases
 ( vim інструкція )
 | i - писати
 | control + c - вийти з режиму писання
-| shift + : - консоль | wq - вийти і зберегти файл
+| shift + : - консоль | wq + return - вийти і зберегти файл
 
 > vim /etc/locale.gen {
       en_US.UTF-8 UTF-8
