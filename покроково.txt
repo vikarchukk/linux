@@ -96,6 +96,7 @@ ios - github.com/t2linux/archiso-t2/releases
 > exit
 > виключити пк
 }
+
 2. wifi {
 [ wifi ] ( wiki.archlinux.org/title/Network_configuration )
 > sudo systemctl enable --now dhcpcd
@@ -105,4 +106,27 @@ ios - github.com/t2linux/archiso-t2/releases
   > station wlan0 get-networks
   > station wlan0 connect 'wifi'
   > exit
+> ping google.com
+> controc + c
 }
+
+3. pacman {
+[ pacman ]
+> sudo sed -i '
+90c\
+[multilib]
+91c\
+Include = /etc/pacman.d/mirrorlist 
+97a\
+
+97a\
+[arch-mact2]
+97a\
+Server = https://mirror.funami.tech/arch-mact2/os/x86_64
+97a\
+SigLevel = Never' /etc/pacman.conf
+> pacman -Syyu
+}
+
+[ font ] ( wiki.archlinux.org/title/Fonts | github.com/IdreesInc/Monocraft )
+> wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
