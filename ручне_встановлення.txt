@@ -183,6 +183,12 @@ ios - github.com/t2linux/archiso-t2/releases
 | > sudo pacman -S qutebrowser
 |  > password
 
+[ x ] налаштування через графіку
 > startx
-> shift + option + return
+> shift + option + return | відкрити консоль
  > qutebrowser
+
+> shift + option + q | вийти з X dwm
+
+[ видалити не потрібі інструменти для збирання і налаштування програм ]
+> sudo pacman -Rns base-devel git wget libxft xorgproto libx11 libxinerama
