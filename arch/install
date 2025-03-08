@@ -25,14 +25,14 @@ ios - github.com/t2linux/archiso-t2/releases
 > fdisk nameofdisk | вхід в редагування диску
 > d > 1 | потрібно видалити всі розділи по черзі (повторити поки все не видалю)
 > g | налаштування сестеме диску
-> n > enter > enter > +300M > y | виділиння розділу для efi (запуск пк) (300M)
+> n > enter > enter > +512M > y | виділиння розділу для efi (запуск пк) (300M)
 > n > enter > enter > enter > y | виділиння розділу для root (сестема) (23G < nG)
 > t > 1 > 1 | зміна типу розділу для efi
 > w | зберегти зміни і вийти
 
 [ 5 ] форматування диску
 > fdisk -l | перегляд дисків
-> mkfs.fat -F 32 /dev/efi_partition | формотування розділу для efi
+> mkfs.fat -F32 /dev/efi_partition | формотування розділу для efi
 > mkfs.ext4 /dev/root_partition | формотування розділу для root
 
 [ 6 ] монтування диску
