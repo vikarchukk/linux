@@ -160,6 +160,7 @@ ios - github.com/t2linux/archiso-t2/releases
 
 [ font ] ( wiki.archlinux.org/title/Fonts | github.com/IdreesInc/Monocraft )
 > sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
+ > password
 
 [ dwm ] ( dwm.suckless.org ) віконий менеджер
 > git clone https://git.suckless.org/dwm | клонування коду програми
