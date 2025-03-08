@@ -188,7 +188,8 @@ ios - github.com/t2linux/archiso-t2/releases
 > shift + option + return | відкрити консоль
  > qutebrowser
 
-> shift + option + q | вийти з X dwm
+... налаштування всього
 
-[ видалити не потрібі інструменти для збирання і налаштування програм ]
-> sudo pacman -Rns base-devel git wget
+[ в кінці ]
+> shift + option + q | вийти з X dwm
+> sudo pacman -Rns base-devel git wget | видалити не потрібі інструменти для збирання і налаштування програм
