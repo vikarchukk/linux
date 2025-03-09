@@ -9,11 +9,6 @@ static const unsigned int snap = 5; // відстань приклеювання
 static const int showbar = 1; // меню - 0 сховати | 1 показати
 static const int topbar = 0; // меню - 0 знизу | 1 зверху
 
-// time
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", font, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static char dmenumon[2] = "0";
-// time
-
 static const float mfact = 0.55; // розмір основної області в процентах
 static const int nmaster = 1; // кількість вікон в головній зоні
 static const int resizehints = 0; // підказки щодо розміру 1 включити
@@ -154,10 +149,9 @@ static const Rule rules[0] = {};
 } | налаштування програми
 > wget https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.4.diff | пач для проміжків між вікнами
   > patch --merge -i dwm-fullgaps-6.4.diff
-    > sed -i '1128c\          resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);' dwm.c | проміжки в monocl
+    > sed -i '1664d;1665d' dwm.c | видалиння dmenu
+    > sed -i '1127c\          resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);' dwm.c | проміжки в monocl
 > wget https://dwm.suckless.org/patches/attachbelow/dwm-attachbelow-6.2.diff | пач для того щоб нові вікна відкривалися збокух
   > patch --merge -i dwm-attachbelow-6.2.diff
-    > sed -i '/<<<<<<</,/=======/d; />>>>>>>/d' x.c
     > sed -i '1932d;1934,1945d' dwm.c | виправлення помилок
-> sed -i '1687d;1688d' dwm.c | видалиння dmenu
 > sudo make clean install | зібрати програму
