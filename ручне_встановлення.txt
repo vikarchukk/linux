@@ -252,14 +252,14 @@ void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon
 #define TAGKEYS(KEY,TAG) \
   { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, /* перейти до вибраного тегу */ \
   { MODKEY|ShiftMask,              KEY,  tag,         {.ui = 1 << TAG} }, /* перекинути активне вікно в вибраний тег */ \
-// { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* обєднує вікна вибраних тегів */ \
-// { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* відобразити активне вікно в вибраних тегах */
+  { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* обєднує вікна вибраних тегів */ \
+  { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* відобразити активне вікно в вибраних тегах */
 
 // комбінації для клавіатури
 static const Key keys[] = {
   // теги
   { MODKEY,              XK_0,       view,            {.ui = ~0 } }, // переглянути всі вікна
-  // { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // відобразити вікно в всіх тегах
+  { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // відобразити вікно в всіх тегах
   { MODKEY,              XK_j,       shiftview,       {.i = -1 } }, // перейти на задній тег
   { MODKEY,              XK_k,       shiftview,       {.i = +1 } }, // перейти на наступний тег
   TAGKEYS(               XK_1,                        0) // привязати теги до клавіш
@@ -307,20 +307,6 @@ static const Key keys[] = {
   { Mod5Mask|Mod1Mask,   0x3d,       spawn,           SHCMD("echo $(($(cat /home/vikarchuk/.config/redshift/temp) + 100)) > /home/vikarchuk/.config/redshift/temp; redshift -x; redshift -O $(cat /home/vikarchuk/.config/redshift/temp); herbe \"[ night light: $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // збільшити температуру
   { Mod5Mask|Mod1Mask,   0x2d,       spawn,           SHCMD("echo $(($(cat /home/vikarchuk/.config/redshift/temp) - 100)) > /home/vikarchuk/.config/redshift/temp; redshift -x; redshift -O $(cat /home/vikarchuk/.config/redshift/temp); herbe \"[ night light: $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // зменшити температуру
   { Mod5Mask|ShiftMask,  XK_n,       spawn,           SHCMD("redshift -x; herbe '[ night light: off ]'") }, // виключити
-
-  // звук клавіш
-  { Mod5Mask,            XK_k,       spawn,           SHCMD("keysound -j ~/ksound/cherry/cherrymx-red-abs.json -D; herbe '[ keyboard sound: on ]'") }, // включити звук клавіш
-  { Mod5Mask|ShiftMask,  XK_k,       spawn,           SHCMD("keysound -k; herbe '[ keyboard sound: off ]'") }, // виключити звук клавіш
-
-  // музика
-  { Mod5Mask,            XK_1,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'relax' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: relax ]'; mpv --no-video https://www.youtube.com/watch?v=Na0w3Mz46GA") }, // включити музику
-  { Mod5Mask,            XK_2,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'focus' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: focus ]'; mpv --no-video https://www.youtube.com/watch?v=4oStw0r33so") },
-  { Mod5Mask,            XK_3,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'escape' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: escape ]'; mpv --no-video https://www.youtube.com/watch?v=S_MOd40zlYU") },
-  { Mod5Mask,            XK_4,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'chill' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: chill ]'; mpv --no-video https://www.youtube.com/watch?v=4xDzrJKXOOY") },
-  { Mod5Mask,            XK_5,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'sleep' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: sleep ]'; mpv --no-video https://www.youtube.com/watch?v=rUxyKA_-grg") },
-  { Mod5Mask,            XK_6,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'relax' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: relax ]'; mpv --no-video https://www.youtube.com/watch?v=jfKfPfyJRdk") },
-  { Mod5Mask,            XK_9,       spawn,           SHCMD("herbe '[ 1 relax / 2 focus / 3 escape / 4 chill / 5 sleep / 6 relax ]'") }, // список музики
-  { Mod5Mask,            XK_0,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'off' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: off ]';") }, // виключити музику
 
   // блютуз
   { Mod5Mask,            XK_b,       spawn,           SHCMD("herbe '[ bluetooth: on ]'; sudo systemctl start bluetooth") }, // включити
@@ -561,7 +547,6 @@ settings:
         Zc: open -t https://chatgpt.com/
         zd: open https://www.deepl.com/translator#auto/uk/
         Zd: open -t https://www.deepl.com/translator#auto/uk/
-        zp: spawn --detach mpv {url}
         sg: greasemonkey-reload
         st: config-cycle tabs.show always switching
         ss: config-cycle statusbar.show always in-mode
