@@ -802,9 +802,9 @@ nmap K :tabnext<CR> }
 > git clone https://aur.archlinux.org/code-features.git
 > cd code-features
 > makepkg -sirc
-> code > ctrl + shft + X/E/P | ctrl + b > розшириння bearded-icons / Bergyish / Apc Customize UI++
-> vim $HOME/.config/Code/User/settings.json {
-{
+> sudo chown -R $(whoami) /usr/lib/code
+> code > ctrl + shft + X/E/P | ctrl + b > розшириння ( bearded-icons / Scoria / Custom UI Style ) > Open User Settings (JSON) {
+ {
     "editor.fontFamily": "monocraft",
     "workbench.startupEditor": "none",
     "editor.fontSize": 17,
@@ -858,16 +858,20 @@ nmap K :tabnext<CR> }
     // "workbench.editor.showTabs": "none",
     // "editor.minimap.enabled": false,
     "editor.folding": false, // відступ з права
-    // "editor.glyphMargin": false, // відступ з ліва
+    "editor.glyphMargin": false, // відступ з ліва
     "workbench.editor.editorActionsLocation": "hidden",
     "chat.commandCenter.enabled": false,
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "window.menuBarVisibility": "compact",
+    "workbench.colorTheme": "Scoria",
     "window.titleBarStyle": "native",
-    "workbench.colorTheme": "Default High Contrast",
+    "custom-ui-style.font.sansSerif": "monocraft",
+    "custom-ui-style.electron": { "frame": false },
+    "custom-ui-style.stylesheet": { ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5px !important" }
 }
 }
+> noft (yse) > close code > open code
 
 [ в кінці ]
 
