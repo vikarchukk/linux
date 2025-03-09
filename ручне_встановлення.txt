@@ -804,7 +804,7 @@ nmap K :tabnext<CR> }
 > makepkg -sirc
 > sudo chown -R $(whoami) /usr/lib/code
 > code > ctrl + shft + X/E/P | ctrl + b > розшириння ( bearded-icons / Scoria / Custom UI Style ) > Open User Settings (JSON) {
- {
+{
     "editor.fontFamily": "monocraft",
     "workbench.startupEditor": "none",
     "editor.fontSize": 17,
