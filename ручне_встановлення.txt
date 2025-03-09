@@ -842,12 +842,11 @@ nmap K :tabnext<CR> }
     "editor.accessibilitySupport": "off",
     "window.zoomLevel": 1,
     "editor.unicodeHighlight.ambiguousCharacters": false,
-    "workbench.iconTheme": "Monokai Pro Icons",
+    "workbench.iconTheme": "charmed-icons",
     "workbench.editor.enablePreview": false,
     "workbench.statusBar.visible": false,
     "editor.unicodeHighlight.nonBasicASCII": false,
     "editor.stickyScroll.enabled": false,
-    "workbench.colorTheme": "One Dark Pro Monokai Darker",
     "accessibility.signals.onDebugBreak": { "sound": "off" },
     "editor.codeLensFontFamily": "monocraft",
     "editor.inlayHints.fontFamily": "monocraft",
@@ -867,7 +866,7 @@ nmap K :tabnext<CR> }
     "workbench.layoutControl.enabled": false,
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "native",
-    "apc.stylesheet": { ".monaco-editor .line-numbers": "font-family: 'Monocraft', monospace !important; font-size: 14px !important;" }
+    "workbench.colorTheme": "Orbi Blue",
 }
 }
 > розшириння Monokai Pro Icons / One Dark Pro Monokai Darker / Apc Customize UI++
