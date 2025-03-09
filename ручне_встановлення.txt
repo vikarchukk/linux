@@ -803,7 +803,7 @@ nmap K :tabnext<CR> }
 > cd code-features
 > makepkg -sirc
 > sudo chown -R $(whoami) /usr/lib/code
-> code > ctrl + shft + X/E/P | ctrl + b > розшириння ( bearded-icons / Scoria / Custom UI Style ) > Open User Settings (JSON) {
+> code > ctrl + shft + X/E/P | ctrl + b > розшириння ( Bearded Icons / GitHub Theme / Custom UI Style ) > Open User Settings (JSON) {
 {
     "editor.fontFamily": "monocraft",
     "workbench.startupEditor": "none",
@@ -841,7 +841,6 @@ nmap K :tabnext<CR> }
     "editor.accessibilitySupport": "off",
     "window.zoomLevel": 1,
     "editor.unicodeHighlight.ambiguousCharacters": false,
-    "workbench.iconTheme": "bearded-icons",
     "workbench.editor.enablePreview": false,
     "workbench.statusBar.visible": false,
     "editor.unicodeHighlight.nonBasicASCII": false,
@@ -864,11 +863,11 @@ nmap K :tabnext<CR> }
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "window.menuBarVisibility": "compact",
-    "workbench.colorTheme": "Scoria",
+    "workbench.colorTheme": "GitHub Dark High Contrast",
     "window.titleBarStyle": "native",
     "custom-ui-style.font.sansSerif": "monocraft",
     "custom-ui-style.electron": { "frame": false },
-    "custom-ui-style.stylesheet": { ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5px !important" }
+    "custom-ui-style.stylesheet": { ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5.5px !important" }
 }
 }
 > ctrl + s > noft (yse) > close code > open code
