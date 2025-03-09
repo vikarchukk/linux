@@ -871,7 +871,7 @@ nmap K :tabnext<CR> }
     "custom-ui-style.stylesheet": { ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5px !important" }
 }
 }
-> noft (yse) > close code > open code
+> ctrl + s > noft (yse) > close code > open code
 
 [ в кінці ]
 
