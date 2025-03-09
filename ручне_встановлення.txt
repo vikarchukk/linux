@@ -534,7 +534,6 @@ static char ascii_printable[] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLM
 > cd ..
 
 ( 2 / qutebrowser / github.com/qutebrowser/qutebrowser )
-> sudo pacman -S qutebrowser | скачати браузер
 > vim ~/.config/qutebrowser/autoconfig.yml {
 config_version: 2
 settings:
@@ -619,8 +618,7 @@ settings:
   url.start_pages:
     global: https://www.google.com/
   zoom.default:
-    global: 125%
-} | налаштування браузера
+    global: 125% } | налаштування браузера
 > cd ~/.local/share/qutebrowser/greasemonkey
   > wget https://raw.githubusercontent.com/ilyhalight/voice-over-translation/master/dist/vot-cloudflare.user.js
   > wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
