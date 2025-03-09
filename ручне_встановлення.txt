@@ -640,6 +640,7 @@ settings:
 
 ( cursor / github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes | wiki.archlinux.org/title/Mouse_acceleration | wiki.archlinux.org/title/Touchpad_Synaptics ) курсов
 > sudo wget --directory-prefix=/usr/share/icons https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz
+> cd /usr/share/icons
 > sudo tar -xvf /usr/share/icons/macOS.tar.xz
 > sudo vim /usr/share/icons/default/index.theme {
 [Icon Theme]
