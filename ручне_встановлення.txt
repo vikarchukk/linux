@@ -872,6 +872,38 @@ nmap K :tabnext<CR> }
 }
 > ctrl + s > noft (yse) > close code > open code
 
+[ додаткові функції ]
+
+( сповіщення про низький рівень батереї )
+> vim battery-alert {
+#!/bin/bash
+while true
+do
+  while [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 15 ] && [ "$(cat /sys/class/power_supply/BAT0/status)" -eq "Discharging" ]
+  do
+    herbe "[ low battery power: ... < 15% ]]]]]]]]]]]]]]]]]]]]]]]"
+    sleep 1
+  done
+  sleep 300
+done }
+
+( виключиння сна при закривані кришки / wiki.archlinux.org/title/Power_management )
+> sudo sed -i '
+35c\
+HandleLidSwitch=ignore
+36c\
+HandleLidSwitchExternalPower=ignore
+37c\
+HandleLidSwitchDocked=ignore' /etc/systemd/logind.conf
+
+( авто старт xorg ) автосторат віконого менеджера
+> echo 'startx' >> $HOME/.bash_profile
+> sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
+> sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM }
+
 [ в кінці ]
 
 > shift + option + q | вийти з X dwm
