@@ -865,6 +865,8 @@ nmap K :tabnext<CR> }
     "chat.commandCenter.enabled": false,
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
+    "window.menuBarVisibility": "compact",
+    "window.titleBarStyle": "native",
 }
 }
 > розшириння Monokai Pro Icons / One Dark Pro Monokai Darker / Apc Customize UI++
