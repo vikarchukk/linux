@@ -855,7 +855,7 @@ nmap K :tabnext<CR> }
     "scm.inputFontFamily": "monocraft",
     "chat.editor.fontFamily": "monocraft",
     "notebook.output.fontFamily": "monocraft",
-    // "workbench.editor.showTabs": "none",
+    "workbench.editor.showTabs": "none",
     // "editor.minimap.enabled": false,
     "editor.folding": false, // відступ з права
     "editor.glyphMargin": false, // відступ з ліва
