@@ -615,7 +615,23 @@ settings:
 > shift + option + q
 > startx
 
-...
+[ базові налаштування сестеми і модулів які потрібні dwm, xorg ]
+
+( audio / wiki.archlinux.org/title/Sound_system ) аудіо
+            └─ виправлиння конфігурації чіпу t2 - ( wiki.t2linux.org/guides/audio-config/ )
+> sudo pacman -S apple-t2-audio-config
+> git clone https://github.com/kekrby/t2-better-audio.git
+  > bash t2-better-audio/install.sh
+  > cd t2-better-audio
+  > sudo ./install.sh
+  > cd ..
+> sudo pacman -S pipewire-pulse
+
+( pacmixer / https://github.com/KenjiTakahashi/pacmixer ) для кирування звуком
+> git clone https://aur.archlinux.org/pacmixer.git
+  > cd pacmixer
+  > sudo makepkg -sirc
+  > cd ..
 
 [ в кінці ]
 
