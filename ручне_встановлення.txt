@@ -621,17 +621,10 @@ settings:
             └─ виправлиння конфігурації чіпу t2 - ( wiki.t2linux.org/guides/audio-config/ )
 > sudo pacman -S apple-t2-audio-config
 > git clone https://github.com/kekrby/t2-better-audio.git
-  > bash t2-better-audio/install.sh
   > cd t2-better-audio
   > sudo ./install.sh
   > cd ..
 > sudo pacman -S pipewire-pulse
-
-( pacmixer / https://github.com/KenjiTakahashi/pacmixer ) для кирування звуком
-> git clone https://aur.archlinux.org/pacmixer.git
-  > cd pacmixer
-  > sudo makepkg -sirc
-  > cd ..
 
 ( backlight / wiki.archlinux.org/title/Backlight ) підсвітка
 > vim /etc/udev/rules.d/backlight.rules { ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness" }
@@ -670,6 +663,25 @@ export PS1="${green}[${off}${purple}\w${off}${green}]${off}${red}\$${off} "
 # заголовок вікна
 export PROMPT_COMMAND='printf "\033]0;${PWD/#$HOME/~}\007"' }
 
+( fan / wiki.archlinux.org/title/fan_speed_control ) 
+      └─ для чіпу t2 - ( wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand )
+> sudo pacman -S t2fanrd
+> sudo vim /etc/t2fand.conf {
+[Fan1]
+low_temp=40
+high_temp=60
+speed_curve=linear
+always_full_speed=false
+
+[Fan2]
+low_temp=40
+high_temp=60
+speed_curve=linear
+always_full_speed=false }
+> sudo systemctl enable --now t2fanrd
+
+[ програми сестемні ]
+
 ( slstatus / tools.suckless.org/slstatus/ ) рядок статусу
 > git clone https://git.suckless.org/slstatus
 > cd slstatus
@@ -687,6 +699,104 @@ static const struct arg args[] = {
   { datetime,      "-[ %s ]",   "%H:%M" }, // час
 }; } | налаштування програми
 > sudo make clean install | збирання програми
+
+( pacmixer / https://github.com/KenjiTakahashi/pacmixer ) для кирування звуком
+> git clone https://aur.archlinux.org/pacmixer.git
+  > cd pacmixer
+  > sudo makepkg -sirc
+  > cd ..
+
+( herbe / github.com/dudik/herbe ) сповіщення
+> git clone https://github.com/dudik/herbe
+> cd herbe
+> vim config.h {
+static const char *background_color = "#000000"; // фон
+static const char *border_color = "#ffffff"; // обводка
+static const char *font_color = "#ffffff"; // колір шрифту
+static const char *font_pattern = "monocraft:size=12"; // шрифт
+
+static const unsigned line_spacing = 0; // відстань між лініями
+static const unsigned int padding = 2; // відстань між текстом і крайом
+static const unsigned int width = 0; // ширина
+static const unsigned int border_size = 0; // товщина обводки
+
+enum corners { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }; // варіанти кутів відобарження вікна
+enum corners corner = BOTTOM_RIGHT; // вписати кут в якому буде відображатися вікно
+static const unsigned int pos_x = 4; // точка x початок розташування вікна
+static const unsigned int pos_y = 1; // точка у початок розташування вікна
+
+static const unsigned int duration = 3; // скільки секунд буде весіти  вікно
+
+#define DISMISS_BUTTON Button1  // відхилити повідомлення ліва кнопка миші
+#define ACTION_BUTTON Button3 // приняти повідомлення права кнопка миші } | налаштування програми
+> sed -i '10d;85d;86d;88d;174,176d;207,209d;' herbe.c | патч щоб нові вікна накладалися один на одного (github.com/dudik/herbe/pull/14)
+> sed -i \
+-e '122c\  int max_text_width = 0;' \
+-e '132c\    for (unsigned int eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size); eol; argv[i] += eol, num_of_lines++, eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size))' \
+-e '146a\      XGlyphInfo info;' \
+-e '146a\      XftTextExtentsUtf8(display, font, (FcChar8 *)lines[num_of_lines], eol, &info);' \
+-e '146a\      if (info.width > max_text_width)' \
+-e '146a\        max_text_width = info.width;' \
+-e '150a\  unsigned int width = max_text_width + 2 * padding;' herbe.c | патч щоб ширина вікна була дорівнювала довжині тексту (github.com/dudik/herbe/issues/50)
+> sudo make clean install | збирання програми
+> cd ..
+
+( redshift / github.com/jonls/redshift ) жовтий екран
+> sudo pacman -S redshift
+> mkdir ~/.config/redshift
+> vim ~/.config/redshift/temp { 4000 }
+
+( bluetui / github.com/pythops/bluetui ) керування блютузом
+> git clone https://aur.archlinux.org/bluetui.git
+  > cd bluetui
+  > makepkg -sirc
+  > cd ..
+
+( vim / github.com/vim/vim )
+> wget --directory-prefix=$HOME/.vim/autoload/ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim | скачати програму для плагінів
+> vim ~/.vimrc {
+call plug#begin() " початок плагінів
+Plug 'ojroques/vim-oscyank' " буфер обміну глобальний
+call plug#end() " кінець плагінів
+
+map c :OSCYankVisual<CR> " скопіювати
+vmap c :OSCYankVisual<CR>
+
+syntax on " підсвінта синтаксису
+
+set number " відображення номерів рядків
+set relativenumber " відображення відносних номерів
+
+set mouse=a  " скрол мишою
+
+set expandtab " таб = пробіл
+set tabstop=2 " таб = 2 пробіла
+
+set incsearch " підсвідка під час пошуку
+
+set showcmd " показувати неповні команди внизу
+
+" налаштування файлового менеджера
+let g:netrw_banner=0 " приховати банер
+let g:netrw_liststyle=3 " стиль дерева для відображення файлів
+
+" заговолок вікна
+set title
+set titlestring=%F
+
+" таби
+highlight TabLine ctermfg=256 ctermbg=259 cterm=none
+highlight TabLineFill ctermfg=256 ctermbg=259 cterm=none
+
+nmap O :tabnew 
+nmap J :tabprevious<CR>
+nmap K :tabnext<CR> }
+ > :wq
+ > vim ~/.vimrc
+ > :PlugInstall | щоб встановити плагіни
+ > :q
+ > :PlugClean | щоб видалити котрі не використовуються
+ > :wq
 
 [ в кінці ]
 
