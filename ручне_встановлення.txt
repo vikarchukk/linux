@@ -139,7 +139,7 @@
     SigLevel = Never }
 > sudo pacman -Syyu
 
-( x / wiki.archlinux.org/title/xorg ) графіка
+( 1 / x / wiki.archlinux.org/title/xorg ) графіка
 > sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama | встановлення пакетів для роботи x
   | xorg-server - сервер x
   | xorg-xrdb - база даних для сервера x
@@ -164,7 +164,7 @@
 > sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
  > password
 
-( dwm / dwm.suckless.org ) віконий менеджер
+( 1 / dwm / dwm.suckless.org ) віконий менеджер
 > git clone https://git.suckless.org/dwm | клонування коду програми
 > cd dwm
 > cp config.def.h config.h
@@ -173,13 +173,14 @@
  > password
 > cd ..
 
-( st / st.suckless.org ) термінал
+( 1 / st / st.suckless.org ) термінал
 > git clone https://git.suckless.org/st | клонування коду програми
 > cd st
 > sudo make clean install
+ > password
 > cd ..
 
-( qutebrowser / github.com/qutebrowser/qutebrowser ) браузер
+( 1 / qutebrowser / github.com/qutebrowser/qutebrowser ) браузер
 > sudo pacman -S qutebrowser | скачати браузер
 < чп >
   | > виключити пк > включити пк > enter > user > password
@@ -190,9 +191,448 @@
 
 > startx
 > shift + option + return | відкрити консоль
- > qutebrowser
+ > qutebrowser > github vikarchukk
 
-... налаштування всього
+( 2 / x / wiki.archlinux.org/title/xorg )
+> vim .xinitrc {
+xset s off # виключити затемнення екрану після 10хв бездіяльності
+xset -dpms # виключити вимикання екрану після бездіяльності
+setxkbmap -option caps:escape # переназначиння клавіш
+setxkbmap -option lv3:rwin_switch
+setxkbmap -option lv5:ralt_switch
+xrdb ~/.Xresources # активація налаштування розміру курсору
+xrandr --output eDP-1 --mode 1680x1050 # зміна розшириння екрану (xrandr - щоб провірити котрі доступні)
+# feh --bg-center ~/wpks.jpg # фон
+bash ~/battery-alert & # сповіщення про низький рівень зарядки
+slstatus & # запуск програми для відображиння даних про пк
+exec dwm # віконий менеджер } | які програми будуть запущині зразу після запуску x
+
+( 2 / dwm / dwm.suckless.org )
+> cd dwm
+> vim config.h {
+static const unsigned int borderpx  = 2; // товщина обведення вікна
+static const unsigned int gappx = 5; // проміжок пікселів між вікнами
+static const unsigned int snap = 5; // відстань приклеювання вікна до країв
+
+static const int showbar = 1; // меню - 0 сховати | 1 показати
+static const int topbar = 0; // меню - 0 знизу | 1 зверху
+
+static const float mfact = 0.55; // розмір основної області в процентах
+static const int nmaster = 1; // кількість вікон в головній зоні
+static const int resizehints = 0; // підказки щодо розміру 1 включити
+static const int lockfullscreen = 1; // використовує весь екран 1 включити
+// static const int attachbelow = 1; // налаштування від пачу котрий відкриває нові вікна збоку // > wget https://dwm.suckless.org/patches/attachbelow/dwm-attachbelow-6.2.diff | пач для того щоб нові вікна відкривалися збокух > patch --merge -i dwm-attachbelow-6.2.diff
+
+static const char *fonts[] = { "monocraft:size=12" }; // шрифт і розмір
+static const char *colors[][3] = {
+  [SchemeNorm] = { "#ffffff", "#000000", "#000000" },
+  [SchemeSel]  = { "#000000", "#ffffff", "#ffffff" } }; // схема кольорів
+
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; // теги
+
+// рижими відображиння вікон
+static const Layout layouts[] = {
+  { "[]=", tile }, // головна зона + другорядна зона
+  { "><>", NULL }, // вікна можна переміщати вільно
+  { "[M]", monocle }, // вікна наложуються один на одного
+};
+
+// скрипт для того щоб можна було переходити між тегами
+void shiftview(const Arg *arg) { Arg shifted; shifted.ui = selmon->tagset[selmon->seltags]; if (arg->i > 0) shifted.ui = (shifted.ui << arg->i) | (shifted.ui >> (LENGTH(tags) - arg->i)); else shifted.ui = (shifted.ui >> (- arg->i) | shifted.ui << (LENGTH(tags) + arg->i)); view(&shifted); }
+
+// CapsLock - escape
+// ShiftMask - shift_l, shift_r
+// ControlMask - control
+// Mod1Mask - alt_l
+// Mod3Mask - alt_r
+// Mod4Mask - super_l
+// Mod5Mask - super_r
+#define MODKEY Mod4Mask // для налаштування командної клавіші в моєму випадку це command_l
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } } // для запуску команд
+#define TAGKEYS(KEY,TAG) \
+  { MODKEY,                        KEY,  view,        {.ui = 1 << TAG} }, /* перейти до вибраного тегу */ \
+  { MODKEY|ShiftMask,              KEY,  tag,         {.ui = 1 << TAG} }, /* перекинути активне вікно в вибраний тег */ \
+// { MODKEY|ControlMask,            KEY,  toggleview,  {.ui = 1 << TAG} }, /* обєднує вікна вибраних тегів */ \
+// { MODKEY|ControlMask|ShiftMask,  KEY,  toggletag,   {.ui = 1 << TAG} }, /* відобразити активне вікно в вибраних тегах */
+
+// комбінації для клавіатури
+static const Key keys[] = {
+  // теги
+  { MODKEY,              XK_0,       view,            {.ui = ~0 } }, // переглянути всі вікна
+  // { MODKEY|ShiftMask,    XK_0,       tag,             {.ui = ~0 } }, // відобразити вікно в всіх тегах
+  { MODKEY,              XK_j,       shiftview,       {.i = -1 } }, // перейти на задній тег
+  { MODKEY,              XK_k,       shiftview,       {.i = +1 } }, // перейти на наступний тег
+  TAGKEYS(               XK_1,                        0) // привязати теги до клавіш
+  TAGKEYS(               XK_2,                        1)
+  TAGKEYS(               XK_3,                        2)
+  TAGKEYS(               XK_4,                        3)
+  TAGKEYS(               XK_5,                        4)
+  TAGKEYS(               XK_6,                        5)
+  TAGKEYS(               XK_7,                        6)
+  TAGKEYS(               XK_8,                        7)
+  TAGKEYS(               XK_9,                        8)
+
+  // вікна
+  { MODKEY|ShiftMask,    XK_k,       focusstack,      {.i = +1 } }, // перейти на наступне вікно
+  { MODKEY|ShiftMask,    XK_j,       focusstack,      {.i = -1 } }, // перейти на заднє вікно
+  { MODKEY,              XK_l,       setmfact,        {.f = +0.01} }, // збільшити ширину головної зони
+  { MODKEY,              XK_h,       setmfact,        {.f = -0.01} }, // зменшити ширину головної зони
+  { MODKEY|ShiftMask,    XK_l,       incnmaster,      {.i = +1 } }, // перейти на наступну розкладку вікон
+  { MODKEY|ShiftMask,    XK_h,       incnmaster,      {.i = -1 } }, // перейти на задню розкладку вікон
+  { MODKEY,              XK_Return,  zoom,            {0} }, // перемістити вікно в головну зону
+  { MODKEY,              XK_d,       killclient,      {0} }, // закрити вікно
+  { MODKEY,              XK_n,       setlayout,       {.v = &layouts[0]} }, // режим класичний відображення вікон []=
+  { MODKEY,              XK_b,       setlayout,       {.v = &layouts[1]} }, // режим вільний відображиння вікон ><>
+  { MODKEY,              XK_m,       setlayout,       {.v = &layouts[2]} }, // режим монокля відображиння вікон [M]
+  { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, // вести або вивести вікно з схеми вікон
+
+  { MODKEY,              XK_g,       togglebar,       {0} }, // сховати або показати статус бар
+  { MODKEY,              XK_q,       quit,            {0} }, // вийти з графічного інтерфейсу X
+
+  // реголювання
+    // звук
+  { Mod5Mask,            0x3d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ +1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // збільшити звук
+  { Mod5Mask,            0x2d,       spawn,           SHCMD("pactl set-sink-volume @DEFAULT_SINK@ -1%; herbe \"[ volume: $(pactl get-sink-volume @DEFAULT_SINK@ | awk '{print $5}') / 100% ]\"") }, // зменшити звук
+
+    // яскравість екрану
+  { Mod5Mask|ShiftMask,    0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) + 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // збільшити яскравість
+  { Mod5Mask|ShiftMask,    0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/backlight/acpi_video0/brightness) - 1)) | tee /sys/class/backlight/acpi_video0/brightness; herbe \"[ backlight screen: $(cat /sys/class/backlight/acpi_video0/brightness)% / 100% ]\"") }, // зменшити яскравість
+
+    // яскравість клавіатури
+  { Mod5Mask|ControlMask,  0x3d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) + 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // збільшити яскравість
+  { Mod5Mask|ControlMask,  0x2d,       spawn,           SHCMD("echo $(($(cat /sys/class/leds/apple::kbd_backlight/brightness) - 5)) | tee /sys/class/leds/apple::kbd_backlight/brightness; herbe \"[ backlight keyboard: $(cat /sys/class/leds/apple::kbd_backlight/brightness)% / 500% ]\"") }, // зменшити яскравість
+
+    // нічний режим
+  { Mod5Mask,            XK_n,       spawn,           SHCMD("redshift -O $(cat /home/vikarchuk/.config/redshift/temp); herbe \"[ night light: on / $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // включити
+  { Mod5Mask|Mod1Mask,   0x3d,       spawn,           SHCMD("echo $(($(cat /home/vikarchuk/.config/redshift/temp) + 100)) > /home/vikarchuk/.config/redshift/temp; redshift -x; redshift -O $(cat /home/vikarchuk/.config/redshift/temp); herbe \"[ night light: $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // збільшити температуру
+  { Mod5Mask|Mod1Mask,   0x2d,       spawn,           SHCMD("echo $(($(cat /home/vikarchuk/.config/redshift/temp) - 100)) > /home/vikarchuk/.config/redshift/temp; redshift -x; redshift -O $(cat /home/vikarchuk/.config/redshift/temp); herbe \"[ night light: $(cat /home/vikarchuk/.config/redshift/temp)K ]\"") }, // зменшити температуру
+  { Mod5Mask|ShiftMask,  XK_n,       spawn,           SHCMD("redshift -x; herbe '[ night light: off ]'") }, // виключити
+
+  // звук клавіш
+  { Mod5Mask,            XK_k,       spawn,           SHCMD("keysound -j ~/ksound/cherry/cherrymx-red-abs.json -D; herbe '[ keyboard sound: on ]'") }, // включити звук клавіш
+  { Mod5Mask|ShiftMask,  XK_k,       spawn,           SHCMD("keysound -k; herbe '[ keyboard sound: off ]'") }, // виключити звук клавіш
+
+  // музика
+  { Mod5Mask,            XK_1,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'relax' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: relax ]'; mpv --no-video https://www.youtube.com/watch?v=Na0w3Mz46GA") }, // включити музику
+  { Mod5Mask,            XK_2,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'focus' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: focus ]'; mpv --no-video https://www.youtube.com/watch?v=4oStw0r33so") },
+  { Mod5Mask,            XK_3,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'escape' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: escape ]'; mpv --no-video https://www.youtube.com/watch?v=S_MOd40zlYU") },
+  { Mod5Mask,            XK_4,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'chill' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: chill ]'; mpv --no-video https://www.youtube.com/watch?v=4xDzrJKXOOY") },
+  { Mod5Mask,            XK_5,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'sleep' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: sleep ]'; mpv --no-video https://www.youtube.com/watch?v=rUxyKA_-grg") },
+  { Mod5Mask,            XK_6,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'relax' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: relax ]'; mpv --no-video https://www.youtube.com/watch?v=jfKfPfyJRdk") },
+  { Mod5Mask,            XK_9,       spawn,           SHCMD("herbe '[ 1 relax / 2 focus / 3 escape / 4 chill / 5 sleep / 6 relax ]'") }, // список музики
+  { Mod5Mask,            XK_0,       spawn,           SHCMD("killall mpv; magick wpks.jpg -fill black -draw 'rectangle 431,471 753,507' -gravity Northwest -pointsize 35 -fill white -font Monocraft -annotate +431+471 'off' wpks.jpg; feh --bg-center wpks.jpg; herbe '[ music: off ]';") }, // виключити музику
+
+  // блютуз
+  { Mod5Mask,            XK_b,       spawn,           SHCMD("herbe '[ bluetooth: on ]'; sudo systemctl start bluetooth") }, // включити
+  { Mod5Mask|ShiftMask,  XK_b,       spawn,           SHCMD("herbe '[ bluetooth: off ]'; sudo systemctl stop bluetooth") }, // виключити
+
+  // розкладка клавіатури
+  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"") }, // змінювати розкладку клавіатури між українською і англійською
+ 
+  // запуск програм
+  { Mod3Mask,            XK_Return,  spawn,           SHCMD("st") },
+  { Mod3Mask,            XK_q,       spawn,           SHCMD("qutebrowser") },
+  { Mod3Mask,            XK_v,       spawn,           SHCMD("code") },
+  { Mod3Mask,            XK_g,       spawn,           SHCMD("gimp") },
+  { Mod3Mask,            XK_m,       spawn,           SHCMD("st -e btop") },
+  { Mod3Mask,            XK_p,       spawn,           SHCMD("st -e pacmixer") },
+  { Mod3Mask,            XK_b,       spawn,           SHCMD("st -e bluetui") },
+  { Mod3Mask,            XK_s,       spawn,           SHCMD("steam") },
+  { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") },
+};
+
+// комбінація для мишки
+static const Button buttons[] = {
+  // вікна
+  { ClkClientWin,  MODKEY,            Button1,  movemouse,    {0} }, // перемістити вікно
+  { ClkClientWin,  MODKEY|ShiftMask,  Button1,  resizemouse,  {0} }, // змінити розмір вікна
+
+  // теги
+  { ClkTagBar,     0,                 Button1,  view,         {0} }, // перейти до вибраного тегу
+  { ClkTagBar,     0,                 Button3,  tag,          {0} }, // перекинути активне вікно в вибраний тег
+};
+
+// налаштування де і як буду відкриватися програми
+static const Rule rules[0] = {}; } | налаштування програми
+> wget https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.4.diff | пач для проміжків між вікнами
+  > patch --merge -i dwm-fullgaps-6.4.diff
+    > sed -i '1127c\          resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->bw - 2 * gappx, m->wh - 2 * c->bw - 2 * gappx, 0);' dwm.c | проміжки в monocl
+> sed -i '1664d;1665d' dwm.c | видалиння dmenu
+> sudo make clean install | зібрати програму
+> cd ..
+
+( 2 / st / st.suckless.org )
+> cd st
+> vim config.h {
+static char *font = "monocraft:size=15"; // шрифт і розмір
+static int borderpx = 2; // відступ від країв
+
+static char *shell = "/bin/sh"; // ?
+char *utmp = NULL; // назва стороньої програми для utmp
+char *scroll = NULL; // назва стороньої програми для scroll
+char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400"; // ?
+
+char *vtiden = "\033[?6c"; // ?
+
+static float cwscale = 1.0; // відступ між літерами
+static float chscale = 1.1; // простір зайнятий символом на екрані
+
+wchar_t *worddelimiters = L" "; // символ контрий розділяє слова
+
+static unsigned int doubleclicktimeout = 300; // час очікування другого клацання мишкою для регістру двійного клацання для виділення слова
+static unsigned int tripleclicktimeout = 600; // час очікування третього клацання мишкою для регістру трійного клацання для виділення рядка
+
+int allowaltscreen = 1; // включення альтернативного вікна для vim, btop ...
+int allowwindowops = 1; // заборона деяких операцій з терміналом по типу (буфер обміну ...)
+
+static double minlatency = 2; // мінімальний час очікування до того як термінал перемалює контент
+static double maxlatency = 33; // максимальний час очікування до того як термінал перемалює контент
+
+static unsigned int blinktimeout = 0; // скільки часу курсор буде відображатися і зникати (для миготіння курсора)
+
+static unsigned int cursorthickness = 2; // ширина курсора
+
+// рендерінг
+const int boxdraw = 1;
+const int boxdraw_bold = 1;
+const int boxdraw_braille = 1;
+
+static int bellvolume = 0; // виключенно відтворювання звуку
+
+char *termname = "st-256color"; // показує що термвнал може відобразити 256 кольорів
+
+unsigned int tabspaces = 8; // кількість пробілів в tab
+
+// назви кольорів терміналу (16 перших використовуються в послідовності)
+// сайт звідки я взяв кольори terminal.sexy
+static const char *colorname[] = {
+  /* 8 стандартних кольорів */
+  "#282A2E", // чорний
+  "#AC4242", // червоний
+  "#90A957", // зелений
+  "#DE935F", // жовтий
+  "#6A9FB5", // синій
+  "#AA759F", // фіолетовий
+  "#75B5AA", // світло зелений
+  "#707880", // сірий
+
+  /* 8 яскравих кольорів */
+  "#373B41", // сірий
+  "#CC6666", // червоний
+  "#B5BD68", // зелений
+  "#F0C674", // жовтий
+  "#81A2BE", // синій
+  "#B294BB", // фіолетовий
+  "#8ABEB7", // світло зелений
+  "#D8D8D8", // білий
+
+  [255] = 0,
+
+  "#cccccc", // білий
+  "#555555", // сірий
+  "#D8D8D8", // білий
+  "#000000", // чорний #181818
+};
+
+unsigned int defaultfg = 258; // текст
+unsigned int defaultbg = 259; // фон
+unsigned int defaultcs = 256; // курсор
+static unsigned int defaultrcs = 257; // зворотній курсор
+
+static unsigned int cursorshape = 2; // форма курсора
+
+static unsigned int cols = 80; // кількість колонок
+static unsigned int rows = 24; // кількість рядків
+
+// колір і форма курсора миші
+static unsigned int mouseshape = XC_arrow;
+static unsigned int mousefg = 7;
+static unsigned int mousebg = 0;
+
+static unsigned int defaultattr = 11; // резервний шрифт
+
+// комбінації для мишки
+static uint forcemousemod = 0;
+static MouseShortcut mshortcuts[] = {
+  { XK_NO_MOD,  Button4,  kscrollup,    {.i = 1} }, // скрол верх
+  { XK_NO_MOD,  Button5,  kscrolldown,  {.i = 1} }, // скрол вниз
+};
+
+// комбінація для клавіатури
+static Shortcut shortcuts[] = {
+  { ControlMask,            XK_k,  kscrollup,   {.i =  1} }, // скрол верх
+  { ControlMask,            XK_j,  kscrolldown, {.i =  1} }, // скрол вниз
+  { ControlMask,            XK_c,  clipcopy,    {.i =  0} }, // скопіювати
+  { ControlMask,            XK_v,  clippaste,   {.i =  0} }, // вставити
+  { ControlMask,            0x3d,  zoom,        {.f = +1} }, // збільшити текст
+  { ControlMask,            0x2d,  zoom,        {.f = -1} }, // зменшити текст
+  { ControlMask,            XK_0,  zoomreset,   {.f =  0} }, // дефолтний розмір тексту
+};
+
+static KeySym mappedkeys[] = { -1 }; // схема розкладки
+static uint ignoremod = 0; // модефікатори котрі потрібно ігнорувати
+
+// комбінація для клавіатури взаємодії з лінукс
+static Key key[] = {
+  { XK_KP_Up,         XK_ANY_MOD,     "\033Ox",       +1,    0},
+  { XK_KP_Up,         XK_ANY_MOD,     "\033[A",        0,   -1},
+  { XK_KP_Up,         XK_ANY_MOD,     "\033OA",        0,   +1},
+  { XK_KP_Down,       XK_ANY_MOD,     "\033Or",       +1,    0},
+  { XK_KP_Down,       XK_ANY_MOD,     "\033[B",        0,   -1},
+  { XK_KP_Down,       XK_ANY_MOD,     "\033OB",        0,   +1},
+  { XK_KP_Left,       XK_ANY_MOD,     "\033Ot",       +1,    0},
+  { XK_KP_Left,       XK_ANY_MOD,     "\033[D",        0,   -1},
+  { XK_KP_Left,       XK_ANY_MOD,     "\033OD",        0,   +1},
+  { XK_KP_Right,      XK_ANY_MOD,     "\033Ov",       +1,    0},
+  { XK_KP_Right,      XK_ANY_MOD,     "\033[C",        0,   -1},
+  { XK_KP_Right,      XK_ANY_MOD,     "\033OC",        0,   +1},
+  { XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
+  { XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
+  { XK_KP_Enter,      XK_ANY_MOD,     "\033OM",       +2,    0},
+  { XK_KP_Enter,      XK_ANY_MOD,     "\r",           -1,    0},
+  { XK_KP_0,          XK_ANY_MOD,     "\033Op",       +2,    0},
+  { XK_KP_1,          XK_ANY_MOD,     "\033Oq",       +2,    0},
+  { XK_KP_2,          XK_ANY_MOD,     "\033Or",       +2,    0},
+  { XK_KP_3,          XK_ANY_MOD,     "\033Os",       +2,    0},
+  { XK_KP_4,          XK_ANY_MOD,     "\033Ot",       +2,    0},
+  { XK_KP_5,          XK_ANY_MOD,     "\033Ou",       +2,    0},
+  { XK_KP_6,          XK_ANY_MOD,     "\033Ov",       +2,    0},
+  { XK_KP_7,          XK_ANY_MOD,     "\033Ow",       +2,    0},
+  { XK_KP_8,          XK_ANY_MOD,     "\033Ox",       +2,    0},
+  { XK_KP_9,          XK_ANY_MOD,     "\033Oy",       +2,    0},
+  { XK_Up,            XK_ANY_MOD,     "\033[A",        0,   -1},
+  { XK_Up,            XK_ANY_MOD,     "\033OA",        0,   +1},
+  { XK_Down,          XK_ANY_MOD,     "\033[B",        0,   -1},
+  { XK_Down,          XK_ANY_MOD,     "\033OB",        0,   +1},
+  { XK_Left,          XK_ANY_MOD,     "\033[D",        0,   -1},
+  { XK_Left,          XK_ANY_MOD,     "\033OD",        0,   +1},
+  { XK_Right,         XK_ANY_MOD,     "\033[C",        0,   -1},
+  { XK_Right,         XK_ANY_MOD,     "\033OC",        0,   +1},
+  { XK_Return,        XK_ANY_MOD,     "\r",            0,    0},
+  { XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
+  { XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
+  { XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
+};
+
+static uint selmasks[] = { [SEL_RECTANGULAR] = Mod1Mask, }; // ?
+
+// символи котрі може друкувати термінал
+static char ascii_printable[] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"; } | налаштування програми
+> wget https://st.suckless.org/patches/scrollback/st-scrollback-20210507-4536f46.diff | пач для скролу
+  > patch --merge -i st-scrollback-20210507-4536f46.diff
+> wget https://st.suckless.org/patches/boxdraw/st-boxdraw_v2-0.8.5.diff | пач для рендерінгу
+  > patch --merge -i st-boxdraw_v2-0.8.5.diff
+> wget https://st.suckless.org/patches/vertcenter/st-vertcenter-20231003-eb3b894.diff | пач для центрування шрифту в середині рядка
+  > patch --merge -i st-vertcenter-20231003-eb3b894.diff
+> wget https://st.suckless.org/patches/anysize/st-anysize-20220718-baa9357.diff | пач для центрування коетенту в середині вікна
+  > patch --merge -i st-anysize-20220718-baa9357.diff
+> wget https://st.suckless.org/patches/hidecursor/st-hidecursor-0.8.3.diff | пач для приховування мишу під час друкування
+  > patch --merge -i st-hidecursor-0.8.3.diff
+> sed -i '/<<<<<<</,/=======/d; />>>>>>>/d' x.c
+> sed -i '1155i\    Window root;' x.c
+> sudo make clean install | зібрати програму
+> cd ..
+
+( 2 / qutebrowser / github.com/qutebrowser/qutebrowser )
+> sudo pacman -S qutebrowser | скачати браузер
+> vim ~/.config/qutebrowser/autoconfig.yml {
+config_version: 2
+settings:
+  bindings.commands:
+    global:
+      normal:
+        <Ctrl+v>: null
+        J: tab-prev
+        K: tab-next
+        L: back
+        H: forward
+        v: null
+        vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display = "none";
+        vs: jseval document.getElementById("gt-nvframe").style.display = "block";
+        vv: open https://translate.google.com/translate?sl=auto&tl=uk&u={url}
+        zg: open https://github.com/vikarchukk
+        Zg: open -t https://github.com/vikarchukk
+        zy: open https://www.youtube.com/
+        Zy: open -t https://www.youtube.com/
+        zt: open https://web.telegram.org/a/
+        Zt: open -t https://web.telegram.org/a/
+        zm: open https://gemini.google.com/app
+        Zm: open -t https://gemini.google.com/app
+        zc: open https://chatgpt.com/
+        Zc: open -t https://chatgpt.com/
+        zd: open https://www.deepl.com/translator#auto/uk/
+        Zd: open -t https://www.deepl.com/translator#auto/uk/
+        zp: spawn --detach mpv {url}
+        sg: greasemonkey-reload
+        st: config-cycle tabs.show always switching
+        ss: config-cycle statusbar.show always in-mode
+  colors.hints.bg:
+    global: white
+  downloads.position:
+    global: bottom
+  fonts.default_family:
+    global: monocraft
+  fonts.default_size:
+    global: 13pt
+  hints.border:
+    global: '0px solid #000000'
+  hints.padding:
+    global:
+      bottom: 0
+      left: 0
+      right: 0
+      top: 0
+  hints.radius:
+    global: 2
+  scrolling.bar:
+    global: never
+  statusbar.widgets:
+    global:
+    - keypress
+    - search_match
+    - url
+    - scroll
+    - progress
+  tabs.favicons.show:
+    global: never
+  tabs.indicator.width:
+    global: 0
+  tabs.new_position.unrelated:
+    global: next
+  tabs.padding:
+    global:
+      bottom: 1
+      left: 3
+      right: 0
+      top: 1
+  tabs.show_switching_delay:
+    global: 3000
+  tabs.title.format:
+    global: '{current_title}'
+  url.default_page:
+    global: https://www.google.com/
+  url.searchengines:
+    global:
+      DEFAULT: https://www.google.com/search?q={}
+      y: https://www.youtube.com/results?search_query={}
+      d: https://www.deepl.com/translator#auto/uk/{}
+  url.start_pages:
+    global: https://www.google.com/
+  zoom.default:
+    global: 125%
+} | налаштування браузера
+> cd ~/.local/share/qutebrowser/greasemonkey
+  > wget https://raw.githubusercontent.com/ilyhalight/voice-over-translation/master/dist/vot-cloudflare.user.js
+  > wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
+  > wget https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js
+  > wget https://update.greasyfork.org/scripts/394512/YouTube%20ProgressBar%20Preserver.user.js
+> st > sift + control + c > qutebrowser
+  > (in qutebrowser) shift + ; > :greasemonkey-reload
+
+> shift + option + q
+> startx
+
+...
 
 [ в кінці ]
 
