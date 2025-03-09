@@ -802,9 +802,8 @@ nmap K :tabnext<CR> }
 > git clone https://aur.archlinux.org/code-features.git
 > cd code-features
 > makepkg -sirc
-> code
-> control + shift + E / X
-> control + shift + P > Preferences: Open User Settings (JSON) {
+> code > ctrl + shft + X/E/P | ctrl + b > розшириння bearded-icons / Bergyish / Apc Customize UI++
+> vim $HOME/.config/Code/User/settings.json {
 {
     "editor.fontFamily": "monocraft",
     "workbench.startupEditor": "none",
@@ -838,11 +837,11 @@ nmap K :tabnext<CR> }
     "explorer.confirmDelete": false,
     "liveServer.settings.donotShowInfoMsg": true,
     "workbench.activityBar.location": "hidden",
-    "breadcrumbs.enabled": false,
+    // "breadcrumbs.enabled": false,
     "editor.accessibilitySupport": "off",
     "window.zoomLevel": 1,
     "editor.unicodeHighlight.ambiguousCharacters": false,
-    "workbench.iconTheme": "charmed-icons",
+    "workbench.iconTheme": "bearded-icons",
     "workbench.editor.enablePreview": false,
     "workbench.statusBar.visible": false,
     "editor.unicodeHighlight.nonBasicASCII": false,
@@ -856,20 +855,19 @@ nmap K :tabnext<CR> }
     "scm.inputFontFamily": "monocraft",
     "chat.editor.fontFamily": "monocraft",
     "notebook.output.fontFamily": "monocraft",
-    "workbench.editor.showTabs": "none",
-    "editor.minimap.enabled": false,
-    "editor.folding": false,
-    "editor.glyphMargin": false,
+    // "workbench.editor.showTabs": "none",
+    // "editor.minimap.enabled": false,
+    "editor.folding": false, // відступ з права
+    // "editor.glyphMargin": false, // відступ з ліва
     "workbench.editor.editorActionsLocation": "hidden",
     "chat.commandCenter.enabled": false,
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "window.menuBarVisibility": "compact",
     "window.titleBarStyle": "native",
-    "workbench.colorTheme": "Orbi Blue",
+    "workbench.colorTheme": "Default High Contrast",
 }
 }
-> розшириння Monokai Pro Icons / One Dark Pro Monokai Darker / Apc Customize UI++
 
 [ в кінці ]
 
