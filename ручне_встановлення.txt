@@ -617,7 +617,7 @@ settings:
 
 [ базові налаштування сестеми і модулів які потрібні dwm, xorg ]
 
-( audio / wiki.archlinux.org/title/Sound_system ) аудіо
+( audio / wiki.archlinux.org/title/Sound_system ) звук
             └─ виправлиння конфігурації чіпу t2 - ( wiki.t2linux.org/guides/audio-config/ )
 > sudo pacman -S apple-t2-audio-config
 > git clone https://github.com/kekrby/t2-better-audio.git
@@ -632,6 +632,21 @@ settings:
   > cd pacmixer
   > sudo makepkg -sirc
   > cd ..
+
+( backlight / wiki.archlinux.org/title/Backlight ) підсвітка
+> vim /etc/udev/rules.d/backlight.rules { ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness" }
+> vim /etc/udev/rules.d/leds.rules { ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness" }
+> sudo usermod -aG video vikarchuk
+
+( cursor / github.com/ful1e5/apple_cursor | wiki.archlinux.org/title/Cursor_themes | wiki.archlinux.org/title/Mouse_acceleration | wiki.archlinux.org/title/Touchpad_Synaptics ) курсов
+> sudo wget --directory-prefix=/usr/share/icons https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz
+> sudo tar -xvf /usr/share/icons/macOS.tar.xz
+> sudo vim /usr/share/icons/default/index.theme {
+[Icon Theme]
+Inherits=macOS }
+> sudo echo 'Xcursor.size: 40' > $HOME/.Xresources
+
+...
 
 [ в кінці ]
 
