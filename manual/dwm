@@ -110,12 +110,13 @@ static const Key keys[] = {
   // запуск програм
   { Mod3Mask,            XK_Return,  spawn,           SHCMD("st") },
   { Mod3Mask,            XK_q,       spawn,           SHCMD("qutebrowser") },
-  { Mod3Mask,            XK_v,       spawn,           SHCMD("code") },
-  { Mod3Mask,            XK_g,       spawn,           SHCMD("gimp") },
+  { Mod3Mask,            XK_c,       spawn,           SHCMD("code") },
+  { Mod3Mask,            XK_x,       spawn,           SHCMD("xfe") },
+  { Mod3Mask,            XK_o,       spawn,           SHCMD("obsidian") },
   { Mod3Mask,            XK_m,       spawn,           SHCMD("st -e btop") },
   { Mod3Mask,            XK_p,       spawn,           SHCMD("st -e pacmixer") },
   { Mod3Mask,            XK_b,       spawn,           SHCMD("st -e bluetui") },
-  { Mod3Mask,            XK_s,       spawn,           SHCMD("steam") },
+  { Mod3Mask,            XK_r,       spawn,           SHCMD("st -e rxfetch") },
   { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") },
 };
 
