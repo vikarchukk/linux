@@ -102,7 +102,7 @@ passwd user_name
  password
   password # пароль для користувача
 EDITOR=vim # налаштування класичного редактору
-visudo { %wheel ALL=(ALL:ALL) ALL } # розкоментувати щоб користувач міг викликати команду sudo
+visudo { %wheel ALL=(ALL:ALL) NOPASSWD: ALL } # розкоментувати щоб користувач міг викликати команду sudo
 
 # встановлення загрузчика systemd-boot (програма яка запускає пк)
 bootctl --path=/boot install # встановлення загрузчика
