@@ -1,4 +1,0 @@
-[ redshift ] ( github.com/jonls/redshift )
-> pacman -S redshift
-> mkdir ~/.config/redshift
-> vim ~/.config/redshift/temp { 4000 }
