@@ -27,6 +27,8 @@ settings:
         Zc: open -t https://chatgpt.com/
         zd: open https://www.deepl.com/translator#auto/uk/
         Zd: open -t https://www.deepl.com/translator#auto/uk/
+        zs: open https://chat.deepseek.com/
+        Zs: open -t https://chat.deepseek.com/
         sg: greasemonkey-reload
         st: config-cycle tabs.show always switching
         ss: config-cycle statusbar.show always in-mode
