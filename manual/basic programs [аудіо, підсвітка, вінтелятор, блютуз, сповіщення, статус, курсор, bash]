@@ -1,0 +1,135 @@
+# налаштування аудіо # wiki.archlinux.org/title/Sound_system
+sudo pacman -S apple-t2-audio-config # виправлиння конфігурації чіпу t2 / wiki.t2linux.org/guides/audio-config/
+git clone https://github.com/kekrby/t2-better-audio.git
+ cd t2-better-audio
+ sudo ./install.sh
+ cd ..
+sudo pacman -S pipewire-pulse
+# кирування звуком # pacmixer # https://github.com/KenjiTakahashi/pacmixer
+git clone https://aur.archlinux.org/pacmixer.git
+ cd pacmixer
+ sudo makepkg -sirc
+cd ..
+
+# підсвітка # wiki.archlinux.org/title/Backlight
+vim /etc/udev/rules.d/backlight.rules { ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness" }
+vim /etc/udev/rules.d/leds.rules { ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness" }
+sudo usermod -aG video vikarchuk
+# жовта підсвітка # redshift # github.com/jonls/redshift
+sudo pacman -S redshift
+mkdir ~/.config/redshift
+vim ~/.config/redshift/temp { 4000 }
+
+# вінтелятор # wiki.archlinux.org/title/fan_speed_control
+ # для чіпу t2 # wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand
+sudo pacman -S t2fanrd
+sudo vim /etc/t2fand.conf {
+[Fan1]
+low_temp=40
+high_temp=60
+speed_curve=linear
+always_full_speed=false
+
+[Fan2]
+low_temp=40
+high_temp=60
+speed_curve=linear
+always_full_speed=false 
+} # налаштування вінтиляторів
+sudo systemctl enable --now t2fanrd
+
+# блютуз # github.com/pythops/bluetui
+git clone https://aur.archlinux.org/bluetui.git
+ cd bluetui
+ makepkg -sirc
+ cd ..
+sudo systemctl start/stop bluetooth
+
+# сповіщення # github.com/dudik/herbe
+git clone https://github.com/dudik/herbe
+cd herbe
+vim config.h {
+static const char *background_color = "#000000"; // фон
+static const char *border_color = "#ffffff"; // обводка
+static const char *font_color = "#ffffff"; // колір шрифту
+static const char *font_pattern = "monocraft:size=12"; // шрифт
+
+static const unsigned line_spacing = 0; // відстань між лініями
+static const unsigned int padding = 2; // відстань між текстом і крайом
+static const unsigned int width = 0; // ширина
+static const unsigned int border_size = 0; // товщина обводки
+
+enum corners { TOP_LEFT, TOP_RIGHT, BOTTOM_LEFT, BOTTOM_RIGHT }; // варіанти кутів відобарження вікна
+enum corners corner = BOTTOM_RIGHT; // вписати кут в якому буде відображатися вікно
+static const unsigned int pos_x = 4; // точка x початок розташування вікна
+static const unsigned int pos_y = 1; // точка у початок розташування вікна
+
+static const unsigned int duration = 3; // скільки секунд буде весіти  вікно
+
+#define DISMISS_BUTTON Button1  // відхилити повідомлення ліва кнопка миші
+#define ACTION_BUTTON Button3 // приняти повідомлення права кнопка миші 
+} # налаштування програми
+sed -i '10d;85d;86d;88d;174,176d;207,209d;' herbe.c # патч щоб нові вікна накладалися один на одного # github.com/dudik/herbe/pull/14
+sed -i \
+-e '122c\  int max_text_width = 0;' \
+-e '132c\    for (unsigned int eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size); eol; argv[i] += eol, num_of_lines++, eol = get_max_len(argv[i], font, screen_width - 2 * padding - 2 * border_size))' \
+-e '146a\      XGlyphInfo info;' \
+-e '146a\      XftTextExtentsUtf8(display, font, (FcChar8 *)lines[num_of_lines], eol, &info);' \
+-e '146a\      if (info.width > max_text_width)' \
+-e '146a\        max_text_width = info.width;' \
+-e '150a\  unsigned int width = max_text_width + 2 * padding;' herbe.c | патч щоб ширина вікна була дорівнювала довжині тексту (github.com/dudik/herbe/issues/50)
+sudo make clean install | збирання програми
+cd ..
+
+# статусу # tools.suckless.org/slstatus/
+git clone https://git.suckless.org/slstatus
+cd slstatus
+vim config.h {
+const unsigned int interval = 2000; // інтервал оновлення даних в мілісекундах
+static const char unknown_str[] = "-"; // символ який буде показуватися коли не знайдено даних
+#define MAXLEN 2048 // ?
+static const struct arg args[] = {
+  { keymap,        " =[ %s ]",  NULL }, // розкладка клавіатури
+  { cat,           "-[ %sF |",  "/sys/class/hwmon/hwmon3/device/fan2_input"}, // скорість вентеляторів
+  { temp,          " %s°С |",   "/sys/class/thermal/thermal_zone2/temp" }, // темперетура найгарачішого процесора
+  { cpu_perc,      " %s% |",    NULL }, // середня загруженість процесорів
+  { run_command,   " %sMB ]",   "free | awk '/Mem/ {print int($3/1024)}'" }, // кількість оперативної памяті котра використовується
+  { battery_perc,  "-[ %s% ]",  "BAT0" }, // батерея
+  { datetime,      "-[ %s ]",   "%H:%M" }, // час
+}; 
+} # налаштування програми
+sudo make clean install # збирання програми
+
+# курсор # github.com/ful1e5/apple_cursor # wiki.archlinux.org/title/Cursor_themes # wiki.archlinux.org/title/Mouse_acceleration # wiki.archlinux.org/title/Touchpad_Synaptics
+sudo wget --directory-prefix=/usr/share/icons https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz
+cd /usr/share/icons
+sudo tar -xvf /usr/share/icons/macOS.tar.xz
+sudo vim /usr/share/icons/default/index.theme {
+[Icon Theme]
+Inherits=macOS 
+} # налаштування курсора
+sudo echo 'Xcursor.size: 40' > $HOME/.Xresources
+
+# bash # вигляд терміналу
+vim $HOME/.bashrc {
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+# [[ $- != *i* ]] && return
+
+# модифікація команд
+alias ls="ls --color=auto -a"
+alias v="vim"
+
+# рядок перед курсором
+off="\[\033[0m\]"
+purple="\[\033[1;35m\]"
+green="\[\033[1;32m\]"
+red="\[\033[1;31m\]"
+export PS1="${green}[${off}${purple}\w${off}${green}]${off}${red}\$${off} "
+
+# заголовок вікна
+export PROMPT_COMMAND='printf "\033]0;${PWD/#$HOME/~}\007"' 
+} # налаштування вигляду терміналу
