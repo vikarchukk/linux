@@ -1,0 +1,91 @@
+> vim ~/.config/qutebrowser/autoconfig.yml {
+config_version: 2
+settings:
+  bindings.commands:
+    global:
+      normal:
+        <Ctrl+v>: null
+        J: tab-prev
+        K: tab-next
+        L: back
+        H: forward
+        v: null
+        vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display = "none";
+        vs: jseval document.getElementById("gt-nvframe").style.display = "block";
+        vv: open https://translate.google.com/translate?sl=auto&tl=uk&u={url}
+        zg: open https://github.com/vikarchukk
+        Zg: open -t https://github.com/vikarchukk
+        zy: open https://www.youtube.com/
+        Zy: open -t https://www.youtube.com/
+        zt: open https://web.telegram.org/a/
+        Zt: open -t https://web.telegram.org/a/
+        zm: open https://gemini.google.com/app
+        Zm: open -t https://gemini.google.com/app
+        zc: open https://chatgpt.com/
+        Zc: open -t https://chatgpt.com/
+        zd: open https://www.deepl.com/translator#auto/uk/
+        Zd: open -t https://www.deepl.com/translator#auto/uk/
+        sg: greasemonkey-reload
+        st: config-cycle tabs.show always switching
+        ss: config-cycle statusbar.show always in-mode
+  colors.hints.bg:
+    global: white
+  downloads.position:
+    global: bottom
+  fonts.default_family:
+    global: monocraft
+  fonts.default_size:
+    global: 13pt
+  hints.border:
+    global: '0px solid #000000'
+  hints.padding:
+    global:
+      bottom: 0
+      left: 0
+      right: 0
+      top: 0
+  hints.radius:
+    global: 2
+  scrolling.bar:
+    global: never
+  statusbar.widgets:
+    global:
+    - keypress
+    - search_match
+    - url
+    - scroll
+    - progress
+  tabs.favicons.show:
+    global: never
+  tabs.indicator.width:
+    global: 0
+  tabs.new_position.unrelated:
+    global: next
+  tabs.padding:
+    global:
+      bottom: 1
+      left: 3
+      right: 0
+      top: 1
+  tabs.show_switching_delay:
+    global: 3000
+  tabs.title.format:
+    global: '{current_title}'
+  url.default_page:
+    global: https://www.google.com/
+  url.searchengines:
+    global:
+      DEFAULT: https://www.google.com/search?q={}
+      y: https://www.youtube.com/results?search_query={}
+      d: https://www.deepl.com/translator#auto/uk/{}
+  url.start_pages:
+    global: https://www.google.com/
+  zoom.default:
+    global: 125% } | налаштування браузера
+> cd ~/.local/share/qutebrowser/greasemonkey
+  > wget https://raw.githubusercontent.com/ilyhalight/voice-over-translation/master/dist/vot-cloudflare.user.js
+  > wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
+  > wget https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js
+  > wget https://update.greasyfork.org/scripts/394512/YouTube%20ProgressBar%20Preserver.user.js
+> st > sift + control + c > qutebrowser
+  > (in qutebrowser) shift + ; > :greasemonkey-reload
