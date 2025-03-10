@@ -34,6 +34,8 @@ settings:
         ss: config-cycle statusbar.show always in-mode
   colors.hints.bg:
     global: white
+  colors.webpage.darkmode.enabled:
+    global: true
   downloads.position:
     global: bottom
   fonts.default_family:
