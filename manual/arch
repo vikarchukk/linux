@@ -127,3 +127,87 @@ exit
 ## офіційна інструкція по встановленні Arch - wiki.archlinux.org/title/Installation_guide
 ### інструкції для macbook - wiki.archlinux.org/title/Laptop/Apple
 #### інструкція для macbook pro 2019 на intel/t2 - wiki.t2linux.org/distributions/arch/installation/
+
+включити пк
+enter
+ user
+  password
+
+# wifi / wiki.archlinux.org/title/Network_configuration / налаштування інтернету
+sudo systemctl enable --now dhcpcd
+sudo systemctl enable --now iwd
+iwctl
+ device list # wlan0
+ station wlan0 get-networks
+ station wlan0 connect 'wifi'
+ exit
+ping google.com
+controc + c
+
+# pacman / софт для кирування софтом
+sudo vim /etc/pacman.conf {
+[multilib]
+Include = /etc/pacman.d/mirrorlist 
+
+[arch-mact2]
+Server = https://mirror.funami.tech/arch-mact2/os/x86_64
+SigLevel = Never 
+} # налаштування серверів оновлення
+sudo pacman -Syyu # оновлення налаштуваннь і пакетів
+
+# x / wiki.archlinux.org/title/xorg / графіка
+sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama # встановлення пакетів для роботи x
+ # xorg-server - сервер x
+ # xorg-xrdb - база даних для сервера x
+ # xorg-xinit - для запуску x
+ # xorg-xrandr - для розширення екрану
+ # libxft, xorgproto, libx11, libxinerama - хз без цього не працює
+# чп
+виключити пк
+ включити пк
+  enter
+   user
+    password
+sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
+ sudo rm /var/lib/pacman/db.lck
+  sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
+vim .xinitrc { 
+exec dwm 
+} # запуск віконого менеджера
+
+# встановлення інструментів для налаштування програм / потім можна все видалити
+sudo pacman -S base-devel git wget
+ # base-devel - інструменти для збирання програм
+ # git - для клонування програм
+ # wget - викачує файли з посилань
+
+# font / wiki.archlinux.org/title/Fonts | github.com/IdreesInc/Monocraft / шрифт
+sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
+
+# dwm / dwm.suckless.org / віконий менеджер
+git clone https://git.suckless.org/dwm # клонування коду програми
+cd dwm
+cp config.def.h config.h
+vim config.h # шрифти замінити на monocraft
+sudo make clean install # зібрати програму
+cd ..
+
+# st / st.suckless.org / термінал
+git clone https://git.suckless.org/st # клонування коду програми
+cd st
+sudo make clean install
+cd ..
+
+# qutebrowser / github.com/qutebrowser/qutebrowser / браузер
+sudo pacman -S qutebrowser # скачати браузер
+# чп
+виключити пк
+ включити пк
+  enter
+   user
+    password
+sudo pacman -S qutebrowser
+
+startx
+ shift + option + q # закрити
+ shift + option + return # термінал
