@@ -77,3 +77,7 @@ sudo pacman -S qutebrowser # скачати браузер
    user
     password
 sudo pacman -S qutebrowser
+
+startx
+ shift + option + q # закрити
+ shift + option + return # термінал
