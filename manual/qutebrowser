@@ -87,7 +87,25 @@ settings:
   url.start_pages:
     global: https://www.google.com/
   zoom.default:
-    global: 125% 
+    global: 125%
+  colors.tabs.bar.bg:
+    global: "#1e1e1e"  # Темний фон панелі табів
+  colors.tabs.even.bg:
+    global: "#000000"  # Темний фон для парних неактивних табів
+  colors.tabs.even.fg:
+    global: "#ffffff"  # Білий текст для парних неактивних табів
+  colors.tabs.odd.bg:
+    global: "#3C3C3C"  # Темний фон для непарних неактивних табів
+  colors.tabs.odd.fg:
+    global: "#ffffff"  # Білий текст для непарних неактивних табів
+  colors.tabs.selected.even.bg:
+    global: "#ffffff"  # Білий фон для активного парного табу
+  colors.tabs.selected.even.fg:
+    global: "#000000"  # Чорний текст для активного парного табу
+  colors.tabs.selected.odd.bg:
+    global: "#ffffff"  # Білий фон для активного непарного табу
+  colors.tabs.selected.odd.fg:
+    global: "#000000"  # Чорний текст для активного непарного табу
 } # налаштування браузера
 
 cd ~/.local/share/qutebrowser/greasemonkey
