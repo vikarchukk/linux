@@ -1,1 +1,1 @@
-
+[ 1 ] встановлення Arch T2 ванільного з xanmod і systemd-boot
