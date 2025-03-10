@@ -1,0 +1,98 @@
+# налаштування аудіо # wiki.archlinux.org/title/Sound_system
+sudo pacman -S apple-t2-audio-config # виправлиння конфігурації чіпу t2 / wiki.t2linux.org/guides/audio-config/
+git clone https://github.com/kekrby/t2-better-audio.git
+ cd t2-better-audio
+ sudo ./install.sh
+ cd ..
+sudo pacman -S pipewire-pulse
+# кирування звуком # pacmixer # https://github.com/KenjiTakahashi/pacmixer
+git clone https://aur.archlinux.org/pacmixer.git
+ cd pacmixer
+ sudo makepkg -sirc
+cd ..
+
+# підсвітка # wiki.archlinux.org/title/Backlight
+vim /etc/udev/rules.d/backlight.rules { ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness" }
+vim /etc/udev/rules.d/leds.rules { ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness" }
+sudo usermod -aG video vikarchuk
+# жовта підсвітка # redshift # github.com/jonls/redshift
+sudo pacman -S redshift
+mkdir ~/.config/redshift
+vim ~/.config/redshift/temp { 4000 }
+
+# вінтелятор # wiki.archlinux.org/title/fan_speed_control
+ # для чіпу t2 # wiki.t2linux.org/guides/fan/ - github.com/NoaHimesaka1873/t2fand
+sudo pacman -S t2fanrd
+sudo vim /etc/t2fand.conf {
+[Fan1]
+low_temp=40
+high_temp=60
+speed_curve=linear
+always_full_speed=false
+
+[Fan2]
+low_temp=40
+high_temp=60
+speed_curve=linear
+always_full_speed=false 
+} # налаштування вінтиляторів
+sudo systemctl enable --now t2fanrd
+
+# блютуз # github.com/pythops/bluetui
+git clone https://aur.archlinux.org/bluetui.git
+ cd bluetui
+ makepkg -sirc
+ cd ..
+sudo systemctl start/stop bluetooth
+
+# курсор # github.com/ful1e5/apple_cursor # wiki.archlinux.org/title/Cursor_themes # wiki.archlinux.org/title/Mouse_acceleration # wiki.archlinux.org/title/Touchpad_Synaptics
+sudo wget --directory-prefix=/usr/share/icons https://github.com/ful1e5/apple_cursor/releases/download/v2.0.1/macOS.tar.xz
+cd /usr/share/icons
+sudo tar -xvf /usr/share/icons/macOS.tar.xz
+sudo vim /usr/share/icons/default/index.theme {
+[Icon Theme]
+Inherits=macOS 
+} # налаштування курсора
+sudo echo 'Xcursor.size: 40' > $HOME/.Xresources
+
+# bash # вигляд терміналу
+vim $HOME/.bashrc {
+#
+# ~/.bashrc
+#
+
+# If not running interactively, don't do anything
+# [[ $- != *i* ]] && return
+
+# модифікація команд
+alias ls="ls --color=auto -a"
+alias v="vim"
+
+# рядок перед курсором
+off="\[\033[0m\]"
+purple="\[\033[1;35m\]"
+green="\[\033[1;32m\]"
+red="\[\033[1;31m\]"
+export PS1="${green}[${off}${purple}\w${off}${green}]${off}${red}\$${off} "
+
+# заголовок вікна
+export PROMPT_COMMAND='printf "\033]0;${PWD/#$HOME/~}\007"' 
+} # налаштування вигляду терміналу
+
+# додаткові налаштування
+# виключиння сна при закривані кришки # wiki.archlinux.org/title/Power_management
+sudo sed -i '
+35c\
+HandleLidSwitch=ignore
+36c\
+HandleLidSwitchExternalPower=ignore
+37c\
+HandleLidSwitchDocked=ignore' /etc/systemd/logind.conf
+# авто старт xorg, dwm
+echo 'startx' >> $HOME/.bash_profile
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
+sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
+[Service]
+ExecStart=
+ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM 
+}
