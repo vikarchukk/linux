@@ -93,6 +93,7 @@ cd ~/.local/share/qutebrowser/greasemonkey
  wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
  wget https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js
  wget https://update.greasyfork.org/scripts/394512/YouTube%20ProgressBar%20Preserver.user.js
+ wget https://update.greasyfork.org/scripts/466058/Dark%20Reader.user.js
 vim ~/.local/share/qutebrowser/greasemonkey/monocraft-font.user.js {
 // ==UserScript==
 // @name         Monocraft Font
