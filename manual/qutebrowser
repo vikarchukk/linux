@@ -93,6 +93,33 @@ cd ~/.local/share/qutebrowser/greasemonkey
  wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
  wget https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js
  wget https://update.greasyfork.org/scripts/394512/YouTube%20ProgressBar%20Preserver.user.js
+vim ~/.local/share/qutebrowser/greasemonkey/monocraft-font.user.js {
+// ==UserScript==
+// @name         Monocraft Font
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Apply Monocraft font to all websites
+// @author       You
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Додаємо CSS для зміни шрифту
+    const css = `
+        * {
+            font-family: Monocraft !important;
+        }
+    `;
+
+    const style = document.createElement('style');
+    style.type = 'text/css';
+    style.appendChild(document.createTextNode(css));
+    document.head.appendChild(style);
+})();
+} # шрифт для всіх сайтів кастомний
 # in qutebrowser
 shift + ;
  :greasemonkey-reload
