@@ -1,0 +1,170 @@
+> cd st
+> vim config.h {
+static char *font = "monocraft:size=15"; // шрифт і розмір
+static int borderpx = 2; // відступ від країв
+
+static char *shell = "/bin/sh"; // ?
+char *utmp = NULL; // назва стороньої програми для utmp
+char *scroll = NULL; // назва стороньої програми для scroll
+char *stty_args = "stty raw pass8 nl -echo -iexten -cstopb 38400"; // ?
+
+char *vtiden = "\033[?6c"; // ?
+
+static float cwscale = 1.0; // відступ між літерами
+static float chscale = 1.1; // простір зайнятий символом на екрані
+
+wchar_t *worddelimiters = L" "; // символ контрий розділяє слова
+
+static unsigned int doubleclicktimeout = 300; // час очікування другого клацання мишкою для регістру двійного клацання для виділення слова
+static unsigned int tripleclicktimeout = 600; // час очікування третього клацання мишкою для регістру трійного клацання для виділення рядка
+
+int allowaltscreen = 1; // включення альтернативного вікна для vim, btop ...
+int allowwindowops = 1; // заборона деяких операцій з терміналом по типу (буфер обміну ...)
+
+static double minlatency = 2; // мінімальний час очікування до того як термінал перемалює контент
+static double maxlatency = 33; // максимальний час очікування до того як термінал перемалює контент
+
+static unsigned int blinktimeout = 0; // скільки часу курсор буде відображатися і зникати (для миготіння курсора)
+
+static unsigned int cursorthickness = 2; // ширина курсора
+
+// рендерінг
+const int boxdraw = 1;
+const int boxdraw_bold = 1;
+const int boxdraw_braille = 1;
+
+static int bellvolume = 0; // виключенно відтворювання звуку
+
+char *termname = "st-256color"; // показує що термвнал може відобразити 256 кольорів
+
+unsigned int tabspaces = 8; // кількість пробілів в tab
+
+// назви кольорів терміналу (16 перших використовуються в послідовності)
+// сайт звідки я взяв кольори terminal.sexy
+static const char *colorname[] = {
+  /* 8 стандартних кольорів */
+  "#282A2E", // чорний
+  "#AC4242", // червоний
+  "#90A957", // зелений
+  "#DE935F", // жовтий
+  "#6A9FB5", // синій
+  "#AA759F", // фіолетовий
+  "#75B5AA", // світло зелений
+  "#707880", // сірий
+
+  /* 8 яскравих кольорів */
+  "#373B41", // сірий
+  "#CC6666", // червоний
+  "#B5BD68", // зелений
+  "#F0C674", // жовтий
+  "#81A2BE", // синій
+  "#B294BB", // фіолетовий
+  "#8ABEB7", // світло зелений
+  "#D8D8D8", // білий
+
+  [255] = 0,
+
+  "#cccccc", // білий
+  "#555555", // сірий
+  "#D8D8D8", // білий
+  "#000000", // чорний #181818
+};
+
+unsigned int defaultfg = 258; // текст
+unsigned int defaultbg = 259; // фон
+unsigned int defaultcs = 256; // курсор
+static unsigned int defaultrcs = 257; // зворотній курсор
+
+static unsigned int cursorshape = 2; // форма курсора
+
+static unsigned int cols = 80; // кількість колонок
+static unsigned int rows = 24; // кількість рядків
+
+// колір і форма курсора миші
+static unsigned int mouseshape = XC_arrow;
+static unsigned int mousefg = 7;
+static unsigned int mousebg = 0;
+
+static unsigned int defaultattr = 11; // резервний шрифт
+
+// комбінації для мишки
+static uint forcemousemod = 0;
+static MouseShortcut mshortcuts[] = {
+  { XK_NO_MOD,  Button4,  kscrollup,    {.i = 1} }, // скрол верх
+  { XK_NO_MOD,  Button5,  kscrolldown,  {.i = 1} }, // скрол вниз
+};
+
+// комбінація для клавіатури
+static Shortcut shortcuts[] = {
+  { ControlMask,            XK_k,  kscrollup,   {.i =  1} }, // скрол верх
+  { ControlMask,            XK_j,  kscrolldown, {.i =  1} }, // скрол вниз
+  { ControlMask,            XK_c,  clipcopy,    {.i =  0} }, // скопіювати
+  { ControlMask,            XK_v,  clippaste,   {.i =  0} }, // вставити
+  { ControlMask,            0x3d,  zoom,        {.f = +1} }, // збільшити текст
+  { ControlMask,            0x2d,  zoom,        {.f = -1} }, // зменшити текст
+  { ControlMask,            XK_0,  zoomreset,   {.f =  0} }, // дефолтний розмір тексту
+};
+
+static KeySym mappedkeys[] = { -1 }; // схема розкладки
+static uint ignoremod = 0; // модефікатори котрі потрібно ігнорувати
+
+// комбінація для клавіатури взаємодії з лінукс
+static Key key[] = {
+  { XK_KP_Up,         XK_ANY_MOD,     "\033Ox",       +1,    0},
+  { XK_KP_Up,         XK_ANY_MOD,     "\033[A",        0,   -1},
+  { XK_KP_Up,         XK_ANY_MOD,     "\033OA",        0,   +1},
+  { XK_KP_Down,       XK_ANY_MOD,     "\033Or",       +1,    0},
+  { XK_KP_Down,       XK_ANY_MOD,     "\033[B",        0,   -1},
+  { XK_KP_Down,       XK_ANY_MOD,     "\033OB",        0,   +1},
+  { XK_KP_Left,       XK_ANY_MOD,     "\033Ot",       +1,    0},
+  { XK_KP_Left,       XK_ANY_MOD,     "\033[D",        0,   -1},
+  { XK_KP_Left,       XK_ANY_MOD,     "\033OD",        0,   +1},
+  { XK_KP_Right,      XK_ANY_MOD,     "\033Ov",       +1,    0},
+  { XK_KP_Right,      XK_ANY_MOD,     "\033[C",        0,   -1},
+  { XK_KP_Right,      XK_ANY_MOD,     "\033OC",        0,   +1},
+  { XK_KP_Delete,     XK_ANY_MOD,     "\033[P",       -1,    0},
+  { XK_KP_Delete,     XK_ANY_MOD,     "\033[3~",      +1,    0},
+  { XK_KP_Enter,      XK_ANY_MOD,     "\033OM",       +2,    0},
+  { XK_KP_Enter,      XK_ANY_MOD,     "\r",           -1,    0},
+  { XK_KP_0,          XK_ANY_MOD,     "\033Op",       +2,    0},
+  { XK_KP_1,          XK_ANY_MOD,     "\033Oq",       +2,    0},
+  { XK_KP_2,          XK_ANY_MOD,     "\033Or",       +2,    0},
+  { XK_KP_3,          XK_ANY_MOD,     "\033Os",       +2,    0},
+  { XK_KP_4,          XK_ANY_MOD,     "\033Ot",       +2,    0},
+  { XK_KP_5,          XK_ANY_MOD,     "\033Ou",       +2,    0},
+  { XK_KP_6,          XK_ANY_MOD,     "\033Ov",       +2,    0},
+  { XK_KP_7,          XK_ANY_MOD,     "\033Ow",       +2,    0},
+  { XK_KP_8,          XK_ANY_MOD,     "\033Ox",       +2,    0},
+  { XK_KP_9,          XK_ANY_MOD,     "\033Oy",       +2,    0},
+  { XK_Up,            XK_ANY_MOD,     "\033[A",        0,   -1},
+  { XK_Up,            XK_ANY_MOD,     "\033OA",        0,   +1},
+  { XK_Down,          XK_ANY_MOD,     "\033[B",        0,   -1},
+  { XK_Down,          XK_ANY_MOD,     "\033OB",        0,   +1},
+  { XK_Left,          XK_ANY_MOD,     "\033[D",        0,   -1},
+  { XK_Left,          XK_ANY_MOD,     "\033OD",        0,   +1},
+  { XK_Right,         XK_ANY_MOD,     "\033[C",        0,   -1},
+  { XK_Right,         XK_ANY_MOD,     "\033OC",        0,   +1},
+  { XK_Return,        XK_ANY_MOD,     "\r",            0,    0},
+  { XK_Delete,        XK_ANY_MOD,     "\033[P",       -1,    0},
+  { XK_Delete,        XK_ANY_MOD,     "\033[3~",      +1,    0},
+  { XK_BackSpace,     XK_NO_MOD,      "\177",          0,    0},
+};
+
+static uint selmasks[] = { [SEL_RECTANGULAR] = Mod1Mask, }; // ?
+
+// символи котрі може друкувати термінал
+static char ascii_printable[] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"; } | налаштування програми
+> wget https://st.suckless.org/patches/scrollback/st-scrollback-20210507-4536f46.diff | пач для скролу
+  > patch --merge -i st-scrollback-20210507-4536f46.diff
+> wget https://st.suckless.org/patches/boxdraw/st-boxdraw_v2-0.8.5.diff | пач для рендерінгу
+  > patch --merge -i st-boxdraw_v2-0.8.5.diff
+> wget https://st.suckless.org/patches/vertcenter/st-vertcenter-20231003-eb3b894.diff | пач для центрування шрифту в середині рядка
+  > patch --merge -i st-vertcenter-20231003-eb3b894.diff
+> wget https://st.suckless.org/patches/anysize/st-anysize-20220718-baa9357.diff | пач для центрування коетенту в середині вікна
+  > patch --merge -i st-anysize-20220718-baa9357.diff
+> wget https://st.suckless.org/patches/hidecursor/st-hidecursor-0.8.3.diff | пач для приховування мишу під час друкування
+  > patch --merge -i st-hidecursor-0.8.3.diff
+> sed -i '/<<<<<<</,/=======/d; />>>>>>>/d' x.c
+> sed -i '1155i\    Window root;' x.c
+> sudo make clean install | зібрати програму
+> cd ..
