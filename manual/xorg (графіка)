@@ -4,6 +4,7 @@ sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto
  # xorg-xinit - для запуску x
  # xorg-xrandr - для розширення екрану
  # libxft, xorgproto, libx11, libxinerama - хз без цього не працює
+
 vim .xinitrc {
 xset s off # виключити затемнення екрану після 10хв бездіяльності
 xset -dpms # виключити вимикання екрану після бездіяльності
@@ -17,3 +18,5 @@ bash ~/battery-alert & # сповіщення про низький рівень
 slstatus & # запуск програми для відображиння даних про пк
 exec dwm # віконий менеджер 
 } # які програми будуть запущині зразу після запуску x
+
+# wiki.archlinux.org/title/xorg
