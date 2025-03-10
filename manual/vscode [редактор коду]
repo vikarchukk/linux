@@ -1,0 +1,82 @@
+git clone https://aur.archlinux.org/code-features.git
+cd code-features
+makepkg -sirc
+
+sudo chown -R $(whoami) /usr/lib/code
+code
+ ctrl + shft + X/E/P / ctrl + b 
+  розшириння ( Bearded Icons / GitHub Theme / Custom UI Style )
+   налаштування Open User Settings (JSON)
+
+{
+    "editor.fontFamily": "monocraft",
+    "workbench.startupEditor": "none",
+    "editor.fontSize": 17,
+    "editor.smoothScrolling": true,
+    "security.workspace.trust.untrustedFiles": "open",
+    "editor.minimap.renderCharacters": false,
+    "debug.console.collapseIdenticalLines": false,
+    "debug.console.historySuggestions": false,
+    "debug.disassemblyView.showSourceCode": false,
+    "debug.enableStatusBarColor": false,
+    "debug.focusEditorOnBreak": false,
+    "debug.console.wordWrap": false,
+    "debug.focusWindowOnBreak": false,
+    "debug.inlineValues": "off",
+    "debug.javascript.automaticallyTunnelRemoteServer": false,
+    "debug.javascript.codelens.npmScripts": "never",
+    "debug.toolBarLocation": "hidden",
+    "debug.showInStatusBar": "never",
+    "debug.saveBeforeStart": "none",
+    "debug.openDebug": "neverOpen",
+    "debug.internalConsoleOptions": "neverOpen",
+    "debug.showInlineBreakpointCandidates": false,
+    "editor.scrollbar.horizontal": "hidden",
+    "editor.scrollbar.vertical": "hidden",
+    "editor.scrollbar.verticalScrollbarSize": 0,
+    "editor.scrollbar.horizontalScrollbarSize": 0,
+    "terminal.integrated.lineHeight": 1.5,
+    "terminal.integrated.fontFamily": "monocraft",
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "liveServer.settings.donotShowInfoMsg": true,
+    "workbench.activityBar.location": "hidden",
+    // "breadcrumbs.enabled": false,
+    "editor.accessibilitySupport": "off",
+    "window.zoomLevel": 1,
+    "editor.unicodeHighlight.ambiguousCharacters": false,
+    "workbench.editor.enablePreview": false,
+    "workbench.statusBar.visible": false,
+    "editor.unicodeHighlight.nonBasicASCII": false,
+    "editor.stickyScroll.enabled": false,
+    "accessibility.signals.onDebugBreak": { "sound": "off" },
+    "editor.codeLensFontFamily": "monocraft",
+    "editor.inlayHints.fontFamily": "monocraft",
+    "editor.inlineSuggest.fontFamily": "monocraft",
+    "debug.console.fontFamily": "monocraft",
+    "editor.experimentalInlineEdit.fontFamily": "monocraft",
+    "scm.inputFontFamily": "monocraft",
+    "chat.editor.fontFamily": "monocraft",
+    "notebook.output.fontFamily": "monocraft",
+    "workbench.editor.showTabs": "none",
+    // "editor.minimap.enabled": false,
+    "editor.folding": false, // відступ з права
+    "editor.glyphMargin": false, // відступ з ліва
+    "workbench.editor.editorActionsLocation": "hidden",
+    "chat.commandCenter.enabled": false,
+    "window.commandCenter": false,
+    "workbench.layoutControl.enabled": false,
+    "window.menuBarVisibility": "compact",
+    "workbench.colorTheme": "GitHub Dark High Contrast",
+    "window.titleBarStyle": "native",
+    "custom-ui-style.font.sansSerif": "monocraft",
+    "custom-ui-style.electron": { "frame": false },
+    "custom-ui-style.stylesheet": { ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5.5px !important" }
+}
+
+ctrl + s
+ noft [ys]
+  close code
+   open code
+
+# https://wiki.archlinux.org/title/Visual_Studio_Code
