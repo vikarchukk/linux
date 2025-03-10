@@ -116,7 +116,6 @@ static const Key keys[] = {
   { Mod3Mask,            XK_m,       spawn,           SHCMD("st -e btop") },
   { Mod3Mask,            XK_p,       spawn,           SHCMD("st -e pacmixer") },
   { Mod3Mask,            XK_b,       spawn,           SHCMD("st -e bluetui") },
-  { Mod3Mask,            XK_r,       spawn,           SHCMD("st -e rxfetch") },
   { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") },
 };
 
