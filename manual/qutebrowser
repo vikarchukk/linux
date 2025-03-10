@@ -95,7 +95,7 @@ settings:
   colors.tabs.even.fg:
     global: "#ffffff"  # Білий текст для парних неактивних табів
   colors.tabs.odd.bg:
-    global: "#3C3C3C"  # Темний фон для непарних неактивних табів
+    global: "#1E1E1E"  # Темний фон для непарних неактивних табів
   colors.tabs.odd.fg:
     global: "#ffffff"  # Білий текст для непарних неактивних табів
   colors.tabs.selected.even.bg:
