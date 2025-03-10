@@ -36,6 +36,8 @@ settings:
     global: white
   colors.webpage.darkmode.enabled:
     global: true
+  colors.webpage.darkmode.policy.images:
+    global: never
   downloads.position:
     global: bottom
   fonts.default_family:
