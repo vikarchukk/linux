@@ -89,7 +89,7 @@ settings:
   colors.tabs.bar.bg:
     global: "#1e1e1e"  # Темний фон панелі табів
   colors.tabs.even.bg:
-    global: "#000000"  # Темний фон для парних неактивних табів
+    global: "#262626"  # Темний фон для парних неактивних табів
   colors.tabs.even.fg:
     global: "#ffffff"  # Білий текст для парних неактивних табів
   colors.tabs.odd.bg:
