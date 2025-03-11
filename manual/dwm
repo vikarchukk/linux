@@ -118,7 +118,7 @@ static const Key keys[] = {
   { Mod3Mask,            XK_b,       spawn,           SHCMD("st -e bluetui") },
   { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") },
   { ControlMask,            XK_x,    spawn,           SHCMD("herbe \"[ $(cat $HOME/translation.txt) ]\"") },
-  { ControlMask|ShiftMask,  XK_x,    spawn,           SHCMD("trans -b :uk \"$(xsel -o)\" > $HOME/translation.txt") },
+  { ControlMask|ShiftMask,  XK_x,    spawn,           SHCMD("xdotool key --clearmodifiers Control+c && sleep 0.2 && trans -b :uk \"$(xsel -o)\" > $HOME/translation.txt") },
 };
 
 // комбінація для мишки
