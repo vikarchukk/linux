@@ -117,7 +117,7 @@ static const Key keys[] = {
   { Mod3Mask,            XK_p,       spawn,           SHCMD("st -e pacmixer") },
   { Mod3Mask,            XK_b,       spawn,           SHCMD("st -e bluetui") },
   { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") },
-  { ControlMask,         XK_x,       spawn,           SHCMD("herbe "[ $(trans -b :uk "$(xsel -o)") ]"") },
+  { ControlMask,         XK_x,       spawn,           SHCMD("herbe \"[ $(trans -b :uk \"$(xsel -o)\") ]\"") },
 };
 
 // комбінація для мишки
