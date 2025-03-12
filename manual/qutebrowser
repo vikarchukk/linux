@@ -3,36 +3,39 @@ sudo pacman -S qutebrowser # скачати браузер
 vim ~/.config/qutebrowser/autoconfig.yml {
 config_version: 2
 settings:
+  auto_save.session:
+    global: true
   bindings.commands:
     global:
       normal:
         <Ctrl+v>: null
+        H: forward
         J: tab-prev
         K: tab-next
         L: back
-        H: forward
+        Zc: open -t https://chatgpt.com/
+        Zd: open -t https://www.deepl.com/translator#auto/uk/
+        Zg: open -t https://github.com/vikarchukk
+        Zm: open -t https://gemini.google.com/app
+        Zs: open -t https://chat.deepseek.com/
+        Zt: open -t https://web.telegram.org/a/
+        Zy: open -t https://www.youtube.com/
+        sg: greasemonkey-reload
+        ss: config-cycle statusbar.show always in-mode
+        st: config-cycle tabs.show always switching
         v: null
-        vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display = "none";
+        vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display
+          = "none";
         vs: jseval document.getElementById("gt-nvframe").style.display = "block";
         vv: open https://translate.google.com/translate?sl=auto&tl=uk&u={url}
-        zg: open https://github.com/vikarchukk
-        Zg: open -t https://github.com/vikarchukk
-        zy: open https://www.youtube.com/
-        Zy: open -t https://www.youtube.com/
-        zt: open https://web.telegram.org/a/
-        Zt: open -t https://web.telegram.org/a/
-        zm: open https://gemini.google.com/app
-        Zm: open -t https://gemini.google.com/app
         zc: open https://chatgpt.com/
-        Zc: open -t https://chatgpt.com/
         zd: open https://www.deepl.com/translator#auto/uk/
-        Zd: open -t https://www.deepl.com/translator#auto/uk/
+        zg: open https://github.com/vikarchukk
+        zm: open https://gemini.google.com/app
+        zp: spawn --detach mpv --ytdl-format="22" --hwdec=no --profile=low-latency --vo=gpu --gpu-context=auto {url}
         zs: open https://chat.deepseek.com/
-        Zs: open -t https://chat.deepseek.com/
-        zp: spawn --detach mpv --ytdl-format="best[height<=720]" --hwdec=no --profile=low-latency --vo=gpu --gpu-context=auto {url}
-        sg: greasemonkey-reload
-        st: config-cycle tabs.show always switching
-        ss: config-cycle statusbar.show always in-mode
+        zt: open https://web.telegram.org/a/
+        zy: open https://www.youtube.com/
   colors.hints.bg:
     global: white
   downloads.position:
@@ -81,12 +84,25 @@ settings:
   url.searchengines:
     global:
       DEFAULT: https://www.google.com/search?q={}
-      y: https://www.youtube.com/results?search_query={}
       d: https://www.deepl.com/translator#auto/uk/{}
+      y: https://www.youtube.com/results?search_query={}
   url.start_pages:
     global: https://www.google.com/
   zoom.default:
     global: 125%
+} # налаштування браузера
+
+cd ~/.local/share/qutebrowser/greasemonkey
+ wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
+ wget https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js
+ wget https://update.greasyfork.org/scripts/394512/YouTube%20ProgressBar%20Preserver.user.js
+ wget https://gist.githubusercontent.com/vikarchukk/bc4b302100c13bf8c88f106131f2b495/raw/1077d661c26808e1aea4a8a6315aaa6a020d97cf/monocraft-font.user.js
+# in qutebrowser
+shift + ;
+ :greasemonkey-reload
+
+# github.com/qutebrowser/qutebrowser
+
   colors.tabs.bar.bg:
     global: "#1e1e1e"  # Темний фон панелі табів
   colors.tabs.even.bg:
@@ -105,18 +121,6 @@ settings:
     global: "#ffffff"  # Білий фон для активного непарного табу
   colors.tabs.selected.odd.fg:
     global: "#000000"  # Чорний текст для активного непарного табу
-} # налаштування браузера
-
-cd ~/.local/share/qutebrowser/greasemonkey
- wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
- wget https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js
- wget https://update.greasyfork.org/scripts/394512/YouTube%20ProgressBar%20Preserver.user.js
- wget https://gist.githubusercontent.com/vikarchukk/bc4b302100c13bf8c88f106131f2b495/raw/1077d661c26808e1aea4a8a6315aaa6a020d97cf/monocraft-font.user.js
-# in qutebrowser
-shift + ;
- :greasemonkey-reload
-
-# github.com/qutebrowser/qutebrowser
 
 # існтрукція
 
