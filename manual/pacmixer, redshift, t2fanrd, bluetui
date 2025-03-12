@@ -26,15 +26,15 @@ sudo pacman -S t2fanrd
 sudo vim /etc/t2fand.conf {
 [Fan1]
 low_temp=40
-high_temp=60
-speed_curve=linear
+high_temp=80
+speed_curve=exponential
 always_full_speed=false
 
 [Fan2]
 low_temp=40
-high_temp=60
-speed_curve=linear
-always_full_speed=false 
+high_temp=80
+speed_curve=exponential
+always_full_speed=false
 } # налаштування вінтиляторів
 sudo systemctl enable --now t2fanrd
 
