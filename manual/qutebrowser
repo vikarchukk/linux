@@ -29,7 +29,7 @@ settings:
         Zd: open -t https://www.deepl.com/translator#auto/uk/
         zs: open https://chat.deepseek.com/
         Zs: open -t https://chat.deepseek.com/
-        zp: spawn --detach mpv {url}
+        zp: spawn --detach mpv --ytdl-format="best[height<=720]" --hwdec=no --profile=low-latency --vo=gpu --gpu-context=auto {url}
         sg: greasemonkey-reload
         st: config-cycle tabs.show always switching
         ss: config-cycle statusbar.show always in-mode
