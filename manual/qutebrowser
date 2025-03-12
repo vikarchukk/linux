@@ -32,7 +32,7 @@ settings:
         zd: open https://www.deepl.com/translator#auto/uk/
         zg: open https://github.com/vikarchukk
         zm: open https://gemini.google.com/app
-        zp: spawn --detach mpv --ytdl-format="22" --hwdec=no --profile=low-latency --vo=gpu --gpu-context=auto {url}
+        zp: spawn --detach mpv --ytdl-format="best[height<=720]" --hwdec=no --profile=low-latency --vo=gpu --gpu-context=auto {url}
         zs: open https://chat.deepseek.com/
         zt: open https://web.telegram.org/a/
         zy: open https://www.youtube.com/
