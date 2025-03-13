@@ -67,7 +67,7 @@ code
     "window.commandCenter": false,
     "workbench.layoutControl.enabled": false,
     "window.menuBarVisibility": "compact",
-    "workbench.colorTheme": "GitHub Dark High Contrast",
+    "workbench.colorTheme": "One Dark Pro Night Flat",
     "window.titleBarStyle": "native",
     "custom-ui-style.font.sansSerif": "monocraft",
     "custom-ui-style.electron": { "frame": false },
