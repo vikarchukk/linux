@@ -164,5 +164,3 @@ sudo pacman -S code
   // Code Spell Checker - провірка орфографії
   // colorize - підсвітка кольорів
 }
-
-# https://wiki.archlinux.org/title/Visual_Studio_Code
