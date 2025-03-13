@@ -1,82 +1,168 @@
-git clone https://aur.archlinux.org/code-features.git
-cd code-features
-makepkg -sirc
-
-sudo chown -R $(whoami) /usr/lib/code
-code
- ctrl + shft + X/E/P / ctrl + b 
-  розшириння ( Bearded Icons / GitHub Theme / Custom UI Style )
-   налаштування Open User Settings (JSON)
+sudo pacman -S code
 
 {
-    "editor.fontFamily": "monocraft",
-    "workbench.startupEditor": "none",
-    "editor.fontSize": 17,
-    "editor.smoothScrolling": true,
-    "security.workspace.trust.untrustedFiles": "open",
-    "editor.minimap.renderCharacters": false,
-    "debug.console.collapseIdenticalLines": false,
-    "debug.console.historySuggestions": false,
-    "debug.disassemblyView.showSourceCode": false,
-    "debug.enableStatusBarColor": false,
-    "debug.focusEditorOnBreak": false,
-    "debug.console.wordWrap": false,
-    "debug.focusWindowOnBreak": false,
-    "debug.inlineValues": "off",
-    "debug.javascript.automaticallyTunnelRemoteServer": false,
-    "debug.javascript.codelens.npmScripts": "never",
-    "debug.toolBarLocation": "hidden",
-    "debug.showInStatusBar": "never",
-    "debug.saveBeforeStart": "none",
-    "debug.openDebug": "neverOpen",
-    "debug.internalConsoleOptions": "neverOpen",
-    "debug.showInlineBreakpointCandidates": false,
-    "editor.scrollbar.horizontal": "hidden",
-    "editor.scrollbar.vertical": "hidden",
-    "editor.scrollbar.verticalScrollbarSize": 0,
-    "editor.scrollbar.horizontalScrollbarSize": 0,
-    "terminal.integrated.lineHeight": 1.5,
-    "terminal.integrated.fontFamily": "monocraft",
-    "explorer.confirmDragAndDrop": false,
-    "explorer.confirmDelete": false,
-    "liveServer.settings.donotShowInfoMsg": true,
-    "workbench.activityBar.location": "hidden",
-    // "breadcrumbs.enabled": false,
-    "editor.accessibilitySupport": "off",
-    "window.zoomLevel": 1,
-    "editor.unicodeHighlight.ambiguousCharacters": false,
-    "workbench.editor.enablePreview": false,
-    "workbench.statusBar.visible": false,
-    "editor.unicodeHighlight.nonBasicASCII": false,
-    "editor.stickyScroll.enabled": false,
-    "accessibility.signals.onDebugBreak": { "sound": "off" },
-    "editor.codeLensFontFamily": "monocraft",
-    "editor.inlayHints.fontFamily": "monocraft",
-    "editor.inlineSuggest.fontFamily": "monocraft",
-    "debug.console.fontFamily": "monocraft",
-    "editor.experimentalInlineEdit.fontFamily": "monocraft",
-    "scm.inputFontFamily": "monocraft",
-    "chat.editor.fontFamily": "monocraft",
-    "notebook.output.fontFamily": "monocraft",
-    "workbench.editor.showTabs": "none",
-    // "editor.minimap.enabled": false,
-    "editor.folding": false, // відступ з права
-    "editor.glyphMargin": false, // відступ з ліва
-    "workbench.editor.editorActionsLocation": "hidden",
-    "chat.commandCenter.enabled": false,
-    "window.commandCenter": false,
-    "workbench.layoutControl.enabled": false,
-    "window.menuBarVisibility": "compact",
-    "workbench.colorTheme": "One Dark Pro Night Flat",
-    "window.titleBarStyle": "native",
-    "custom-ui-style.font.sansSerif": "monocraft",
-    "custom-ui-style.electron": { "frame": false },
-    "custom-ui-style.stylesheet": { ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5.5px !important" }
-}
+  // sudo pacman -S code
+  // code
+  // ctrl + shft + P > Open User Settings (JSON)
 
-ctrl + s
- noft [ys]
-  close code
-   open code
+  // основні налаштування
+  "editor.tabSize": 2, // розмір табу
+  "editor.folding": false, // згортання коду
+  "editor.smoothScrolling": true, // плавний скрол
+  "editor.suggestSelection": "first", // підказки стоять першими
+  // "editor.detectIndentation": true, // ??
+  // "editor.insertSpaces": false, // ??
+
+  // налаштування переноса слів
+  "editor.wordWrap": "on", // як переносяться слова
+  // "editor.wrappingIndent": "same", // ??
+  // "editor.wordWrapColumn": 80, // ??
+
+  // прокрутка за поля останього рядка
+  "editor.scrollBeyondLastLine": true,
+
+  // звязане редагування тегів
+  "editor.linkedEditing": true,
+
+  // автоматичне закриття тегів
+  "html.autoClosingTags": true,
+  "javascript.autoClosingTags": true,
+
+  // відображення символів
+  "editor.renderControlCharacters": false,
+
+  // підсвідка не однозначних символів
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+
+  // швидкі підказки
+  "editor.quickSuggestionsDelay": 0,
+  "html.completion.attributeDefaultValue": "singlequotes",
+
+  // зовнішній вигляд
+  "editor.bracketPairColorization.enabled": false, // підсвітка різних вложень скобків
+  "editor.glyphMargin": false, // простір в номера рядка
+  "editor.scrollbar.horizontal": "hidden", // приховування скрол бару горезонтального
+  "window.density.editorTabHeight": "compact", // компактні таби
+  // "editor.accessibilitySupport": "off", // ??
+  "workbench.activityBar.location": "hidden", // правий бар активності
+  "workbench.layoutControl.enabled": false, // кнопки для різних видів розположення інтерфейсу
+  "workbench.editor.editorActionsLocation": "hidden", // кнопки ті що з права від табів
+  "workbench.editor.empty.hint": "hidden", // ??
+  "workbench.statusBar.visible": false, // статус бар тей що внизу
+  "window.menuBarVisibility": "toggle", // приховування і показ меню на alt
+  "window.titleBarStyle": "native", // щоб він добре ховався
+  "window.commandCenter": false, // рядок пошуку той що по центру з верху
+  "chat.commandCenter.enabled": false, // аі асестент кнопка
+
+  // налаштування курсора
+  "editor.cursorBlinking": "expand", // блимає з центуру до верху і низу
+  "editor.cursorStyle": "line-thin", // тонки
+  "editor.cursorSmoothCaretAnimation": "explicit", // плавна анімація курсору
+
+  // налаштування шрифта
+  "editor.fontSize": 18, // розмір шрифту
+  "editor.fontFamily": "monocraft", // шрифт коду
+  "editor.lineHeight": 30, // відстань між рядками
+  "editor.fontWeight": "400", // стиль шрифту
+  "editor.fontLigatures": true, // це коли => / == / ... зливаються
+  "editor.inlayHints.fontFamily": "monocraft", // підказки
+  "chat.editor.fontFamily": "monocraft", // чат
+  "editor.codeLensFontFamily": "monocraft", // git
+  "debug.console.fontFamily": "monocraft", // дебаг
+
+  // кастомна підсвітка синтаксизу
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": [
+          "comment",
+          "keyword",
+          "constant",
+          "storage.modifier",
+          "storage.type.class.js",
+          "entity.name.type.class"
+        ],
+        "settings": {
+          "fontStyle": "italic"
+        }
+      },
+      {
+        "scope": [
+          "invalid",
+          "keyword.operator",
+          "keyword.other.unit.px.css",
+          "constant.numeric.json",
+          "constant.numeric.decimal.js",
+          "constant.numeric.css",
+        ],
+        "settings": {
+          "fontStyle": ""
+        }
+      }
+    ]
+  },
+
+  // налаштування терміналу
+  "terminal.integrated.fontFamily": "monocraft", // шрифт
+  "terminal.integrated.fontSize": 15, // розмір шрифту
+  "terminal.integrated.tabs.enabled": false, // виключиння табів
+  "terminal.integrated.lineHeight": 1.5, // відступи між лініями
+
+  // налаштування наглядача
+  "explorer.confirmDelete": false, // підтвердження видалення
+  "explorer.confirmDragAndDrop": false, // підтвердження переміщення файлу
+  "explorer.compactFolders": false, // поведінка папок відобрадення
+  "workbench.editor.tabSizing": "shrink", // біль компактні таби
+  "workbench.startupEditor": "none", // запуск vscode
+  
+  // налаштування відкладки
+  "debug.toolBarLocation": "hidden", // приховати його
+  "debug.focusWindowOnBreak": false, // вікно його
+  "debug.showInlineBreakpointCandidates": false, // вікдлючиння його
+  "debug.showBreakpointsInOverviewRuler": false, // вікдлючиння його
+
+  //  налаштування шляху той що над кодом
+  "breadcrumbs.icons": false, // приховування лишнього
+  "breadcrumbs.showKeys": false,
+  "breadcrumbs.showFiles": false,
+  "breadcrumbs.symbolPath": "on",
+  "breadcrumbs.showArrays": false,
+  "breadcrumbs.showEvents": false,
+  "breadcrumbs.showFields": false,
+  "breadcrumbs.showClasses": false,
+  "breadcrumbs.showMethods": false,
+  "breadcrumbs.showBooleans": false,
+  "breadcrumbs.showFunctions": false,
+  "breadcrumbs.showConstants": false,
+  "breadcrumbs.showEnumMembers": false,
+  "breadcrumbs.showConstructors": false,
+
+  // інші
+  "window.zoomLevel": 1, // зум всього інтерфейсу
+
+  // виключиння тимчасово
+  "breadcrumbs.enabled": false, // шлях
+  "workbench.editor.showTabs": "none", // таби
+  "editor.minimap.enabled": false, // міні карта з права
+  "editor.scrollbar.vertical": "hidden", // приховування скрол бару вертикального
+
+  "workbench.colorTheme": "One Dark Pro Night Flat", // тема
+  "workbench.iconTheme": "minimalistic-icons", // іконки
+  "workbench.productIconTheme": "material-product-icons", // іконки інтерфейсу
+
+  // хак виправлення шрифту сестемного і відступів в номеру рядка
+  // sudo chown -R $(whoami) /usr/lib/code
+  // розшириння: Custom UI Style 
+  "custom-ui-style.font.sansSerif": "monocraft",
+  "custom-ui-style.stylesheet": { ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5.5px !important" },
+
+  // розшириння:
+  // One Dark Pro - тема
+  // Simple icons - іконки файлів
+  // Material Product Icons - іконки інтерфейсу
+  // Javascript Auto Backticks - автоматично міняти в js це '/" на ` коли пишиться в середині ${...}
+  // Code Spell Checker - провірка орфографії
+  // colorize - підсвітка кольорів
+}
 
 # https://wiki.archlinux.org/title/Visual_Studio_Code
