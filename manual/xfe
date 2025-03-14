@@ -1,5 +1,5 @@
 git clone https://aur.archlinux.org/xfe.git
 cd xfe
-makepkg -sirc
 
-# roland65.free.fr/xfe/
+makepkg -sirc
+cd ..
