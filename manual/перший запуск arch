@@ -1,0 +1,61 @@
+включити пк
+enter
+ user
+  password
+
+# налаштування інтернету # iwd / dhcpcd
+sudo systemctl enable --now dhcpcd
+sudo systemctl enable --now iwd
+iwctl
+ device list
+ station wlan0 get-networks
+ station wlan0 connect 'імявайфаю'
+ exit
+ping google.com
+controc + c
+
+# налаштування менеджера програм # pacman
+sudo vim /etc/pacman.conf {
+[multilib]
+Include = /etc/pacman.d/mirrorlist 
+
+[arch-mact2]
+Server = https://mirror.funami.tech/arch-mact2/os/x86_64
+SigLevel = Never 
+}
+sudo pacman -Syyu
+
+# налаштування графіки # xorg
+sudo pacman -S xorg-server xorg-xinit xorg-xsetroot xorg-xrandr libxft xorgproto libx11 libxinerama
+vim .xinitrc { 
+exec dwm 
+}
+
+# встановлення інструментів для роботи з програмами # base-devel / git / wget
+sudo pacman -S base-devel git wget
+
+# шрифт # monocraft
+sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
+
+# віконий менеджер # dwm
+git clone https://git.suckless.org/dwm
+cd dwm
+cp config.def.h config.h
+vim config.h {
+static const char *fonts[] = { "monocraft:size=12" };
+}
+sudo make clean install
+cd ..
+
+# термінал # st
+git clone https://git.suckless.org/st
+cd st
+sudo make clean install
+cd ..
+
+# браузер # qutebrowser
+sudo pacman -S qutebrowser
+
+startx
+ shift + option + q # закрити
+ shift + option + return # термінал
