@@ -29,7 +29,7 @@ while true
 do
   while [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 26 ] && [ "$(cat /sys/class/power_supply/BAT0/status)" = "Discharging" ]
   do
-    herbe "[ low battery power: ... < 25% ]]]]]]]]]]]]]]]]]]]]]]]]"
+    herbe "[ LOW BATTERY POWER: ... < 25% ]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]]"
     sleep 1
   done
   sleep 300
