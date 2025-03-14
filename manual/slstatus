@@ -16,11 +16,10 @@ static const struct arg args[] = {
 }; 
 }
 
-sed -i '/const char \*keymap(const char \*unused)/,/^}/ {
-    /return bprintf/ {
-        s/return bprintf("%s", layout);/char upper_layout[3];\n\tif (layout) {\n\t\tupper_layout[0] = toupper((unsigned char)layout[0]);\n\t\tupper_layout[1] = toupper((unsigned char)layout[1]);\n\t\tupper_layout[2] = \x27\\0\x27;\n\t}\n\treturn bprintf("%s", upper_layout);/
-    }
-}' ./components/keymap.c
+sed -i '54a \	char upper_layout[3];' ./components/keymap.c
+sed -i '79s/.*/\tlayout = get_layout(symbols, state.group);/' ./components/keymap.c
+sed -i '79a \	if (layout) {\n\t\tupper_layout[0] = toupper((unsigned char)layout[0]);\n\t\tupper_layout[1] = toupper((unsigned char)layout[1]);\n\t\tupper_layout[2] = \x27\\0\x27;\n\t}' ./components/keymap.c
+sed -i '91s/.*/\treturn bprintf("%s", upper_layout);/' ./components/keymap.c
 
 sudo make clean install
 cd ..
