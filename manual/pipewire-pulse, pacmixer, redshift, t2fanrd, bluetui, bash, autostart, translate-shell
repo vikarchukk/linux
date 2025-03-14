@@ -11,10 +11,6 @@ git clone https://aur.archlinux.org/pacmixer.git
  sudo makepkg -sirc
 cd ..
 
-# налаштування підсвітки
-vim /etc/udev/rules.d/backlight.rules { ACTION=="add", SUBSYSTEM=="backlight", RUN+="/bin/chgrp video /sys/class/backlight/acpi_video0/brightness", RUN+="/bin/chmod g+w /sys/class/backlight/acpi_video0/brightness" }
-vim /etc/udev/rules.d/leds.rules { ACTION=="add", SUBSYSTEM=="leds", RUN+="/bin/chgrp video /sys/class/leds/apple::kbd_backlight/brightness", RUN+="/bin/chmod g+w /sys/class/leds/apple::kbd_backlight/brightness" }
-sudo usermod -aG video vikarchuk
 # жовта підсвітка # redshift
 sudo pacman -S redshift
 mkdir ~/.config/redshift
