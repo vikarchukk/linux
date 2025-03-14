@@ -24,9 +24,9 @@ static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" }; // 
 
 // рижими відображиння вікон
 static const Layout layouts[] = {
+  { "[M]", monocle }, // вікна наложуються один на одного
   { "[]=", tile }, // головна зона + другорядна зона
   { "><>", NULL }, // вікна можна переміщати вільно
-  { "[M]", monocle }, // вікна наложуються один на одного
 };
 
 // скрипт для того щоб можна було переходити між тегами
@@ -73,9 +73,9 @@ static const Key keys[] = {
   { MODKEY|ShiftMask,    XK_h,       incnmaster,      {.i = -1 } }, // перейти на задню розкладку вікон
   { MODKEY,              XK_Return,  zoom,            {0} }, // перемістити вікно в головну зону
   { MODKEY,              XK_d,       killclient,      {0} }, // закрити вікно
-  { MODKEY,              XK_n,       setlayout,       {.v = &layouts[0]} }, // режим класичний відображення вікон []=
-  { MODKEY,              XK_b,       setlayout,       {.v = &layouts[1]} }, // режим вільний відображиння вікон ><>
-  { MODKEY,              XK_m,       setlayout,       {.v = &layouts[2]} }, // режим монокля відображиння вікон [M]
+  { MODKEY,              XK_n,       setlayout,       {.v = &layouts[1]} }, // режим класичний відображення вікон []=
+  { MODKEY,              XK_b,       setlayout,       {.v = &layouts[2]} }, // режим вільний відображиння вікон ><>
+  { MODKEY,              XK_m,       setlayout,       {.v = &layouts[0]} }, // режим монокля відображиння вікон [M]
   { MODKEY|ShiftMask,    XK_space,   togglefloating,  {0} }, // вести або вивести вікно з схеми вікон
 
   { MODKEY,              XK_g,       togglebar,       {0} }, // сховати або показати статус бар
