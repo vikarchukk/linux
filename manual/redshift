@@ -1,0 +1,4 @@
+sudo pacman -S redshift
+
+mkdir ~/.config/redshift
+sudo echo '4000' > $HOME/.config/redshift/temp
