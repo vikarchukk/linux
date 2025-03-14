@@ -142,3 +142,4 @@ sed -i '1127c\          resize(c, m->wx + gappx, m->wy + gappx, m->ww - 2 * c->b
 sed -i '1664d;1665d' dwm.c
 
 sudo make clean install
+cd ..
