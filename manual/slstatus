@@ -22,5 +22,43 @@ sed -i '79s/.*/\tlayout = get_layout(symbols, state.group);/' ./components/keyma
 sed -i '79a \	if (layout) {\n\t\tupper_layout[0] = toupper((unsigned char)layout[0]);\n\t\tupper_layout[1] = toupper((unsigned char)layout[1]);\n\t\tupper_layout[2] = \x27\\0\x27;\n\t}' ./components/keymap.c
 sed -i '91s/.*/\treturn bprintf("%s", upper_layout);/' ./components/keymap.c
 
+# виликі букви в назві дня тиждня
+vim ./components/datetime.c {
+/* See LICENSE file for copyright and license details. */
+#include <stdio.h>
+#include <time.h>
+#include <string.h>
+#include <ctype.h>
+
+#include "../slstatus.h"
+#include "../util.h"
+
+const char *
+datetime(const char *fmt)
+{
+    static char buf[256];
+    time_t t;
+    struct tm *tm;
+
+    t = time(NULL);
+    tm = localtime(&t);
+
+    if (!strftime(buf, sizeof(buf), fmt, tm)) {
+        warn("strftime: Result string exceeds buffer size");
+        return NULL;
+    }
+
+    if (strstr(fmt, "%a")) {
+        if (strlen(buf) >= 2) {
+            buf[0] = toupper((unsigned char)buf[0]);
+            buf[1] = toupper((unsigned char)buf[1]);
+            buf[2] = toupper((unsigned char)buf[2]);
+        }
+    }
+
+    return buf;
+}
+}
+
 sudo make clean install
 cd ..
