@@ -27,13 +27,13 @@ vim ~/battery-alert {
 #!/bin/bash
 while true
 do
-  while [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 15 ] && [ "$(cat /sys/class/power_supply/BAT0/status)" -eq "Discharging" ]
+  while [ $(cat /sys/class/power_supply/BAT0/capacity) -lt 26 ] && [ "$(cat /sys/class/power_supply/BAT0/status)" = "Discharging" ]
   do
-    herbe "[ low battery power: ... < 15% ]]]]]]]]]]]]]]]]]]]]]]]"
+    herbe "[ low battery power: ... < 25% ]]]]]]]]]]]]]]]]]]]]]]]]"
     sleep 1
   done
   sleep 300
-done 
+done
 }
 
 # авто старт xorg
