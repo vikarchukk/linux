@@ -16,6 +16,7 @@ static const struct arg args[] = {
 }; 
 }
 
+# виликі букви в назві розкладки клавіатури
 sed -i '54a \	char upper_layout[3];' ./components/keymap.c
 sed -i '79s/.*/\tlayout = get_layout(symbols, state.group);/' ./components/keymap.c
 sed -i '79a \	if (layout) {\n\t\tupper_layout[0] = toupper((unsigned char)layout[0]);\n\t\tupper_layout[1] = toupper((unsigned char)layout[1]);\n\t\tupper_layout[2] = \x27\\0\x27;\n\t}' ./components/keymap.c
