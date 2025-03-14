@@ -46,7 +46,6 @@
   "workbench.layoutControl.enabled": false, // кнопки для різних видів розположення інтерфейсу
   "workbench.editor.editorActionsLocation": "hidden", // кнопки ті що з права від табів
   "workbench.editor.empty.hint": "hidden", // ??
-  "workbench.statusBar.visible": false, // статус бар тей що внизу
   "window.menuBarVisibility": "toggle", // приховування і показ меню на alt
   "window.titleBarStyle": "native", // щоб він добре ховався
   "window.commandCenter": false, // рядок пошуку той що по центру з верху
@@ -157,7 +156,12 @@
   "custom-ui-style.stylesheet": {
     ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5.5px !important;",
     ".monaco-editor .sticky-line-number": "padding-left: 5.5px !important;"
-  }
+  },
+
+  "cSpell.language": "en,uk",
+
+  // статус бар тей що внизу
+  "workbench.statusBar.visible": false,
 
   // розшириння:
   // One Dark Pro - тема
@@ -165,5 +169,6 @@
   // Material Product Icons - іконки інтерфейсу
   // Javascript Auto Backticks - автоматично міняти в js це '/" на ` коли пишиться в середині ${...}
   // Code Spell Checker - провірка орфографії
+  // Ukrainian - Code Spell Checker - укр мова
   // colorize - підсвітка кольорів
 }
