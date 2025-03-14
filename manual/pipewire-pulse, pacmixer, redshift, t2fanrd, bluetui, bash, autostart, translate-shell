@@ -93,3 +93,6 @@ sudo vim /etc/systemd/system/getty@tty1.service.d/override.conf {
 ExecStart=
 ExecStart=-/usr/bin/agetty --autologin vikarchuk --noclear %I $TERM 
 }
+
+# перекладач # translate-shell
+sudo pacman -S xsel translate-shell xdotool
