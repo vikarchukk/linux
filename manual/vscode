@@ -54,7 +54,7 @@
 
   // налаштування курсора
   "editor.cursorBlinking": "expand", // блимає з центуру до верху і низу
-  "editor.cursorStyle": "line-thin", // тонки
+  // "editor.cursorStyle": "line-thin", // тонки
   "editor.cursorSmoothCaretAnimation": "explicit", // плавна анімація курсору
 
   // налаштування шрифта
