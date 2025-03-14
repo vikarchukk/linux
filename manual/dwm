@@ -105,7 +105,7 @@ static const Key keys[] = {
   { Mod5Mask|ShiftMask,  XK_b,       spawn,           SHCMD("herbe '[ bluetooth: off ]'; sudo systemctl stop bluetooth") }, // виключити
 
   // розкладка клавіатури
-  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi; herbe \"[ $(setxkbmap -query | awk '/layout/{print $2}') ]\"") }, // змінювати розкладку клавіатури між українською і англійською
+  { MODKEY,              XK_space,   spawn,           SHCMD("layout=$(setxkbmap -query | awk '/layout/{print $2}'); if [ \"$layout\" = \"ua\" ]; then setxkbmap us; else setxkbmap ua; fi; herbe \"[ $(setxkbmap -query | awk '/layout/{print toupper($2)}') ]\"") }, // змінювати розкладку клавіатури між українською і англійською
  
   // запуск програм
   { Mod3Mask,            XK_Return,  spawn,           SHCMD("st") },
