@@ -142,7 +142,7 @@
   "breadcrumbs.enabled": false, // шлях
   "workbench.editor.showTabs": "none", // таби
   "editor.minimap.enabled": false, // міні карта з права
-  "editor.scrollbar.vertical": "hidden", // приховування скрол бару вертикального
+  // "editor.scrollbar.vertical": "hidden", // приховування скрол бару вертикального
 
   "workbench.colorTheme": "One Dark Pro Night Flat", // тема
   "workbench.iconTheme": "minimalistic-icons", // іконки
