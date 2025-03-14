@@ -1,4 +1,4 @@
-sudo pacman -S qutebrowser # скачати браузер
+sudo pacman -S qutebrowser
 
 vim ~/.config/qutebrowser/autoconfig.yml {
 config_version: 2
@@ -24,8 +24,7 @@ settings:
         ss: config-cycle statusbar.show always in-mode
         st: config-cycle tabs.show always switching
         v: null
-        vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display
-          = "none";
+        vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display = "none";
         vs: jseval document.getElementById("gt-nvframe").style.display = "block";
         vv: open https://translate.google.com/translate?sl=auto&tl=uk&u={url}
         zc: open https://chatgpt.com/
@@ -90,39 +89,15 @@ settings:
     global: https://www.google.com/
   zoom.default:
     global: 125%
-} # налаштування браузера
+}
 
 cd ~/.local/share/qutebrowser/greasemonkey
  wget https://update.greasyfork.org/scripts/9165/Auto%20Close%20YouTube%20Ads.user.js
  wget https://update.greasyfork.org/scripts/436115/Return%20YouTube%20Dislike.user.js
  wget https://update.greasyfork.org/scripts/394512/YouTube%20ProgressBar%20Preserver.user.js
  wget https://gist.githubusercontent.com/vikarchukk/bc4b302100c13bf8c88f106131f2b495/raw/1077d661c26808e1aea4a8a6315aaa6a020d97cf/monocraft-font.user.js
-# in qutebrowser
 shift + ;
- :greasemonkey-reload
-
-# github.com/qutebrowser/qutebrowser
-
-  colors.tabs.bar.bg:
-    global: "#1e1e1e"  # Темний фон панелі табів
-  colors.tabs.even.bg:
-    global: "#262626"  # Темний фон для парних неактивних табів
-  colors.tabs.even.fg:
-    global: "#ffffff"  # Білий текст для парних неактивних табів
-  colors.tabs.odd.bg:
-    global: "#545454"  # Темний фон для непарних неактивних табів
-  colors.tabs.odd.fg:
-    global: "#ffffff"  # Білий текст для непарних неактивних табів
-  colors.tabs.selected.even.bg:
-    global: "#ffffff"  # Білий фон для активного парного табу
-  colors.tabs.selected.even.fg:
-    global: "#000000"  # Чорний текст для активного парного табу
-  colors.tabs.selected.odd.bg:
-    global: "#ffffff"  # Білий фон для активного непарного табу
-  colors.tabs.selected.odd.fg:
-    global: "#000000"  # Чорний текст для активного непарного табу
-
-# існтрукція
+ :greasemonkey-reload # in qutebrowser
 
 qutebrowser
 ├─ команда + число + рух
