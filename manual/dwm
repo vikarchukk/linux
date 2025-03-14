@@ -132,10 +132,8 @@ static const Button buttons[] = {
   { ClkTagBar,     0,                 Button3,  tag,          {0} }, // перекинути активне вікно в вибраний тег
 };
 
-// налаштування авто запуска
-static const Rule rules[] = {
-    { NULL,    NULL,    "monocle",    0,    0,    -1 },
-};
+// налаштування де і як буду відкриватися програми
+static const Rule rules[0] = {}; 
 }
 
 wget https://dwm.suckless.org/patches/fullgaps/dwm-fullgaps-6.4.diff # пач для проміжків між вікнами
