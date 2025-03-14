@@ -1,7 +1,0 @@
-git clone https://aur.archlinux.org/rxfetch.git
-cd rxfetch
-makepkg -sirc
-
-rxfetch
-
-# github.com/mngshm/rxfetch
