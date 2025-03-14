@@ -1,4 +1,4 @@
-git clone https://git.suckless.org/st # клонування коду програми
+git clone https://git.suckless.org/st
 cd st
 
 vim config.h {
@@ -156,7 +156,7 @@ static uint selmasks[] = { [SEL_RECTANGULAR] = Mod1Mask, }; // ?
 
 // символи котрі може друкувати термінал
 static char ascii_printable[] = " !\"#$%&'()*+,-./0123456789:;<=>?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]^_`abcdefghijklmnopqrstuvwxyz{|}~"; 
-} # налаштування програми
+}
 
 wget https://st.suckless.org/patches/scrollback/st-scrollback-20210507-4536f46.diff # пач для скролу
  patch --merge -i st-scrollback-20210507-4536f46.diff
@@ -173,5 +173,3 @@ sed -i '1155i\    Window root;' x.c
 
 sudo make clean install | зібрати програму
 cd ..
-
-# st.suckless.org
