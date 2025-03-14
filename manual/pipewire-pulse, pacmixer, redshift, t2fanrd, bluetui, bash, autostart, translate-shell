@@ -54,6 +54,9 @@ Inherits=macOS
 }
 sudo echo 'Xcursor.size: 40' > $HOME/.Xresources
 
+# шрифт
+sudo wget --directory-prefix=/usr/share/fonts/ https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
+
 # налаштування bash
 vim $HOME/.bashrc {
 #
