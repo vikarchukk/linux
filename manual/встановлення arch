@@ -1,0 +1,109 @@
+# підготовка
+скачати ios - github.com/t2linux/archiso-t2/releases
+запис на флешку - etcher.balena.io
+вставити флешку
+включити пк і зажати optin
+вибрати Arch Linux install medium
+enter
+
+# підключення до інтернету по wifi
+iwctl
+ station wlan0 get-networks
+ station wlan0 connect 'імявайфаю'
+ exit
+ping google.com
+control + c
+
+# налаштування часу
+timedatectl set-ntp true
+timedatectl set-timezone Europe/Stockholm
+timedatectl status
+
+# розбиття диску
+fdisk -l
+fdisk nameofdisk
+d
+ 1 # потрібно видалити всі розділи по черзі
+g
+n
+ enter
+  enter
+   +512M
+    y # efi
+n
+ enter
+  enter
+   enter
+    y # root
+t
+ 1
+  1
+w
+
+# форматування диску
+fdisk -l
+mkfs.fat -F32 /dev/efi_partition
+mkfs.ext4 /dev/root_partition
+
+# монтування диску
+mount /dev/root_partition /mnt
+mount --mkdir /dev/efi_partition /mnt/boot
+
+# встановлення системи
+pacstrap /mnt base linux-xanmod-t2 linux-firmware apple-bcm-firmware
+
+# налаштування системи
+genfstab -U /mnt >> /mnt/etc/fstab
+arch-chroot /mnt
+
+ln -sf /usr/share/zoneinfo/Europe/Stockholm /etc/localtime
+hwclock --systohc
+
+pacman -S vim iwd dhcpcd sudo
+# vim  / i - писати / control + c - вийти з i / shift + : - консоль  / wq + return - вийти і зберегти файл
+
+vim /etc/locale.gen {
+en_US.UTF-8 UTF-8
+uk_UA.UTF-8 UTF-8 
+}
+locale-gen
+echo "LANG=en_US.UTF-8" > /etc/locale.conf
+
+echo "імяпк" > /etc/hostname
+vim /etc/hosts {
+127.0.0.1    localhost
+::1          localhost
+127.0.1.1    імяпк.localdomain    імяпк 
+}
+
+vim /etc/mkinitcpio.conf { MODULES(apple-bce) }
+mkinitcpio -P
+
+# налаштування користувачів root і user
+passwd
+ password
+  password
+useradd -m -G wheel імякористувача
+passwd імякористувача
+ password
+  password
+EDITOR=vim
+visudo { %wheel ALL=(ALL:ALL) NOPASSWD: ALL }
+
+# встановлення загрузчика systemd-boot
+bootctl --path=/boot install
+vim /boot/loader/loader.conf {
+default arch.conf
+}
+blkid /dev/root_partition
+vim /boot/loader/entries/arch.conf {
+title Arch Linux
+linux /vmlinuz-linux-xanmod-t2
+initrd /initramfs-linux-xanmod-t2.img
+options root=UUID=root_partition_UUID rw intel_iommu=on iommu=pt pcie_ports=compat
+}
+
+# вихід
+exit
+виключити пк
+вийняти флешку
