@@ -1,5 +1,3 @@
-sudo pacman -S code
-
 {
   // sudo pacman -S code
   // code
@@ -150,11 +148,16 @@ sudo pacman -S code
   "workbench.iconTheme": "minimalistic-icons", // іконки
   "workbench.productIconTheme": "material-product-icons", // іконки інтерфейсу
 
+  "editor.stickyScroll.defaultModel": "foldingProviderModel", // допомагає бачити в якій вложоності зараз
+
   // хак виправлення шрифту сестемного і відступів в номеру рядка
   // sudo chown -R $(whoami) /usr/lib/code
   // розшириння: Custom UI Style 
   "custom-ui-style.font.sansSerif": "monocraft",
-  "custom-ui-style.stylesheet": { ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5.5px !important" },
+  "custom-ui-style.stylesheet": {
+    ".monaco-editor .margin-view-overlays .line-numbers": "text-align: right !important; padding-left: 5.5px !important;",
+    ".monaco-editor .sticky-line-number": "padding-left: 5.5px !important;"
+  }
 
   // розшириння:
   // One Dark Pro - тема
