@@ -1,0 +1,39 @@
+[ arch
+├─[ встановлення
+│ ├─[ arch
+│ │ ├─ t2linux # ядро
+│ │ ├─ xanmod # ????
+│ │ ├─ systemd-boot # загрузчик
+│ │ ├─ vim # консольний редактор коду
+│ │ ├─ iwd / dhcpcd # підключеня до інтернету
+│ │ ├─ pacman # менеджер програм
+│ │ └─ sudo # визивати суперправа
+│ └─[ arch start
+│   └─ base-devel / git / wget # для збирання програм
+└─[ xorg # графіка
+  └─[ dwm # віконий менеджер
+    ├─[ system management
+    │ ├─ pipewire-pulse, pacmixer # звуку
+    │ ├─ t2fanrd # вінтилятори
+    │ ├─ bluetui # керування блютузом
+    │ ├─ apple_cursor # курсор
+    │ ├─ monocraft # шрифт
+    │ ├─ herbe # сповіщення
+    │ └─ bash
+    ├─[ additional settings
+    │ ├─ сповіщення про низький заряд батереї
+    │ ├─ виключиння сна при закривані кришки
+    │ └─ авто старт xorg
+    ├─[ main programs
+    │ ├─ st # термінал
+    │ ├─ qutebrowser # браузер
+    │ ├─ btop # моніторинг системи
+    │ ├─ obsidian # нотатки
+    │ └─ vscode # редактор коду
+    └─[ programs
+      ├─ dmenu # меню програм
+      ├─ slstatus # статус бар для dwm
+      ├─ xfe # файловий менеджер
+      ├─ mpv # плеєр відео
+      ├─ translate-shell # перекладач
+      └─ redshift # жовта підсвітка
