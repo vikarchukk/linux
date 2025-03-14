@@ -171,5 +171,5 @@ wget https://st.suckless.org/patches/hidecursor/st-hidecursor-0.8.3.diff # па�
 sed -i '/<<<<<<</,/=======/d; />>>>>>>/d' x.c
 sed -i '1155i\    Window root;' x.c
 
-sudo make clean install | зібрати програму
+sudo make clean install
 cd ..
