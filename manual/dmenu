@@ -16,3 +16,16 @@ static const char worddelimiters[] = " "; // визначає символи я�
 
 sudo make clean install
 cd ..
+
+sudo vim /usr/local/bin/dmenu_run {
+#!/bin/sh
+command=$(dmenu_path | dmenu "$@")
+[ -z "$command" ] && exit 1
+if [ "$command" = "code" ]; then
+    argument=$( (find ~ -type d -o -type f 2>/dev/null | sed "s|^$HOME|~|") | dmenu "$@")
+    [ -n "$argument" ] && full_command="code $argument" || full_command="code"
+else
+    full_command="$command"
+fi
+${SHELL:-"/bin/sh"} -c "$full_command" &
+}
