@@ -2,7 +2,7 @@ git clone https://git.suckless.org/slstatus
 cd slstatus
 
 vim config.h {
-const unsigned int interval = 1000; // інтервал оновлення даних в мілісекундах
+const unsigned int interval = 2000; // інтервал оновлення даних в мілісекундах
 static const char unknown_str[] = "-"; // символ який буде показуватися коли не знайдено даних
 #define MAXLEN 2048 // ?
 static const struct arg args[] = {
