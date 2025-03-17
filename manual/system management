@@ -4,7 +4,7 @@ git clone https://github.com/kekrby/t2-better-audio.git
  cd t2-better-audio
  sudo ./install.sh
  cd ..
-sudo pacman -S pipewire-pulse pipewire-audio
+sudo pacman -S pipewire-audio pipewire-pulse
 systemctl --user enable --now pipewire pipewire-pulse
 # кирування звуком # pacmixer
 git clone https://aur.archlinux.org/pacmixer.git
