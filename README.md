@@ -32,6 +32,7 @@
     │ ├─ obsidian # нотатки
     │ └─ vscode # редактор коду
     └─[ programs
+      ├─ anki # навчання
       ├─ herbe # сповіщення
       ├─ dmenu # меню програм
       ├─ slstatus # статус бар для dwm
