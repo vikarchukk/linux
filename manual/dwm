@@ -113,6 +113,7 @@ static const Key keys[] = {
   { Mod3Mask,            XK_c,       spawn,           SHCMD("code") },
   { Mod3Mask,            XK_x,       spawn,           SHCMD("xfe") },
   { Mod3Mask,            XK_o,       spawn,           SHCMD("obsidian") },
+  { Mod3Mask,            XK_a,       spawn,           SHCMD("anki") },
   { Mod3Mask,            XK_m,       spawn,           SHCMD("st -e btop") },
   { Mod3Mask,            XK_p,       spawn,           SHCMD("st -e pacmixer") },
   { Mod3Mask,            XK_b,       spawn,           SHCMD("st -e bluetui") },
