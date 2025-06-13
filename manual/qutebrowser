@@ -20,6 +20,7 @@ settings:
         Zs: open -t https://chat.deepseek.com/
         Zt: open -t https://web.telegram.org/a/
         Zy: open -t https://www.youtube.com/
+        Zn: open -t https://notebooklm.google.com/
         sg: greasemonkey-reload
         ss: config-cycle statusbar.show always in-mode
         st: config-cycle tabs.show always switching
@@ -35,8 +36,16 @@ settings:
         zs: open https://chat.deepseek.com/
         zt: open https://web.telegram.org/a/
         zy: open https://www.youtube.com/
+        zn: open -t https://notebooklm.google.com/
   colors.hints.bg:
     global: white
+  content.geolocation:
+    https://www.blocket.se: true
+  content.javascript.clipboard:
+    https://chatgpt.com: access-paste
+    https://www.deepl.com: access-paste
+  content.media.audio_capture:
+    https://chatgpt.com: true
   downloads.position:
     global: bottom
   fonts.default_family:
@@ -55,6 +64,8 @@ settings:
     global: 2
   scrolling.bar:
     global: never
+  statusbar.show:
+    global: always
   statusbar.widgets:
     global:
     - keypress
@@ -74,6 +85,8 @@ settings:
       left: 3
       right: 0
       top: 1
+  tabs.show:
+    global: always
   tabs.show_switching_delay:
     global: 3000
   tabs.title.format:
