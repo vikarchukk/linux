@@ -36,7 +36,7 @@ settings:
         zs: open https://chat.deepseek.com/
         zt: open https://web.telegram.org/a/
         zy: open https://www.youtube.com/
-        zn: open -t https://notebooklm.google.com/
+        zn: open https://notebooklm.google.com/
   colors.hints.bg:
     global: white
   content.geolocation:
