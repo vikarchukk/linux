@@ -121,7 +121,7 @@ static const Key keys[] = {
   { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") },
   { ControlMask,            XK_x,    spawn,           SHCMD("herbe \"[ $(cat $HOME/translation.txt) ]\"") },
   { ControlMask|ShiftMask,  XK_x,    spawn,           SHCMD("xdotool key --clearmodifiers Control+c && sleep 0.2 && trans -b :uk \"$(xsel -o)\" > $HOME/translation.txt") },
-  { MODKEY|ShiftMask,       XK_p,    spawn,           SHCMD("setxkbmap -option caps:escape && setxkbmap -option lv3:rwin_switch && setxkbmap -option lv5:ralt_switch") },
+  { MODKEY,                 XK_p,    spawn,           SHCMD("setxkbmap -option caps:escape && setxkbmap -option lv3:rwin_switch && setxkbmap -option lv5:ralt_switch") },
 };
 
 // комбінація для мишки
