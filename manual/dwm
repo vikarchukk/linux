@@ -110,6 +110,7 @@ static const Key keys[] = {
   // запуск програм
   { Mod3Mask,            XK_Return,  spawn,           SHCMD("st") },
   { Mod3Mask,            XK_q,       spawn,           SHCMD("qutebrowser") },
+  { Mod3Mask,            XK_g,       spawn,           SHCMD("google-chrome-stable") },
   { Mod3Mask,            XK_c,       spawn,           SHCMD("code") },
   { Mod3Mask,            XK_x,       spawn,           SHCMD("xfe") },
   { Mod3Mask,            XK_o,       spawn,           SHCMD("obsidian") },
@@ -120,6 +121,7 @@ static const Key keys[] = {
   { ControlMask,         XK_space,   spawn,           SHCMD("dmenu_run") },
   { ControlMask,            XK_x,    spawn,           SHCMD("herbe \"[ $(cat $HOME/translation.txt) ]\"") },
   { ControlMask|ShiftMask,  XK_x,    spawn,           SHCMD("xdotool key --clearmodifiers Control+c && sleep 0.2 && trans -b :uk \"$(xsel -o)\" > $HOME/translation.txt") },
+  { MODKEY|ShiftMask,       XK_p,    spawn,           SHCMD("setxkbmap -option caps:escape && setxkbmap -option lv3:rwin_switch && setxkbmap -option lv5:ralt_switch") },
 };
 
 // комбінація для мишки
