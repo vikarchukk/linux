@@ -1,5 +1,7 @@
 {
   // sudo pacman -S code
+  // or
+  // git clone https://aur.archlinux.org/visual-studio-code-bin.git && cd visual-studio-code-bin && makepkg -sirc
   // code
   // ctrl + shft + P > Open User Settings (JSON)
 
