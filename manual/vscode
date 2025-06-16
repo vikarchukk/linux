@@ -173,4 +173,5 @@
   // Code Spell Checker - провірка орфографії
   // Ukrainian - Code Spell Checker - укр мова
   // colorize - підсвітка кольорів
+  // ESLint - форматування js
 }
