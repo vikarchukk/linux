@@ -21,6 +21,7 @@ settings:
         Zt: open -t https://web.telegram.org/a/
         Zy: open -t https://www.youtube.com/
         Zn: open -t https://notebooklm.google.com/
+        Zk: open -t https://kropyva.ch/b/
         sg: greasemonkey-reload
         ss: config-cycle statusbar.show always in-mode
         st: config-cycle tabs.show always switching
@@ -37,6 +38,7 @@ settings:
         zt: open https://web.telegram.org/a/
         zy: open https://www.youtube.com/
         zn: open https://notebooklm.google.com/
+        zk: open https://kropyva.ch/b/
   colors.hints.bg:
     global: white
   content.geolocation:
