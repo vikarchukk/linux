@@ -119,6 +119,7 @@
   "debug.focusWindowOnBreak": false, // вікно його
   "debug.showInlineBreakpointCandidates": false, // вікдлючиння його
   "debug.showBreakpointsInOverviewRuler": false, // вікдлючиння його
+  "debug.javascript.codelens.npmScripts": "never",
 
   //  налаштування шляху той що над кодом
   "breadcrumbs.icons": false, // приховування лишнього
