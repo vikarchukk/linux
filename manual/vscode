@@ -147,7 +147,7 @@
   // "editor.scrollbar.vertical": "hidden", // приховування скрол бару вертикального
 
   "workbench.colorTheme": "One Dark Pro Night Flat", // тема
-  "workbench.iconTheme": "minimalistic-icons", // іконки
+  "workbench.iconTheme": "vs-nomo-dark", // іконки
   "workbench.productIconTheme": "material-product-icons", // іконки інтерфейсу
 
   "editor.stickyScroll.defaultModel": "foldingProviderModel", // допомагає бачити в якій вложоності зараз
@@ -166,9 +166,13 @@
   // статус бар тей що внизу
   "workbench.statusBar.visible": false,
 
+  "files.associations": { "*.canvas": "json" }, // щоб норм іконка в canvas
+
   // розшириння:
+  // Charkoal - Visualize Your Codebase - канвас / .canvas
   // One Dark Pro - тема
-  // Simple icons - іконки файлів
+  // Simple icons - іконки файлів / minimalistic-icons
+  // Nomo Dark Icon Theme - іконки файлів / vs-nomo-dark
   // Material Product Icons - іконки інтерфейсу
   // Javascript Auto Backticks - автоматично міняти в js це '/" на ` коли пишиться в середині ${...}
   // Code Spell Checker - провірка орфографії
