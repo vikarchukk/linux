@@ -22,6 +22,7 @@ settings:
         Zy: open -t https://www.youtube.com/
         Zn: open -t https://notebooklm.google.com/
         Zk: open -t https://kropyva.ch/b/
+        Zl: open -t https://claude.ai/new
         sg: greasemonkey-reload
         ss: config-cycle statusbar.show always in-mode
         st: config-cycle tabs.show always switching
@@ -39,6 +40,7 @@ settings:
         zy: open https://www.youtube.com/
         zn: open https://notebooklm.google.com/
         zk: open https://kropyva.ch/b/
+        zl: open https://claude.ai/new
   colors.hints.bg:
     global: white
   content.geolocation:
