@@ -39,5 +39,6 @@
       ├─ xfe # файловий менеджер
       ├─ translate-shell # перекладач
       ├─ mechsim # звук клавіатури
+      ├─ sigil / epubcheck # книги
       └─ redshift # жовта підсвітка
 ```
