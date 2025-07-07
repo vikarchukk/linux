@@ -142,7 +142,7 @@
 
   // виключиння тимчасово
   "breadcrumbs.enabled": false, // шлях
-  "workbench.editor.showTabs": "none", // таби
+  // "workbench.editor.showTabs": "none", // таби
   "editor.minimap.enabled": false, // міні карта з права
   // "editor.scrollbar.vertical": "hidden", // приховування скрол бару вертикального
 
@@ -181,3 +181,15 @@
   // ESLint - форматування js
   // EPUB Editor
 }
+
+[
+  // ctrl + shft + P > Open Keyboard Shortcuts (JSON)
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.nextEditor"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.previousEditor"
+  }
+]
