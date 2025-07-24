@@ -16,40 +16,57 @@ settings:
         Zc: open -t https://chatgpt.com/
         Zd: open -t https://www.deepl.com/translator#auto/uk/
         Zg: open -t https://github.com/vikarchukk
+        Zl: open -t https://claude.ai/new
         Zm: open -t https://gemini.google.com/app
+        Zn: open -t https://www.notion.so
         Zs: open -t https://chat.deepseek.com/
         Zt: open -t https://web.telegram.org/a/
         Zy: open -t https://www.youtube.com/
-        Zn: open -t https://notebooklm.google.com/
-        Zk: open -t https://kropyva.ch/b/
-        Zl: open -t https://claude.ai/new
+        Zb: open -t https://vault.bitwarden.com/#/login
+        Zf: open -t https://finance.pikapod.net
+        Zw: open -t https://www.codewars.com
         sg: greasemonkey-reload
         ss: config-cycle statusbar.show always in-mode
         st: config-cycle tabs.show always switching
         v: null
-        vc: jseval document.body.style.marginTop = '0px'; document.getElementById("gt-nvframe").style.display = "none";
-        vs: jseval document.getElementById("gt-nvframe").style.display = "block";
         vv: open https://translate.google.com/translate?sl=auto&tl=uk&u={url}
         zc: open https://chatgpt.com/
         zd: open https://www.deepl.com/translator#auto/uk/
         zg: open https://github.com/vikarchukk
+        zl: open https://claude.ai/new
         zm: open https://gemini.google.com/app
-        zp: spawn --detach mpv --ytdl-format="best[height<=720]" --hwdec=no --profile=low-latency --vo=gpu --gpu-context=auto {url}
+        zn: open https://www.notion.so
         zs: open https://chat.deepseek.com/
         zt: open https://web.telegram.org/a/
         zy: open https://www.youtube.com/
-        zn: open https://notebooklm.google.com/
-        zk: open https://kropyva.ch/b/
-        zl: open https://claude.ai/new
+        zb: open https://vault.bitwarden.com/#/login
+        zf: open https://finance.pikapod.net
+        zw: open https://www.codewars.com
   colors.hints.bg:
     global: white
   content.geolocation:
+    https://whatismyaddress.net: true
     https://www.blocket.se: true
   content.javascript.clipboard:
     https://chatgpt.com: access-paste
+    https://contacts.google.com: access-paste
+    https://github.com: access-paste
+    https://translate.google.com: access-paste
+    https://web.telegram.org: access-paste
     https://www.deepl.com: access-paste
+    https://www.emailnator.com: access-paste
+    https://www.google.com: access-paste
+    https://www.notion.so: access-paste
   content.media.audio_capture:
     https://chatgpt.com: true
+  content.media.video_capture:
+    https://www.facebook.com: true
+  content.notifications.enabled:
+    https://calendar.google.com: true
+    https://web.telegram.org: true
+  content.register_protocol_handler:
+    https://calendar.google.com?cid=%25s: true
+    https://mail.google.com?extsrc=mailto&url=%25s: true
   downloads.position:
     global: bottom
   fonts.default_family:
